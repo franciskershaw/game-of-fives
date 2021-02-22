@@ -29,7 +29,7 @@ h2 {
 }
 
 .home-heading-container {
-    margin-top: 140px;
+    margin-top: 15vh;
 }
 
 .home-img-container {
@@ -42,7 +42,7 @@ h2 {
     margin-left: 28px;
     margin-right: 28px;
     max-width: 150px;
-    height: 150px;
+    height: 190px;
 }
 
 .home-buttons-container {
@@ -54,9 +54,12 @@ h2 {
     border: none;
     color: #0d0a0b;
     font-weight: 600;
-    width: 6em;
-    font-size: 125%;
+    width: 4.5em;
+    font-size: 150%;
     text-transform: uppercase;
+    margin-right: 0.75em;
+    margin-left: 0.75em;
+    letter-spacing: 3px;
 }
 
 .home-record-container {
