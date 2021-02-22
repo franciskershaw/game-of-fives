@@ -62,6 +62,24 @@ h2 {
     letter-spacing: 3px;
 }
 
+.home-button:hover {
+    background-color: #d6ffb7;
+    color: #0d0a0b;
+}
+
+button.btn.btn-primary.home-button:active {
+    background-color: #7ae7c7;
+    border: none;
+    box-shadow: none !important;
+}
+
+button.btn.btn-primary.home-button:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #7ae7c7;
+}
+
 .home-record-container {
     font-size: 2.25em;
 }
