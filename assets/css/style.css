@@ -24,10 +24,6 @@ h1 {
     font-family: 'Fredoka One', cursive;
 }
 
-h2 {
-    font-size: 1.75rem;
-}
-
 .home-heading-container {
     margin-top: 15vh;
 }
@@ -74,7 +70,7 @@ button.btn.btn-primary.home-button:active {
 }
 
 button.btn.btn-primary.home-button:focus {
-    border: none;
+    border: 1px solid #fff689;
     outline: none;
     box-shadow: none;
     background-color: #7ae7c7;
@@ -82,4 +78,31 @@ button.btn.btn-primary.home-button:focus {
 
 .home-record-container {
     font-size: 2.25em;
+}
+
+/* ------- Media queries */
+
+@media screen and (min-width: 375px) {
+    .home-record-container {
+        margin-top: 10vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 375%;
+    }
+    h2 {
+        font-size: 240%;
+    }
+    .home-img {
+        height: 340px;
+    }
+    .home-buttons-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    .home-button {
+        font-size: 250%;
+    }
 }
