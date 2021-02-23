@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game of Fives!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <!-- Heading information and tag line -->
-    <div class="home-heading-container">
-        <div>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Game of Fives!</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" href="assets/css/style.css">
+   </head>
+   <body>
+    <div class="content-container">  
+    <div class="buffer"></div>
+      <!-- Heading information and tag line -->
+      <div class="home-heading-container">
+         <div>
             <h1>Game of Fives!</h1>
-        </div>
-        <div>
+         </div>
+         <div>
             <h2>This is a witty tagline</h2>
-        </div>
-    </div>
-    <!-- Pictures of closed fist and open palm -->
-    <div class="home-img-container">
-            
-                <img class="img-fluid home-img" src="assets/images/palmfaceup.png" alt="">
-            
-                <img class="img-fluid home-img" src="assets/images/fistfaceup.png" alt="">
-        
-        </div>
-    <!-- Play and rules buttons -->
-    <div class="home-buttons-container">
-        <button type="button" class="btn btn-primary home-button" data-toggle="modal"
-            data-target="#difficulty-modal">Play</button>
-        <button type="button" class="btn btn-primary home-button" data-toggle="modal"
-            data-target="#rules-modal">Rules</button>
-    </div>
-    <!-- Win record -->
-    <div class="home-record-container">
-        <p>Win Record: <span id="win">0</span> : <span id="loss">0</span></p>
-    </div>
-    <!-- Modal for difficulty selection -->
-    <div class="modal fade" id="difficulty-modal" tabindex="-1" aria-labelledby="numOfPlayers" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="numOfPlayers">Number of Players</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Number of Players
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-                </div>
+         </div>
+      </div>
+      <!-- Pictures of closed fist and open palm -->
+      <div class="home-img-container container">
+         <div class="row">
+            <div class="col-6">
+               <img class="img-fluid home-img" src="assets/images/palmfaceup.png" alt="">
             </div>
-        </div>
-    </div>
-    <!-- Modal for rules -->
-    <div class="modal fade" id="rules-modal" tabindex="-1" aria-labelledby="rules" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title text-center" id="rules">Rules!</h2>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    <p>BLAHBLAHBLAH</p>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-                </div>
+            <div class="col-6">
+               <img class="img-fluid home-img" src="assets/images/fistfaceup.png" alt="">
             </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
-</body>
-
+         </div>
+      </div>
+      <!-- Play and rules buttons -->
+      <div class="home-buttons-container container">
+         <div class="row">
+            <div class="col-6">
+               <button type="button" class="btn btn-primary home-button" data-toggle="modal"
+                  data-target="#difficulty-modal">Play</button>
+            </div>
+            <div class="col-6">
+               <button type="button" class="btn btn-primary home-button" data-toggle="modal"
+                  data-target="#rules-modal">Rules</button>
+            </div>
+         </div>
+      </div>
+      <!-- Win record -->
+      <div class="home-record-container">
+         <p>Win Record: <span id="win">0</span> : <span id="loss">0</span></p>
+      </div>
+      </div>
+      <div class="buffer"></div>
+      <!-- Modal for difficulty selection -->
+      <div class="modal fade" id="difficulty-modal" tabindex="-1" aria-labelledby="numOfPlayers" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="numOfPlayers">Number of Players</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  Number of Players
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal for rules -->
+      <div class="modal fade" id="rules-modal" tabindex="-1" aria-labelledby="rules" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h2 class="modal-title text-center" id="rules">Rules!</h2>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+                  <p>BLAHBLAHBLAH</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+         crossorigin="anonymous"></script>
+   </body>
 </html>

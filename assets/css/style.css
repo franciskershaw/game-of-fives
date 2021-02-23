@@ -22,16 +22,33 @@ body {
 
 h1 {
     font-family: 'Fredoka One', cursive;
+    letter-spacing: 1px;
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+.buffer {
+    /* background-color: white; */
+    height: 18vh;
 }
 
 .home-heading-container {
-    margin-top: 15vh;
+    /* background-color: blue; */
 }
 
 .home-img-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2em;
+    /* background-color: green; */
+    padding-bottom: 5%;
+}
+
+.home-buttons-container {
+    /* background-color: orange; */
+}
+
+.home-record-container {
+    /* background-color: purple; */
 }
 
 .home-img {
@@ -39,10 +56,6 @@ h1 {
     margin-right: 28px;
     max-width: 150px;
     height: 190px;
-}
-
-.home-buttons-container {
-    margin-bottom: 1.5em;
 }
 
 .home-button {
@@ -78,13 +91,17 @@ button.btn.btn-primary.home-button:focus {
 
 .home-record-container {
     font-size: 2.25em;
+    /* margin-top: 10vh; */
 }
 
 /* ------- Media queries */
 
 @media screen and (min-width: 375px) {
+    .home-button-container {
+        margin-bottom: 5%;
+    }
     .home-record-container {
-        margin-top: 10vh;
+        margin-top: 5%;
     }
 }
 
@@ -94,6 +111,9 @@ button.btn.btn-primary.home-button:focus {
     }
     h2 {
         font-size: 240%;
+    }
+    .buffer {
+        height: 8vh;
     }
     .home-img {
         height: 340px;
