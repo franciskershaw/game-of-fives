@@ -34,21 +34,9 @@ h1, h2, p {
     height: 18vh;
 }
 
-.home-heading-container {
-    /* background-color: blue; */
-}
-
 .home-img-container {
     /* background-color: green; */
     padding-bottom: 5%;
-}
-
-.home-buttons-container {
-    /* background-color: orange; */
-}
-
-.home-record-container {
-    /* background-color: purple; */
 }
 
 .home-img {
@@ -92,6 +80,25 @@ button.btn.btn-primary.home-button:focus {
 .home-record-container {
     font-size: 2.25em;
     /* margin-top: 10vh; */
+}
+
+.modal-content {
+    background-color: #58355E;
+}
+
+.difficulty-button {
+    border: solid;
+    border-radius: 50%;
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 2rem;
+    padding: 0;    
+}
+
+#difficulty-modal-body {
+    padding-left: 5em;
+    padding-right: 5em;
 }
 
 /* ------- Media queries */
