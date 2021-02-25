@@ -108,6 +108,10 @@ button.btn.btn-primary.home-button:focus {
     padding-right: 5em;
 }
 
+.game-image {
+    width: 20%;
+}
+
 /* ------- Media queries */
 
 @media screen and (min-width: 375px) {

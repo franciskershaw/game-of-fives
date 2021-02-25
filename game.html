@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of Fives!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -16,62 +17,106 @@
         <header class="container" id="game-info">
             <div class="row">
                 <div class="col-4">
-                    <span>Scores:</span>
-                    <span>Player: <span>0</span></span>
-                    <span>Computer: <span>0</span></span>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Scores:</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Player: <span>0</span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Computer: <span>0</span></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-4">
-                    <span>1:00</span>
+                    <div class="row">
+                        <div class="col-12"><span><em>Space</em></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>1:00</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12"><span><em>Space</em></span></div>
+                    </div>
+                    
                 </div>
                 <div class="col-4">
-                    <span>Win record - 0:0</span>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Win Record</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>0:0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span><em>Space</em></span>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </header>
         <section class="container">
             <div class="row">
                 <div class="col-12">
-                    <span>Image of fist</span>
+                    <span><img src="assets/images/fistfacedown.png" class="game-image" alt=""></span>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-4">
+            
+                </div>
+                <div class="col-4">
                     <span>0</span>
                 </div>
+                <div class="col-4">
+            
+                </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <span>Image of fist</span>
+                    <img src="assets/images/fistfaceup.png" class="game-image" alt="">
                 </div>
             </div>
         </section>
         <section class="container">
             <div class="row">
-                <div class="col-4">
-                    <span>Empty Space</span>
+                <div class="col-3">
+                    
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <div class="row">
                         <div class="col-6">
-                            Icon
+                            <button type="button" class="btn btn-primary game-input"><i class="far fa-hand-rock"></i></button>
                         </div>
                         <div class="col-6">
-                            Icon
+                            <button type="button" class="btn btn-primary game-input"><i class="far fa-hand-paper"></i></button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            Icon
+                            <button type="button" class="btn btn-primary game-input">0</button>
                         </div>
                         <div class="col-4">
-                            Icon
+                            <button type="button" class="btn btn-primary game-input">5</button>
                         </div>
                         <div class="col-4">
-                            Icon
+                            <button type="button" class="btn btn-primary game-input">10</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <span>0:05</span>
                 </div>
             </div>
