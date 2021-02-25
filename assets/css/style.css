@@ -96,6 +96,13 @@ button.btn.btn-primary.home-button:focus {
     padding: 0;    
 }
 
+.row {
+    border: solid;
+}
+/* .col-4, .col-12 {
+    border: solid;
+} */
+
 #difficulty-modal-body {
     padding-left: 5em;
     padding-right: 5em;
