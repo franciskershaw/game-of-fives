@@ -21,8 +21,9 @@ function calculateComputerInput() {
 // Help on using the Math.random found from stack overflow post by Peter Olsen at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 
 // Every other round, the computer randomly picks either 0, 5, or 10 as their chosen score
-function calculateComputerGo (min, max) {
-   return Math.floor(Math.random() * (max - min + 1) + min);
+function calculateComputerGo () {
+   let computerGo = Math.floor(Math.random() * (2 - 0 + 1) + 0) * 5;
+   return computerGo;
 }
 
 // 
