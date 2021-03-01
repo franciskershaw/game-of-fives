@@ -35,8 +35,15 @@ function userTurn () {
     // Generate computer's input (either 0 or 5)
     let computerInput = Math.random() < 0.5 ? 0 : 5;
     console.log(`Computer has input ${computerInput}`);
+    if (computerInput === 5) {
+        $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+    } else {
+        $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+    }
     // Add computer input and user input together to calculate the winning score
     let correctScore = computerInput + userInput;
+    // Update score in the middle
+    $('#round-total').text(`${correctScore}`);
     console.log(`The correct total is ${correctScore}`);
     // Check if computer's input + user input = userGuess.
     if (correctScore === userGuess) {
@@ -57,6 +64,10 @@ function generateComputerInput() {
 function generateComputerGo () {
    let computerGo = Math.floor(Math.random() * (2 - 0 + 1) + 0) * 5;
    return computerGo;
+}
+
+function updateCorrectScore () {
+    $('#round-total').text("Hello");
 }
 
 // Update the score if the user or computer score matches with the total score
