@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&family=Fredoka+One&display=swap');
 
-/* Colors
-
-(First selection)
-Rich Black: 0d0a0b
-Charcoal: 454955
-Magnolia: ece6ef
-Sheen Green: 9ce03e
-Chrome Yellow: faa916
-
-(Second selection)
-
-*/
-
 /* ------- General styles */
 
 body {
@@ -111,6 +98,7 @@ button.btn.btn-primary.home-button:focus {
 
 .game-image {
     width: 20%;
+    height: 158px;
 }
 
 .game-input {
@@ -119,6 +107,10 @@ button.btn.btn-primary.home-button:focus {
     border: solid;
     font-size: 245%;
     border-radius: 50%;
+}
+
+#round-total {
+    font-size: 3em;
 }
 
 /* ------- Media queries */
