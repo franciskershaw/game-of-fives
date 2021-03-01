@@ -102,10 +102,6 @@ button.btn.btn-primary.home-button:focus {
     padding: 0;    
 }
 
-.row {
-    border: solid;
-}
-
 #difficulty-modal-body {
     padding-left: 5em;
     padding-right: 5em;
@@ -115,6 +111,14 @@ button.btn.btn-primary.home-button:focus {
 
 .game-image {
     width: 20%;
+}
+
+.game-input {
+    background-color: transparent;
+    color: #fff689;
+    border: solid;
+    font-size: 245%;
+    border-radius: 50%;
 }
 
 /* ------- Media queries */
