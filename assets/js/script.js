@@ -47,8 +47,10 @@ function userTurn () {
     console.log(`The correct total is ${correctScore}`);
     // Check if computer's input + user input = userGuess.
     if (correctScore === userGuess) {
+       incrementPlayerScore();
         console.log('Well done, you. guessed correctly');
     } else {
+        incrementComputerScore();
         console.log('Sorry, better luck next time');
     }
 }
@@ -71,6 +73,12 @@ function updateCorrectScore () {
 }
 
 // Update the score if the user or computer score matches with the total score
-function updatePlayerScores () {
+function incrementPlayerScore () {
+    let oldScore = parseInt(document.getElementById("player-score").innerText);
+    document.getElementById("player-score").innerText = ++oldScore;
+}
 
+function incrementComputerScore () {
+    let oldScore = parseInt(document.getElementById("computer-score").innerText);
+    document.getElementById("computer-score").innerText = ++oldScore;
 }
