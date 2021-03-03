@@ -1,57 +1,79 @@
-// wait for the DOM to load before then running userTurn()
-
-// userTurn() is listening for two click events which assign userInput (0 or 5) and userGuess (0, 5 or 10) variables;
-// if userInput && userGuess = true, then run generateComputerInput()
-// generateComputerInput() returns 0 or 5 which then needs assigning to computerInput variable
-// Calculate the winning score by adding userInput and computerInput together - assign to correctScore variable
-// Update the number in the middle to be equal to the value of correctScore
-// Check if userGuess is equal to correctScore, increment player score in the top left if so
-// Run computerTurn()
-
-// computerTurn() is listening for userInput click event ONLY before proceeding to generateComputerInput()
-// generateComputerInput()
-// generateComputerGuess
-
-
-let computerInput;
-let computerGuess;
+// Wait fo the DOM to load then run userTurn
 
 document.addEventListener("DOMContentLoaded", function () {
     userTurn();
 })
 
-function userTurn () {
-    let userInput;
-    let userGuess;
-    console.log("DOM loaded and userTurn called");
-    $(".hand-icon").click(function() {
-        let palm = document.getElementById("palm");
-        if (this === palm) {
-            userInput = 5;
-            $("#player-hand").attr("src", "assets/images/palmfaceup.png");
-            
-        } else {
+let userInput = "";
+let userGuess = "";
+let computerInput = "";
+
+function userTurn() {
+
+    $('.hand-icon').click(function () {
+        if (this === document.getElementById('fist')) {
             userInput = 0;
-            $("#player-hand").attr("src", "assets/images/fistfaceup.png");
+            $('#player-hand').attr("src", "assets/images/fistfaceup.png");
+            console.log(`userInput is ${userInput}`);
+        
+        } else {
+            userInput = 5;
+            $('#player-hand').attr("src", "assets/images/palmfaceup.png");
+            console.log(`userInput is ${userInput}`)
+            
         }
-        console.log(`User input is ${userInput}`);
+        checkUserReady();
+        return;
     })
-    $(".number-icon").click(function() {
-        let zero = document.getElementById("guess-zero");
-        let five = document.getElementById("guess-five");
-        if (this === zero) {
+
+    $('.number-icon').click(function () {
+        if (this === document.getElementById('zero')) {
             userGuess = 0;
-        } else if (this === five) {
+            console.log(`userGuess is ${userGuess}`);
+        } else if (this === document.getElementById('five')) {
             userGuess = 5;
+            console.log(`userGuess is ${userGuess}`);
         } else {
             userGuess = 10;
+            console.log(`userGuess is ${userGuess}`);
         }
-        console.log(`User guess is ${userGuess}`);
+        checkUserReady();
+        return;
     })
-    console.log("hello from the bottom of userTurn"); 
-    // need to work out how to check that userGuess and userInput have both been selected, and proceed.
+
 }
 
+function checkUserReady() {
+
+    if (userInput !== "" && userGuess !== "") {
+        console.log("user is now ready");
+        generateComputerInput();
+        console.log(`computerInput is ${computerInput}`);
+        console.log(`Correct score would be ${computerInput + userInput}`)
+        if (userGuess === userInput + computerInput) {
+            console.log(`the user has correctly guessed ${userInput + computerInput}`);
+            computerTurn();
+        } else {
+            console.log("WRONG");
+            computerTurn();
+        }
+    } else {
+        console.log("user is not ready yet");
+    }
+}
+
+
+function generateComputerInput() {
+    computerInput = Math.random() < 0.5 ? 0 : 5;
+}
+
+function computerTurn() {
+    console.log("run computer turn");
+    userInput = "";
+    userGuess = "";
+    computerInput = "";
+    
+}
 
 
 // Event handlers listening for the clicking of both possible user inputs. Also changes the image on your side of the game depending on which icon you click

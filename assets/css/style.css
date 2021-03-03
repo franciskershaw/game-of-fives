@@ -113,6 +113,10 @@ button.btn.btn-primary.home-button:focus {
     font-size: 3em;
 }
 
+/* #game {
+    height: 100vh;
+} */
+
 /* ------- Media queries */
 
 @media screen and (min-width: 375px) {
