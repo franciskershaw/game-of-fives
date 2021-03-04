@@ -1,21 +1,29 @@
+
+
+
+
+
+// let userInput;
+// let userGuess;
+
+// console.log(`userInput is ${userInput}`);
+// console.log(`userGuess is ${userGuess}`);
+
 // Event handlers listening for the clicking of both possible user inputs. Also changes the image on your side of the game depending on which icon you click
 
-let userInput;
-let userGuess;
-let computerInput;
-console.log(`userInput is ${userInput}`);
-console.log(`userGuess is ${userGuess}`);
+function takeUserInput() {
     $('.hand-icon').click(function () {
         if (this === document.getElementById('fist')) {
-            userInput = 0;
             $('#player-hand').attr("src", "assets/images/fistfaceup.png");
+            return 0;
         } else {
-            userInput = 5;
             $('#player-hand').attr("src", "assets/images/palmfaceup.png");
+            return 5;
         }
-        console.log(`userInput is ${userInput}`);
     });
+}
 
+function takeUserGuess() {
     $('.number-icon').click(function () {
         if (this === document.getElementById('zero')) {
             userGuess = 0;
@@ -25,13 +33,14 @@ console.log(`userGuess is ${userGuess}`);
             userGuess = 10;
         }
         console.log(`userGuess is ${userGuess}`);
-        userTurn();
-    })
+    });
+}
 
 // Plays users turn, called once 0, 5 or 10 has been clicked.
 
 function userTurn () {
-    computerInput = generateComputerInput();
+    
+    let computerInput = generateComputerInput();
     console.log(`Computer has input ${computerInput}`);
     if (computerInput === 5) {
         $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
@@ -40,17 +49,24 @@ function userTurn () {
     }
 // Add computer input and user input together to calculate the winning score
     let correctScore = computerInput + userInput;
-//     // Update score in the middle
+// Update score in the middle
     $('#round-total').text(`${correctScore}`);
     console.log(`The correct total is ${correctScore}`);
-//     // Check if computer's input + user input = userGuess.
+// Check if computer's input + user input = userGuess.
     if (correctScore === userGuess) {
        incrementPlayerScore();
         console.log('Well done, you. guessed correctly');
+        computerTurn();
     } else {
         incrementComputerScore();
         console.log("You've guessed incorrectly");
+        computerTurn();
     }
+    
+}
+
+function computerTurn () {
+    console.log("Time for the computer's go");
 }
 
 // Returns 0 or 5 as the computer's input each round
