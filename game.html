@@ -99,21 +99,21 @@
                 <div class="col-6">
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button>
+                            <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button>
                         </div>
                         <div class="col-6">
-                            <button type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
+                            <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
+                            <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
                         </div>
                         <div class="col-4">
-                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
+                            <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
                         </div>
                         <div class="col-4">
-                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
+                            <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
                         </div>
                     </div>
                 </div>
