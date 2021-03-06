@@ -63,6 +63,11 @@ function userTurnGenerateComputerInput() {
         console.log("userTurnGenerateComputerInput has been called");
         $('.number-icon').attr('disabled', true);
         game.computerInput = Math.random() < 0.5 ? 0 : 5;
+        if (game.computerInput === 5) {
+             $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+        } else {
+             $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+        }
         userTurnCalculateScore();
     }, 250);
 
@@ -113,6 +118,11 @@ function computerTurnGenerateComputerInput() {
     console.log("computerTurnGenerateComputerInput has been called");
     setTimeout(function () {
         game.computerInput = Math.random() < 0.5 ? 0 : 5;
+        if (game.computerInput === 5) {
+             $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+        } else {
+             $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+        }
          computerTurnGenerateComputerGuess();
     }, 250);
 }
