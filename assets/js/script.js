@@ -84,10 +84,10 @@ function userTurnCalculateScore() {
     userTurnDisplayScore();
 };
 
-// update the score in the middle of the game, what the user and computer is attempting to guess correctly
+// update the score in the middle of the game to what the user has guessed
 function userTurnDisplayScore() {
     console.log("userTurnDisplayScore has been called");
-    $('#round-total').text(`${game.correctScore}`);
+    $('#round-total').text(`P: ${game.userGuess}!`);
 
     if (game.userGuess === game.correctScore) {
         incrementUserScore();
@@ -152,7 +152,7 @@ function computerTurnCalculateScore() {
 
 function computerTurnDisplayScore() {
     console.log("computerTurnDisplayScore has been called");
-    $('#round-total').text(`${game.correctScore}`);
+    $('#round-total').text(`C: ${game.computerGuess}!`);
 
     if (game.computerGuess === game.correctScore) {
         incrementComputerScore();
