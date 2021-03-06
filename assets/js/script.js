@@ -132,7 +132,11 @@ function computerTurnGenerateComputerGuess() {
     // trigger displayerScore
     console.log("computerTurnGenerateComputerGuess has been called");
     setTimeout(function () {
-        game.computerGuess = Math.floor(Math.random() * (2 - 0 + 1) + 0) * 5;
+        if (game.computerInput === 0) {
+            game.computerGuess = Math.random() < 0.5 ? 0 : 5;
+        } else {
+            game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
+        }
         console.log(`computer guess is ${game.computerInput}`)
         computerTurnCalculateScore ();
     }, 250);
