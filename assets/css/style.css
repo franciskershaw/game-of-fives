@@ -2,6 +2,13 @@
 
 /* ------- General styles */
 
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #ec0b43;
     color: #F6F3F7;
@@ -107,6 +114,11 @@ button.btn.btn-primary.home-button:focus {
     border: solid;
     font-size: 245%;
     border-radius: 50%;
+}
+
+.text-start {
+    text-align: start;
+    margin-left: 0;
 }
 
 #round-total {
