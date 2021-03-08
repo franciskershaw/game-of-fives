@@ -12,89 +12,53 @@
 </head>
 
 <body>
-    
-    <section id="game">
-    <div class="container">
-        <header class="container" id="game-info">
+    <!-- Container wrapping around whole game, 100% of viewport -->
+    <div class="container-fluid game-container">
+        <!-- Game information - 25% of viewport -->
+        <div class="container game-information">
             <div class="row">
-                <div class="col-5">
-                    <div class="row">
-                        <div class="col-12 text-start">
-                            <span>Scores:</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-start">
-                            <span>Player: <span id="player-score">0</span></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-start">
-                            <span>Computer: <span id="computer-score">0</span></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="row">
-                        <div class="col-12 game-timer-container">
-                            <span id="game-timer">1:00</span>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <span>Win Record</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <span>0:0</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </header>
-        <section class="container">
-            <div class="row">
-                <div class="col-12">
-                    <span><img src="assets/images/fistfacedown.png" class="game-image" alt="" id="computer-hand"></span>
-                </div>
+                <div class="col-4"><span>Scores:</span></div>
+                <div class="col-4"></div>
+                <div class="col-4"><span>Win Record:</span></div>
             </div>
             <div class="row">
-                <div class="col-4">
-            
-                </div>
-                <div class="col-4">
-                    <span id="round-total">Play!</span>
-                </div>
-                <div class="col-4">
-            
-                </div>
+                <div class="col-4"><span>Player: <span id="player-score">0</span></span></div>
+                <div class="col-4"><span id="game-timer">1:00</span></div>
+                <div class="col-4"></div>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <img src="assets/images/fistfaceup.png" class="game-image" alt="" id="player-hand">
-                </div>
+                <div class="col-4"><span>Computer: <span id="computer-score">0</span></span></div>
+                <div class="col-4"></div>
+                <div class="col-4"></div>
             </div>
-        </section>
-        <section class="container fixed-bottom game-buttons-section">
+        </div>
+        <!-- Game area - 50% of viewport -->
+        <div class="container game-area">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"><span><img src="assets/images/fistfacedown.png" class="game-image" alt="" id="computer-hand"></span></div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"><span id="round-total">Play!</span></div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"><img src="assets/images/fistfaceup.png" class="game-image" alt="" id="player-hand"></div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <!-- User Inputs - 25% of viewport -->
+        <div class="container fixed-bottom game-buttons-section">
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">                           
                     <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon hvr-sweep-to-right" id="fist"><i class="far fa-hand-rock"></i></button>
                     <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
                 </div>
-                <div class="col-3">
-                    <span>0:05</span>        
-                </div>
+                <div class="col-3"><span>0:05</span></div>
             </div>    
              <div class="row">
                 <div class="col-2"></div>
@@ -105,9 +69,8 @@
                 </div>
                 <div class="col-2"></div>
             </div>
-        </section>
+        </div>
     </div>
-</section>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
