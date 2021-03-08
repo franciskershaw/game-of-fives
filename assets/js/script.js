@@ -1,4 +1,4 @@
-var game = {
+const game = {
     userInput: 0,
     userGuess: 0,
 
@@ -12,10 +12,26 @@ var game = {
 
 onload = function () {
     console.log("DOM has laoded");
-    userTurnUserInput();
+    countDown();
 }
 
-// Event handlers updating variables userInput and userGuess
+function countDown () {
+    console.log("countDown has been called")
+    let timeLeft = 3;
+    let timer = setInterval(function(){
+  if(timeLeft <= 0){
+    clearInterval(timer);
+    document.getElementById("round-total").innerHTML = "Play!";
+    userTurnUserInput();
+  } else {
+    document.getElementById("round-total").innerHTML = timeLeft;
+  }
+  timeLeft -= 1;
+}, 1000);   
+}
+// Source - https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+
+// Event handlers updating game variables
 
 $('#fist').click(function () {
     game.userInput = 0;
@@ -36,12 +52,8 @@ $('#ten').click(function () {
     game.userGuess = 10;
 })
 
-
-// Event listener waiting for the DOM to load
+// Enables the user input buttons (fist and palm) and triggers userTurnUserGuess when clicked;
 function userTurnUserInput() {
-    // User inputs fist/palm (0/5)
-    // Fist/ palm colorful, 0, 5, 10 greyed out
-    // Then triggers userGuess ()
     console.log("userTurnUserInput has been called");
     $('.hand-icon').removeAttr('disabled');
 }
@@ -134,6 +146,7 @@ function computerTurnGenerateComputerGuess() {
     setTimeout(function () {
         if (game.computerInput === 0) {
             game.computerGuess = Math.random() < 0.5 ? 0 : 5;
+            // Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
         } else {
             game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
         }
