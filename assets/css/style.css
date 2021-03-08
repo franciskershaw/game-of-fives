@@ -103,19 +103,35 @@ button.btn.btn-primary.home-button:focus {
 
 /* ------- Game page */
 
-.game-image {
-    height: 158px;
+.game-container {
+    height: 100vh;
+}
+
+.game-info {
+    border: 1px solid yellow;
+    height: 13vh;
+}
+
+.game-area {
+    border: 1px solid blue;
+    height: 63vh;
 }
 
 .game-buttons-section {
-    margin-bottom: 5%;
+    border: 1px solid green;
+    height: 24vh;
+}
+
+
+.game-image {
+    height: 150px;
 }
 
 .game-input {
     background-color: transparent;
     color: rgb(255, 246, 137);
     border: solid;
-    font-size: 185%;
+    font-size: 1.75em;
     border-radius: 50%;
     margin: 2px;
 }
@@ -137,7 +153,6 @@ button.btn.btn-primary.game-input:active {
 
 .number-icon {
     width: 53px;
-    font-size: 160%;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -148,7 +163,6 @@ button.btn.btn-primary.game-input:active {
 
 .text-start {
     text-align: start;
-    margin-left: 0;
 }
 
 #round-total {

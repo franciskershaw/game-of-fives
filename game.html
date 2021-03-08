@@ -15,21 +15,21 @@
     <!-- Container wrapping around whole game, 100% of viewport -->
     <div class="container-fluid game-container">
         <!-- Game information - 25% of viewport -->
-        <div class="container game-information">
-            <div class="row">
-                <div class="col-4"><span>Scores:</span></div>
-                <div class="col-4"></div>
-                <div class="col-4"><span>Win Record:</span></div>
+        <div class="container game-info">
+            <div class="row game-info-content">
+                <div class="col-5 text-start"><span>Scores:</span></div>
+                <div class="col-2"></div>
+                <div class="col-5"><span>Win Record:</span></div>
             </div>
-            <div class="row">
-                <div class="col-4"><span>Player: <span id="player-score">0</span></span></div>
-                <div class="col-4"><span id="game-timer">1:00</span></div>
-                <div class="col-4"></div>
+            <div class="row game-info-content">
+                <div class="col-5 text-start"><span>Player: <span id="player-score">0</span></span></div>
+                <div class="col-2 text-start"><span id="game-timer">1:00</span></div>
+                <div class="col-5"><span id="user-record">0</span><span>:</span><span id="computer-record">0</span></div>
             </div>
-            <div class="row">
-                <div class="col-4"><span>Computer: <span id="computer-score">0</span></span></div>
-                <div class="col-4"></div>
-                <div class="col-4"></div>
+            <div class="row game-info-content">
+                <div class="col-5 text-start"><span>Computer: <span id="computer-score">0</span></span></div>
+                <div class="col-2"></div>
+                <div class="col-5"></div>
             </div>
         </div>
         <!-- Game area - 50% of viewport -->
@@ -51,23 +51,23 @@
             </div>
         </div>
         <!-- User Inputs - 25% of viewport -->
-        <div class="container fixed-bottom game-buttons-section">
+        <div class="container game-buttons-section">
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">                           
+                <div class="col-2"></div>
+                <div class="col-8">                           
                     <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon hvr-sweep-to-right" id="fist"><i class="far fa-hand-rock"></i></button>
                     <button onclick="userTurnUserGuess()" disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
                 </div>
-                <div class="col-3"><span>0:05</span></div>
+                <div class="col-2"><span>0:05</span></div>
             </div>    
              <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
+                <div class="col-1"></div>
+                <div class="col-10">
                     <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
                     <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
                     <button onclick="userTurnGenerateComputerInput()" disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
         </div>
     </div>
