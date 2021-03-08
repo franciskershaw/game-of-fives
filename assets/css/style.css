@@ -114,16 +114,37 @@ button.btn.btn-primary.home-button:focus {
 
 .game-input {
     background-color: transparent;
-    color: #fff689;
+    color: rgb(255, 246, 137);
     border: solid;
     font-size: 185%;
     border-radius: 50%;
     margin: 2px;
 }
 
+.game-input:hover {
+    color: #ec0b43;
+    background-color: rgb(255, 246, 137);
+    border-color: #58355e;
+}
+
+.game-input:active {
+    background-color: white;
+}
+
+button.btn.btn-primary.game-input:active {
+    border-color: rgb(255, 246, 137);
+    box-shadow: none !important;
+}
+
 .number-icon {
     width: 53px;
     font-size: 160%;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: rgba(255, 246, 137, .7);
+    border-color: rgba(255, 246, 137, .7);
+    color: #ec0b43;
 }
 
 .text-start {
