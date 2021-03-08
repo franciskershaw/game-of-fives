@@ -108,17 +108,17 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .game-info {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     height: 13vh;
 }
 
 .game-area {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 63vh;
 }
 
 .game-buttons-section {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     height: 24vh;
 }
 
@@ -152,7 +152,7 @@ button.btn.btn-primary.game-input:active {
 }
 
 .number-icon {
-    width: 53px;
+    width: 56px;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
