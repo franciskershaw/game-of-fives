@@ -130,7 +130,7 @@ button.btn.btn-primary.home-button:focus {
 .game-input {
     background-color: transparent;
     color: rgb(255, 246, 137);
-    border: solid;
+    border: 3px solid;
     font-size: 1.75em;
     border-radius: 50%;
     margin: 2px;
