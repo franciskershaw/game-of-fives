@@ -118,6 +118,12 @@ button.btn.btn-primary.home-button:focus {
     border: solid;
     font-size: 185%;
     border-radius: 50%;
+    margin: 2px;
+}
+
+.number-icon {
+    width: 53px;
+    font-size: 160%;
 }
 
 .text-start {
@@ -126,7 +132,7 @@ button.btn.btn-primary.home-button:focus {
 }
 
 #round-total {
-    font-size: 3em;
+    font-size: 2em;
 }
 
 /* #game {
