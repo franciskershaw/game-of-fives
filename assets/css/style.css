@@ -108,11 +108,15 @@ button.btn.btn-primary.home-button:focus {
     height: 158px;
 }
 
+.game-buttons-section {
+    margin-bottom: 5%;
+}
+
 .game-input {
     background-color: transparent;
     color: #fff689;
     border: solid;
-    font-size: 245%;
+    font-size: 185%;
     border-radius: 50%;
 }
 
