@@ -162,8 +162,8 @@ function computerTurnDisplayScore() {
 // Adds 1 to the computer score top left of the game
 function incrementComputerScore() {
     console.log("incrementComputerScore has been called");
-    game.userScore += 1;
-    $('#computer-score').text(`${game.userScore}`);
+    game.computerScore += 1;
+    $('#computer-score').text(`${game.computerScore}`);
 };
 
 
