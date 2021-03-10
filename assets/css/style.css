@@ -125,6 +125,7 @@ button.btn.btn-primary.home-button:focus {
 
 .game-image {
     height: 150px;
+    opacity: 0.7;
 }
 
 .game-input {

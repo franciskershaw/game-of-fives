@@ -1,174 +1,239 @@
+// game variables, updated at various stages
 const game = {
-	userInput: 0,
-	userGuess: 0,
+    userTurn: true,
+    computerTurn: false,
+    
+    userInput: 0,
+    userGuess: 0,
+    
+    computerInput: 0,
+    computerGuess: 0,
+    
+    correctScore: 0,
+    userScore: 0,
+    computerScore: 0
+    }
 
-	computerInput: 0,
-	computerGuess: 0,
+// Waiting for dom to load before setting off countdown
+$(document).ready(function () {
+    console.log("dom has loaded");
+    countDown();
+});
 
-	correctScore: 0,
-	userScore: 0,
-	computerScore: 0
-}
-
-onload = function () {
-	console.log("DOM has laoded");
-	countDown();
-}
-
+// 3,2,1 countdown to start the game off calls userInput for the first time
 function countDown() {
-	console.log("countDown has been called")
-	let timeLeft = 3;
+    console.log("countDown has been called");
+    let timeLeft = 3;
 	let timer = setInterval(function () {
 		if (timeLeft <= 0) {
             clearInterval(timer);
-            console.log("Initial countdown is over");
 			document.getElementById("round-total").innerHTML = "Play!";
-			userTurnUserInput();
+			userInput();
 		} else {
 			document.getElementById("round-total").innerHTML = timeLeft;
 		}
 		timeLeft -= 1;
 	}, 1000);
 }
-// Source - https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 
-// Event handlers updating game variables
-
-$('#fist').click(function () {
-	game.userInput = 0;
-	$('#player-hand').attr("src", "assets/images/fistfaceup.png");
-})
-$('#palm').click(function () {
-	game.userInput = 5;
-	$('#player-hand').attr("src", "assets/images/palmfaceup.png");
-})
-$('#zero').click(function () {
-	game.userGuess = 0;
-})
-$('#five').click(function () {
-	game.userGuess = 5;
-})
-
-$('#ten').click(function () {
-	game.userGuess = 10;
-})
-
-// Enables the user input buttons (fist and palm) and triggers userGuess through HTML 'onclick' attribute;
-function userTurnUserInput() {
-    console.log("---------------------------");
-	console.log("userTurnUserInput has been called");
-	$('.hand-icon').removeAttr('disabled');
+// Enables the fist and palm icons
+// Click events active on hand icons which update game.userInput
+// Click will call userGuess if userTurn = true, else playComputerRound is called
+function userInput() {
+    console.log("------------------");
+    console.log("userInput has been called");
+    $('.hand-icon').removeAttr("disabled");
+    $('#fist').off("click");
+    $('#fist').click(function() {
+        game.userInput = 0;
+        console.log(`User input is ${game.userInput}`)
+        if (game.userTurn === true) {
+            console.log("It is the user's turn, proceed to userGuess");
+            userGuess();
+        } else {
+            console.log("It is the computer's turn, proceed to playComputerRound");
+            playComputerRound();
+        }
+    });
+    $('#palm').off("click");
+    $('#palm').click(function() {
+        game.userInput = 5;
+        console.log(`User input is ${game.userInput}`);
+        if (game.userTurn === true) {
+            console.log("It is the user's turn, proceed to userGuess");
+            userGuess();
+        } else {
+            console.log("It is the computer's turn, proceed to playComputerRound");
+            playComputerRound();
+        }
+    })
 }
 
-// Disables fist and palm icons and triggers generateComputerInput through HTML 'onclick' attribute
+// Enables the number icons, disables hand icons
+// Click event active on number icons which update game.userGuess
+// Call playUserRound() once clicked
 function userGuess() {
-	console.log("userGuess has been called via HTML onclick attribute");
-	$('.hand-icon').attr('disabled', true).attr('onclick', 'computerTurnGenerateComputerInput()');
-	$('.number-icon').removeAttr('disabled');
+    console.log("userGuess has been called");
+    $('.hand-icon').attr("disabled", true);
+    $('.number-icon').removeAttr("disabled");
+
+    $('#zero').off('click');
+    $('#zero').click(function() {
+        game.userGuess = 0;
+        console.log(`User guess is ${game.userGuess}`);
+        playUserRound();
+    });
+    $('#five').off('click');
+    $('#five').click(function() {
+        game.userGuess = 5;
+        console.log(`user guess is ${game.userGuess}`);
+        playUserRound();
+    });
+    $('#ten').off('click');
+    $('#ten').click(function() {
+        game.userGuess = 10;
+        console.log(`user guess is ${game.userGuess}`);
+        playUserRound();
+    });
 }
 
-// Randomly generates 0 or 5, as the computer's input each round
-function userTurnGenerateComputerInput() {
-   console.log("userTurnGenerateComputerInput has been called via HTML onclick attribute");
-	setTimeout(function () {
-        console.log("setTimeOut has run its course");
-		$('.number-icon').attr('disabled', true);
-		game.computerInput = Math.random() < 0.5 ? 0 : 5;
-		if (game.computerInput === 5) {
-			$('#computer-hand').attr("src", "assets/images/palmfacedown.png");
-		} else {
-			$('#computer-hand').attr("src", "assets/images/fistfacedown.png");
-		}
-		userTurnCalculateScore();
-	}, 1000);
-
-};
-
-// // Add userInput and computerInput togther
-function userTurnCalculateScore() {
-	console.log("userTurnCalculateScore has been called");
-	game.correctScore = game.userInput + game.computerInput;
-	userTurnDisplayScore();
-};
-
-// update the score in the middle of the game to what the user has guessed
-function userTurnDisplayScore() {
-	console.log("userTurnDisplayScore has been called");
-	$('#round-total').text(`P: ${game.userGuess}!`);
-
-	if (game.userGuess === game.correctScore) {
-		incrementUserScore();
-		
-	}
-	computerTurnUserInput();
+// Each round, computerInput is updated to either 0 or 5;
+function computerInput() {
+    console.log("computerInput has been called");
+    game.computerInput = Math.random() < 0.5 ? 0 : 5;
 }
 
-// // Adds 1 to the player score top left of the game
+// Each round, add computerInput and userInput together to update correctScore
+function updateCorrectScore(num1, num2) {
+    console.log("updateCorrectScore has been called");
+    game.correctScore = game.userInput + game.computerInput;
+}
+
+// On the computer's go, update computerGuess to either 0, 5 or 10
+function computerGuess() {
+    console.log("computerGuess has been called");
+	if (game.computerInput === 0) {
+        game.computerGuess = Math.random() < 0.5 ? 0 : 5;
+    } else {
+        game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
+    }
+}
+
+// Animation that occurs each round before displaying of guess and updating of scores
+function roundAnimation() {
+    console.log("roundAnimation has been called");
+}
+
+// Called after userGuess 
+function playUserRound() {
+    console.log("playUserRound has been called");
+    $('.number-icon').attr("disabled", true);
+    // Update computerInput
+    computerInput();
+    console.log(`Computer's input is ${game.computerInput}`);
+    // Update correctScore
+    updateCorrectScore();
+    console.log(`Correct score is ${game.correctScore}`);
+    // Initiate animation
+    roundAnimation();
+    // use setTimeout so that animation can take place first
+    // Then display userGuess in middle of game
+    // Update the images of both user and computer to their 'input' from that round
+    setTimeout(function() {
+        $('#round-total').text(`P: ${game.userGuess}!`);
+        if(game.userInput === 0) {
+            $('#player-hand').attr("src", "assets/images/fistfaceup.png");
+        } else {
+            $('#player-hand').attr("src", "assets/images/palmfaceup.png");
+        }
+        if(game.computerInput === 0) {
+            $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+        } else {
+            $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+        }
+    }, 3000);
+    // use setTimeout so that previous code loads, then display if user was correct or not
+    // Increment player score if applicable
+    setTimeout(function() {
+        if (game.userGuess === game.correctScore) {
+            $('#round-total').text(`Nice!`);
+            incrementUserScore();
+        } else {
+            $('#round-total').text(`Nah!`);
+        }
+    }, 4500);
+    // Update userTurn to false and computerTurn to true
+    // Call userInput
+    setTimeout(function() {
+        game.userTurn = false;
+        game.computerTurn = true;
+        console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
+        userInput();
+    }, 6500);
+}
+
+// Called after userInput if computerTurn = true
+function playComputerRound() {
+    console.log("playComputerRound has been called");
+    // Disable hand buttons
+    $('.hand-icon').attr("disabled", true);
+    // Update computerInput
+    computerInput();
+    console.log(`Computer's input is ${game.computerInput}`);
+    // Update computerGuess
+    computerGuess();
+    console.log(`Computer's guess is ${game.computerGuess}`);
+    // Update correctScore
+    updateCorrectScore();
+    console.log(`Correct score is ${game.correctScore}`);
+    // Initiate animation
+    roundAnimation();
+    // use setTimeout so that animation can take place first
+    // Then display userGuess in middle of game
+    // Update the images of both user and computer to their 'input' from that round
+    setTimeout(function() {
+        $('#round-total').text(`C: ${game.computerGuess}!`);
+        if(game.userInput === 0) {
+            $('#player-hand').attr("src", "assets/images/fistfaceup.png");
+        } else {
+            $('#player-hand').attr("src", "assets/images/palmfaceup.png");
+        }
+        if(game.computerInput === 0) {
+            $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+        } else {
+            $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+        }
+    }, 3000);
+    // use setTimeout so that previous code loads, then display if computer was correct or not
+    // Increment computer score if applicable
+    setTimeout(function() {
+        if (game.computerGuess === game.correctScore) {
+            $('#round-total').text(`Nice!`);
+            incrementComputerScore();
+        } else {
+            $('#round-total').text(`Nah!`);
+        }
+    }, 4500);
+    // Update userTurn to true and copmuterTurn to false
+    // Call userInput
+    setTimeout(function() {
+        game.userTurn = true;
+        game.computerTurn = false;
+        console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
+        userInput();
+    }, 6500);
+}
+
+// Adds one to game.userScore and updates display score on top left of page
 function incrementUserScore() {
-	console.log("incrementUserScore has been called");
+    console.log("incrementUserScore has been called");
 	game.userScore += 1;
 	$('#player-score').text(`${game.userScore}`);
-};
-
-function computerTurnUserInput() {
-    console.log("---------------------------");
-	console.log("computerTurnUserInput has been called");
-	$('.hand-icon').removeAttr('disabled');
 }
 
-function computerTurnGenerateComputerInput() {
-	// generate 0 or 5
-	// trigger generateComputerGuess
-	$('.hand-icon').attr('disabled', true).attr('onclick', 'userGuess()');
-	console.log("computerTurnGenerateComputerInput has been called via HTML onlick attribute");
-	setTimeout(function () {
-        console.log("setTimeout has run its course");
-		game.computerInput = Math.random() < 0.5 ? 0 : 5;
-		if (game.computerInput === 5) {
-			$('#computer-hand').attr("src", "assets/images/palmfacedown.png");
-		} else {
-			$('#computer-hand').attr("src", "assets/images/fistfacedown.png");
-		}
-		generateComputerGuess();
-	}, 250);
-}
-
-function generateComputerGuess() {
-	// generate 0, 5 or 10 (have logic in this loop based on computer input)
-	// trigger displayerScore
-	console.log("generateComputerGuess has been called");
-	setTimeout(function () {
-        console.log("setTimeout has run its course")
-		if (game.computerInput === 0) {
-			game.computerGuess = Math.random() < 0.5 ? 0 : 5;
-			// Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
-		} else {
-			game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
-		}
-		computerTurnCalculateScore();
-	}, 250);
-
-}
-
-function computerTurnCalculateScore() {
-	console.log("computerTurnCalculateScore has been called");
-	game.correctScore = game.userInput + game.computerInput;
-	computerTurnDisplayScore();
-}
-
-function computerTurnDisplayScore() {
-	console.log("computerTurnDisplayScore has been called");
-	$('#round-total').text(`C: ${game.computerGuess}!`);
-
-	if (game.computerGuess === game.correctScore) {
-		incrementComputerScore();
-	}
-	userTurnUserInput();
-}
-
-// Adds 1 to the computer score top left of the game
+// Adds one to game.ComputerScore and updates display score on top left of page
 function incrementComputerScore() {
-	console.log("incrementComputerScore has been called");
-	game.computerScore += 1;
+    console.log("incrementComputerScore has been called");
+    game.computerScore += 1;
 	$('#computer-score').text(`${game.computerScore}`);
-};
+}
