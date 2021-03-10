@@ -43,11 +43,13 @@ function countDown() {
 function userInput() {
     console.log("------------------");
     console.log("userInput has been called");
-    $('.hand-icon').removeAttr("disabled");
-    $('#fist').off("click");
-    $('#fist').click(function() {
-        game.userInput = 0;
-        console.log(`User input is ${game.userInput}`)
+    $('.hand-icon').removeAttr("disabled").off("click");
+    $('.hand-icon').click(function() {
+        if (this === document.getElementById("fist")) {
+            game.userInput = 0;
+        } else {
+            game.userInput = 5;
+        }
         if (game.userTurn === true) {
             console.log("It is the user's turn, proceed to userGuess");
             userGuess();
@@ -55,19 +57,8 @@ function userInput() {
             console.log("It is the computer's turn, proceed to playComputerRound");
             playComputerRound();
         }
+        console.log(`User has input ${game.userInput}`);
     });
-    $('#palm').off("click");
-    $('#palm').click(function() {
-        game.userInput = 5;
-        console.log(`User input is ${game.userInput}`);
-        if (game.userTurn === true) {
-            console.log("It is the user's turn, proceed to userGuess");
-            userGuess();
-        } else {
-            console.log("It is the computer's turn, proceed to playComputerRound");
-            playComputerRound();
-        }
-    })
 }
 
 // Enables the number icons, disables hand icons
@@ -76,24 +67,17 @@ function userInput() {
 function userGuess() {
     console.log("userGuess has been called");
     $('.hand-icon').attr("disabled", true);
-    $('.number-icon').removeAttr("disabled");
-
-    $('#zero').off('click');
-    $('#zero').click(function() {
-        game.userGuess = 0;
+    $('.number-icon').removeAttr("disabled").off('click');
+    
+    $('.number-icon').click(function() {
+        if (this === document.getElementById('zero')) {
+            game.userGuess = 0;
+        } else if (this === document.getElementById('five')) {
+            game.userGuess = 5;
+        } else {
+            game.userGuess = 10;
+        }
         console.log(`User guess is ${game.userGuess}`);
-        playUserRound();
-    });
-    $('#five').off('click');
-    $('#five').click(function() {
-        game.userGuess = 5;
-        console.log(`user guess is ${game.userGuess}`);
-        playUserRound();
-    });
-    $('#ten').off('click');
-    $('#ten').click(function() {
-        game.userGuess = 10;
-        console.log(`user guess is ${game.userGuess}`);
         playUserRound();
     });
 }
@@ -130,17 +114,11 @@ function roundAnimation() {
 function playUserRound() {
     console.log("playUserRound has been called");
     $('.number-icon').attr("disabled", true);
-    // Update computerInput
     computerInput();
     console.log(`Computer's input is ${game.computerInput}`);
-    // Update correctScore
     updateCorrectScore();
     console.log(`Correct score is ${game.correctScore}`);
-    // Initiate animation
     roundAnimation();
-    // use setTimeout so that animation can take place first
-    // Then display userGuess in middle of game
-    // Update the images of both user and computer to their 'input' from that round
     setTimeout(function() {
         $('#round-total').text(`P: ${game.userGuess}!`);
         if(game.userInput === 0) {
@@ -154,8 +132,6 @@ function playUserRound() {
             $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
         }
     }, 3000);
-    // use setTimeout so that previous code loads, then display if user was correct or not
-    // Increment player score if applicable
     setTimeout(function() {
         if (game.userGuess === game.correctScore) {
             $('#round-total').text(`Yes!`);
@@ -164,8 +140,6 @@ function playUserRound() {
             $('#round-total').text(`Boo!`);
         }
     }, 4500);
-    // Update userTurn to false and computerTurn to true
-    // Call userInput
     setTimeout(function() {
         game.userTurn = false;
         game.computerTurn = true;
@@ -177,22 +151,14 @@ function playUserRound() {
 // Called after userInput if computerTurn = true
 function playComputerRound() {
     console.log("playComputerRound has been called");
-    // Disable hand buttons
     $('.hand-icon').attr("disabled", true);
-    // Update computerInput
     computerInput();
     console.log(`Computer's input is ${game.computerInput}`);
-    // Update computerGuess
     computerGuess();
     console.log(`Computer's guess is ${game.computerGuess}`);
-    // Update correctScore
     updateCorrectScore();
     console.log(`Correct score is ${game.correctScore}`);
-    // Initiate animation
     roundAnimation();
-    // use setTimeout so that animation can take place first
-    // Then display userGuess in middle of game
-    // Update the images of both user and computer to their 'input' from that round
     setTimeout(function() {
         $('#round-total').text(`C: ${game.computerGuess}!`);
         if(game.userInput === 0) {
@@ -206,8 +172,6 @@ function playComputerRound() {
             $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
         }
     }, 3000);
-    // use setTimeout so that previous code loads, then display if computer was correct or not
-    // Increment computer score if applicable
     setTimeout(function() {
         if (game.computerGuess === game.correctScore) {
             $('#round-total').text(`Yes!`);
@@ -216,8 +180,6 @@ function playComputerRound() {
             $('#round-total').text(`Boo!`);
         }
     }, 4500);
-    // Update userTurn to true and copmuterTurn to false
-    // Call userInput
     setTimeout(function() {
         game.userTurn = true;
         game.computerTurn = false;
