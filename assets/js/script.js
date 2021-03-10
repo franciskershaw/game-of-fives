@@ -35,6 +35,7 @@ function countDown() {
 		timeLeft -= 1;
 	}, 1000);
 }
+// Source - https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 
 // Enables the fist and palm icons
 // Click events active on hand icons which update game.userInput
@@ -101,10 +102,11 @@ function userGuess() {
 function computerInput() {
     console.log("computerInput has been called");
     game.computerInput = Math.random() < 0.5 ? 0 : 5;
+    // Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 }
 
 // Each round, add computerInput and userInput together to update correctScore
-function updateCorrectScore(num1, num2) {
+function updateCorrectScore() {
     console.log("updateCorrectScore has been called");
     game.correctScore = game.userInput + game.computerInput;
 }
@@ -156,10 +158,10 @@ function playUserRound() {
     // Increment player score if applicable
     setTimeout(function() {
         if (game.userGuess === game.correctScore) {
-            $('#round-total').text(`Nice!`);
+            $('#round-total').text(`Yes!`);
             incrementUserScore();
         } else {
-            $('#round-total').text(`Nah!`);
+            $('#round-total').text(`Boo!`);
         }
     }, 4500);
     // Update userTurn to false and computerTurn to true
@@ -208,10 +210,10 @@ function playComputerRound() {
     // Increment computer score if applicable
     setTimeout(function() {
         if (game.computerGuess === game.correctScore) {
-            $('#round-total').text(`Nice!`);
+            $('#round-total').text(`Yes!`);
             incrementComputerScore();
         } else {
-            $('#round-total').text(`Nah!`);
+            $('#round-total').text(`Boo!`);
         }
     }, 4500);
     // Update userTurn to true and copmuterTurn to false
