@@ -1,4 +1,4 @@
-// game variables, updated at various stages
+// game variables
 const game = {
     userTurn: true,
     computerTurn: false,
@@ -27,7 +27,6 @@ function countDown() {
 	let timer = setInterval(function () {
 		if (timeLeft <= 0) {
             clearInterval(timer);
-			document.getElementById("round-total").innerHTML = "Play!";
 			userInput();
 		} else {
 			document.getElementById("round-total").innerHTML = timeLeft;
@@ -43,6 +42,7 @@ function countDown() {
 function userInput() {
     console.log("------------------");
     console.log("userInput has been called");
+    document.getElementById("round-total").innerHTML = "Play!";
     $('.hand-icon').removeAttr("disabled").off("click");
     $('.hand-icon').click(function() {
         if (this === document.getElementById("fist")) {
@@ -57,18 +57,15 @@ function userInput() {
             console.log("It is the computer's turn, proceed to playRound");
             playRound();
         }
-        console.log(`User has input ${game.userInput}`);
     });
 }
 
 // Enables the number icons, disables hand icons
 // Click event active on number icons which update game.userGuess
-// Call playUserRound() once clicked
 function userGuess() {
     console.log("userGuess has been called");
     $('.hand-icon').attr("disabled", true);
     $('.number-icon').removeAttr("disabled").off('click');
-    
     $('.number-icon').click(function() {
         if (this === document.getElementById('zero')) {
             game.userGuess = 0;
@@ -108,6 +105,8 @@ function computerGuess() {
 // Animation that occurs each round before displaying of guess and updating of scores
 function roundAnimation() {
     console.log("roundAnimation has been called");
+    $('.game-image').removeClass("transparent");
+    
     setTimeout(function() {
         if(game.userInput === 0) {
             $('#player-hand').attr("src", "assets/images/fistfaceup.png");
@@ -130,6 +129,7 @@ function roundAnimation() {
 // Runs each round, with different actions depending on whether it's the user or computer's go
 function playRound() {
     console.log("playRound has been called");
+    console.log(`User input is ${game.userInput}`);
     computerInput();
     console.log(`Computer's input is ${game.computerInput}`);
     updateCorrectScore();
@@ -142,6 +142,7 @@ function playRound() {
         computerGuess();
         console.log(`Computer guess is ${game.computerGuess}`);
     }
+    // Timed to occur after the animation has finished
     setTimeout(function() {
         if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Yes!`);
@@ -153,7 +154,6 @@ function playRound() {
             $('#round-total').text(`Boo!`);
         }
     },4500);
-   
     // Reverses the true/false of who's go it is, and calls userInput()
     setTimeout(function() {
         if(game.userTurn === true && game.computerTurn === false) {
@@ -164,6 +164,7 @@ function playRound() {
             game.computerTurn = false;
         };
         console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
+        $('.game-image').addClass("transparent");
         userInput();
     }, 6500);
 }
