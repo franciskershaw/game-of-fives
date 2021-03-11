@@ -54,8 +54,8 @@ function userInput() {
             console.log("It is the user's turn, proceed to userGuess");
             userGuess();
         } else {
-            console.log("It is the computer's turn, proceed to playComputerRound");
-            playComputerRound();
+            console.log("It is the computer's turn, proceed to playRound");
+            playRound();
         }
         console.log(`User has input ${game.userInput}`);
     });
@@ -78,7 +78,7 @@ function userGuess() {
             game.userGuess = 10;
         }
         console.log(`User guess is ${game.userGuess}`);
-        playUserRound();
+        playRound();
     });
 }
 
@@ -108,19 +108,7 @@ function computerGuess() {
 // Animation that occurs each round before displaying of guess and updating of scores
 function roundAnimation() {
     console.log("roundAnimation has been called");
-}
-
-// Called after userGuess 
-function playUserRound() {
-    console.log("playUserRound has been called");
-    $('.number-icon').attr("disabled", true);
-    computerInput();
-    console.log(`Computer's input is ${game.computerInput}`);
-    updateCorrectScore();
-    console.log(`Correct score is ${game.correctScore}`);
-    roundAnimation();
     setTimeout(function() {
-        $('#round-total').text(`P: ${game.userGuess}!`);
         if(game.userInput === 0) {
             $('#player-hand').attr("src", "assets/images/fistfaceup.png");
         } else {
@@ -131,58 +119,50 @@ function playUserRound() {
         } else {
             $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
         }
+        if (game.userTurn === true) {
+            $('#round-total').text(`P: ${game.userGuess}!`);
+        } else {
+            $('#round-total').text(`C: ${game.computerGuess}!`);
+        }
     }, 3000);
+}
+
+// Runs each round, with different actions depending on whether it's the user or computer's go
+function playRound() {
+    console.log("playRound has been called");
+    computerInput();
+    console.log(`Computer's input is ${game.computerInput}`);
+    updateCorrectScore();
+    console.log(`Correct score is ${game.correctScore}`);
+    roundAnimation(); 
+    if (game.userTurn === true) {
+        $('.number-icon').attr("disabled", true);
+    } else {
+        $('.hand-icon').attr("disabled", true);
+        computerGuess();
+        console.log(`Computer guess is ${game.computerGuess}`);
+    }
     setTimeout(function() {
-        if (game.userGuess === game.correctScore) {
+        if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Yes!`);
             incrementUserScore();
-        } else {
-            $('#round-total').text(`Boo!`);
-        }
-    }, 4500);
-    setTimeout(function() {
-        game.userTurn = false;
-        game.computerTurn = true;
-        console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
-        userInput();
-    }, 6500);
-}
-
-// Called after userInput if computerTurn = true
-function playComputerRound() {
-    console.log("playComputerRound has been called");
-    $('.hand-icon').attr("disabled", true);
-    computerInput();
-    console.log(`Computer's input is ${game.computerInput}`);
-    computerGuess();
-    console.log(`Computer's guess is ${game.computerGuess}`);
-    updateCorrectScore();
-    console.log(`Correct score is ${game.correctScore}`);
-    roundAnimation();
-    setTimeout(function() {
-        $('#round-total').text(`C: ${game.computerGuess}!`);
-        if(game.userInput === 0) {
-            $('#player-hand').attr("src", "assets/images/fistfaceup.png");
-        } else {
-            $('#player-hand').attr("src", "assets/images/palmfaceup.png");
-        }
-        if(game.computerInput === 0) {
-            $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
-        } else {
-            $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
-        }
-    }, 3000);
-    setTimeout(function() {
-        if (game.computerGuess === game.correctScore) {
+        } else if (game.computerTurn && game.computerGuess === game.correctScore) {
             $('#round-total').text(`Yes!`);
             incrementComputerScore();
         } else {
             $('#round-total').text(`Boo!`);
         }
-    }, 4500);
+    },4500);
+   
+    // Reverses the true/false of who's go it is, and calls userInput()
     setTimeout(function() {
-        game.userTurn = true;
-        game.computerTurn = false;
+        if(game.userTurn === true && game.computerTurn === false) {
+            game.computerTurn = true;
+            game.userTurn = false;
+        } else {
+            game.userTurn = true;
+            game.computerTurn = false;
+        };
         console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
         userInput();
     }, 6500);
