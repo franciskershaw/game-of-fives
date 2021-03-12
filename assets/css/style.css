@@ -125,6 +125,7 @@ button.btn.btn-primary.home-button:focus {
 
 .game-image {
     height: 150px;
+    transform: rotate(0deg);
 }
 
 .transparent {
@@ -176,6 +177,13 @@ button.btn.btn-primary.game-input:active {
 /* #game {
     height: 100vh;
 } */
+
+/* ------- Animations */
+
+.game-image-animation {
+    height: 155px;
+    transform: rotate(2deg);
+}
 
 /* ------- Media queries */
 

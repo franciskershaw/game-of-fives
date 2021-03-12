@@ -105,7 +105,27 @@ function computerGuess() {
 // Animation that occurs each round before displaying of guess and updating of scores
 function roundAnimation() {
     console.log("roundAnimation has been called");
+    $('#player-hand').attr("src", "assets/images/fistfaceup.png");
+    $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
     $('.game-image').removeClass("transparent");
+    setTimeout(function() {
+        $('.game-image').addClass('game-image-animation');
+    },1000);
+    setTimeout(function() {
+        $('.game-image').removeClass('game-image-animation');
+    },1200);
+    setTimeout(function() {
+        $('.game-image').addClass('game-image-animation');
+    },1400);
+    setTimeout(function() {
+        $('.game-image').removeClass('game-image-animation');
+    },1600);
+    setTimeout(function() {
+        $('.game-image').addClass('game-image-animation');
+    },1800);
+    setTimeout(function() {
+        $('.game-image').removeClass('game-image-animation');
+    },2000);
     
     setTimeout(function() {
         if(game.userInput === 0) {
@@ -123,7 +143,7 @@ function roundAnimation() {
         } else {
             $('#round-total').text(`C: ${game.computerGuess}!`);
         }
-    }, 3000);
+    }, 2200);
 }
 
 // Runs each round, with different actions depending on whether it's the user or computer's go
@@ -153,7 +173,7 @@ function playRound() {
         } else {
             $('#round-total').text(`Boo!`);
         }
-    },4500);
+    },3000);
     // Reverses the true/false of who's go it is, and calls userInput()
     setTimeout(function() {
         if(game.userTurn === true && game.computerTurn === false) {
@@ -166,7 +186,7 @@ function playRound() {
         console.log(`game.userTurn is now ${game.userTurn}, computerTurn is ${game.computerTurn}`);
         $('.game-image').addClass("transparent");
         userInput();
-    }, 6500);
+    }, 4000);
 }
 
 // Adds one to game.userScore and updates display score on top left of page
