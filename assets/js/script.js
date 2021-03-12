@@ -110,18 +110,21 @@ function roundAnimation() {
     $('.game-image').removeClass("transparent");
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
+        $('#round-total').text(`1`);
     },1000);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
     },1200);
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
+        $('#round-total').text(`2`);
     },1400);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
     },1600);
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
+        $('#round-total').text(`3`);
     },1800);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
