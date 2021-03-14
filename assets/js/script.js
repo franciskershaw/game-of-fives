@@ -53,6 +53,8 @@ function countDown() {
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
     document.getElementById("round-total").innerHTML = "Play!";
+    $('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
+    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
     $('.hand-icon').removeAttr("disabled").off("click");
     $('.hand-icon').click(function() {
         if (this === document.getElementById("fist")) {
