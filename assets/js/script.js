@@ -14,11 +14,12 @@ const game = {
     computerScore: 0
     }
 
-// Waiting for dom to load before setting off countdown
+// DOM loads, assigns clck sounds to buttons and sets off the countdown
 $(document).ready(function () {
     countDown();
     let clickSound = new Audio();
     clickSound.src = "assets/sounds/clickeffect.mp3";
+    // Sound from Zapsplat.com
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener('mousedown', function() {
@@ -108,10 +109,17 @@ function computerGuess() {
 function roundAnimation() {
     $('#player-hand').attr("src", "assets/images/fistfaceup.png");
     $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+    let noiseOne = new Audio();
+    noiseOne.src = "assets/sounds/noise1.mp3";
+    let noiseTwo = new Audio();
+    noiseTwo.src = "assets/sounds/noise2.mp3";
+    let noiseThree = new Audio();
+    noiseThree.src = "assets/sounds/noise3.mp3";
     $('.game-image').removeClass("transparent");
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`1`);
+        noiseOne.play();
     },1000);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -119,6 +127,7 @@ function roundAnimation() {
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`2`);
+        noiseTwo.play();
     },1400);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -126,6 +135,7 @@ function roundAnimation() {
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`3`);
+        noiseOne.play();
     },1800);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -144,8 +154,10 @@ function roundAnimation() {
         }
         if (game.userTurn === true) {
             $('#round-total').text(`${game.userGuess}!`);
+            noiseThree.play();
         } else {
             $('#round-total').text(`C: ${game.computerGuess}!`);
+            noiseThree.play();
         }
     }, 2200);
 }
@@ -163,14 +175,21 @@ function playRound() {
     }
     // Timed to occur after the animation has finished
     setTimeout(function() {
+        let yay = new Audio();
+        yay.src = "assets/sounds/success.mp3";
+        let meh = new Audio();
+        meh.src = "assets/sounds/meh.mp3";
         if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
+            yay.play();
             incrementUserScore();
         } else if (game.computerTurn && game.computerGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
+            yay.play();
             incrementComputerScore();
         } else {
             $('#round-total').text(`No good!`);
+            meh.play();
         }
     },3000);
     // Reverses the true/false of who's go it is, and calls userInput()
