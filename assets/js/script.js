@@ -52,22 +52,24 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
-    document.getElementById("round-total").innerHTML = "Play!";
-    $('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
-    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
-    $('.hand-icon').removeAttr("disabled").off("click");
-    $('.hand-icon').click(function() {
-        if (this === document.getElementById("fist")) {
-            game.userInput = 0;
-        } else {
-            game.userInput = 5;
-        }
-        if (game.userTurn === true) {
-            userGuess();
-        } else {
-            playRound();
-        }
-    });
+    if(game.userScore < 5 && game.computerScore < 5) {
+        document.getElementById("round-total").innerHTML = "Play!";
+        $('.hand-icon').removeAttr("disabled").off("click");
+        $('.hand-icon').click(function() {
+            if (this === document.getElementById("fist")) {
+                game.userInput = 0;
+            } else {
+                game.userInput = 5;
+            }
+            if (game.userTurn === true) {
+                userGuess();
+            } else {
+                playRound();
+            }
+        });
+    } else {
+        endGame();
+    }
 }
 
 // Enables the number icons, disables hand icons
@@ -204,6 +206,8 @@ function playRound() {
             game.computerTurn = false;
         };
         $('.game-image').addClass("transparent");
+        $('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
+        $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
         userInput();
     }, 4000);
 }
@@ -218,4 +222,25 @@ function incrementUserScore() {
 function incrementComputerScore() {
     game.computerScore += 1;
 	$('#computer-score').text(`${game.computerScore}`);
+}
+
+// Called once either the computer or the user reaches 5 points
+// Gives user feedback that the game is over, either as a win or a loss
+// Sound effects for victory or defeat
+// Offers opportunity to play again or quit
+// Adds one to the win record of either the user or the computer
+// Resets the scores
+
+function endGame() {
+    console.log("Game over");
+    if (game.userScore === 5) {
+        console.log("Well done, you won!");
+        $('#round-total').text(`You've won!`);
+        setTimeout(function() {
+            
+        }, 1000);
+    } else {
+        console.log("Unlucky mate");
+        $('#round-total').text(`You lost!`);
+    }
 }
