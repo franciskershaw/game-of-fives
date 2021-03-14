@@ -182,7 +182,7 @@ button.btn.btn-primary.game-input:active {
 
 .game-image-animation {
     height: 155px;
-    transform: rotate(2deg);
+    transform: rotate(5deg);
 }
 
 /* ------- Media queries */
