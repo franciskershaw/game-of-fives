@@ -11,11 +11,26 @@ const game = {
     
     correctScore: 0,
     userScore: 0,
-    computerScore: 0
-    }
+    computerScore: 0,
+
+    winRecord: localStorage.getItem("winRecord"),
+    loseRecord: localStorage.getItem("loseRecord"),
+
+    // winRecord: 0,
+    // loseRecord: 0,
+
+    };
 
 // DOM loads, assigns clck sounds to buttons and sets off the countdown
 $(document).ready(function () {
+    if (game.winRecord === null) {
+            game.winRecord = 0;
+        }
+    if (game.loseRecord === null) {
+        game.loseRecord = 0;
+    }
+    $('#win-record').text(`${game.winRecord}`);
+    $('#lose-record').text(`${game.loseRecord}`);
     countDown();
     let clickSound = new Audio();
     clickSound.src = "assets/sounds/clickeffect.mp3";
@@ -52,7 +67,7 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
-    if(game.userScore < 3 && game.computerScore < 3) {
+    if(game.userScore < 1 && game.computerScore < 1) {
         document.getElementById("round-total").innerHTML = "Play!";
         $('.hand-icon').removeAttr("disabled").off("click");
         $('.hand-icon').click(function() {
@@ -233,7 +248,8 @@ function incrementComputerScore() {
 
 function endGame() {
     console.log("Game over");
-    if (game.userScore === 3) {
+    updateWinRecord();
+    if (game.userScore === 1) {
         $('#round-total').text(`You've won!`);
     } else {
         $('#round-total').text(`You lost!`);
@@ -241,9 +257,7 @@ function endGame() {
     $('.end-game-btns').removeClass('hidden');
     $('.game-btns').addClass('hidden');
     $('.change-end-game').removeClass('col-1').addClass('col-2');
-    let play = document.querySelector('#play');
-    $('.home-button').click(function() {
-        if (this === play) {
+    $('#play').click(function() {
             console.log("User want's to play again");
             game.userTurn = true;
             game.computerTurn = false;
@@ -255,6 +269,20 @@ function endGame() {
             $('.game-btns').removeClass('hidden');
             $('.change-end-game').removeClass('col-2').addClass('col-1');
             countDown();
-        } 
     });
 }
+
+function updateWinRecord() {
+    console.log("updateWinRecord has been called");
+    if (game.userScore === 1) {
+        game.winRecord++;
+        $('#win-record').text(`${game.winRecord}`);
+    } else {
+        game.loseRecord++;
+        $('#lose-record').text(`${game.loseRecord}`);
+    }
+    
+    localStorage.setItem("winRecord", game.winRecord);
+    localStorage.setItem("loseRecord", game.loseRecord);
+
+};
