@@ -31,7 +31,7 @@ $(document).ready(function () {
 // 3,2,1 countdown to start the game off calls userInput for the first time
 function countDown() {
     setTimeout(function() {
-        document.getElementById('round-total').innerHTML = "First to 5 wins";
+        document.getElementById('round-total').innerHTML = "First to 3";
         let timeLeft = 3;
         let timer = setInterval(function () {
             if (timeLeft <= 0) {
@@ -52,7 +52,7 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
-    if(game.userScore < 1 && game.computerScore < 1) {
+    if(game.userScore < 3 && game.computerScore < 3) {
         document.getElementById("round-total").innerHTML = "Play!";
         $('.hand-icon').removeAttr("disabled").off("click");
         $('.hand-icon').click(function() {
@@ -233,7 +233,7 @@ function incrementComputerScore() {
 
 function endGame() {
     console.log("Game over");
-    if (game.userScore === 5) {
+    if (game.userScore === 3) {
         $('#round-total').text(`You've won!`);
     } else {
         $('#round-total').text(`You lost!`);
@@ -241,4 +241,12 @@ function endGame() {
     $('.hidden').removeClass('hidden');
     $('.hide-me').addClass('hidden');
     $('.col-1').removeClass('col-1').addClass('col-2');
+    let play = document.querySelector('#play');
+    $('.end-game-btn').click(function() {
+        if (this === play) {
+            console.log("User want's to play again");
+        } else {
+            console.log("user want's to quit");
+        }
+    });
 }
