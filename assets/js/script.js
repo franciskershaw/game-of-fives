@@ -238,15 +238,23 @@ function endGame() {
     } else {
         $('#round-total').text(`You lost!`);
     }
-    $('.hidden').removeClass('hidden');
-    $('.hide-me').addClass('hidden');
-    $('.col-1').removeClass('col-1').addClass('col-2');
+    $('.end-game-btns').removeClass('hidden');
+    $('.game-btns').addClass('hidden');
+    $('.change-end-game').removeClass('col-1').addClass('col-2');
     let play = document.querySelector('#play');
-    $('.end-game-btn').click(function() {
+    $('.home-button').click(function() {
         if (this === play) {
             console.log("User want's to play again");
-        } else {
-            console.log("user want's to quit");
-        }
+            game.userTurn = true;
+            game.computerTurn = false;
+            game.userScore = 0;
+            game.computerScore = 0;
+            $('#computer-score').text("0");
+            $('#player-score').text("0");
+            $('.end-game-btns').addClass('hidden');
+            $('.game-btns').removeClass('hidden');
+            $('.change-end-game').removeClass('col-2').addClass('col-1');
+            countDown();
+        } 
     });
 }
