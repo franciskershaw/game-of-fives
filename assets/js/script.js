@@ -67,7 +67,7 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
-    if(game.userScore < 1 && game.computerScore < 1) {
+    if(game.userScore < 3 && game.computerScore < 3) {
         document.getElementById("round-total").innerHTML = "Play!";
         $('.hand-icon').removeAttr("disabled").off("click");
         $('.hand-icon').click(function() {
@@ -249,7 +249,7 @@ function incrementComputerScore() {
 function endGame() {
     console.log("Game over");
     updateWinRecord();
-    if (game.userScore === 1) {
+    if (game.userScore === 3) {
         $('#round-total').text(`You've won!`);
     } else {
         $('#round-total').text(`You lost!`);
@@ -274,7 +274,7 @@ function endGame() {
 
 function updateWinRecord() {
     console.log("updateWinRecord has been called");
-    if (game.userScore === 1) {
+    if (game.userScore === 3) {
         game.winRecord++;
         $('#win-record').text(`${game.winRecord}`);
     } else {
