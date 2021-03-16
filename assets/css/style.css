@@ -47,21 +47,21 @@ h2 {
 
 .home-buttons {
     border: 1px solid yellow;
-    height: 10vh;
+    height: 12vh;
     padding-top: 7px;
 }
 
 .home-record {
     font-size: 2rem;
     border: 1px solid brown;
-    height: 29vh;
+    height: 28vh;
 }
 
 .home-img {
     margin-left: 28px;
     margin-right: 28px;
     max-width: 150px;
-    height: 190px;
+    height: 166px;
 }
 
 .home-button {
@@ -212,11 +212,27 @@ button.btn.btn-primary.game-input:active {
     }
 }
 
+@media screen and (min-width: 414px) {
+    .home-buttons {
+        height: 15vh;
+        padding-top: 20px
+    }
+    .home-record {
+        height: 25vh;
+    }
+}
+
 @media screen and (min-width: 375px) {
     h1 {
         font-size: 2.75rem;
     }
     h2 {
         font-size: 2rem;
+    }
+    .home-img {
+        height: 195px;
+    }
+    .home-record {
+        padding-top: 30px;
     }
 }
