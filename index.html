@@ -66,7 +66,7 @@
     </div>
     <!-- Modal for difficulty selection -->
     <div class="modal fade" id="difficulty-modal" tabindex="-1" aria-labelledby="numOfPlayers" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-center" id="numOfPlayers">Number of Players</h5>
@@ -104,7 +104,7 @@
                     <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="container">
+                                <div class="container slide-one">
                                     <div class="row">
                                         <div class="col-12">
                                             <h3>Aim of the game</h3>
@@ -122,17 +122,17 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <div class="container">
+                                <div class="container slide-two">
                                     <div class="row">
                                         <div class="col-12">
                                             <h3>On every go</h3>
                                         </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <h3><em>(This will be picture one!)</em></h3>
+                                            <h3><button type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button></h3>
                                         </div>
                                         <div class="col-6">
-                                            <h3><em>(This will be picture two!)</em></h3>
+                                            <h3><button type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button></h3>
                                         </div>
                                     </div>
                                         <div class="col-12">
@@ -145,20 +145,20 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <div class="container">
+                                <div class="container slide-three">
                                     <div class="row">
                                         <div class="col-12">
                                             <h3>Only on your go</h3>
                                         </div>
                                     <div class="row">
                                         <div class="col-4">
-                                            <h3><em>(This will be picture one!)</em></h3>
+                                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
                                         </div>
                                         <div class="col-4">
-                                            <h3><em>(This will be picture two!)</em></h3>
+                                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
                                         </div>
                                         <div class="col-4">
-                                            <h3><em>(This will be picture three!)</em></h3>
+                                            <button type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
                                         </div>
                                     </div>
                                         <div class="col-12">
