@@ -33,7 +33,7 @@ h2 {
 }
 
 .home-headings {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     height: 29vh;
     padding-top: 14vh;
     padding-left: 0;
@@ -41,19 +41,19 @@ h2 {
 }
 
 .home-images {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 31vh;
 }
 
 .home-buttons {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     height: 12vh;
     padding-top: 7px;
 }
 
 .home-record {
     font-size: 2rem;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     height: 28vh;
 }
 
@@ -206,9 +206,18 @@ button.btn.btn-primary.game-input:active {
 
 /* ------- Media queries */
 
-@media screen and (min-width: 1200px) {
-    .disappear {
-        display: none;
+@media screen and (min-width: 375px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .home-img {
+        height: 195px;
+    }
+    .home-record {
+        padding-top: 30px;
     }
 }
 
@@ -222,17 +231,30 @@ button.btn.btn-primary.game-input:active {
     }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 1200px) {
     h1 {
-        font-size: 2.75rem;
+        font-size: 3.25rem;
     }
-    h2 {
-        font-size: 2rem;
+    .disappear {
+        display: none;
+    }
+    .home-headings {
+        height: 55vh;
+        padding-top: 115px;
+    }
+    .home-buttons {
+        height: 17vh;
+        padding-top: 20px;
+        font-size: 130%;
+    }   
+    .home-record {
+        height: 27vh;
+    }
+
+    .heading-content {
+        margin-top: 5rem;
     }
     .home-img {
-        height: 195px;
-    }
-    .home-record {
-        padding-top: 30px;
+        height: 215px;
     }
 }
