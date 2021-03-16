@@ -21,21 +21,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-h1, h2, p {
-    margin: 0;
-}
-
 /* ------- Home page */
-
-.buffer {
-    /* background-color: white; */
-    height: 18vh;
-}
-
-.home-img-container {
-    /* background-color: green; */
-    padding-bottom: 5%;
-}
 
 .home-img {
     margin-left: 28px;
@@ -73,11 +59,6 @@ button.btn.btn-primary.home-button:focus {
     outline: none;
     box-shadow: none;
     background-color: #7ae7c7;
-}
-
-.home-record-container {
-    font-size: 2.25em;
-    /* margin-top: 10vh; */
 }
 
 /* ------- Home page modals (difficulty and rules) */
@@ -191,33 +172,8 @@ button.btn.btn-primary.game-input:active {
 
 /* ------- Media queries */
 
-@media screen and (min-width: 375px) {
-    .home-button-container {
-        margin-bottom: 5%;
-    }
-    .home-record-container {
-        margin-top: 5%;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    h1 {
-        font-size: 375%;
-    }
-    h2 {
-        font-size: 240%;
-    }
-    .buffer {
-        height: 8vh;
-    }
-    .home-img {
-        height: 340px;
-    }
-    .home-buttons-container {
-        display: flex;
-        justify-content: space-around;
-    }
-    .home-button {
-        font-size: 250%;
+@media screen and (min-width: 1200px) {
+    .disappear {
+        display: none;
     }
 }
