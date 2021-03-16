@@ -21,6 +21,30 @@ h1 {
     letter-spacing: 1px;
 }
 
+h2 {
+    font-size: 1.5rem;
+}
+
+.home-container {
+    height: 100vh;
+}
+
+.home-headings {
+    margin-top: 14vh;
+}
+
+.home-images {
+    margin-bottom: 3vh;
+}
+
+.home-buttons {
+    margin-bottom: 5vh;
+}
+
+.home-record {
+    font-size: 2rem;
+}
+
 /* ------- Home page */
 
 .home-img {
@@ -175,5 +199,14 @@ button.btn.btn-primary.game-input:active {
 @media screen and (min-width: 1200px) {
     .disappear {
         display: none;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+    h2 {
+        font-size: 2rem;
     }
 }
