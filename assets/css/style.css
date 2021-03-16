@@ -25,27 +25,37 @@ h2 {
     font-size: 1.5rem;
 }
 
+/* ------- Home page */
+
 .home-container {
-    height: 100vh;
+    max-height: 100vh;
+    border: solid;
 }
 
 .home-headings {
-    margin-top: 14vh;
+    border: 1px solid green;
+    height: 29vh;
+    padding-top: 14vh;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .home-images {
-    margin-bottom: 3vh;
+    border: 1px solid blue;
+    height: 31vh;
 }
 
 .home-buttons {
-    margin-bottom: 5vh;
+    border: 1px solid yellow;
+    height: 10vh;
+    padding-top: 7px;
 }
 
 .home-record {
     font-size: 2rem;
+    border: 1px solid brown;
+    height: 29vh;
 }
-
-/* ------- Home page */
 
 .home-img {
     margin-left: 28px;
