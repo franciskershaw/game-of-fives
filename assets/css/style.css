@@ -133,18 +133,32 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .slide-sub {
-    border-bottom: 1px solid;
+    border-bottom: 4px solid;
+    padding-bottom: 15px;
+    border-radius: 3%;
 }
 
 .rules-content {
     font-size: 1.5rem;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
-.rules-hand {
+.rules-img {
     width: 49%;
     height: 56px;
     display: inline-block;
+}
+
+.rules-icon {
+    display: inline;
+    border: 2px solid;
+    border-radius: 50%;
+    padding: 12px;
+    color: #FFF689;
+    background-color: #ec0b43;
+    font-size: 2.5rem;
+    width: 50%;
+    height: 50%;
 }
 
 .difficulty-button {
@@ -157,15 +171,21 @@ button.btn.btn-primary.home-button:focus {
     padding: 0;    
 }
 
-#slide-one-images {
+i.far.fa-hand-paper.rules-icon {
+    margin: 16px;
+    padding: 14px;
+}
+
+#slide-one-images, #slide-two-images, #slide-three-images {
     padding-bottom: 18px;
     padding-top: 15px;
 }
 
-h3.rules-sub {
-    font-size: 1.5rem;
+#slide-two-images {
+    padding-left: 5.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 28px;
 }
-
 
 #difficulty-modal-body {
     padding-left: 5em;
@@ -176,6 +196,7 @@ h2#rules {
     font-size: 3rem;
     letter-spacing: 2px;
     font-family: 'Fredoka One';
+    text-transform: uppercase;
 }
 
 button#rules-quit {
