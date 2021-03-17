@@ -97,8 +97,31 @@ button.btn.btn-primary.home-button:focus {
 
 /* ------- Home page modals (difficulty and rules) */
 
+.modal-header {
+    border-bottom: none;
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.modal-body {
+    padding-top: 0;
+}
+
 .modal-content {
     background-color: #58355E;
+}
+
+.rules-content {
+    font-size: 1.5rem;
+    padding-top: 20px;
+
+}
+
+.rules-hand {
+    width: 49%;
+    height: 56px;
+    display: inline-block;
 }
 
 .difficulty-button {
@@ -111,9 +134,32 @@ button.btn.btn-primary.home-button:focus {
     padding: 0;    
 }
 
+#slide-one-images {
+    padding-bottom: 18px;
+    padding-top: 15px;
+}
+
+h3.rules-sub {
+    font-size: 1.5rem;
+}
+
+
 #difficulty-modal-body {
     padding-left: 5em;
     padding-right: 5em;
+}
+
+h2#rules {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-family: 'Fredoka One';
+}
+
+button#rules-quit {
+    background: none;
+    font-weight: bold;
+    font-size: 1.35rem;
+    border: none;
 }
 
 /* ------- Game page */
