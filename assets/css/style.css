@@ -132,10 +132,13 @@ button.btn.btn-primary.home-button:focus {
     padding-right: 5px;
 }
 
+.slide-sub {
+    border-bottom: 1px solid;
+}
+
 .rules-content {
     font-size: 1.5rem;
     padding-top: 20px;
-
 }
 
 .rules-hand {
