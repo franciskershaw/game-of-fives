@@ -149,16 +149,19 @@ button.btn.btn-primary.home-button:focus {
     display: inline-block;
 }
 
-.rules-icon {
+.rules-icon, .rules-number {
     display: inline;
-    border: 2px solid;
+    border: 3px solid;
     border-radius: 50%;
     padding: 12px;
     color: #FFF689;
     background-color: #ec0b43;
     font-size: 2.5rem;
-    width: 50%;
-    height: 50%;
+}
+
+.rules-number {
+    padding-left: 22px;
+    padding-right: 22px;
 }
 
 .difficulty-button {
@@ -172,11 +175,11 @@ button.btn.btn-primary.home-button:focus {
 }
 
 i.far.fa-hand-paper.rules-icon {
-    margin: 16px;
+    margin: 14px;
     padding: 14px;
 }
 
-#slide-one-images, #slide-two-images, #slide-three-images {
+#slide-one-images {
     padding-bottom: 18px;
     padding-top: 15px;
 }
@@ -187,9 +190,20 @@ i.far.fa-hand-paper.rules-icon {
     padding-bottom: 28px;
 }
 
+#slide-three-images {
+    padding-top: .75rem;
+    padding-bottom: 17px;
+    padding-left: 3.25rem;
+}
+
 #difficulty-modal-body {
     padding-left: 5em;
     padding-right: 5em;
+}
+
+div#ten {
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 h2#rules {
