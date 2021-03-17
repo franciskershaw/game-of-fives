@@ -113,14 +113,18 @@ button.btn.btn-primary.home-button:focus {
     height: 90vh;;
 }
 
+.carousel {
+    position: initial;
+}
+
 .carousel-control-prev {
+    top: 73%;
     left: 25%;
-    top: 110%;
 }
 
 .carousel-control-next {
     right: 25%;
-    top: 110%;
+    top: 73%;
 }
 
 .slide-container {
