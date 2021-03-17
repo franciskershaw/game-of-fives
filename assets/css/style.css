@@ -174,8 +174,12 @@ button.btn.btn-primary.home-button:focus {
     padding: 0;    
 }
 
+.unflex {
+    display: contents;
+}
+
 i.far.fa-hand-paper.rules-icon {
-    margin: 14px;
+    margin: 5px;
     padding: 14px;
 }
 
@@ -185,7 +189,6 @@ i.far.fa-hand-paper.rules-icon {
 }
 
 #slide-two-images {
-    padding-left: 5.5rem;
     padding-top: 1.25rem;
     padding-bottom: 28px;
 }
@@ -193,7 +196,6 @@ i.far.fa-hand-paper.rules-icon {
 #slide-three-images {
     padding-top: .75rem;
     padding-bottom: 17px;
-    padding-left: 3.25rem;
 }
 
 #difficulty-modal-body {
@@ -232,17 +234,14 @@ span#next-icon, span#prev-icon {
 }
 
 .game-info {
-    /* border: 1px solid yellow; */
     height: 13vh;
 }
 
 .game-area {
-    /* border: 1px solid blue; */
     height: 63vh;
 }
 
 .game-buttons-section {
-    /* border: 1px solid green; */
     height: 24vh;
 }
 
@@ -302,10 +301,6 @@ button.btn.btn-primary.game-input:active {
     font-size: 2em;
 }
 
-/* #game {
-    height: 100vh;
-} */
-
 /* ------- Animations */
 
 .game-image-animation {
@@ -345,19 +340,17 @@ button.btn.btn-primary.game-input:active {
         padding-right: 28px;
     }
     i.far.fa-hand-paper.rules-icon {
-        padding: 17px;
+        padding: 16px;
     }
     .rules-content, button#rules-quit {
         font-size: 1.75rem;
     }
     #slide-two-images {
-        padding-left: 5.5rem;
         padding-bottom: 24px;
         padding-top: 1.75rem;
     }
     #slide-three-images {
         padding-top: 1.2rem;
-        padding-left: 3.5rem;
     }
     h2#rules {
         font-size: 3.5rem;
@@ -379,12 +372,6 @@ button.btn.btn-primary.game-input:active {
     .rules-sub, .slide-sub {
         font-size: 2.25rem;
         font-weight: bold;
-    }
-    #slide-two-images {
-        padding-left: 6.75rem;
-    }
-    #slide-three-images {
-        padding-left: 4.5rem;
     }
     h2#rules {
     font-size: 4.5rem;
