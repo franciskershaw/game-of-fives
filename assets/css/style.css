@@ -253,23 +253,36 @@ span#next-icon, span#prev-icon {
 
 .game-container {
     height: 100vh;
+    border: 1px solid;
 }
 
 .game-info {
-    height: 13vh;
+    height: 16vh;
+    border: 1px solid;
+}
+
+.game-info-heading {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.game-info-content {
+    letter-spacing: 1px;
+    font-size: 1.25rem;
 }
 
 .game-area {
-    height: 63vh;
+    height: 60vh;
+    border: 1px solid;
 }
 
 .game-buttons-section {
     height: 24vh;
+    border: 1px solid;
 }
 
-
 .game-image {
-    height: 150px;
+    height: 144px;
     transform: rotate(0deg);
 }
 
@@ -326,7 +339,7 @@ button.btn.btn-primary.game-input:active {
 /* ------- Animations */
 
 .game-image-animation {
-    height: 155px;
+    height: 150px;
     transform: rotate(5deg);
 }
 
