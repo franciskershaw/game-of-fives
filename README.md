@@ -54,7 +54,7 @@ The **business goal** for the stakeholder:
 
 *To meet the focus and business goal, I therefore needed to create a bespoke website using HTML, CSS and Javascript to enable me to introduce the necessary functionality to produce a game.* **(work on this bit)**
 
-While strategising for this particular project, I figured that a good place to start for inspiration on layout and features would be to look up some popular online versions of the rock, paper scissors. With this in mind, I found the following sites very useful to begin with:
+While strategising for this particular project, I figured that a good place to start for inspiration on layout and features would be to look up some popular online versions of the rock, paper scissors as this game mirrors several aspects of 'Fives'. With this in mind, I found the following sites very useful to begin with:
 
 * [Afiniti - Rock, Paper, Scissors](https://www.afiniti.com/corporate/rock-paper-scissors)
 * [Online Stopwatch - Rock Paper Scissors!](https://www.online-stopwatch.com/chance-games/rock-paper-scissors/)
@@ -72,9 +72,51 @@ Using the below importance vs viability metric, I was able to list out the oppor
 | Option to play against a human player | 2 | 1
 | **Total** | 25 | 25
 
- From this reserach, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their necessity in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, it would have likely been beyond my current coding capabilities on comparitively not as important for the completion of my user journeys.
+ From this reserach, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their necessity in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, it would have likely been beyond my current coding capabilities and comparitively not as important for the completion of my user journeys.
 
  ### Scope Plane
 
+Based on information I uncovered during the strategy plane, and considering any limitations of my current coding abilities, the features I decided were critical to include are as follows:
+
+#### Required functional specifications
+* Choice of difficulty setting
+* Explanation of the rules
+* Element of competition against another 'player'
+* Visible manifestation of current scores
+* Visible manifestation of historic wins vs losses record
+* A means of ending the game so that there is a victor
+
+#### Content requirements of these features
+* Game must load quickly
+
+
+#### Nice to haves
+* Sound effects
+* Background music during gameplay
+* Section that explains the real life drinking game rules
+
+### Structure Plane
+
+### Skeleton Plane
+
+### Surface Plane
+
+## Features
+
+### Existing features
+
+### Features left to implement
+
+## Technologies used
+
+## Git Commit Messages
+
+## Testing
+
+## Deployment
+
+## Cloning
+
+## Credits
 
 
