@@ -258,7 +258,8 @@ span#next-icon, span#prev-icon {
 
 .game-info {
     height: 16vh;
-    border: 1px solid;
+    /* border-bottom: 1px solid;
+    border-radius: 5px; */
 }
 
 .game-info-heading {
@@ -273,12 +274,16 @@ span#next-icon, span#prev-icon {
 
 .game-area {
     height: 60vh;
-    border: 1px solid;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-radius: 5px;
 }
 
 .game-buttons-section {
     height: 24vh;
-    border: 1px solid;
+    padding-top: 3px;
+    /* border-top: 1px solid; */
+
 }
 
 .game-image {
