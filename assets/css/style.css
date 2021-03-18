@@ -357,6 +357,15 @@ button.btn.btn-primary.game-input:active {
     font-size: 2em;
 }
 
+#mute-btn {
+    font-size: 1.5rem;
+    padding: 8px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    cursor: pointer;
+}
+
 /* ------- Animations */
 
 .game-image-animation {
@@ -452,6 +461,9 @@ button.btn.btn-primary.game-input:active {
     }
     .difficulty-button {
         margin-bottom: 2.5rem;
+    }
+    .game-info-quit {
+        right: 10px;
     }
     .game-image {
         height: 190px;
