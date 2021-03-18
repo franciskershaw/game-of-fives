@@ -59,6 +59,7 @@ $(document).ready(function () {
 
 // 3,2,1 countdown to start the game off calls userInput for the first time
 function countDown() {
+    $('.game-info-quit').removeClass('hidden');
     setTimeout(function() {
         document.getElementById('round-total').innerHTML = "First to 3";
         let timeLeft = 3;
@@ -81,6 +82,7 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
+    $('.game-info-quit').removeClass('hidden');
     if(game.userScore < 3 && game.computerScore < 3) {
         document.getElementById("round-total").innerHTML = "Play!";
         $('.hand-icon').removeAttr("disabled").off("click");
@@ -268,6 +270,7 @@ function endGame() {
     } else {
         $('#round-total').text(`You lost!`);
     }
+    $('.game-info-quit').addClass('hidden');
     $('.end-game-btns').removeClass('hidden');
     $('.game-btns').addClass('hidden');
     $('.change-end-game').removeClass('col-1').addClass('col-2');
