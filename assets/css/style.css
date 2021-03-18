@@ -337,6 +337,10 @@ button.btn.btn-primary.game-input:active {
     text-align: start;
 }
 
+.text-end {
+    text-align: end;
+}
+
 #round-total {
     font-size: 2em;
 }
