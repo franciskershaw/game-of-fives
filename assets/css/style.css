@@ -379,6 +379,19 @@ button.btn.btn-primary.game-input:active {
         width: 135px;
         height: 66px;
     }
+    .game-input {
+        font-size: 2.25rem;
+        width: 70px;
+    }
+    .game-image {
+        height: 173px;
+    }
+    .game-image-animation {
+        height: 176px;
+    }
+    .game-info-content {
+        font-size: 1.5rem;
+    }
     i.far.fa-hand-paper.rules-icon {
         padding: 16px;
     }
@@ -405,6 +418,7 @@ button.btn.btn-primary.game-input:active {
     button#difficulty-quit {
         font-size: 3.25rem;
     }
+    
 }
 
 @media screen and (min-width: 414px) {
@@ -417,6 +431,12 @@ button.btn.btn-primary.game-input:active {
     }
     .difficulty-button {
         margin-bottom: 2.5rem;
+    }
+    .game-image {
+        height: 190px;
+    }
+    .game-image-animation {
+        height: 195px;
     }
     .rules-sub, .slide-sub {
         font-size: 2.25rem;
