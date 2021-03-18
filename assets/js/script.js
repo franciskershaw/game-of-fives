@@ -41,6 +41,17 @@ $(document).ready(function () {
             clickSound.play();
         })
     }
+    $('.mute-btn').click(function() {
+        let onButton = document.getElementById('volume-on');
+        let offButton = document.getElementById('volume-off');
+        if (this === onButton) {
+            onButton.classList.add('hidden');
+            offButton.classList.remove('hidden');
+        } else {
+            offButton.classList.add('hidden');
+            onButton.classList.remove('hidden');
+        }
+    })
 });
 
 // 3,2,1 countdown to start the game off calls userInput for the first time
