@@ -353,17 +353,17 @@ button.btn.btn-primary.game-input:active {
     text-align: end;
 }
 
-#round-total {
-    font-size: 2em;
-}
-
-#mute-btn {
+.mute-btn {
     font-size: 1.5rem;
     padding: 8px;
     position: absolute;
     right: 5px;
     top: 10px;
     cursor: pointer;
+}
+
+#round-total {
+    font-size: 2em;
 }
 
 /* ------- Animations */
