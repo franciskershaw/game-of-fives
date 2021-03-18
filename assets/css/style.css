@@ -434,6 +434,9 @@ button.btn.btn-primary.game-input:active {
     .game-info-content {
         font-size: 1.5rem;
     }
+    .end-btn {
+        font-size: 2rem;
+    }
     i.far.fa-hand-paper.rules-icon {
         padding: 16px;
     }
@@ -482,6 +485,10 @@ button.btn.btn-primary.game-input:active {
     }
     .game-image-animation {
         height: 195px;
+    }
+    .end-btn {
+        margin-bottom: 0;
+        margin-top: 20px;
     }
     .rules-sub, .slide-sub {
         font-size: 2.25rem;
