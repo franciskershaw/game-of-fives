@@ -272,6 +272,18 @@ span#next-icon, span#prev-icon {
     font-size: 1.25rem;
 }
 
+.game-info-quit {
+    position: absolute;
+    right: 0px;
+    font-size: 100%;
+    background-color: #ec0b43;
+    color: #FFF689;
+    border: 2px solid #fff689;
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+
 .game-area {
     height: 60vh;
     border-bottom: 1px solid;
