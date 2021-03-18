@@ -13,11 +13,10 @@ const game = {
     userScore: 0,
     computerScore: 0,
 
+    soundsOn: true,
+
     winRecord: localStorage.getItem("winRecord"),
     loseRecord: localStorage.getItem("loseRecord"),
-
-    // winRecord: 0,
-    // loseRecord: 0,
 
     };
 
@@ -45,9 +44,13 @@ $(document).ready(function () {
         let onButton = document.getElementById('volume-on');
         let offButton = document.getElementById('volume-off');
         if (this === onButton) {
+            game.soundsOn = false;
+            console.log(`You've muted sounds, game.soundsOn = ${game.soundsOn}`);
             onButton.classList.add('hidden');
             offButton.classList.remove('hidden');
         } else {
+            game.soundsOn = true;
+            console.log(`You've unmuted sounds, game.soundsOn = ${game.soundsOn}`);
             offButton.classList.add('hidden');
             onButton.classList.remove('hidden');
         }
