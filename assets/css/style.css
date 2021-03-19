@@ -535,3 +535,25 @@ button.btn.btn-primary.game-input:active {
         height: 215px;
     }
 }
+
+@media (orientation: landscape) {
+    h2#rules {
+        font-size: 3.5rem;
+    }
+
+    .rules-sub, .slide-sub {
+        font-size: 1.75rem;
+    }
+
+    .rules-img {
+        width: 30%;
+        height: 50px;
+        display: inline-block;
+    }
+    .rules-number {
+        font-size: 1.95rem;
+    }
+    .rules-icon {
+        font-size: 1.75rem;
+    }
+}
