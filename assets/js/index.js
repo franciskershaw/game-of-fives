@@ -1,1 +1,9 @@
-console.log("hello from index.js");
+$(document).ready(function () {
+    if (window.innerWidth > window.innerHeight === true) {
+        console.log("hello");
+    }
+})
+
+window.addEventListener("orientationchange", function() {
+    this.console.log('Changed orientation');
+})
