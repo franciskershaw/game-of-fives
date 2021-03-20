@@ -581,6 +581,16 @@ button.btn.btn-primary.game-input:active {
     .rules-sub {
         font-size: 1.75rem;
     }
+
+}
+
+@media (min-height: 1024px) and (min-width: 768px) {
+    .difficulty-modal-content {
+        height: 65vh;
+    }
+    h2#numOfPlayers {
+    margin-top: 45px;
+    }
 }
 
 @media (min-height: 1366px) and (min-width: 1024px) {
@@ -597,26 +607,15 @@ button.btn.btn-primary.game-input:active {
         padding-bottom: 20px;
         margin-bottom: 15px;
     }
+    h2#numOfPlayers {
+    font-size: 3rem;
+    margin-top: 25px;
+    }
+    p#difficulty-tagline {
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+    }
+    .difficulty-button {
+    margin-top: 20px;
+    }
 }
-
-/* @media (orientation: landscape) {
-    h2#rules {
-        font-size: 3.5rem;
-    }
-
-    .rules-sub, .slide-sub {
-        font-size: 1.75rem;
-    }
-
-    .rules-img {
-        width: 30%;
-        height: 50px;
-        display: inline-block;
-    }
-    .rules-number {
-        font-size: 1.95rem;
-    }
-    .rules-icon {
-        font-size: 1.75rem;
-    }
-} */
