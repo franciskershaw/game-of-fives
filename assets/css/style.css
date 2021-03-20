@@ -587,6 +587,16 @@ button.btn.btn-primary.game-input:active {
     .modal-content {
         height: 65vh;
     }
+    .rules-sub {
+        font-size: 2.5rem;
+    }
+    .rules-content {
+        font-size: 2rem;
+    }
+    .slide-sub {
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
 }
 
 /* @media (orientation: landscape) {
