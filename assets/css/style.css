@@ -400,6 +400,12 @@ button.btn.btn-primary.game-input:active {
 	margin-bottom: 6px;
 	margin-top: 10px;
 }
+.end-btn:hover {
+    background-color: #FFF689;
+	color: #ec0b43;
+	border: 2px solid #58355E;
+	transition: .5s;
+}
 
 #round-total {
 	font-size: 2em;
