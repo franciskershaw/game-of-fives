@@ -3,722 +3,756 @@
 /* ------- General styles */
 
 * {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+	border: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background-color: #ec0b43;
-    color: #F6F3F7;
-    text-align: center;
-    font-family: 'Dosis', sans-serif;
+	background-color: #ec0b43;
+	color: #F6F3F7;
+	text-align: center;
+	font-family: 'Dosis', sans-serif;
 }
 
 h1 {
-    font-family: 'Fredoka One', cursive;
-    letter-spacing: 1px;
+	font-family: 'Fredoka One', cursive;
+	letter-spacing: 1px;
 }
 
 h2 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
+
 
 /* ------- Home page */
 
 .home-container {
-    max-height: 100vh;
-    max-width: 1200px;
-    border: solid;
+	max-height: 100vh;
+	max-width: 1200px;
+	border: solid;
 }
 
 .home-headings {
-    /* border: 1px solid green; */
-    height: 29vh;
-    padding-top: 14vh;
-    padding-left: 0;
-    padding-right: 0;
+	/* border: 1px solid green; */
+	height: 29vh;
+	padding-top: 14vh;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .home-images {
-    /* border: 1px solid blue; */
-    height: 31vh;
+	/* border: 1px solid blue; */
+	height: 31vh;
 }
 
 .home-buttons {
-    /* border: 1px solid yellow; */
-    height: 12vh;
-    padding-top: 7px;
+	/* border: 1px solid yellow; */
+	height: 12vh;
+	padding-top: 7px;
 }
 
 .home-record {
-    font-size: 2rem;
-    /* border: 1px solid brown; */
-    height: 28vh;
+	font-size: 2rem;
+	/* border: 1px solid brown; */
+	height: 28vh;
 }
 
 .home-img {
-    margin-left: 28px;
-    margin-right: 28px;
-    max-width: 150px;
-    height: 166px;
+	margin-left: 28px;
+	margin-right: 28px;
+	max-width: 150px;
+	height: 166px;
 }
 
 .home-button {
-    background-color: #FFF689;
-    border: none;
-    color: #0d0a0b;
-    font-weight: 600;
-    width: 4.5em;
-    font-size: 150%;
-    text-transform: uppercase;
-    margin-right: 0.75em;
-    margin-left: 0.75em;
-    letter-spacing: 3px;
+	background-color: transparent;
+	border: none;
+	color: #FFF689;
+	border: 2px solid #FFF689;
+	font-weight: 600;
+	width: 4.5em;
+	font-size: 150%;
+	text-transform: uppercase;
+	margin-right: 0.75em;
+	margin-left: 0.75em;
+	letter-spacing: 3px;
 }
 
 .home-button:hover {
-    background-color: #d6ffb7;
-    color: #0d0a0b;
+	background-color: #FFF689;
+	color: #ec0b43;
+	border: 2px solid #58355E;
+	font-size: 170%;
+	transition: .5s;
 }
 
 button.btn.btn-primary.home-button:active {
-    background-color: #7ae7c7;
-    border: none;
-    box-shadow: none !important;
+	background-color: #FFF689;
+	color: #ec0b43;
+	border: 2px solid #58355E;
+	transition: .5s;
+	box-shadow: none !important;
 }
 
 button.btn.btn-primary.home-button:focus {
-    border: 1px solid #fff689;
-    outline: none;
-    box-shadow: none;
-    background-color: #7ae7c7;
+	background-color: #FFF689;
+	color: #ec0b43;
+	border: 2px solid #58355E;
+	transition: .5s;
+	outline: none;
+	box-shadow: none;
 }
+
 
 /* ------- Home page modals (difficulty and rules) */
 
 .modal-header {
-    border-bottom: none;
-    justify-content: center;
-    padding-bottom: 0;
-    padding-top: 0;
+	border-bottom: none;
+	justify-content: center;
+	padding-bottom: 0;
+	padding-top: 0;
 }
 
 .modal-body {
-    padding-top: 0;
+	padding-top: 0;
 }
 
 .modal-content {
-    background-color: #58355E;
-    height: 90vh;;
+	background-color: #58355E;
+	height: 90vh;
+	;
 }
 
 .carousel {
-    position: initial;
+	position: initial;
 }
 
 .carousel-control-prev {
-    top: 73%;
-    left: 25%;
+	top: 73%;
+	left: 25%;
 }
 
 .carousel-control-next {
-    right: 25%;
-    top: 73%;
+	right: 25%;
+	top: 73%;
 }
 
 .slide-container {
-    padding-left: 5px;
-    padding-right: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .slide-sub {
-    border-bottom: 4px solid;
-    padding-bottom: 15px;
-    border-radius: 3%;
+	border-bottom: 4px solid;
+	padding-bottom: 15px;
+	border-radius: 3%;
 }
 
 .rules-content {
-    font-size: 1.5rem;
-    padding-top: 5px;
+	font-size: 1.5rem;
+	padding-top: 5px;
 }
 
 .rules-img {
-    width: 49%;
-    height: 56px;
-    display: inline-block;
+	width: 49%;
+	height: 56px;
+	display: inline-block;
 }
 
-.rules-icon, .rules-number {
-    display: inline;
-    border: 3px solid;
-    border-radius: 50%;
-    padding: 12px;
-    color: #FFF689;
-    background-color: #ec0b43;
-    font-size: 2.5rem;
+.rules-icon,
+.rules-number {
+	display: inline;
+	border: 3px solid;
+	border-radius: 50%;
+	padding: 12px;
+	color: #FFF689;
+	background-color: #ec0b43;
+	font-size: 2.5rem;
 }
 
 .rules-number {
-    padding-left: 22px;
-    padding-right: 22px;
+	padding-left: 22px;
+	padding-right: 22px;
 }
 
 .difficulty-button {
-    border: 3px solid;
-    font-size: 2rem;
-    width: 120px;
-    height: 55px;
-    margin-bottom: 1.5rem;
-    padding: 0;
-    color: #FFF689;
-    background-color: #ec0b43;
-    font-weight: bold;    
+	border: 3px solid;
+	font-size: 2rem;
+	width: 120px;
+	height: 55px;
+	margin-bottom: 1.5rem;
+	padding: 0;
+	color: #FFF689;
+	background-color: #ec0b43;
+	font-weight: bold;
+}
+
+.difficulty-button:hover {
+	color: #FFF689;
+	background-color: #58355E;
+	transition: .5s;
 }
 
 .unflex {
-    display: contents;
+	display: contents;
 }
 
 i.far.fa-hand-paper.rules-icon {
-    margin: 5px;
-    padding: 14px;
+	margin: 5px;
+	padding: 14px;
 }
 
 #slide-one-images {
-    padding-bottom: 18px;
-    padding-top: 15px;
+	padding-bottom: 18px;
+	padding-top: 15px;
 }
 
 #slide-two-images {
-    padding-top: 1.25rem;
-    padding-bottom: 28px;
+	padding-top: 1.25rem;
+	padding-bottom: 28px;
 }
 
 #slide-three-images {
-    padding-top: .75rem;
-    padding-bottom: 17px;
+	padding-top: .75rem;
+	padding-bottom: 17px;
 }
 
 #difficulty-modal-body {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
+	padding-left: 2.5em;
+	padding-right: 2.5em;
 }
 
 div#ten {
-    padding-left: 18px;
-    padding-right: 18px;
+	padding-left: 18px;
+	padding-right: 18px;
 }
 
 h2#rules {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    font-family: 'Fredoka One';
-    text-transform: uppercase;
+	font-size: 3rem;
+	letter-spacing: 2px;
+	font-family: 'Fredoka One';
+	text-transform: uppercase;
 }
 
 h2#numOfPlayers {
-    font-size: 2.5rem;
-    font-family: 'Fredoka One';
-    padding-top: 25px;
+	font-size: 2.5rem;
+	font-family: 'Fredoka One';
+	padding-top: 25px;
 }
 
 button#rules-quit {
-    background: none;
-    font-weight: bold;
-    font-size: 1.35rem;
-    border: none;
+	background: none;
+	font-weight: bold;
+	font-size: 1.35rem;
+	border: none;
 }
 
 button#difficulty-quit {
-    position: absolute;
-    right: 2%;
-    bottom: 0%;
-    font-size: 2rem;
-    background-color: transparent;
-    border: none;
+	position: absolute;
+	right: 2%;
+	bottom: 0%;
+	font-size: 2rem;
+	background-color: transparent;
+	border: none;
 }
 
 p#difficulty-tagline {
-    font-size: 1.25rem;
-    font-weight: bold;
+	font-size: 1.25rem;
+	font-weight: bold;
 }
 
-span#next-icon, span#prev-icon {
-    width: 3rem;
-    height: 42px;
+span#next-icon,
+span#prev-icon {
+	width: 3rem;
+	height: 42px;
 }
+
 
 /* ------- Game page */
 
 .game-container {
-    height: 100vh;
-    border: 1px solid;
+	height: 100vh;
+	border: 1px solid;
 }
 
 .game-info {
-    height: 16vh;
-    /* border-bottom: 1px solid;
+	height: 16vh;
+	/* border-bottom: 1px solid;
     border-radius: 5px; */
 }
 
 .game-info-heading {
-    text-decoration: underline;
-    font-weight: bold;
+	text-decoration: underline;
+	font-weight: bold;
 }
 
 .game-info-content {
-    letter-spacing: 1px;
-    font-size: 1.25rem;
+	letter-spacing: 1px;
+	font-size: 1.25rem;
 }
 
 .game-info-quit {
-    position: absolute;
-    right: 5px;
-    font-size: 100%;
-    background-color: #ec0b43;
-    color: #FFF689;
-    border: 2px solid #fff689;
-    padding: 5px;
-    padding-top: 0px;
-    padding-bottom: 1px;
+	position: absolute;
+	right: 5px;
+	font-size: 100%;
+	background-color: #ec0b43;
+	color: #FFF689;
+	border: 2px solid #fff689;
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 1px;
+}
+
+.game-info-quit:hover {
+	background-color: #FFF689;
+	color: #ec0b43;
+	border: 2px solid #58355E;
 }
 
 .game-area {
-    height: 60vh;
-    border-bottom: 1px solid;
-    border-top: 1px solid;
-    border-radius: 5px;
+	height: 60vh;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+	border-radius: 5px;
 }
 
 .game-buttons-section {
-    height: 24vh;
-    padding-top: 3px;
-    /* border-top: 1px solid; */
-
+	height: 24vh;
+	padding-top: 3px;
+	/* border-top: 1px solid; */
 }
 
 .game-image {
-    height: 144px;
-    transform: rotate(0deg);
+	height: 144px;
+	transform: rotate(0deg);
 }
 
 .transparent {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 .game-input {
-    background-color: transparent;
-    color: rgb(255, 246, 137);
-    border: 3px solid;
-    font-size: 1.75em;
-    border-radius: 50%;
-    margin: 2px;
+	background-color: transparent;
+	color: rgb(255, 246, 137);
+	border: 3px solid;
+	font-size: 1.75em;
+	border-radius: 50%;
+	margin: 2px;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .game-input:hover {
-    color: #ec0b43;
-    background-color: rgb(255, 246, 137);
-    border-color: #58355e;
+	color: #ec0b43;
+	background-color: rgb(255, 246, 137);
+	border-color: #58355e;
 }
 
 .game-input:active {
-    background-color: white;
+	background-color: white;
 }
 
 button.btn.btn-primary.game-input:active {
-    border-color: rgb(255, 246, 137);
-    box-shadow: none !important;
+	border-color: rgb(255, 246, 137);
+	box-shadow: none !important;
 }
 
 .number-icon {
-    width: 56px;
+	width: 56px;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
-    background-color: rgba(255, 246, 137, .7);
-    border-color: rgba(255, 246, 137, .7);
-    color: #ec0b43;
+.btn-primary.disabled,
+.btn-primary:disabled {
+	background-color: rgba(255, 246, 137, .7);
+	border-color: rgba(255, 246, 137, .7);
+	color: #ec0b43;
 }
 
 .text-start {
-    text-align: start;
+	text-align: start;
 }
 
 .text-end {
-    text-align: end;
+	text-align: end;
 }
 
 .mute-btn {
-    font-size: 1.5rem;
-    padding: 8px;
-    position: absolute;
-    right: 5px;
-    top: 10px;
-    cursor: pointer;
+	font-size: 1.5rem;
+	padding: 8px;
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	cursor: pointer;
 }
 
 .end-btn {
-    background-color: #ec0b43;
-    color: #FFF689;
-    border: 2px solid #fff689;
-    padding: 5px;
-    padding-top: 0px;
-    padding-bottom: 1px;
-    font-size: 1.5rem;
-    margin-bottom: 6px;
-    margin-top: 10px;
+	background-color: #ec0b43;
+	color: #FFF689;
+	border: 2px solid #fff689;
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 1px;
+	font-size: 1.5rem;
+	margin-bottom: 6px;
+	margin-top: 10px;
 }
 
 #round-total {
-    font-size: 2em;
+	font-size: 2em;
 }
+
 
 /* ------- Animations */
 
 .game-image-animation {
-    height: 150px;
-    transform: rotate(5deg);
+	height: 150px;
+	transform: rotate(5deg);
 }
+
 
 /* ------- Media queries */
 
 @media screen and (min-width: 375px) {
-    h1 {
-        font-size: 2.75rem;
-    }
-    h2 {
-        font-size: 2rem;
-    }
-    .home-img {
-        height: 195px;
-    }
-    .home-record {
-        padding-top: 30px;
-    }
-    .rules-sub, .slide-sub {
-        font-size: 2rem;
-    }
-    .rules-img {
-        height: 75px;
-    }
-    .rules-icon, .rules-number {
-        border: 4px solid;
-        font-size: 3.5rem;
-        padding: 15px;
-    }
-    .rules-number {
-        font-size: 3rem;
-        padding-left: 28px;
-        padding-right: 28px;
-    }
-    .difficulty-button {
-        font-size: 2.5rem;
-        width: 135px;
-        height: 66px;
-    }
-    .game-input {
-        font-size: 2.25rem;
-        width: 70px;
-    }
-    .game-image {
-        height: 173px;
-    }
-    .game-image-animation {
-        height: 176px;
-    }
-    .game-info-content {
-        font-size: 1.5rem;
-    }
-    .end-btn {
-        font-size: 2rem;
-    }
-    i.far.fa-hand-paper.rules-icon {
-        padding: 16px;
-    }
-    .rules-content, button#rules-quit {
-        font-size: 1.75rem;
-    }
-    #slide-two-images {
-        padding-bottom: 24px;
-        padding-top: 1.75rem;
-    }
-    #slide-three-images {
-        padding-top: 1.2rem;
-    }
-    h2#rules {
-        font-size: 3.5rem;
-    }
-    div#ten {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
-    p#difficulty-tagline {
-        font-size: 1.5rem
-    }
-    button#difficulty-quit {
-        font-size: 3.25rem;
-    }
-    
+	h1 {
+		font-size: 2.75rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	.home-img {
+		height: 195px;
+	}
+	.home-record {
+		padding-top: 30px;
+	}
+	.rules-sub,
+	.slide-sub {
+		font-size: 2rem;
+	}
+	.rules-img {
+		height: 75px;
+	}
+	.rules-icon,
+	.rules-number {
+		border: 4px solid;
+		font-size: 3.5rem;
+		padding: 15px;
+	}
+	.rules-number {
+		font-size: 3rem;
+		padding-left: 28px;
+		padding-right: 28px;
+	}
+	.difficulty-button {
+		font-size: 2.5rem;
+		width: 135px;
+		height: 66px;
+	}
+	.game-input {
+		font-size: 2.25rem;
+		width: 70px;
+	}
+	.game-image {
+		height: 173px;
+	}
+	.game-image-animation {
+		height: 176px;
+	}
+	.game-info-content {
+		font-size: 1.5rem;
+	}
+	.end-btn {
+		font-size: 2rem;
+	}
+	i.far.fa-hand-paper.rules-icon {
+		padding: 16px;
+	}
+	.rules-content,
+	button#rules-quit {
+		font-size: 1.75rem;
+	}
+	#slide-two-images {
+		padding-bottom: 24px;
+		padding-top: 1.75rem;
+	}
+	#slide-three-images {
+		padding-top: 1.2rem;
+	}
+	h2#rules {
+		font-size: 3.5rem;
+	}
+	div#ten {
+		padding-left: 22px;
+		padding-right: 22px;
+	}
+	p#difficulty-tagline {
+		font-size: 1.5rem
+	}
+	button#difficulty-quit {
+		font-size: 3.25rem;
+	}
 }
 
 @media screen and (min-width: 414px) {
-    .home-buttons {
-        height: 15vh;
-        padding-top: 20px
-    }
-    .home-record {
-        height: 25vh;
-    }
-    .difficulty-button {
-        margin-bottom: 2.5rem;
-    }
-    .game-info-quit {
-        right: 12px;
-    }
-    .game-image {
-        height: 190px;
-    }
-    .game-image-animation {
-        height: 195px;
-    }
-    .end-btn {
-        margin-bottom: 0;
-        margin-top: 20px;
-    }
-    .rules-sub, .slide-sub {
-        font-size: 2.25rem;
-        font-weight: bold;
-    }
-    h2#rules {
-    font-size: 4.5rem;
-    }
-    h2#numOfPlayers {
-    font-size: 2.75rem;
-    }
-    button#rules-quit {
-        font-size: 2.5rem;
-    }
-    p#difficulty-tagline {
-    font-size: 1.75rem;
-}
+	.home-buttons {
+		height: 15vh;
+		padding-top: 20px
+	}
+	.home-record {
+		height: 25vh;
+	}
+	.difficulty-button {
+		margin-bottom: 2.5rem;
+	}
+	.game-info-quit {
+		right: 12px;
+	}
+	.game-image {
+		height: 190px;
+	}
+	.game-image-animation {
+		height: 195px;
+	}
+	.end-btn {
+		margin-bottom: 0;
+		margin-top: 20px;
+	}
+	.rules-sub,
+	.slide-sub {
+		font-size: 2.25rem;
+		font-weight: bold;
+	}
+	h2#rules {
+		font-size: 4.5rem;
+	}
+	h2#numOfPlayers {
+		font-size: 2.75rem;
+	}
+	button#rules-quit {
+		font-size: 2.5rem;
+	}
+	p#difficulty-tagline {
+		font-size: 1.75rem;
+	}
 }
 
 @media screen and (min-width: 768px) {
-    .rules-img {
-        width: 38%;
-    }
-    .rules-content {
-        font-size: 2.5rem;
-    }
-    .slide-sub {
-        padding-bottom: 30px;
-        margin-bottom: 25px;
-    }
+	.rules-img {
+		width: 38%;
+	}
+	.rules-content {
+		font-size: 2.5rem;
+	}
+	.slide-sub {
+		padding-bottom: 30px;
+		margin-bottom: 25px;
+	}
 }
 
 @media screen and (min-width: 1200px) {
-    h1 {
-        font-size: 3.25rem;
-    }
-    .disappear {
-        display: none;
-    }
-    .home-container {
-        border: none;
-    }
-    .home-headings {
-        height: 55vh;
-        padding-top: 160px;
-    }
-
-    .home-buttons {
-        height: 17vh;
-        font-size: 130%;
-    }   
-    .home-record {
-        height: 27vh;
-        padding-top: 10px;
-    }
-
-    .heading-content {
-        margin-top: 5rem;
-    }
-    .home-img {
-        height: 215px;
-    }
+	h1 {
+		font-size: 3.25rem;
+	}
+	.disappear {
+		display: none;
+	}
+	.home-container {
+		border: none;
+	}
+	.home-headings {
+		height: 55vh;
+		padding-top: 160px;
+	}
+	.home-buttons {
+		height: 17vh;
+		font-size: 130%;
+	}
+	.home-record {
+		height: 27vh;
+		padding-top: 10px;
+	}
+	.heading-content {
+		margin-top: 5rem;
+	}
+	.home-img {
+		height: 215px;
+	}
 }
 
 @media (min-height: 600px) and (min-width: 768px) {
-    button#rules-quit {
-        padding-left: 50px;
-    }
-    h2#rules {
-        font-size: 3.5rem;
-    }
-    .slide-sub {
-        padding-bottom: 15px;
-        margin-bottom: 5px;
-    }
-    .rules-content {
-        font-size: 1.5rem;
-    }
-    .rules-sub {
-        font-size: 1.75rem;
-    }
-
+	button#rules-quit {
+		padding-left: 50px;
+	}
+	h2#rules {
+		font-size: 3.5rem;
+	}
+	.slide-sub {
+		padding-bottom: 15px;
+		margin-bottom: 5px;
+	}
+	.rules-content {
+		font-size: 1.5rem;
+	}
+	.rules-sub {
+		font-size: 1.75rem;
+	}
 }
 
 @media (min-height: 1024px) and (min-width: 768px) {
-    .game-container {
-        height: 93vh;
-        width: 65vh;
-        margin-top: 36px;
-    }
-    .difficulty-modal-content {
-        height: 65vh;
-    }
-    h2#numOfPlayers {
-    margin-top: 45px;
-    }
+	.game-container {
+		height: 93vh;
+		width: 65vh;
+		margin-top: 36px;
+	}
+	.difficulty-modal-content {
+		height: 65vh;
+	}
+	h2#numOfPlayers {
+		margin-top: 45px;
+	}
+}
 
-}
 @media screen and (min-height: 640px) {
-    .game-image {
-        height: 166px;
-    }
-    .game-image-animation {
-        height: 170px;
-    }
+	.game-image {
+		height: 166px;
+	}
+	.game-image-animation {
+		height: 170px;
+	}
 }
+
 @media screen and (min-height: 730px) {
-    .game-image {
-        height: 192px;
-    }
-    .game-image-animation {
-        height: 197px;
-    }
+	.game-image {
+		height: 192px;
+	}
+	.game-image-animation {
+		height: 197px;
+	}
 }
+
 @media screen and (min-height: 795px) {
-    .home-images {
-        height: 25vh
-    }
-    .home-buttons {
-        height: 15vh;
-        padding-top: 35px;
-    }
-    .home-record {
-        height: 31vh;
-    }
-    h2#numOfPlayers {
-        font-size: 2.75rem;
-    }
-    p#difficulty-tagline {
-        font-size: 1.75rem;
-    }
-    .difficulty-button {
-        margin-bottom: 2.25rem;
-    }
-    h2#rules {
-        margin-top: 55px;
-    }
-    .game-image {
-        height: 210px;
-    }
-    .game-image-animation {
-        height: 215px;
-    }
+	.home-images {
+		height: 25vh
+	}
+	.home-buttons {
+		height: 15vh;
+		padding-top: 35px;
+	}
+	.home-record {
+		height: 31vh;
+	}
+	h2#numOfPlayers {
+		font-size: 2.75rem;
+	}
+	p#difficulty-tagline {
+		font-size: 1.75rem;
+	}
+	.difficulty-button {
+		margin-bottom: 2.25rem;
+	}
+	h2#rules {
+		margin-top: 55px;
+	}
+	.game-image {
+		height: 210px;
+	}
+	.game-image-animation {
+		height: 215px;
+	}
 }
+
 @media screen and (min-height: 1000px) {
-    .game-container {
-        height: 90vh;
-        margin-top: 50px;
-    }
-    .game-area {
-        padding-top: 37px;
-    }
-    .game-image {
-        height: 245px;
-    }
-    .game-image-animation {
-        height: 255px;
-    }
-    .game-info {
-        height: 13vh;
-    }
-    .game-info-quit {
-        right: 36px;
-    }
+	.game-container {
+		height: 90vh;
+		margin-top: 50px;
+	}
+	.game-area {
+		padding-top: 37px;
+	}
+	.game-image {
+		height: 245px;
+	}
+	.game-image-animation {
+		height: 255px;
+	}
+	.game-info {
+		height: 13vh;
+	}
+	.game-info-quit {
+		right: 36px;
+	}
 }
+
 @media screen and (min-height: 1300px) {
-    .home-images {
-        height: 18vh;
-    }
-    .home-headings {
-        height: 29vh;
-    }
-    .home-button {
-        font-size: 200%;
-    }
-    .home-record {
-        height: 38vh;
-    }
-    .modal-content {
-        height: 65vh;
-    }
-    .rules-sub {
-        font-size: 2.5rem;
-    }
-    .rules-content {
-        font-size: 2rem;
-    }
-    .slide-sub {
-        padding-bottom: 20px;
-        margin-bottom: 15px;
-    }
-    .game-container {
-        height: 83vh;
-        margin-top: 114px;
-        width: 61vh;
-    }
-    .game-info {
-        height: 9vh;
-    }
-    .game-info-quit {
-        right: 53px;
-    }
-    .game-area {
-        padding-top: 120px;
-    }
-    .game-image {
-        height: 245px
-    }
-    .game-buttons-section {
-        height: 12vh;
-        padding-top: 17px;
-    }
-    h2#numOfPlayers {
-    font-size: 3rem;
-    margin-top: 25px;
-    }
-    p#difficulty-tagline {
-    font-size: 2.25rem;
-    margin-bottom: 30px;
-    }
-    .difficulty-button {
-    margin-top: 20px;
-    }
+	.home-images {
+		height: 18vh;
+	}
+	.home-headings {
+		height: 29vh;
+	}
+	.home-button {
+		font-size: 200%;
+	}
+	.home-record {
+		height: 38vh;
+	}
+	.modal-content {
+		height: 65vh;
+	}
+	.rules-sub {
+		font-size: 2.5rem;
+	}
+	.rules-content {
+		font-size: 2rem;
+	}
+	.slide-sub {
+		padding-bottom: 20px;
+		margin-bottom: 15px;
+	}
+	.game-container {
+		height: 83vh;
+		margin-top: 114px;
+		width: 61vh;
+	}
+	.game-info {
+		height: 9vh;
+	}
+	.game-info-quit {
+		right: 53px;
+	}
+	.game-area {
+		padding-top: 120px;
+	}
+	.game-image {
+		height: 245px
+	}
+	.game-buttons-section {
+		height: 12vh;
+		padding-top: 17px;
+	}
+	h2#numOfPlayers {
+		font-size: 3rem;
+		margin-top: 25px;
+	}
+	p#difficulty-tagline {
+		font-size: 2.25rem;
+		margin-bottom: 30px;
+	}
+	.difficulty-button {
+		margin-top: 20px;
+	}
 }
+
 @media screen and (min-width: 1300px) {
-    .game-info-quit {
-        right: 75px;
-    }
-    .game-area {
-        padding-top: 25px;
-    }
+	.game-info-quit {
+		right: 75px;
+		top: 15px;
+	}
+	.game-area {
+		padding-top: 25px;
+	}
 }
