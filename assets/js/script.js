@@ -37,7 +37,9 @@ $(document).ready(function () {
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener('mousedown', function() {
-            clickSound.play();
+            if(game.soundsOn === true) {
+                clickSound.play();
+            }
         })
     }
     $('.mute-btn').click(function() {
@@ -154,7 +156,9 @@ function roundAnimation() {
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`1`);
-        noiseOne.play();
+        if (game.soundsOn === true) {
+            noiseOne.play();
+        }
     },1000);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -162,7 +166,9 @@ function roundAnimation() {
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`2`);
-        noiseTwo.play();
+        if(game.soundsOn) {
+            noiseTwo.play();
+        }
     },1400);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -170,7 +176,9 @@ function roundAnimation() {
     setTimeout(function() {
         $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`3`);
-        noiseOne.play();
+        if(game.soundsOn) {
+            noiseOne.play();
+        }
     },1800);
     setTimeout(function() {
         $('.game-image').removeClass('game-image-animation');
@@ -189,10 +197,14 @@ function roundAnimation() {
         }
         if (game.userTurn === true) {
             $('#round-total').text(`${game.userGuess}!`);
-            noiseThree.play();
+            if(game.soundsOn) {
+                noiseThree.play();
+            }
         } else {
             $('#round-total').text(`C: ${game.computerGuess}!`);
-            noiseThree.play();
+            if(game.soundsOn) {
+                noiseThree.play();
+            }
         }
     }, 2200);
 }
@@ -216,15 +228,21 @@ function playRound() {
         meh.src = "assets/sounds/meh.mp3";
         if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
-            yay.play();
+            if(game.soundsOn) {
+                yay.play();
+            }
             incrementUserScore();
         } else if (game.computerTurn && game.computerGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
-            yay.play();
+            if(game.soundsOn) {
+                yay.play();
+            }
             incrementComputerScore();
         } else {
             $('#round-total').text(`No good!`);
-            meh.play();
+            if(game.soundsOn) {
+                meh.play();
+            }
         }
     },3000);
     // Reverses the true/false of who's go it is, and calls userInput()
