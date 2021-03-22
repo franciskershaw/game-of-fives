@@ -29,6 +29,7 @@ h2 {
 
 .home-container {
     max-height: 100vh;
+    max-width: 1200px;
     border: solid;
 }
 
@@ -274,7 +275,7 @@ span#next-icon, span#prev-icon {
 
 .game-info-quit {
     position: absolute;
-    right: 0px;
+    right: 5px;
     font-size: 100%;
     background-color: #ec0b43;
     color: #FFF689;
@@ -478,7 +479,7 @@ button.btn.btn-primary.game-input:active {
         margin-bottom: 2.5rem;
     }
     .game-info-quit {
-        right: 10px;
+        right: 12px;
     }
     .game-image {
         height: 190px;
@@ -528,17 +529,21 @@ button.btn.btn-primary.game-input:active {
     .disappear {
         display: none;
     }
+    .home-container {
+        border: none;
+    }
     .home-headings {
         height: 55vh;
-        padding-top: 115px;
+        padding-top: 160px;
     }
+
     .home-buttons {
         height: 17vh;
-        padding-top: 20px;
         font-size: 130%;
     }   
     .home-record {
         height: 27vh;
+        padding-top: 10px;
     }
 
     .heading-content {
@@ -546,21 +551,6 @@ button.btn.btn-primary.game-input:active {
     }
     .home-img {
         height: 215px;
-    }
-}
-
-@media screen and (min-height: 800px) {
-    h2#numOfPlayers {
-        font-size: 2.75rem;
-    }
-    p#difficulty-tagline {
-        font-size: 1.75rem;
-    }
-    .difficulty-button {
-        margin-bottom: 2.25rem;
-    }
-    h2#rules {
-        margin-top: 55px;
     }
 }
 
@@ -585,15 +575,99 @@ button.btn.btn-primary.game-input:active {
 }
 
 @media (min-height: 1024px) and (min-width: 768px) {
+    .game-container {
+        height: 93vh;
+        width: 65vh;
+        margin-top: 36px;
+    }
     .difficulty-modal-content {
         height: 65vh;
     }
     h2#numOfPlayers {
     margin-top: 45px;
     }
-}
 
-@media (min-height: 1366px) and (min-width: 1024px) {
+}
+@media screen and (min-height: 640px) {
+    .game-image {
+        height: 166px;
+    }
+    .game-image-animation {
+        height: 170px;
+    }
+}
+@media screen and (min-height: 730px) {
+    .game-image {
+        height: 192px;
+    }
+    .game-image-animation {
+        height: 197px;
+    }
+}
+@media screen and (min-height: 795px) {
+    .home-images {
+        height: 25vh
+    }
+    .home-buttons {
+        height: 15vh;
+        padding-top: 35px;
+    }
+    .home-record {
+        height: 31vh;
+    }
+    h2#numOfPlayers {
+        font-size: 2.75rem;
+    }
+    p#difficulty-tagline {
+        font-size: 1.75rem;
+    }
+    .difficulty-button {
+        margin-bottom: 2.25rem;
+    }
+    h2#rules {
+        margin-top: 55px;
+    }
+    .game-image {
+        height: 210px;
+    }
+    .game-image-animation {
+        height: 215px;
+    }
+}
+@media screen and (min-height: 1000px) {
+    .game-container {
+        height: 90vh;
+        margin-top: 50px;
+    }
+    .game-area {
+        padding-top: 37px;
+    }
+    .game-image {
+        height: 245px;
+    }
+    .game-image-animation {
+        height: 255px;
+    }
+    .game-info {
+        height: 13vh;
+    }
+    .game-info-quit {
+        right: 36px;
+    }
+}
+@media screen and (min-height: 1300px) {
+    .home-images {
+        height: 18vh;
+    }
+    .home-headings {
+        height: 29vh;
+    }
+    .home-button {
+        font-size: 200%;
+    }
+    .home-record {
+        height: 38vh;
+    }
     .modal-content {
         height: 65vh;
     }
@@ -607,6 +681,27 @@ button.btn.btn-primary.game-input:active {
         padding-bottom: 20px;
         margin-bottom: 15px;
     }
+    .game-container {
+        height: 83vh;
+        margin-top: 114px;
+        width: 61vh;
+    }
+    .game-info {
+        height: 9vh;
+    }
+    .game-info-quit {
+        right: 53px;
+    }
+    .game-area {
+        padding-top: 120px;
+    }
+    .game-image {
+        height: 245px
+    }
+    .game-buttons-section {
+        height: 12vh;
+        padding-top: 17px;
+    }
     h2#numOfPlayers {
     font-size: 3rem;
     margin-top: 25px;
@@ -617,5 +712,13 @@ button.btn.btn-primary.game-input:active {
     }
     .difficulty-button {
     margin-top: 20px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .game-info-quit {
+        right: 75px;
+    }
+    .game-area {
+        padding-top: 25px;
     }
 }
