@@ -329,6 +329,12 @@ span#prev-icon {
 	transform: rotate(0deg);
 }
 
+.extra-middle-hand {
+    height: 100px;
+    position: absolute;
+    bottom: -25px;
+}
+
 .transparent {
 	opacity: 0.7;
 }
@@ -409,6 +415,25 @@ button.btn.btn-primary.game-input:active {
 
 #round-total {
 	font-size: 2em;
+}
+
+#top-left {
+    transform: rotate(-45deg);
+    padding-top: 20px;
+}
+
+#top-right {
+    transform: rotate(45deg) scaleX(-1);
+    padding-top: 20px;
+}
+
+#middle-left {
+    transform: rotate(-90deg);
+}
+
+#middle-right {
+    transform: rotate(90deg) scaleX(-1);
+    right: 23px;
 }
 
 
