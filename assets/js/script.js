@@ -142,8 +142,22 @@ function userGuess() {
 
 // Each round, computerInput is updated to either 0 or 5;
 function computerInput() {
-	game.computerInput = Math.random() < 0.5 ? 0 : 5;
-	// Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
+    game.computerInput = Math.random() < 0.5 ? 0 : 5;
+    let inputArray = [];
+    for (let i = 0; i < parseInt(game.computerPlayers); i++) {
+        rand = Math.random() < 0.5 ? 0 : 5;
+        inputArray.push(rand);
+        console.log(inputArray);
+    }
+    // Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
+    // if (game.computerPlayers == 1) {
+    //     console.log("1 comp player")
+    // } else if (game.computerPlayers == 2) {
+    //     console.log("2 comp player")
+    // } else {
+    //     console.log("3 comp player")
+    // }
+
 }
 
 // Each round, add computerInput and userInput together to update correctScore
