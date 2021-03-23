@@ -77,15 +77,15 @@ h2 {
 	text-transform: uppercase;
 	margin-right: 0.75em;
 	margin-left: 0.75em;
-	letter-spacing: 3px;
+    letter-spacing: 3px;
+    transition: transform 0.65s;
 }
 
 .home-button:hover {
 	background-color: #FFF689;
 	color: #ec0b43;
 	border: 2px solid #58355E;
-	font-size: 170%;
-	transition: .5s;
+	transform: scale(1.15);
 }
 
 button.btn.btn-primary.home-button:active {
