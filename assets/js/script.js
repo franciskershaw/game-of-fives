@@ -29,9 +29,9 @@ $(document).ready(function () {
 	if (game.loseRecord === null) {
 		game.loseRecord = 0;
 	}
-	console.log(`Amount of computer players: ${game.computerPlayers}`);
 	$('#win-record').text(`${game.winRecord}`);
-	$('#lose-record').text(`${game.loseRecord}`);
+    $('#lose-record').text(`${game.loseRecord}`);
+    setGameHtml();
 	countDown();
 	let clickSound = new Audio();
 	clickSound.src = "assets/sounds/clickeffect.mp3";
@@ -60,6 +60,19 @@ $(document).ready(function () {
 		}
 	})
 });
+
+// Checks how many computer players there are, and sets HTML accordingly
+
+function setGameHtml() {
+    if (game.computerPlayers == 1) {
+        console.log('Default game!')
+    } else if (game.computerPlayers == 2) {
+        $('#computer-hand').addClass('hidden');
+        $('.extra-top-hand').removeClass('hidden');
+    } else {
+        $('.extra-middle-hand').removeClass('hidden');
+    }
+}
 
 // 3,2,1 countdown to start the game off calls userInput for the first time
 function countDown() {
@@ -276,7 +289,7 @@ function incrementComputerScore() {
 	$('#computer-score').text(`${game.computerScore}`);
 }
 
-// Called once either the computer or the user reaches 5 points
+// Called once either the computer or the user reaches 3 points
 // Gives user feedback that the game is over, either as a win or a loss
 // Sound effects for victory or defeat
 // Offers opportunity to play again or quit
@@ -311,7 +324,6 @@ function endGame() {
 }
 
 function updateWinRecord() {
-	console.log("updateWinRecord has been called");
 	if (game.userScore === 3) {
 		game.winRecord++;
 		$('#win-record').text(`${game.winRecord}`);
