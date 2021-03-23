@@ -72,6 +72,7 @@ function setGameHtml() {
         $('#fifteen').removeClass('hidden');
     } else {
         $('.extra-middle-hand').removeClass('hidden');
+        console.log("very difficult!");
     }
 }
 
@@ -130,8 +131,10 @@ function userGuess() {
 			game.userGuess = 0;
 		} else if (this === document.getElementById('five')) {
 			game.userGuess = 5;
-		} else {
-			game.userGuess = 10;
+        } else if (this === document.getElementById('ten')) {
+            game.userGuess = 10;
+        } else {
+			game.userGuess = 15;
 		}
 		playRound();
 	});
