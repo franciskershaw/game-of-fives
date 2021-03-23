@@ -69,6 +69,7 @@ function setGameHtml() {
     } else if (game.computerPlayers == 2) {
         $('#computer-hand').addClass('hidden');
         $('.extra-top-hand').removeClass('hidden');
+        $('#fifteen').removeClass('hidden');
     } else {
         $('.extra-middle-hand').removeClass('hidden');
     }
@@ -297,7 +298,6 @@ function incrementComputerScore() {
 // Resets the scores
 
 function endGame() {
-	console.log("Game over");
 	updateWinRecord();
 	if (game.userScore === 3) {
 		$('#round-total').text(`You've won!`);
@@ -307,9 +307,7 @@ function endGame() {
 	$('.game-info-quit').addClass('hidden');
 	$('.end-game-btns').removeClass('hidden');
 	$('.game-btns').addClass('hidden');
-	$('.change-end-game').removeClass('col-1').addClass('col-2');
 	$('#play').click(function () {
-		console.log("User want's to play again");
 		game.userTurn = true;
 		game.computerTurn = false;
 		game.userScore = 0;
@@ -318,7 +316,6 @@ function endGame() {
 		$('#player-score').text("0");
 		$('.end-game-btns').addClass('hidden');
 		$('.game-btns').removeClass('hidden');
-		$('.change-end-game').removeClass('col-2').addClass('col-1');
 		countDown();
 	});
 }
