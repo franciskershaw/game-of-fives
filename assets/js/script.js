@@ -167,13 +167,31 @@ function updateCorrectScore() {
 
 // On the computer's go, update computerGuess to either 0, 5 or 10
 function computerGuess() {
-    if (game.computerInput === 0) {
-        // Generate 0 or 5
-        game.computerGuess = Math.random() < 0.5 ? 0 : 5;
-    } else {
-        // Generate 5 or 10
-        game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
+    // sum the computer input array
+    let arr = game.inputArray;
+    let sumOfComputer = arr.reduce(add,0);
+    function add(accumulator, a) {
+        return accumulator + a;
     }
+    if (sumOfComputer === 0) {
+            // generate 0 or 5
+            game.computerGuess = Math.random() < 0.5 ? 0 : 5;
+    } else if (sumOfComputer === 5) {
+        if (game.computerPlayers == 1 || game.computerPlayers == 2) {
+            // generate 5 or 10
+            game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
+        } else {
+            // generate 5, 10 or 15
+            game.computerGuess = Math.floor(Math.random() * (3 - 1 + 1) + 1) * 5;
+        }
+    } else if (sumOfComputer === 10) {
+            // generate 10 or 15
+            game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 2) * 5;
+    } else {
+            // generate 15 or 20
+        game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 3) * 5;
+    }
+   console.log(`ComputerGuess called, there are ${game.computerPlayers} computer players, the sum of the computer inputs is ${sumOfComputer}, the computer guess is ${game.computerGuess}`);
 }
 
 // Animation that occurs each round before displaying of guess and updating of scores
@@ -279,7 +297,6 @@ function roundAnimation() {
                     noiseThree.play();
                 }
             }
-        console.log(game.inputArray);
     }, 2200);
 }
 
