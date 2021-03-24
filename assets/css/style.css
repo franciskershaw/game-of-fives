@@ -454,6 +454,19 @@ button.btn.btn-primary.game-input:active {
     h2 {
         font-size: 2rem;
     }
+    .game-container {
+        height: 80vh;
+        margin-top: 72px;
+    }
+    .game-info {
+        height: 13vh;
+    }
+    .game-area {
+        height: 47vh;
+    }
+    .game-buttons-section {
+        height: 18vh;
+    }
 }
 
 @media screen and (min-width: 768px) {
