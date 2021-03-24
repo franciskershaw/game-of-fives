@@ -132,8 +132,10 @@ function userGuess() {
             game.userGuess = 5;
         } else if (this === document.getElementById('ten')) {
             game.userGuess = 10;
-        } else {
+        } else if (this === document.getElementById('fifteen')) {
             game.userGuess = 15;
+        } else {
+            game.userGuess = 20;
         }
         playRound();
     });
