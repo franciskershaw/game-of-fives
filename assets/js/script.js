@@ -69,6 +69,8 @@ function setGameHtml() {
         $('#fifteen').removeClass('hidden');
     } else {
         $('.extra-middle-hand').removeClass('hidden');
+        $('#fifteen').removeClass('hidden');
+        $('#twenty').removeClass('hidden');
     }
 }
 
@@ -347,6 +349,8 @@ function playRound() {
         };
         $('.game-image').addClass("transparent");
         $('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
+        $('.extra-top-hand').attr('src', 'assets/images/fistfacedown.png');
+        $('.extra-middle-hand').attr('src', 'assets/images/fistfacedown.png');
         $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
         userInput();
     }, 4000);
