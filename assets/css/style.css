@@ -115,8 +115,15 @@ button.btn.btn-primary.home-button:focus {
 
 .modal-content {
 	background-color: #58355E;
-	height: 90vh;
-	;
+}
+
+.difficulty-modal-body {
+    max-height: 90vh;
+}
+
+.modal-content.\.rules-modal-body {
+    height: 90vh;
+    max-height: 520px;
 }
 
 .carousel {
@@ -150,7 +157,8 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .rules-img {
-	width: 49%;
+    width: 49%;
+    max-width: 153px;
 	height: 56px;
 	display: inline-block;
 }
@@ -240,7 +248,8 @@ button#rules-quit {
 	background: none;
 	font-weight: bold;
 	font-size: 1.35rem;
-	border: none;
+    border: none;
+    float: right;
 }
 
 button#difficulty-quit {
