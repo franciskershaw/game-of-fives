@@ -31,7 +31,7 @@ h2 {
 .home-container {
 	max-height: 100vh;
 	max-width: 1200px;
-	border: solid;
+	border: 2px solid;
 }
 
 .home-headings {
@@ -442,16 +442,39 @@ button.btn.btn-primary.game-input:active {
     h1 {
         font-size: 3.5rem;
     }
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home-img {
+        height: 235px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .home-button {
+        font-size: 200%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     h1 {
         font-size: 3rem;
+        padding-top: 55px;
     }
 	.disappear {
 		display: none;
     }
+    .home-container {
+        border: none;
+        margin-top: 5%;
+    }
+    .home-headings {
+        height: 45vh;
+    }
     .home-buttons {
-        margin-top: 75px;
+        height: 14vh;
     }
 }
