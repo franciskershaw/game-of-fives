@@ -96,6 +96,7 @@ function countDown() {
 // Click events active on hand icons which update game.userInput
 // Click will call userGuess if userTurn = true, else playComputerRound is called
 function userInput() {
+    game.inputArray = [];
     $('.game-info-quit').removeClass('hidden');
     if (game.userScore < 3 && game.computerScore < 3) {
         document.getElementById("round-total").innerHTML = "Play!";
@@ -155,7 +156,13 @@ function computerInput() {
 
 // Each round, add computerInput and userInput together to update correctScore
 function updateCorrectScore() {
-    game.correctScore = game.userInput + game.computerInput;
+    let arr = game.inputArray;
+    let sumOfComputer = arr.reduce(add,0);
+    function add(accumulator, a) {
+        return accumulator + a;
+    }
+    game.correctScore = game.userInput + sumOfComputer;
+    // Source: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 }
 
 // On the computer's go, update computerGuess to either 0, 5 or 10
