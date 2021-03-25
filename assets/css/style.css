@@ -570,14 +570,17 @@ button.btn.btn-primary.game-input:active {
     }
 }
 
-@media screen and (orientation:landscape)
-and (min-device-width: 992px) 
-and (max-device-height: 768px) {
+@media (min-width: 992px) and (max-height: 768px) {
    .game-container {
-       margin-top: 70px;
+       margin-top: 55px;
+       width: 950px;
+       height: 84vh;
+   }
+   .game-info {
+       height: 15vh;
    }
    .game-image {
-        height: 135px;
+        height: 120px;
    }
    .game-input {
         font-size: 1.75em;
