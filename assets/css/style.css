@@ -569,3 +569,21 @@ button.btn.btn-primary.game-input:active {
         height: 175px;
     }
 }
+
+@media screen and (orientation:landscape)
+and (min-device-width: 992px) 
+and (max-device-height: 768px) {
+   .game-container {
+       margin-top: 70px;
+   }
+   .game-image {
+        height: 135px;
+   }
+   .game-input {
+        font-size: 1.75em;
+        width: 60px;
+    }
+    button#palm {
+        width: 60px;
+    }
+}
