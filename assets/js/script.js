@@ -64,7 +64,8 @@ $(document).ready(function () {
 function setGameHtml() {
     if (game.computerPlayers == 1) {
     } else if (game.computerPlayers == 2) {
-        $('#computer-hand').addClass('hidden');
+        $('#remove-two-player').remove();
+        $('.add-col-two-player').removeClass('col-4').addClass('col-6');
         $('.extra-top-hand').removeClass('hidden');
         $('#fifteen').removeClass('hidden');
     } else {
