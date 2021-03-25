@@ -16,17 +16,17 @@
     <div class="container game-container">
         <!-- Game information - 25% of viewport -->
         <div class="container game-info">
-            <div class="row game-info-content">
+            <div class="row align-items-center game-info-content">
                 <div class="col-5 text-start"><span class="game-info-heading">Scores:</span></div>
                 <div class="col-2"></div>
                 <div class="col-5 text-end"><span class="game-info-heading">Overall:</span></div>
             </div>
-            <div class="row game-info-content">
-                <div class="col-5 text-start"><span>P :  <span id="player-score">0</span></span></div>
-                <div class="col-2"><a class="btn btn-primary game-info-quit hidden" href="index.html" role="button">Quit</a></div>
-                <div class="col-5 text-end"><span>Win : </span><span id="win-record"></span></div>
+            <div class="row align-items-center game-info-content">
+                <div class="col-4 text-start"><span>P :  <span id="player-score">0</span></span></div>
+                <div class="col-4 align-self-end"><a class="btn btn-primary game-info-quit hidden" href="index.html" role="button">Quit</a></div>
+                <div class="col-4 text-end"><span>Win : </span><span id="win-record"></span></div>
             </div>
-            <div class="row game-info-content">
+            <div class="row align-items-start game-info-content">
                 <div class="col-5 text-start"><span>C :  <span id="computer-score">0</span></span></div>
                 <div class="col-2"></div>
                 <div class="col-5 text-end"><span>Loss : </span><span id="lose-record"></span></div>
@@ -34,17 +34,17 @@
         </div>
         <!-- Game area - 50% of viewport -->
         <div class="container game-area">
-            <div class="row">
+            <div class="row align-items-end image-row">
                 <div class="col-4"><span><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="" id="top-left"></span></div>
                 <div class="col-4"><span><img src="assets/images/fistfacedown.png" class="game-image transparent" alt="" id="computer-hand"></span></div>
                 <div class="col-4"><span><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="" id="top-right"></span></div>
             </div>
-            <div class="row">
+            <div class="row align-items-center game-middle-row">
                 <div class="col-2"><span><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="" id="middle-left"></span></div>
                 <div class="col-8"><span id="round-total">Ready?</span></div>
                 <div class="col-2"><span><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="" id="middle-right"></span></div>
             </div>
-            <div class="row">
+            <div class="row align-items-start image-row">
                 <div class="col-4"></div>
                 <div class="col-4"><img src="assets/images/fistfaceup.png" class="game-image transparent" alt="" id="player-hand"></div>
                 <div class="col-4"></div>
@@ -52,16 +52,16 @@
         </div>
         <!-- User Inputs - 25% of viewport -->
         <div class="container game-buttons-section">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8 game-btns">                           
+            <div class="row align-items-end input-row">
+                <div class="col-2 col-md-4"></div>
+                <div class="col-8 col-md-4 game-btns">                           
                     <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button>
                     <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
                 </div>
-                <div class="col-8 hidden end-game-btns"><button type="button" class="btn btn-primary end-btn" id="play">Play again?</button></div>
-                <div class="col-2"><i class="fas fa-volume-up mute-btn" id="volume-on"></i><i class="hidden fas fa-volume-mute mute-btn" id="volume-off"></i></div>
+                <div class="col-8 col-md-4 hidden end-game-btns"><button type="button" class="btn btn-primary end-btn" id="play">Play again?</button></div>
+                <div class="col-2 col-md-4 align-self-center"><i class="fas fa-volume-up mute-btn" id="volume-on"></i><i class="hidden fas fa-volume-mute mute-btn" id="volume-off"></i></div>
             </div>    
-             <div class="row">
+             <div class="row align-items-start input-row">
                 
                 <div class="col-12 game-btns">
                     <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>

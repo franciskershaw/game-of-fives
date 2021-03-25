@@ -291,12 +291,11 @@ span#prev-icon {
 
 .game-info-content {
 	letter-spacing: 1px;
-	font-size: 1.25rem;
+    font-size: 1.25rem;
+    height: 33%;
 }
 
 .game-info-quit {
-	position: absolute;
-	right: 5px;
 	font-size: 100%;
 	background-color: #ec0b43;
 	color: #FFF689;
@@ -319,9 +318,21 @@ span#prev-icon {
 	border-radius: 5px;
 }
 
+.image-row {
+    height: 42%
+}
+
+.game-middle-row {
+    height: 16%;
+}
+
 .game-buttons-section {
 	height: 24vh;
 	padding-top: 3px;
+}
+
+.input-row {
+    height: 50%;
 }
 
 .game-image {
@@ -389,9 +400,6 @@ button.btn.btn-primary.game-input:active {
 .mute-btn {
 	font-size: 1.5rem;
 	padding: 8px;
-	position: absolute;
-	right: 5px;
-	top: 10px;
 	cursor: pointer;
 }
 
@@ -447,6 +455,28 @@ button.btn.btn-primary.game-input:active {
 
 /* ------- Media queries */
 
+@media screen and (min-width: 375px) {
+    .game-input {
+        font-size: 2.25em;
+    }
+    .number-icon {
+        width: 66px;
+    }
+    button#palm {
+        width: 65px;
+    }
+}
+
+@media screen and (min-height: 640px) {
+    .game-info {
+        height: 13vh;
+    }
+    .game-area {
+        height: 63vh;
+    }
+}
+
+
 @media screen and (min-width: 576px) {
     h1 {
         font-size: 3.5rem;
@@ -470,14 +500,38 @@ button.btn.btn-primary.game-input:active {
 }
 
 @media screen and (min-width: 768px) {
+    .game-container {
+        margin-top: 94px;
+        border: 4px solid;
+        border-radius: 30px;
+    }
     .home-img {
         height: 235px;
+    }
+    .game-info-content {
+        font-size: 1.5rem;
+    }
+    .game-info-quit {
+        font-size: 120%;
+    }
+    .mute-btn {
+        font-size: 2.5rem;
+    }
+    .end-btn {
+        font-size: 2.25rem;
     }
 }
 
 @media screen and (min-width: 992px) {
     .home-button {
         font-size: 200%;
+    }
+    .game-input {
+        font-size: 2.75em;
+        width: 79px;
+    }
+    button#palm {
+        width: 79px;
     }
 }
 
@@ -507,5 +561,11 @@ button.btn.btn-primary.game-input:active {
     }
     .home-record {
         height: 32vh;
+    }
+}
+
+@media screen and (min-height: 700px) {
+    .game-image {
+        height: 175px;
     }
 }
