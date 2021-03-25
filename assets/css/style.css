@@ -340,10 +340,6 @@ span#prev-icon {
 	transform: rotate(0deg);
 }
 
-.extra-top-hand {
-    height: 1
-}
-
 .extra-middle-hand {
     height: 100px;
     position: absolute;
@@ -527,6 +523,15 @@ button.btn.btn-primary.game-input:active {
     .end-btn {
         font-size: 2.25rem;
     }
+    .add-col-two-player.pad-left.col-6 {
+        padding-left: 125px;
+    }
+    .add-col-two-player.pad-right.col-6 {
+        padding-right: 125px;
+    }
+    .add-col-two-player.col-6 {
+        padding-top: 50px;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -536,6 +541,15 @@ button.btn.btn-primary.game-input:active {
     .game-input {
         font-size: 2.75em;
         width: 79px;
+    }
+    .add-col-two-player.pad-left.col-6 {
+        padding-left: 175px;
+    }
+    .add-col-two-player.pad-right.col-6 {
+        padding-right: 175px;
+    }
+    .add-col-two-player.col-6 {
+        padding-top: 100px;
     }
     button#palm {
         width: 79px;
@@ -559,6 +573,10 @@ button.btn.btn-primary.game-input:active {
     }
     .home-buttons {
         height: 14vh;
+    }
+    
+    .add-col-two-player.col-6 {
+        padding-top: 50px;
     }
 }
 
@@ -592,6 +610,13 @@ button.btn.btn-primary.game-input:active {
    .game-input {
         font-size: 1.75em;
         width: 60px;
+    }
+    .extra-top-hand {
+        height: 144px;
+    }
+    
+    .add-col-two-player.col-6 {
+        padding-top: 20px;
     }
     button#palm {
         width: 60px;
