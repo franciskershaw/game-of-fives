@@ -340,6 +340,10 @@ span#prev-icon {
 	transform: rotate(0deg);
 }
 
+.extra-top-hand {
+    height: 1
+}
+
 .extra-middle-hand {
     height: 100px;
     position: absolute;
@@ -456,6 +460,9 @@ button.btn.btn-primary.game-input:active {
 /* ------- Media queries */
 
 @media screen and (min-width: 375px) {
+    .extra-top-hand {
+        height: 150px;
+    }
     .game-input {
         font-size: 2.25em;
     }
