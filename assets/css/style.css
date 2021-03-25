@@ -608,17 +608,27 @@ button.btn.btn-primary.game-input:active {
         height: 120px;
    }
    .game-input {
-        font-size: 1.75em;
-        width: 60px;
+        font-size: 1.5em;
+        width: 55px;
+        margin-left: 1px;
+        margin-right: 1px;
     }
     .extra-top-hand {
         height: 144px;
     }
-    
+    .game-buttons-section {
+        height: 20vh;
+    }
+    .add-col-two-player.pad-left.col-6 {
+        padding-left: 175px;
+    }
+    .add-col-two-player.pad-right.col-6 {
+        padding-right: 175px;
+    }
     .add-col-two-player.col-6 {
-        padding-top: 20px;
+        padding-top: 0px;
     }
     button#palm {
-        width: 60px;
+        width: 55px;
     }
 }
