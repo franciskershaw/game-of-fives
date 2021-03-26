@@ -72,6 +72,7 @@ function setGameHtml() {
         $('.extra-middle-hand').removeClass('hidden');
         $('#fifteen').removeClass('hidden');
         $('#twenty').removeClass('hidden');
+        $('.number-icon').addClass('four-player-reduce');
     }
 }
 
