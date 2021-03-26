@@ -12,18 +12,19 @@ window.addEventListener("orientationchange", function() {
 // Simple animation that introduces the 2 main images followed by the headings
 
 function entryAnimation() {
-    setTimeout(function() {
-        $('.home-images').removeClass('opaque').addClass('home-entry-one');
+        setTimeout(function() {
+        $('.home-img').removeClass('opaque').addClass('home-entry-one');
     }, 1000);
     setTimeout(function() {
-        $('.home-images').removeClass('home-entry-one').addClass('home-entry-two');
+        $('.home-img').removeClass('home-entry-one').addClass('home-entry-two');
+        
     },1500);
     setTimeout(function() {
-        $('.home-images').removeClass('home-entry-two').addClass('home-entry-three');
+        $('.home-img').removeClass('home-entry-two').addClass('home-entry-three');
     },2000);
     setTimeout(function() {
-        $('.home-images').removeClass('home-entry-three');
-        $('.home-headings').removeClass('opaque');
+        $('.home-img').removeClass('home-entry-three');
+        $('.heading-content').removeClass('opaque');
         $('.home-record').removeClass('opaque');
     },2500);
 }
