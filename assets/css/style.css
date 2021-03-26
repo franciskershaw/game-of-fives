@@ -25,6 +25,10 @@ h2 {
 	font-size: 1.5rem;
 }
 
+.opaque {
+    opacity: 0;
+}
+
 
 /* ------- Home page */
 
@@ -449,6 +453,51 @@ button.btn.btn-primary.game-input:active {
 .game-image-animation {
     transform: rotate(5deg) scale(1.05);
     transition: transform 0.1s;
+}
+
+.home-entry-one {
+    transform: rotate(5deg) scale(0.25);
+}
+
+.home-entry-two {
+    transform: rotate(-5deg) scale(0.5);
+}
+
+.home-entry-three {
+    transform: rotate(5deg) scale(0.75);
+}
+
+.play-appear {
+    opacity: 0;
+    animation-name: homeAppear;
+	animation-duration: 2.5s;
+	animation-delay: 2.5s;
+	animation-fill-mode: forwards;
+}
+
+.rules-appear {
+    opacity: 0;
+	animation-name: homeAppear;
+	animation-duration: 2.5s;
+	animation-delay: 2.65s;
+	animation-fill-mode: forwards;
+}
+
+.record-appear {
+    opacity: 0;
+	animation-name: homeAppear;
+	animation-duration: 2.5s;
+	animation-delay: 2.85s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes homeAppear {
+	0% {
+		opacity: 0
+	}
+	100% {
+		opacity: 1
+	}
 }
 
 
