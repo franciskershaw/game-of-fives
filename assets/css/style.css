@@ -447,8 +447,8 @@ button.btn.btn-primary.game-input:active {
 /* ------- Animations */
 
 .game-image-animation {
-	height: 150px;
-	transform: rotate(5deg);
+    transform: rotate(5deg) scale(1.05);
+    transition: transform 0.1s;
 }
 
 
