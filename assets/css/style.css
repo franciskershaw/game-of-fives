@@ -471,7 +471,7 @@ button.btn.btn-primary.game-input:active {
     opacity: 0;
     animation-name: homeAppear;
 	animation-duration: 2.5s;
-	animation-delay: 2.5s;
+	animation-delay: 2.75s;
 	animation-fill-mode: forwards;
 }
 
@@ -479,7 +479,7 @@ button.btn.btn-primary.game-input:active {
     opacity: 0;
 	animation-name: homeAppear;
 	animation-duration: 2.5s;
-	animation-delay: 2.65s;
+	animation-delay: 2.85s;
 	animation-fill-mode: forwards;
 }
 
@@ -487,7 +487,7 @@ button.btn.btn-primary.game-input:active {
     opacity: 0;
 	animation-name: homeAppear;
 	animation-duration: 2.5s;
-	animation-delay: 2.85s;
+	animation-delay: 3.05s;
 	animation-fill-mode: forwards;
 }
 
