@@ -21,16 +21,8 @@ const game = {
     computerPlayers: localStorage.getItem("computerPlayers"),
 };
 
-// DOM loads, assigns clck sounds to buttons and sets off the countdown
+// DOM loads, assigns clck sounds to buttons, enables mute button and sets off the countDown and setGameHtml functions
 $(document).ready(function () {
-    if (game.winRecord === null) {
-        game.winRecord = 0;
-    }
-    if (game.loseRecord === null) {
-        game.loseRecord = 0;
-    }
-    $('#win-record').text(`${game.winRecord}`);
-    $('#lose-record').text(`${game.loseRecord}`);
     setGameHtml();
     countDown();
     let clickSound = new Audio();
@@ -60,8 +52,15 @@ $(document).ready(function () {
 });
 
 // Checks how many computer players there are, and sets HTML accordingly
-
 function setGameHtml() {
+    if (game.winRecord === null) {
+        game.winRecord = 0;
+    }
+    if (game.loseRecord === null) {
+        game.loseRecord = 0;
+    }
+    $('#win-record').text(`${game.winRecord}`);
+    $('#lose-record').text(`${game.loseRecord}`);
     if (game.computerPlayers == 1) {
     } else if (game.computerPlayers == 2) {
         $('#remove-two-player').remove();
@@ -150,14 +149,6 @@ function computerInput() {
         game.inputArray.push(rand);
     }
     // Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
-    // if (game.computerPlayers == 1) {
-    //     console.log("1 comp player")
-    // } else if (game.computerPlayers == 2) {
-    //     console.log("2 comp player")
-    // } else {
-    //     console.log("3 comp player")
-    // }
-
 }
 
 // Each round, add computerInput and userInput together to update correctScore
@@ -167,8 +158,8 @@ function updateCorrectScore() {
     function add(accumulator, a) {
         return accumulator + a;
     }
-    game.correctScore = game.userInput + sumOfComputer;
     // Source: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+    game.correctScore = game.userInput + sumOfComputer;
 }
 
 // On the computer's go, update computerGuess to either 0, 5 or 10
@@ -179,6 +170,7 @@ function computerGuess() {
     function add(accumulator, a) {
         return accumulator + a;
     }
+    // Source: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     if (sumOfComputer === 0) {
             // generate 0 or 5
             game.computerGuess = Math.random() < 0.5 ? 0 : 5;
@@ -197,7 +189,6 @@ function computerGuess() {
             // generate 15 or 20
         game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 3) * 5;
     }
-   console.log(`ComputerGuess called, there are ${game.computerPlayers} computer players, the sum of the computer inputs is ${sumOfComputer}, the computer guess is ${game.computerGuess}`);
 }
 
 // Animation that occurs each round before displaying of guess and updating of scores
@@ -317,7 +308,7 @@ function playRound() {
         $('.hand-icon').attr("disabled", true);
         computerGuess();
     }
-    // Timed to occur after the animation has finished
+    // Timed to occur after the animation has finished and makes clear that the round is over
     setTimeout(function () {
         let yay = new Audio();
         yay.src = "assets/sounds/success.mp3";
