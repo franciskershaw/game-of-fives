@@ -448,12 +448,7 @@ button.btn.btn-primary.game-input:active {
 }
 
 
-/* ------- Animations */
-
-.game-image-animation {
-    transform: rotate(5deg) scale(1.05);
-    transition: transform 0.1s;
-}
+/* ------- Home page animations */
 
 .home-entry-one {
     transform: rotate(5deg) scale(0.25);
@@ -498,6 +493,129 @@ button.btn.btn-primary.game-input:active {
 	100% {
 		opacity: 1
 	}
+}
+
+
+/* Animations for gameplay - source: https://www.youtube.com/watch?v=qWPtKtYEsN4 at around the 45 minute mark*/
+@keyframes mainAnimation {
+    0% {
+        transform: rotate(2deg) scale(1);
+    }
+    15% {
+        transform: rotate(2deg) scale(1.05);
+    }
+    30% {
+        transform: rotate(2deg) scale(1);
+    }
+    45% {
+        transform: rotate(2deg) scale(1.05);
+    }
+    60% {
+        transform: rotate(2deg) scale(1);
+    }
+    75% {
+        transform: rotate(2deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(2deg) scale(1);
+    }
+
+}
+
+@keyframes topLeft {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+    15% {
+        transform: rotate(-47deg) scale(1.05);
+    }
+    30% {
+        transform: rotate(-45deg) scale(1);
+    }
+    45% {
+        transform: rotate(-47deg) scale(1.05);
+    }
+    60% {
+        transform: rotate(-45deg) scale(1);
+    }
+    75% {
+        transform: rotate(-47deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+@keyframes topRight {
+    0% {
+        transform: rotate(45deg) scaleX(-1) scale(1);
+    }
+    15% {
+        transform: rotate(47deg) scaleX(-1) scale(1.05);
+    }
+    30% {
+        transform: rotate(45deg) scaleX(-1) scale(1);
+    }
+    45% {
+        transform: rotate(47deg) scaleX(-1) scale(1.05);
+    }
+    60% {
+        transform: rotate(45deg) scaleX(-1) scale(1);
+    }
+    75% {
+        transform: rotate(47deg) scaleX(-1) scale(1.05);
+    }
+    100% {
+        transform: rotate(45deg) scaleX(-1) scale(1);
+    }
+}
+
+@keyframes middleLeft {
+    0% {
+        transform: rotate(-90deg) scale(1);
+    }
+    15% {
+        transform: rotate(-92deg) scale(1.05);
+    }
+    30% {
+        transform: rotate(-90deg) scale(1);
+    }
+    45% {
+        transform: rotate(-92deg) scale(1.05);
+    }
+    60% {
+        transform: rotate(-90deg) scale(1);
+    }
+    75% {
+        transform: rotate(-92deg) scale(1.05);
+    }
+    100% {
+       transform: rotate(-90deg) scale(1);
+    }
+}
+
+@keyframes middleRight {
+    0% {
+        transform: rotate(90deg) scaleX(-1) scale(1);
+    }
+    15% {
+        transform: rotate(92deg) scaleX(-1) scale(1.05);
+    }
+    30% {
+        transform: rotate(90deg) scaleX(-1) scale(1);
+    }
+    45% {
+       transform: rotate(92deg) scaleX(-1) scale(1.05);
+    }
+    60% {
+        transform: rotate(90deg) scaleX(-1) scale(1);
+    }
+    75% {
+       transform: rotate(92deg) scaleX(-1) scale(1.05);
+    }
+    100% {
+       transform: rotate(90deg) scaleX(-1) scale(1);
+    }
 }
 
 

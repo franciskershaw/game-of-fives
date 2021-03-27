@@ -193,45 +193,59 @@ function computerGuess() {
 
 // Animation that occurs each round before displaying of guess and updating of scores
 function roundAnimation() {
-    $('#player-hand').attr("src", "assets/images/fistfaceup.png");
-    $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
-    let noiseOne = new Audio();
-    noiseOne.src = "assets/sounds/noise1.mp3";
-    let noiseTwo = new Audio();
-    noiseTwo.src = "assets/sounds/noise2.mp3";
-    let noiseThree = new Audio();
-    noiseThree.src = "assets/sounds/noise3.mp3";
+    const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass("transparent");
+
+    // Source: https://www.youtube.com/watch?v=qWPtKtYEsN4 at around the 50 minute mark
+    gameImages.forEach(gameImage => {
+        gameImage.addEventListener('animationend', function () {
+            this.style.animation = "";
+        })
+    })
+
+    let noiseOne = new Audio();
+    let noiseTwo = new Audio();
+    let noiseThree = new Audio();
+    noiseOne.src = "assets/sounds/noise1.mp3";
+    noiseTwo.src = "assets/sounds/noise2.mp3";
+    noiseThree.src = "assets/sounds/noise3.mp3";
+
+    let playerHand = document.getElementById('player-hand');
+    let computerHand = document.getElementById('computer-hand');
+    let topLeft = document.getElementById('top-left');
+    let topRight = document.getElementById('top-right');
+    let middleLeft = document.getElementById('middle-left');
+    let middleRight = document.getElementById('middle-right');
+
     setTimeout(function () {
-        $('.game-image').addClass('game-image-animation');
+        playerHand.style.animation = "mainAnimation 1.2s";
+        if (game.computerPlayers == 1) {
+            computerHand.style.animation = "mainAnimation 1.2s";
+        } else if (game.computerPlayers == 2) {
+            topLeft.style.animation = "topLeft 1.2s";
+            topRight.style.animation = "topRight 1.2s";
+        } else if (game.computerPlayers == 3) {
+            computerHand.style.animation = "mainAnimation 1.2s";
+            middleLeft.style.animation = "middleLeft 1.2s";
+            middleRight.style.animation = 'middleRight 1.2s';
+        }  
         $('#round-total').text(`1`);
         if (game.soundsOn === true) {
             noiseOne.play();
         }
     }, 1000);
     setTimeout(function () {
-        $('.game-image').removeClass('game-image-animation');
-    }, 1200);
-    setTimeout(function () {
-        $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`2`);
         if (game.soundsOn) {
             noiseTwo.play();
         }
     }, 1400);
     setTimeout(function () {
-        $('.game-image').removeClass('game-image-animation');
-    }, 1600);
-    setTimeout(function () {
-        $('.game-image').addClass('game-image-animation');
         $('#round-total').text(`3`);
         if (game.soundsOn) {
             noiseOne.play();
         }
     }, 1800);
-    setTimeout(function () {
-        $('.game-image').removeClass('game-image-animation');
-    }, 2000);
 
     // This part of the function changes images and text at the end of the animation
     setTimeout(function () {
@@ -244,28 +258,22 @@ function roundAnimation() {
         // Checks amount of computer players present in the game and assigns correct images accordingly
         if (game.computerPlayers == 1) {
             if (game.inputArray[0] === 0) {
-                
                 $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
             } else {
-                
                 $('#computer-hand').attr("src", "assets/images/palmfacedown.png");
             }
         } else if (game.computerPlayers == 2) {
-            console.log("2 computer players present");
             if (game.inputArray[0] === 0) {
-                
                 $('#top-left').attr("src", "assets/images/fistfacedown.png");
             } else {
                 $('#top-left').attr("src", "assets/images/palmfacedown.png");
             }
             if (game.inputArray[1] === 0) {
-                
                 $('#top-right').attr("src", "assets/images/fistfacedown.png");
             } else {
                 $('#top-right').attr("src", "assets/images/palmfacedown.png");
             }
         } else {
-            console.log("3 computer players present");
             if (game.inputArray[0] === 0) {
                 $('#computer-hand').attr("src", "assets/images/fistfacedown.png");
             } else {
