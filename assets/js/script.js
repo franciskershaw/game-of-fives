@@ -13,7 +13,7 @@ const game = {
     userScore: 0,
     computerScore: 0,
 
-    soundsOn: true,
+    soundsOn: localStorage.getItem("soundsOn"),
 
     winRecord: localStorage.getItem("winRecord"),
     loseRecord: localStorage.getItem("loseRecord"),
@@ -31,7 +31,7 @@ $(document).ready(function () {
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener('mousedown', function () {
-            if (game.soundsOn === true) {
+            if (game.soundsOn === "true") {
                 clickSound.play();
             }
         })
@@ -40,19 +40,21 @@ $(document).ready(function () {
         let onButton = document.getElementById('volume-on');
         let offButton = document.getElementById('volume-off');
         if (this === onButton) {
-            game.soundsOn = false;
+            game.soundsOn = "false";
             onButton.classList.add('hidden');
             offButton.classList.remove('hidden');
         } else {
-            game.soundsOn = true;
+            game.soundsOn = "true";
             offButton.classList.add('hidden');
             onButton.classList.remove('hidden');
         }
+    localStorage.setItem('soundsOn', game.soundsOn);
     })
 });
 
 // Checks how many computer players there are, and sets HTML accordingly
 function setGameHtml() {
+    // Win vs loss record, top right of game page
     if (game.winRecord === null) {
         game.winRecord = 0;
     }
@@ -61,6 +63,17 @@ function setGameHtml() {
     }
     $('#win-record').text(`${game.winRecord}`);
     $('#lose-record').text(`${game.loseRecord}`);
+
+    // Sounds on vs off, set depending on user's previous actions or defaulting to on if on a first time visit
+    if (game.soundsOn === "true") {
+        $('#volume-on').removeClass('hidden');
+    } else if (game.soundsOn === "false") {
+        $('#volume-off').removeClass('hidden');
+    } else if (game.soundsOn === null) {
+        $('#volume-on').removeClass('hidden');
+    }
+
+    // Checks which amount of players the user chose and sets HTML
     if (game.computerPlayers == 1) {
     } else if (game.computerPlayers == 2) {
         $('#remove-two-player').remove();
@@ -228,21 +241,22 @@ function roundAnimation() {
             computerHand.style.animation = "mainAnimation 1.2s";
             middleLeft.style.animation = "middleLeft 1.2s";
             middleRight.style.animation = 'middleRight 1.2s';
-        }  
+        }
+  
         $('#round-total').text(`1`);
-        if (game.soundsOn === true) {
+        if (game.soundsOn === "true") {
             noiseOne.play();
         }
     }, 1000);
     setTimeout(function () {
         $('#round-total').text(`2`);
-        if (game.soundsOn) {
+        if (game.soundsOn === "true") {
             noiseTwo.play();
         }
     }, 1400);
     setTimeout(function () {
         $('#round-total').text(`3`);
-        if (game.soundsOn) {
+        if (game.soundsOn === "true") {
             noiseOne.play();
         }
     }, 1800);
@@ -293,12 +307,12 @@ function roundAnimation() {
         // Text change revealing guess depending on if it's the user or computer's turn
         if (game.userTurn === true) {
                 $('#round-total').text(`${game.userGuess}!`);
-                if (game.soundsOn) {
+                if (game.soundsOn === "true") {
                     noiseThree.play();
                 }
             } else {
                 $('#round-total').text(`C: ${game.computerGuess}!`);
-                if (game.soundsOn) {
+                if (game.soundsOn === "true") {
                     noiseThree.play();
                 }
             }
@@ -324,19 +338,19 @@ function playRound() {
         meh.src = "assets/sounds/meh.mp3";
         if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
-            if (game.soundsOn) {
+            if (game.soundsOn === "true") {
                 yay.play();
             }
             incrementUserScore();
         } else if (game.computerTurn && game.computerGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
-            if (game.soundsOn) {
+            if (game.soundsOn === "true") {
                 yay.play();
             }
             incrementComputerScore();
         } else {
             $('#round-total').text(`No good!`);
-            if (game.soundsOn) {
+            if (game.soundsOn === "true") {
                 meh.play();
             }
         }
