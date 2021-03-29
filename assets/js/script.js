@@ -71,7 +71,9 @@ function setGameHtml() {
         $('#volume-off').removeClass('hidden');
     } else if (game.soundsOn === null) {
         $('#volume-on').removeClass('hidden');
+        game.soundsOn = 'true';
     }
+    localStorage.setItem('soundsOn', game.soundsOn);
 
     // Checks which amount of players the user chose and sets HTML
     if (game.computerPlayers == 1) {
