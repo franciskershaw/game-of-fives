@@ -497,6 +497,14 @@ button.btn.btn-primary.game-input:focus {
 	animation-fill-mode: forwards;
 }
 
+.tagline-appear {
+    opacity: 0;
+	animation-name: homeAppear;
+	animation-duration: 2.5s;
+	animation-delay: 4s;
+	animation-fill-mode: forwards;
+}
+
 @keyframes homeAppear {
 	0% {
 		opacity: 0
