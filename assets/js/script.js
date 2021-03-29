@@ -398,8 +398,19 @@ function endGame() {
     updateWinRecord();
     if (game.userScore === 3) {
         $('#round-total').text(`You've won!`);
+        let victory = new Audio();
+        victory.src = "assets/sounds/victory.mp3";
+        // Sound from Zapsplat.com
+        if (game.soundsOn === "true") {
+            victory.play();
+        }
     } else {
         $('#round-total').text(`You lost!`);
+        let defeat = new Audio();
+        defeat.src = "assets/sounds/defeat.mp3";
+        if (game.soundsOn === 'true') {
+            defeat.play();
+        }
     }
     $('.game-info-quit').addClass('hidden');
     $('.end-game-btns').removeClass('hidden');
