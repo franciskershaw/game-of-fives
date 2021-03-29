@@ -13,6 +13,7 @@ const game = {
     userScore: 0,
     computerScore: 0,
 
+    // Syntax for use of localStorage found on MDN: https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem & https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem
     soundsOn: localStorage.getItem("soundsOn"),
 
     winRecord: localStorage.getItem("winRecord"),
@@ -25,6 +26,7 @@ const game = {
 $(document).ready(function () {
     setGameHtml();
     countDown();
+    // credit: help assigning sound effects to variables and using the 'play' method found at https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
     let clickSound = new Audio();
     clickSound.src = "assets/sounds/clickeffect.mp3";
     // Sound from Zapsplat.com
@@ -164,28 +166,28 @@ function userGuess() {
 // Each round, computerInput is updated to either 0 or 5;
 function computerInput() {
     for (let i = 0; i < parseInt(game.computerPlayers); i++) {
+        // credit: code generating 2 numbers, of which one is a zero, found on Peter Olsen's post at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
         rand = Math.random() < 0.5 ? 0 : 5;
         game.inputArray.push(rand);
     }
-    // Source - https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 }
 
 // Each round, add computerInput and userInput together to update correctScore
 function updateCorrectScore() {
+
     let arr = game.inputArray;
+    // credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     let sumOfComputer = arr.reduce(add,0);
     function add(accumulator, a) {
         return accumulator + a;
     }
-    // Source: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     game.correctScore = game.userInput + sumOfComputer;
 }
 
 // On the computer's go, update computerGuess to either 0, 5 or 10
 function computerGuess() {
-    // sum the computer input array
+
     let arr = game.inputArray;
-     // Credit: help summing arrays found on https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     let sumOfComputer = arr.reduce(add,0);
     function add(accumulator, a) {
         return accumulator + a;
@@ -210,7 +212,7 @@ function roundAnimation() {
     const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass("transparent");
 
-    // Source: https://www.youtube.com/watch?v=qWPtKtYEsN4 at around the 50 minute mark
+    // credit: code to reset animation after one round found on Dev Ed's video around https://www.youtube.com/watch?v=qWPtKtYEsN4 at around 50 minutes
     gameImages.forEach(gameImage => {
         gameImage.addEventListener('animationend', function () {
             this.style.animation = "";
@@ -232,6 +234,7 @@ function roundAnimation() {
     let middleRight = document.getElementById('middle-right');
 
     setTimeout(function () {
+        // credit: applying custom css animations via JS learnt from https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd at around 49 minutes.
         playerHand.style.animation = "mainAnimation 1.2s";
         if (game.computerPlayers == 1) {
             computerHand.style.animation = "mainAnimation 1.2s";
@@ -334,8 +337,8 @@ function playRound() {
     // Timed to occur after the animation has finished and makes clear that the round is over
     setTimeout(function () {
         let yay = new Audio();
-        yay.src = "assets/sounds/success.mp3";
         let meh = new Audio();
+        yay.src = "assets/sounds/success.mp3";
         meh.src = "assets/sounds/meh.mp3";
         if (game.userTurn && game.userGuess === game.correctScore) {
             $('#round-total').text(`Correct!`);
