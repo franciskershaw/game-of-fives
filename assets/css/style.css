@@ -315,6 +315,16 @@ span#prev-icon {
 	border: 2px solid #58355E;
 }
 
+a.btn.btn-primary.game-info-quit:active {
+    border-color: rgb(255, 246, 137);
+	box-shadow: none !important;
+}
+
+a.btn.btn-primary.game-info-quit:focus {
+    border-color: rgb(255, 246, 137);
+	box-shadow: none !important;
+}
+
 .game-area {
 	height: 60vh;
 	border-bottom: 3px solid;
@@ -372,12 +382,13 @@ span#prev-icon {
 	border-color: #58355e;
 }
 
-.game-input:active {
-	background-color: white;
-}
-
 button.btn.btn-primary.game-input:active {
 	border-color: rgb(255, 246, 137);
+	box-shadow: none !important;
+}
+
+button.btn.btn-primary.game-input:focus {
+    border-color: rgb(255, 246, 137);
 	box-shadow: none !important;
 }
 
