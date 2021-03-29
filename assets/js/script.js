@@ -167,7 +167,7 @@ function userGuess() {
 function computerInput() {
     for (let i = 0; i < parseInt(game.computerPlayers); i++) {
         // credit: code generating 2 numbers, of which one is a zero, found on Peter Olsen's post at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
-        rand = Math.random() < 0.5 ? 0 : 5;
+        let rand = Math.random() < 0.5 ? 0 : 5;
         game.inputArray.push(rand);
     }
 }
