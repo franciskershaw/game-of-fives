@@ -32,6 +32,34 @@ h2 {
 
 /* ------- Home page */
 
+/* Source: https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page */
+.landscape-overlay {
+    font-size: 1.5rem;
+    font-family: 'Fredoka One', cursive;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+}
+
+.overlay-icon {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 4rem;
+}
+
+.landscape-icon {
+    transform: rotate(90deg);
+}
+
+.arrow-icon {
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+}
+
 .home-container {
 	max-height: 100vh;
 	max-width: 1200px;

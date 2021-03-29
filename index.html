@@ -12,24 +12,30 @@
 </head>
  
 <body>
+    <div class="landscape-overlay hidden">
+        <p>On mobile, this game is best experienced in portrait mode</p>
+        <i class="fas fa-mobile-alt overlay-icon landscape-icon"></i><i class="fas fa-long-arrow-alt-right overlay-icon arrow-icon"></i><i class="fas fa-mobile-alt overlay-icon portrait-icon"></i>
+    </div>
     <!-- Surrounds entire page -->
     <div class="container-fluid home-container">
         <!-- Heading and tag line -->
         <div class="container-fluid home-headings">
             <div class="row">
                 <div class="col-xl-4 d-none d-xl-block">
-                     <img class="img-fluid home-img opaque" src="assets/images/palmfaceup.png" alt="">
+                    <!-- Image appears only for xl screen sizes-->
+                     <img class="img-fluid home-img opaque" src="assets/images/palmfaceup.png" alt=""> 
                 </div>
                 <div class="col-12 col-xl-4 p-0 heading-content opaque">
                     <h1>Game of Fives!</h1>
                     <h2 id="tagline" class="tagline-appear"></h2>
                 </div>   
                 <div class="col-xl-4 d-none d-xl-block">
+                    <!-- Image appears only for xl screen sizes-->
                     <img class="img-fluid home-img opaque" src="assets/images/fistfaceup.png" alt="">
                 </div>
             </div>
         </div>
-        <!-- Pictures of closed fist and open palm -->
+        <!-- Pictures of closed fist and open palm, hidden at xl screen sizes -->
         <div class="container home-images disappear">
             <div class="row">
                 <div class="col-6">
@@ -55,7 +61,7 @@
                 <div class="col-md-3 d-none d-md-block"></div>
             </div>
         </div>
-        <!-- Win record -->
+        <!-- Win vs loss record -->
         <div class="container home-record record-appear">
             <div class="row">
                 <div class="col-12">
@@ -64,7 +70,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal for difficulty selection -->
+    <!-- Modal for difficulty selection, only visible when rules button is clicked -->
     <div class="modal fade" id="difficulty-modal" tabindex="-1" aria-labelledby="numOfPlayers" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content difficulty-modal-body">
@@ -92,7 +98,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal for rules with nested carousel-->
+    <!-- Modal for rules with nested carousel, only visible when play button is clicked-->
     <div class="modal fade" id="rules-modal" tabindex="-1" aria-labelledby="rules" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content .rules-modal-body">

@@ -1,15 +1,15 @@
+// Page loads, checks that the device is in portrait mode (mobile only), initiates entry animation and updates html depending on users play history
+
 $(document).ready(function () {
+    // Help with concept and js syntax for checking width and height of window: https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
     if (window.innerWidth > window.innerHeight && window.innerWidth < 768) {
-        console.log("Started in landscape on a device less than 1000px");
+        $('.landscape-overlay').removeClass('hidden');
+        $('.home-container').addClass('hidden');
     }
-    entryAnimation();
     // Sets win vs loss record and amends tagline depending on user's play history
     let winRecord = localStorage.getItem("winRecord");
-    console.log(`Wins: ${winRecord}`);
     let loseRecord = localStorage.getItem("loseRecord");
-    console.log(`Losses: ${loseRecord}`);
     let winDifference = winRecord - loseRecord;
-    console.log(`Win difference: ${winDifference}`);
     if (winRecord === null) {
         $("#win").text('0');
     } else {
@@ -21,7 +21,6 @@ $(document).ready(function () {
         $('#loss').text(`${loseRecord}`);
     }
     // Amends h2 tagline depending on the overall scores
-    
     if (winRecord === null && loseRecord === null) {
         $('#tagline').text('Get stuck into your first game!');
     } else if (winDifference < 0) {
@@ -31,13 +30,28 @@ $(document).ready(function () {
     } else if (winDifference === 0) {
         $('#tagline').text("It's neck and neck!");
     }
+    entryAnimation();
 })
 
+// Listens for orientation to hide or remove the warning overlay
+
+// Source: https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
 window.addEventListener("orientationchange", function() {
-    this.console.log('Changed orientation');
+    if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
+        console.log(("Don't do that, this game is best experienced in portrait mode"))
+        $('.landscape-overlay').removeClass('hidden');
+        $('.home-container').addClass('hidden');
+    } else {
+        $('.landscape-overlay').addClass('hidden');
+        $('.home-container').removeClass('hidden');
+        // Ensure the entry animations don't reoccur
+        $('#tagline').removeClass('tagline-appear');
+        $('button').removeClass('play-appear').removeClass('rules-appear');
+        $('.home-record').removeClass('record-appear');
+    }
 })
 
-// Simple animation that introduces the 2 main images followed by the headings
+// Animation that introduces the 2 main images followed by the heading
 
 function entryAnimation() {
         setTimeout(function() {
@@ -57,8 +71,7 @@ function entryAnimation() {
     },2500);
 }
 
-// Loops over the difficulty buttons in the modal launched once 'Play' button is clicked and uses local storage to assign how many computer players there will be in game object.
-
+// Loops over the difficulty buttons in the play modal and uses local storage to assign how many computer players there will be in game variables object.
 let difficultyButtons = document.querySelectorAll('.difficulty-button')
 for (let difficultyButton of difficultyButtons) {
     difficultyButton.addEventListener('click', function() {
