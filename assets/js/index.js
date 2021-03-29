@@ -5,7 +5,11 @@ $(document).ready(function () {
     entryAnimation();
     // Sets win vs loss record and amends tagline depending on user's play history
     let winRecord = localStorage.getItem("winRecord");
+    console.log(`Wins: ${winRecord}`);
     let loseRecord = localStorage.getItem("loseRecord");
+    console.log(`Losses: ${loseRecord}`);
+    let winDifference = winRecord - loseRecord;
+    console.log(`Win difference: ${winDifference}`);
     if (winRecord === null) {
         $("#win").text('0');
     } else {
@@ -17,9 +21,8 @@ $(document).ready(function () {
         $('#loss').text(`${loseRecord}`);
     }
     // Amends h2 tagline depending on the overall scores
-    let winDifference = winRecord - loseRecord;
-    console.log(`win difference is ${winDifference}`);
-    if (winRecord && loseRecord == 0) {
+    
+    if (winRecord === null && loseRecord === null) {
         $('#tagline').text('Get stuck into your first game!');
     } else if (winDifference < 0) {
         $('#tagline').text("You're not great at this.");
