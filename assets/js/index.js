@@ -16,7 +16,7 @@ $(document).ready(function () {
         $('#win').text(`${winRecord}`);
     }
     if (loseRecord === null) {
-        $('#lose').text('0')
+        $('#lose').text('0');
     } else {
         $('#loss').text(`${loseRecord}`);
     }
@@ -31,14 +31,14 @@ $(document).ready(function () {
         $('#tagline').text("It's neck and neck!");
     }
     entryAnimation();
-})
+});
 
 // Listens for orientation to hide or remove the warning overlay
 
 // credit: orientation change event listener help courtesy of mplungjan's post on https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
 window.addEventListener("orientationchange", function() {
     if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
-        console.log(("Don't do that, this game is best experienced in portrait mode"))
+        console.log(("Don't do that, this game is best experienced in portrait mode"));
         $('.landscape-overlay').removeClass('hidden');
         $('.home-container').addClass('hidden');
     } else {
@@ -48,7 +48,7 @@ window.addEventListener("orientationchange", function() {
         $('button').removeClass('play-appear').removeClass('rules-appear');
         $('.home-record').removeClass('record-appear');
     }
-})
+});
 
 // Animation that introduces the 2 main images followed by the heading
 
@@ -71,7 +71,7 @@ function entryAnimation() {
 }
 
 // Loops over the difficulty buttons in the play modal and uses local storage to assign how many computer players there will be in game variables object.
-let difficultyButtons = document.querySelectorAll('.difficulty-button')
+let difficultyButtons = document.querySelectorAll('.difficulty-button');
 for (let difficultyButton of difficultyButtons) {
     difficultyButton.addEventListener('click', function() {
         if (this === document.getElementById('2-player')) {
@@ -80,6 +80,6 @@ for (let difficultyButton of difficultyButtons) {
             localStorage.setItem("computerPlayers", 2);
         } else {
             localStorage.setItem("computerPlayers", 3);
-        };
+        }
     });
-};
+}
