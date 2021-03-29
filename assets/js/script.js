@@ -400,7 +400,6 @@ function endGame() {
         $('#round-total').text(`You've won!`);
         let victory = new Audio();
         victory.src = "assets/sounds/victory.mp3";
-        // Sound from Zapsplat.com
         if (game.soundsOn === "true") {
             victory.play();
         }
