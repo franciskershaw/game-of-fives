@@ -1,7 +1,7 @@
-// Page loads, checks that the device is in portrait mode (mobile only), initiates entry animation and updates html depending on users play history
+// Page loads, checks that the device is in portrait mode (mobile only), updates html depending on users play history and initiates entry animation 
 
 $(document).ready(function () {
-    // Help with concept and js syntax for checking width and height of window: https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
+    // credit: help with concept and js syntax for checking width and height of window courtesy of Zoe Thexton - https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
     if (window.innerWidth > window.innerHeight && window.innerWidth < 768) {
         $('.landscape-overlay').removeClass('hidden');
         $('.home-container').addClass('hidden');
@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 // Listens for orientation to hide or remove the warning overlay
 
-// Source: https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
+// credit: orientation change event listener help courtesy of mplungjan's post on https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
 window.addEventListener("orientationchange", function() {
     if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
         console.log(("Don't do that, this game is best experienced in portrait mode"))
@@ -44,7 +44,6 @@ window.addEventListener("orientationchange", function() {
     } else {
         $('.landscape-overlay').addClass('hidden');
         $('.home-container').removeClass('hidden');
-        // Ensure the entry animations don't reoccur
         $('#tagline').removeClass('tagline-appear');
         $('button').removeClass('play-appear').removeClass('rules-appear');
         $('.home-record').removeClass('record-appear');
