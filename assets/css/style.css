@@ -890,3 +890,37 @@ button.btn.btn-primary.game-input:focus {
     }
 }
 
+/* Media queries for galaxy fold screen size */
+@media screen and (max-width: 285px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    .home-images {
+        height: 25vh;
+    }
+    .home-img {
+        height: 130px;
+    }
+    .home-record {
+        font-size: 1.5rem;
+        height: 34vh;
+    }
+    .game-info-content {
+        font-size: 1rem;
+    }
+    .game-input {
+        font-size: 1.25em;
+    }
+    .number-icon {
+        width: 46px;
+    }
+    .four-player-reduce {
+        width: 39px;
+        font-size: 100%;
+        padding-left: 10px;
+    }
+    h2#tagline {
+    font-size: 1.25rem;
+    }
+}
+
