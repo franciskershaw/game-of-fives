@@ -118,7 +118,7 @@ function userInput() {
     $('.game-info-quit').removeClass('hidden');
     if (game.userScore < 3 && game.computerScore < 3) {
         if (game.userScore === 2 && game.computerScore === 2) {
-            document.getElementById('round-total').innerHTML = 'Next point wins!'    
+            document.getElementById('round-total').innerHTML = 'For the win!'    
         } else {
             document.getElementById("round-total").innerHTML = "Play!";
         }
