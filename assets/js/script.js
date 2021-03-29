@@ -36,7 +36,7 @@ $(document).ready(function () {
             if (game.soundsOn === "true") {
                 clickSound.play();
             }
-        })
+        });
     }
     $('.mute-btn').click(function () {
         let onButton = document.getElementById('volume-on');
@@ -51,7 +51,7 @@ $(document).ready(function () {
             onButton.classList.remove('hidden');
         }
     localStorage.setItem('soundsOn', game.soundsOn);
-    })
+    });
 });
 
 // Checks how many computer players there are, and sets HTML accordingly
@@ -120,7 +120,7 @@ function userInput() {
     $('.game-info-quit').removeClass('hidden');
     if (game.userScore < 3 && game.computerScore < 3) {
         if (game.userScore === 2 && game.computerScore === 2) {
-            document.getElementById('round-total').innerHTML = 'For the win!'    
+            document.getElementById('round-total').innerHTML = 'For the win!'; 
         } else {
             document.getElementById("round-total").innerHTML = "Play!";
         }
@@ -216,8 +216,8 @@ function roundAnimation() {
     gameImages.forEach(gameImage => {
         gameImage.addEventListener('animationend', function () {
             this.style.animation = "";
-        })
-    })
+        });
+    });
 
     let noiseOne = new Audio();
     let noiseTwo = new Audio();
@@ -367,7 +367,7 @@ function playRound() {
         } else {
             game.userTurn = true;
             game.computerTurn = false;
-        };
+        }
         $('.game-image').addClass("transparent");
         $('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
         $('.extra-top-hand').attr('src', 'assets/images/fistfacedown.png');
@@ -444,4 +444,4 @@ function updateWinRecord() {
     localStorage.setItem("winRecord", game.winRecord);
     localStorage.setItem("loseRecord", game.loseRecord);
 
-};
+}
