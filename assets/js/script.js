@@ -383,6 +383,9 @@ function playRound() {
 function incrementUserScore() {
     game.userScore += 1;
     $('#player-score').text(`${game.userScore}`);
+    if (game.userScore === 2) {
+        
+    }
 }
 
 // Adds one to game.ComputerScore and updates display score on top left of page
