@@ -29,6 +29,12 @@ h2 {
     opacity: 0;
 }
 
+/* 404 */
+
+.error-content {
+    font-size: 1rem;
+    margin-top: 50px;
+}
 
 /* ------- Home page */
 
