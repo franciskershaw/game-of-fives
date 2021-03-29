@@ -117,7 +117,11 @@ function userInput() {
     game.inputArray = [];
     $('.game-info-quit').removeClass('hidden');
     if (game.userScore < 3 && game.computerScore < 3) {
-        document.getElementById("round-total").innerHTML = "Play!";
+        if (game.userScore === 2 && game.computerScore === 2) {
+            document.getElementById('round-total').innerHTML = 'Next point wins!'    
+        } else {
+            document.getElementById("round-total").innerHTML = "Play!";
+        }
         $('.hand-icon').removeAttr("disabled").off("click");
         $('.hand-icon').click(function () {
             if (this === document.getElementById("fist")) {
