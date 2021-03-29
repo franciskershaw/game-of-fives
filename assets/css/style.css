@@ -510,25 +510,25 @@ button.btn.btn-primary.game-input:focus {
 /* Animations for gameplay - source: https://www.youtube.com/watch?v=qWPtKtYEsN4 at around the 45 minute mark*/
 @keyframes mainAnimation {
     0% {
-        transform: rotate(2deg) scale(1);
+        transform: scale(1);
     }
     15% {
         transform: rotate(2deg) scale(1.05);
     }
     30% {
-        transform: rotate(2deg) scale(1);
+        transform: scale(1);
     }
     45% {
         transform: rotate(2deg) scale(1.05);
     }
     60% {
-        transform: rotate(2deg) scale(1);
+        transform: scale(1);
     }
     75% {
         transform: rotate(2deg) scale(1.05);
     }
     100% {
-        transform: rotate(2deg) scale(1);
+        transform: scale(1);
     }
 
 }
