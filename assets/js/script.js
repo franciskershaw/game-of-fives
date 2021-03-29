@@ -185,22 +185,17 @@ function updateCorrectScore() {
 function computerGuess() {
     // sum the computer input array
     let arr = game.inputArray;
+     // Credit: help summing arrays found on https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     let sumOfComputer = arr.reduce(add,0);
     function add(accumulator, a) {
         return accumulator + a;
     }
-    // Source: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
     if (sumOfComputer === 0) {
             // generate 0 or 5
             game.computerGuess = Math.random() < 0.5 ? 0 : 5;
     } else if (sumOfComputer === 5) {
-        if (game.computerPlayers == 1 || game.computerPlayers == 2) {
-            // generate 5 or 10
+            // generate 5 or 10 
             game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
-        } else {
-            // generate 5, 10 or 15
-            game.computerGuess = Math.floor(Math.random() * (3 - 1 + 1) + 1) * 5;
-        }
     } else if (sumOfComputer === 10) {
             // generate 10 or 15
             game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 2) * 5;
