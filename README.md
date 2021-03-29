@@ -120,3 +120,9 @@ Based on information I uncovered during the strategy plane, and considering any 
 ## Credits
 
 
+### Bugs notes
+* Mute button not playing sounds as a default setting until the button has been interacted with.
+* Getting mute button to work in the first place
+* Animation bug (transform issue)
+
+
