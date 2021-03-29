@@ -3,6 +3,18 @@ $(document).ready(function () {
         console.log("Started in landscape on a device less than 1000px");
     }
     entryAnimation();
+    let winRecord = localStorage.getItem("winRecord");
+    let loseRecord = localStorage.getItem("loseRecord");
+    if (winRecord === null) {
+        $("#win").text('0');
+    } else {
+        $('#win').text(`${winRecord}`);
+    }
+    if (loseRecord === null) {
+        $('#lose').text('0')
+    } else {
+        $('#loss').text(`${loseRecord}`);
+    }
 })
 
 window.addEventListener("orientationchange", function() {
