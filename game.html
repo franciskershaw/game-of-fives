@@ -1,87 +1,82 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game of Fives!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <!-- Container wrapping around whole game, 100% of viewport -->
-    <div class="container game-container">
-        <!-- Game information - 25% of viewport -->
-        <div class="container game-info">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Game of Fives!</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" href="assets/css/style.css">
+   </head>
+   <body>
+      <!-- Container wrapping around whole game, 100% of viewport -->
+      <div class="container game-container">
+         <!-- Game information - 25% of viewport -->
+         <div class="container game-info">
             <div class="row align-items-center game-info-content">
-                <div class="col-5 text-start"><span class="game-info-heading">Scores:</span></div>
-                <div class="col-2"></div>
-                <div class="col-5 text-end"><span class="game-info-heading">Overall:</span></div>
+               <div class="col-5 text-start"><span class="game-info-heading">Scores:</span></div>
+               <div class="col-2"></div>
+               <div class="col-5 text-end"><span class="game-info-heading">Overall:</span></div>
             </div>
             <div class="row align-items-center game-info-content">
-                <div class="col-4 text-start"><span>P :  <span id="player-score">0</span></span></div>
-                <div class="col-4 align-self-end"><a class="btn btn-primary game-info-quit hidden" href="index.html" role="button">Quit</a></div>
-                <div class="col-4 text-end"><span>Win : </span><span id="win-record"></span></div>
+               <div class="col-4 text-start"><span>P :  <span id="player-score">0</span></span></div>
+               <div class="col-4 align-self-end"><a class="btn btn-primary game-info-quit hidden" href="index.html" role="button">Quit</a></div>
+               <div class="col-4 text-end"><span>Win : </span><span id="win-record"></span></div>
             </div>
             <div class="row align-items-start game-info-content">
-                <div class="col-5 text-start"><span>C :  <span id="computer-score">0</span></span></div>
-                <div class="col-2"></div>
-                <div class="col-5 text-end"><span>Loss : </span><span id="lose-record"></span></div>
+               <div class="col-5 text-start"><span>C :  <span id="computer-score">0</span></span></div>
+               <div class="col-2"></div>
+               <div class="col-5 text-end"><span>Loss : </span><span id="lose-record"></span></div>
             </div>
-        </div>
-        <!-- Game area - 50% of viewport -->
-        <div class="container game-area">
+         </div>
+         <!-- Game area - 50% of viewport -->
+         <div class="container game-area">
             <div class="row align-items-end image-row">
-                <div class="col-4 add-col-two-player pad-left"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="" id="top-left"></div>
-                <div class="col-4" id="remove-two-player"><img src="assets/images/fistfacedown.png" class="game-image transparent" alt="" id="computer-hand"></div>
-                <div class="col-4 add-col-two-player pad-right"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="" id="top-right"></div>
+               <div class="col-4 add-col-two-player pad-left"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="Computer controlled game hand" id="top-left"></div>
+               <div class="col-4" id="remove-two-player"><img src="assets/images/fistfacedown.png" class="game-image transparent" alt="Computer controlled game hand" id="computer-hand"></div>
+               <div class="col-4 add-col-two-player pad-right"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-top-hand" alt="Computer controlled game hand" id="top-right"></div>
             </div>
             <div class="row align-items-center game-middle-row">
-                <div class="col-2 col-md-4 align-self-end"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="" id="middle-left"></div>
-                <div class="col-8 col-md-4"><span id="round-total">Ready?</span></div>
-                <div class="col-2 col-md-4 align-self-end"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="" id="middle-right"></div>
+               <div class="col-2 col-md-4 align-self-end"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="Computer controlled game hand" id="middle-left"></div>
+               <div class="col-8 col-md-4"><span id="round-total">Ready?</span></div>
+               <div class="col-2 col-md-4 align-self-end"><img src="assets/images/fistfacedown.png" class="hidden game-image transparent extra-middle-hand" alt="Computer controlled game hand" id="middle-right"></div>
             </div>
             <div class="row align-items-start image-row">
-                <div class="col-4"></div>
-                <div class="col-4"><img src="assets/images/fistfaceup.png" class="game-image transparent" alt="" id="player-hand"></div>
-                <div class="col-4"></div>
+               <div class="col-4"></div>
+               <div class="col-4"><img src="assets/images/fistfaceup.png" class="game-image transparent" alt="Player's hand" id="player-hand"></div>
+               <div class="col-4"></div>
             </div>
-        </div>
-        <!-- User Inputs - 25% of viewport -->
-        <div class="container game-buttons-section">
+         </div>
+         <!-- User Inputs - 25% of viewport -->
+         <div class="container game-buttons-section">
             <div class="row align-items-end input-row">
-                <div class="col-2 col-md-4"></div>
-                <div class="col-8 col-md-4 game-btns">                           
-                    <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button>
-                    <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
-                </div>
-                <div class="col-8 col-md-4 hidden end-game-btns"><button type="button" class="btn btn-primary end-btn" id="play">Play again?</button></div>
-                <div class="col-2 col-md-4 align-self-center"><i class="fas fa-volume-up mute-btn hidden" id="volume-on"></i><i class="hidden fas fa-volume-mute mute-btn" id="volume-off"></i></div>
-            </div>    
-             <div class="row align-items-start input-row">
-                
-                <div class="col-12 game-btns">
-                    <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
-                    <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
-                    <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
-                    <button disabled type="button" data-type="userGuess" class="hidden btn btn-primary game-input number-icon" id="fifteen">15</button>
-                    <button disabled type="button" data-type="userGuess" class="hidden btn btn-primary game-input number-icon" id="twenty">20</button>
-                </div>
-                <div class="col-12 hidden end-game-btns"><a class="btn btn-primary end-btn" href="index.html" role="button">Quit</a></div>
-                
+               <div class="col-2 col-md-4"></div>
+               <div class="col-8 col-md-4 game-btns">                           
+                  <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="fist"><i class="far fa-hand-rock"></i></button>
+                  <button disabled type="button" data-type="userInput" class="btn btn-primary game-input hand-icon" id="palm"><i class="far fa-hand-paper"></i></button>
+               </div>
+               <div class="col-8 col-md-4 hidden end-game-btns"><button type="button" class="btn btn-primary end-btn" id="play">Play again?</button></div>
+               <div class="col-2 col-md-4 align-self-center"><i class="fas fa-volume-up mute-btn hidden" id="volume-on"></i><i class="hidden fas fa-volume-mute mute-btn" id="volume-off"></i></div>
             </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
-</body>
-
+            <div class="row align-items-start input-row">
+               <div class="col-12 game-btns">
+                  <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="zero">0</button>
+                  <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="five">5</button>
+                  <button disabled type="button" data-type="userGuess" class="btn btn-primary game-input number-icon" id="ten">10</button>
+                  <button disabled type="button" data-type="userGuess" class="hidden btn btn-primary game-input number-icon" id="fifteen">15</button>
+                  <button disabled type="button" data-type="userGuess" class="hidden btn btn-primary game-input number-icon" id="twenty">20</button>
+               </div>
+               <div class="col-12 hidden end-game-btns"><a class="btn btn-primary end-btn" href="index.html" role="button">Quit</a></div>
+            </div>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+         crossorigin="anonymous"></script>
+      <script src="assets/js/script.js"></script>
+   </body>
 </html>
