@@ -29,8 +29,8 @@ $(document).ready(function () {
 	let clickSound = new Audio();
 	clickSound.src = 'assets/sounds/clickeffect.mp3';
 	// Sound from Zapsplat.com
-	let buttons = document.getElementsByTagName('button');
-	for (let button of buttons) {
+	let gameButtons = document.getElementsByClassName('game-input');
+	for (let button of gameButtons) {
 		button.addEventListener('mousedown', function () {
 			if (game.soundsOn === 'true') {
 				clickSound.play();
