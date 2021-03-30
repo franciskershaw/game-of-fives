@@ -6,11 +6,11 @@ $(document).ready(function () {
 		$('.home-container').addClass('hidden');
 	}
 	// Updates HTML of win vs loss record depending on user's play history
-	let winRecord = localStorage.getItem("winRecord");
-	let loseRecord = localStorage.getItem("loseRecord");
+	let winRecord = localStorage.getItem('winRecord');
+	let loseRecord = localStorage.getItem('loseRecord');
 	let winDifference = winRecord - loseRecord;
 	if (winRecord === null) {
-		$("#win").text('0');
+		$('#win').text('0');
 	} else {
 		$('#win').text(`${winRecord}`);
 	}
@@ -23,20 +23,19 @@ $(document).ready(function () {
 	if (winRecord === null && loseRecord === null) {
 		$('#tagline').text('Get stuck into your first game!');
 	} else if (winDifference < 0) {
-		$('#tagline').text("You're not great at this.");
+		$('#tagline').text(`You're not great at this.`);
 	} else if (winDifference > 0) {
-		$("#tagline").text("You're not half bad at this!");
+		$('#tagline').text(`You're not half bad at this!`);
 	} else if (winDifference === 0) {
-		$('#tagline').text("It's neck and neck!");
+		$('#tagline').text(`It's neck and neck!`);
 	}
 	entryAnimation();
 });
 
 // Listens for orientation to show or hide the orientation change warning overlay
 // credit: orientation change event listener help courtesy of mplungjan's post on https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
-window.addEventListener("orientationchange", function () {
+window.addEventListener('orientationchange', function () {
 	if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
-		console.log(("Don't do that, this game is best experienced in portrait mode"));
 		$('.landscape-overlay').removeClass('hidden');
 		$('.home-container').addClass('hidden');
 	} else {
@@ -72,11 +71,11 @@ let difficultyButtons = document.querySelectorAll('.difficulty-button');
 for (let difficultyButton of difficultyButtons) {
 	difficultyButton.addEventListener('click', function () {
 		if (this === document.getElementById('2-player')) {
-			localStorage.setItem("computerPlayers", 1);
+			localStorage.setItem('computerPlayers', 1);
 		} else if (this === document.getElementById('3-player')) {
-			localStorage.setItem("computerPlayers", 2);
+			localStorage.setItem('computerPlayers', 2);
 		} else {
-			localStorage.setItem("computerPlayers", 3);
+			localStorage.setItem('computerPlayers', 3);
 		}
 	});
 }
