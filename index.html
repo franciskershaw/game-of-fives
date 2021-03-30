@@ -10,13 +10,14 @@
       <link rel="stylesheet" href="assets/css/style.css">
    </head>
    <body>
+       <!-- Overlay which only appears in landscape mode on mobile phones to encourage users to change to portrait -->
       <div class="landscape-overlay hidden">
          <p>On mobile, this game is best experienced in portrait mode</p>
          <i class="fas fa-mobile-alt overlay-icon landscape-icon"></i><i class="fas fa-long-arrow-alt-right overlay-icon arrow-icon"></i><i class="fas fa-mobile-alt overlay-icon portrait-icon"></i>
       </div>
-      <!-- Surrounds entire page -->
+      <!-- Container which surrounds entire page content -->
       <div class="container-fluid home-container">
-         <!-- Heading and tag line -->
+         <!-- Heading and changeable tag line -->
          <div class="container-fluid home-headings">
             <div class="row">
                <div class="col-xl-4 d-none d-xl-block">
@@ -113,6 +114,7 @@
                <div class="modal-body">
                   <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="false">
                      <div class="carousel-inner">
+                         <!-- Slide one -->
                         <div class="carousel-item active">
                            <div class="container slide-container slide-one">
                               <div class="row">
@@ -132,6 +134,7 @@
                               </div>
                            </div>
                         </div>
+                        <!-- Slide two -->
                         <div class="carousel-item">
                            <div class="container slide-container slide-two">
                               <div class="row">
@@ -153,6 +156,7 @@
                               </div>
                            </div>
                         </div>
+                        <!-- Slide three -->
                         <div class="carousel-item">
                            <div class="container slide-container slide-three">
                               <div class="row">
@@ -176,6 +180,7 @@
                            </div>
                         </div>
                      </div>
+                     <!-- Previous and next controls -->
                      <a class="carousel-control-prev" href="#carouselControls" role="button"
                         data-slide="prev">
                      <span id="prev-icon" class="carousel-control-prev-icon" aria-hidden="true"></span>
