@@ -13,12 +13,12 @@ const game = {
 	userScore: 0,
 	computerScore: 0,
 
-	soundsOn: localStorage.getItem("soundsOn"),
+	soundsOn: localStorage.getItem('soundsOn'),
 
-	winRecord: localStorage.getItem("winRecord"),
-	loseRecord: localStorage.getItem("loseRecord"),
+	winRecord: localStorage.getItem('winRecord'),
+	loseRecord: localStorage.getItem('loseRecord'),
 
-	computerPlayers: localStorage.getItem("computerPlayers"),
+	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
 // DOM loads, assigns clck sounds to buttons, enables mute button and sets off the countDown and setGameHtml functions
@@ -27,12 +27,12 @@ $(document).ready(function () {
 	countDown();
 	// Credit: help assigning sound effects to variables and using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
 	let clickSound = new Audio();
-	clickSound.src = "assets/sounds/clickeffect.mp3";
+	clickSound.src = 'assets/sounds/clickeffect.mp3';
 	// Sound from Zapsplat.com
-	let buttons = document.getElementsByTagName("button");
+	let buttons = document.getElementsByTagName('button');
 	for (let button of buttons) {
 		button.addEventListener('mousedown', function () {
-			if (game.soundsOn === "true") {
+			if (game.soundsOn === 'true') {
 				clickSound.play();
 			}
 		});
@@ -41,11 +41,11 @@ $(document).ready(function () {
 		let onButton = document.getElementById('volume-on');
 		let offButton = document.getElementById('volume-off');
 		if (this === onButton) {
-			game.soundsOn = "false";
+			game.soundsOn = 'false';
 			onButton.classList.add('hidden');
 			offButton.classList.remove('hidden');
 		} else {
-			game.soundsOn = "true";
+			game.soundsOn = 'true';
 			offButton.classList.add('hidden');
 			onButton.classList.remove('hidden');
 		}
@@ -65,9 +65,9 @@ function setGameHtml() {
 	$('#win-record').text(`${game.winRecord}`);
 	$('#lose-record').text(`${game.loseRecord}`);
 	// Sounds on vs off, set depending on user's previous actions or defaulting to on for first time visiters
-	if (game.soundsOn === "true") {
+	if (game.soundsOn === 'true') {
 		$('#volume-on').removeClass('hidden');
-	} else if (game.soundsOn === "false") {
+	} else if (game.soundsOn === 'false') {
 		$('#volume-off').removeClass('hidden');
 	} else if (game.soundsOn === null) {
 		$('#volume-on').removeClass('hidden');
@@ -92,7 +92,7 @@ function setGameHtml() {
 function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
-        document.getElementById('round-total').innerHTML = "First to 3";
+        document.getElementById('round-total').innerHTML = 'First to 3';
         // credit: help with countdown courtesy of James McDowell's post on stack overflow - https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 		let timeLeft = 3;
 		let timer = setInterval(function () {
@@ -100,7 +100,7 @@ function countDown() {
 				clearInterval(timer);
 				userInput();
 			} else {
-				document.getElementById("round-total").innerHTML = timeLeft;
+				document.getElementById('round-total').innerHTML = timeLeft;
 			}
 			timeLeft -= 1;
 		}, 1000);
@@ -116,11 +116,11 @@ function userInput() {
 		if (game.userScore === 2 && game.computerScore === 2) {
 			document.getElementById('round-total').innerHTML = 'For the win!';
 		} else {
-			document.getElementById("round-total").innerHTML = "Play!";
+			document.getElementById('round-total').innerHTML = 'Play!';
 		}
-		$('.hand-icon').removeAttr("disabled").off("click");
+		$('.hand-icon').removeAttr('disabled').off('click');
 		$('.hand-icon').click(function () {
-			if (this === document.getElementById("fist")) {
+			if (this === document.getElementById('fist')) {
 				game.userInput = 0;
 			} else {
 				game.userInput = 5;
@@ -138,8 +138,8 @@ function userInput() {
 
 // On users turn, takes user's guess from number icons and runs playRound
 function userGuess() {
-	$('.hand-icon').attr("disabled", true);
-	$('.number-icon').removeAttr("disabled").off('click');
+	$('.hand-icon').attr('disabled', true);
+	$('.number-icon').removeAttr('disabled').off('click');
 	$('.number-icon').click(function () {
 		if (this === document.getElementById('zero')) {
 			game.userGuess = 0;
@@ -201,19 +201,19 @@ function computerGuess() {
 // Animation that occurs each round before displaying guess, updating images and subsequent scores
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
-    $('.game-image').removeClass("transparent");
+    $('.game-image').removeClass('transparent');
 	// credit: code to reset animation after one round found on Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4 at around 50 minutes
 	gameImages.forEach(gameImage => {
 		gameImage.addEventListener('animationend', function () {
-			this.style.animation = "";
+			this.style.animation = '';
 		});
 	});
 	let noiseOne = new Audio();
 	let noiseTwo = new Audio();
 	let noiseThree = new Audio();
-	noiseOne.src = "assets/sounds/noise1.mp3";
-	noiseTwo.src = "assets/sounds/noise2.mp3";
-	noiseThree.src = "assets/sounds/noise3.mp3";
+	noiseOne.src = 'assets/sounds/noise1.mp3';
+	noiseTwo.src = 'assets/sounds/noise2.mp3';
+	noiseThree.src = 'assets/sounds/noise3.mp3';
 	let playerHand = document.getElementById('player-hand');
 	let computerHand = document.getElementById('computer-hand');
 	let topLeft = document.getElementById('top-left');
@@ -222,31 +222,31 @@ function roundAnimation() {
 	let middleRight = document.getElementById('middle-right');
 	setTimeout(function () {
 		// credit: applying custom css animations via JS learnt Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd at around 49 minutes.
-		playerHand.style.animation = "mainAnimation 1.2s";
+		playerHand.style.animation = 'mainAnimation 1.2s';
 		if (game.computerPlayers == 1) {
-			computerHand.style.animation = "mainAnimation 1.2s";
+			computerHand.style.animation = 'mainAnimation 1.2s';
 		} else if (game.computerPlayers == 2) {
-			topLeft.style.animation = "topLeft 1.2s";
-			topRight.style.animation = "topRight 1.2s";
+			topLeft.style.animation = 'topLeft 1.2s';
+			topRight.style.animation = 'topRight 1.2s';
 		} else if (game.computerPlayers == 3) {
-			computerHand.style.animation = "mainAnimation 1.2s";
-			middleLeft.style.animation = "middleLeft 1.2s";
+			computerHand.style.animation = 'mainAnimation 1.2s';
+			middleLeft.style.animation = 'middleLeft 1.2s';
 			middleRight.style.animation = 'middleRight 1.2s';
 		}
-		$('#round-total').text(`1`);
-		if (game.soundsOn === "true") {
+		$('#round-total').text('1');
+		if (game.soundsOn === 'true') {
 			noiseOne.play();
 		}
 	}, 1000);
 	setTimeout(function () {
-		$('#round-total').text(`2`);
-		if (game.soundsOn === "true") {
+		$('#round-total').text('2');
+		if (game.soundsOn === 'true') {
 			noiseTwo.play();
 		}
 	}, 1400);
 	setTimeout(function () {
-		$('#round-total').text(`3`);
-		if (game.soundsOn === "true") {
+		$('#round-total').text('3');
+		if (game.soundsOn === 'true') {
 			noiseOne.play();
 		}
 	}, 1800);
@@ -254,57 +254,57 @@ function roundAnimation() {
 	setTimeout(function () {
 		// Image change from the user depending on whether they've chosen fist(0) or palm (5)
 		if (game.userInput === 0) {
-			$('#player-hand').attr("src", "assets/images/fistfaceup.png");
+			$('#player-hand').attr('src', 'assets/images/fistfaceup.png');
 		} else {
-			$('#player-hand').attr("src", "assets/images/palmfaceup.png");
+			$('#player-hand').attr('src', 'assets/images/palmfaceup.png');
 		}
         // Checks amount of computer players present in the game and assigns correct images accordingly
         // 2 player
 		if (game.computerPlayers == 1) {
 			if (game.inputArray[0] === 0) {
-				$('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+				$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
             }
         // 3 player
 		} else if (game.computerPlayers == 2) {
 			if (game.inputArray[0] === 0) {
-				$('#top-left').attr("src", "assets/images/fistfacedown.png");
+				$('#top-left').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#top-left').attr("src", "assets/images/palmfacedown.png");
+				$('#top-left').attr('src', 'assets/images/palmfacedown.png');
 			}
 			if (game.inputArray[1] === 0) {
-				$('#top-right').attr("src", "assets/images/fistfacedown.png");
+				$('#top-right').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#top-right').attr("src", "assets/images/palmfacedown.png");
+				$('#top-right').attr('src', 'assets/images/palmfacedown.png');
             }
         // 4 player
 		} else {
 			if (game.inputArray[0] === 0) {
-				$('#computer-hand').attr("src", "assets/images/fistfacedown.png");
+				$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#computer-hand').attr("src", "assets/images/palmfacedown.png");
+				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
 			}
 			if (game.inputArray[1] === 0) {
-				$('#middle-left').attr("src", "assets/images/fistfacedown.png");
+				$('#middle-left').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#middle-left').attr("src", "assets/images/palmfacedown.png");
+				$('#middle-left').attr('src', 'assets/images/palmfacedown.png');
 			}
 			if (game.inputArray[2] === 0) {
-				$('#middle-right').attr("src", "assets/images/fistfacedown.png");
+				$('#middle-right').attr('src', 'assets/images/fistfacedown.png');
 			} else {
-				$('#middle-right').attr("src", "assets/images/palmfacedown.png");
+				$('#middle-right').attr('src', 'assets/images/palmfacedown.png');
 			}
 		}
 		// Text change revealing guess depending on if it's the user or computer's turn
 		if (game.userTurn === true) {
 			$('#round-total').text(`${game.userGuess}!`);
-			if (game.soundsOn === "true") {
+			if (game.soundsOn === 'true') {
 				noiseThree.play();
 			}
 		} else {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
-			if (game.soundsOn === "true") {
+			if (game.soundsOn === 'true') {
 				noiseThree.play();
 			}
 		}
@@ -317,32 +317,32 @@ function playRound() {
 	updateCorrectScore();
 	roundAnimation();
 	if (game.userTurn === true) {
-		$('.number-icon').attr("disabled", true);
+		$('.number-icon').attr('disabled', true);
 	} else {
-		$('.hand-icon').attr("disabled", true);
+		$('.hand-icon').attr('disabled', true);
 		computerGuess();
 	}
 	// Timed to occur after the animation has finished and makes clear that the round is over
 	setTimeout(function () {
 		let yay = new Audio();
 		let meh = new Audio();
-		yay.src = "assets/sounds/success.mp3";
-		meh.src = "assets/sounds/meh.mp3";
+		yay.src = 'assets/sounds/success.mp3';
+		meh.src = 'assets/sounds/meh.mp3';
 		if (game.userTurn && game.userGuess === game.correctScore) {
-			$('#round-total').text(`Correct!`);
-			if (game.soundsOn === "true") {
+			$('#round-total').text('Correct!');
+			if (game.soundsOn === 'true') {
 				yay.play();
 			}
 			incrementUserScore();
 		} else if (game.computerTurn && game.computerGuess === game.correctScore) {
-			$('#round-total').text(`Correct!`);
-			if (game.soundsOn === "true") {
+			$('#round-total').text('Correct!');
+			if (game.soundsOn === 'true') {
 				yay.play();
 			}
 			incrementComputerScore();
 		} else {
-			$('#round-total').text(`No good!`);
-			if (game.soundsOn === "true") {
+			$('#round-total').text('No good!');
+			if (game.soundsOn === 'true') {
 				meh.play();
 			}
 		}
@@ -356,7 +356,7 @@ function playRound() {
 			game.userTurn = true;
 			game.computerTurn = false;
 		}
-		$('.game-image').addClass("transparent");
+		$('.game-image').addClass('transparent');
 		$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
 		$('.extra-top-hand').attr('src', 'assets/images/fistfacedown.png');
 		$('.extra-middle-hand').attr('src', 'assets/images/fistfacedown.png');
@@ -383,14 +383,14 @@ function endGame() {
 	if (game.userScore === 3) {
 		$('#round-total').text(`You've won!`);
 		let victory = new Audio();
-		victory.src = "assets/sounds/victory.mp3";
-		if (game.soundsOn === "true") {
+		victory.src = 'assets/sounds/victory.mp3';
+		if (game.soundsOn === 'true') {
 			victory.play();
 		}
 	} else {
-		$('#round-total').text(`You lost!`);
+		$('#round-total').text('You lost!');
 		let defeat = new Audio();
-		defeat.src = "assets/sounds/defeat.mp3";
+		defeat.src = 'assets/sounds/defeat.mp3';
 		if (game.soundsOn === 'true') {
 			defeat.play();
 		}
@@ -403,8 +403,8 @@ function endGame() {
 		game.computerTurn = false;
 		game.userScore = 0;
 		game.computerScore = 0;
-		$('#computer-score').text("0");
-		$('#player-score').text("0");
+		$('#computer-score').text('0');
+		$('#player-score').text('0');
 		$('.end-game-btns').addClass('hidden');
 		$('.game-btns').removeClass('hidden');
 		countDown();
@@ -420,6 +420,6 @@ function updateWinRecord() {
 		game.loseRecord++;
 		$('#lose-record').text(`${game.loseRecord}`);
 	}
-	localStorage.setItem("winRecord", game.winRecord);
-	localStorage.setItem("loseRecord", game.loseRecord);
+	localStorage.setItem('winRecord', game.winRecord);
+	localStorage.setItem('loseRecord', game.loseRecord);
 }
