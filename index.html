@@ -14,7 +14,9 @@
        <!-- Overlay which only appears in landscape mode on mobile phones to encourage users to change to portrait -->
       <div class="landscape-overlay hidden">
          <p>On mobile, this game is best experienced in portrait mode</p>
-         <i class="fas fa-mobile-alt overlay-icon landscape-icon"></i><i class="fas fa-long-arrow-alt-right overlay-icon arrow-icon"></i><i class="fas fa-mobile-alt overlay-icon portrait-icon"></i>
+         <i class="fas fa-mobile-alt overlay-icon landscape-icon" aria-hidden="true"></i><span class="sr-only">Phone in landscape</span>
+         <i class="fas fa-long-arrow-alt-right overlay-icon arrow-icon" aria-hidden="true"></i><span class="sr-only">Arrow pointing to the left</span>
+         <i class="fas fa-mobile-alt overlay-icon portrait-icon" aria-hidden="true"></i><span class="sr-only">Phone in portrait</span>
       </div>
       <!-- Container which surrounds entire page content -->
       <div class="container-fluid home-container">
@@ -91,7 +93,7 @@
                            <a id="4-player" href="game.html" class="btn btn-pimary btn-lg difficulty-button" role="button">4</a>
                         </div>
                      </div>
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="difficulty-quit"><i class="fas fa-long-arrow-alt-left"></i></button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="difficulty-quit"><i class="fas fa-long-arrow-alt-left" aria-hidden="true"></i><span class="sr-only">Exit</span></button>
                   </div>
                </div>
             </div>
@@ -144,8 +146,8 @@
                                  </div>
                                  <div class="row unflex">
                                     <div class="col-12" id="slide-two-images">
-                                       <i class="far fa-hand-rock rules-icon"></i>
-                                       <i class="far fa-hand-paper rules-icon"></i>
+                                       <i class="far fa-hand-rock rules-icon" aria-hidden="true"></i><span class="sr-only">Fist - represents 0 during gameplay</span>
+                                       <i class="far fa-hand-paper rules-icon" aria-hidden="true"></i><span class="sr-only">Palm - represents 5 during gameplay</span>
                                     </div>
                                  </div>
                                  <div class="col-12">
@@ -166,9 +168,9 @@
                                  </div>
                                  <div class="row unflex">
                                     <div class="col-12" id="slide-three-images">
-                                       <div class="rules-number">0</div>
-                                       <div class="rules-number">5</div>
-                                       <div id="ten" class="rules-number">10</div>
+                                       <div class="rules-number">0<span class="sr-only">Example of a button during gameplay</span></div>
+                                       <div class="rules-number">5<span class="sr-only">Example of a button during gameplay</span></div>
+                                       <div id="rules-ten" class="rules-number">10<span class="sr-only">Example of a button during gameplay</span></div>
                                     </div>
                                  </div>
                                  <div class="col-12">
