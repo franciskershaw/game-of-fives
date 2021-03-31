@@ -1,7 +1,7 @@
 # Game of Fives!
 ## Code Institute's Milestone Project 2 - Interactive Front-End
 
-*Hero image goes here*
+![readme hero image](assets/images/amiresponsive.png)
 
 Game of Fives is an online game of chance that has players assessing the odds against the computer in order to win points and measure their success over multiple plays. Based loosely on the real life drinking game, players take turns guessing the correct total in a given round from multiples of five. This total changes depending on what the player and computer choose to display out of zero (a balled up fist) or five (an open palm), with points awarded when the guess is correct. My aim with this project is to create a fun and memorable game that captures the essence of the loud, rowdy drinking game while being an enjoyable means of procrastination online.
 
@@ -34,7 +34,7 @@ As a player:
 
 1. I want to enjoy playing the game so that I can justify procrastinating in this way.
 2. I want to be able to navigate the site intuitively to find the start button or instructions.
-3. I want instructions that explain how to play the game if I don’t know already so that I can learn quickly how to get started.
+3. I want instructions that explain how to play the game if I don’t know already so that I can quickly learn how to get started.
 4. I want the game to provide feedback to me during play so that I know when it’s my go, whether I’ve chosen correctly or incorrectly, and what my current score is vs the computer.
 5. I want to choose the level of difficulty to play on so I can test myself on harder difficulties.
 6. I want my wins and losses to be recorded so that when I return to the site I can see historically how successful I am at this game.
@@ -47,14 +47,15 @@ As a player:
 The **user stories** as detailed in the previous section was the first part of the development process and was very helpful in deciding which features were critical to the success of the site. Features that I did not deem necessary to myself (as the stakeholder) and the players reaching the end of their journeys would not be considered.
 
 The **focus** of the project is:
-* To create a fun interactive game based off of the drinking game ‘fives’.
+* To create a fun interactive game which allows all users to reach the end of their respective stories with ease.
 
 The **business goal** for the stakeholder:
-* Have a site that encourages players to return.
+* Have a game that players will want to play multiple times. 
+* Produce a project which passes all marking criteria for the Code Institute's milestone 2 project.
 
-*To meet the focus and business goal, I therefore needed to create a bespoke website using HTML, CSS and Javascript to enable me to introduce the necessary functionality to produce a game.* **(work on this bit)**
+*Therefore, to meet both the focus and business goals, the game must be hosted on a bespoke website and created using using HTML, CSS and Javascript.*
 
-While strategising for this particular project, I figured that a good place to start for inspiration on layout and features would be to look up some popular online versions of the rock, paper scissors as this game mirrors several aspects of 'Fives'. With this in mind, I found the following sites very useful to begin with:
+While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic versio of 'Fives'. With this in mind, I found the following sites very useful to begin with:
 
 * [Afiniti - Rock, Paper, Scissors](https://www.afiniti.com/corporate/rock-paper-scissors)
 * [Online Stopwatch - Rock Paper Scissors!](https://www.online-stopwatch.com/chance-games/rock-paper-scissors/)
@@ -82,24 +83,102 @@ Based on information I uncovered during the strategy plane, and considering any 
 * Choice of difficulty setting
 * Explanation of the rules
 * Element of competition against another 'player'
-* Visible manifestation of current scores
-* Visible manifestation of historic wins vs losses record
-* A means of ending the game so that there is a victor
-
-#### Content requirements of these features
-* Game must load quickly
-
-
-#### Nice to haves
+* User feedback for a successful or unsucessful round
+* Visible representation of current scores
+* Visible representation of historic wins vs losses record
 * Sound effects
-* Background music during gameplay
-* Section that explains the real life drinking game rules
+
+#### Content requirements
+* Design of game must be aestehtically pleasing and easy to navigate
+* Game must load quickly
+* Rules must be brief but clear
+* Game must contain no logic errors
+* Scores must update when points are won
+* Overall scores must update when a game ends 
+* The game has to remember the user's overall win/loss rate for future visits
+* User must be able to mute sounds if they want to
 
 ### Structure Plane
 
+Bearing in mind the functional specifications and content requirements outlined in the scope plane, I decided only two unique pages were needed for the site that would share responsibility for presenting the necessary features to allow users to reach the end of their journeys.
+
+1. **Homepage, containing:**
+    * The game title
+    * A tagline whose content changes depending on the user's play history
+    * Hand images from the game itself
+    * A play button which launches a modal offering the user different difficulty choices
+    * A rules button which launches a modal and carousel explaining the rules in three slides
+    * An overall wins vs loss record for returning users
+    * A staggered entry animation presenting all of the above content in order of greatest impact
+
+2. **Game page, containing:**
+    * Current game information, including scores and overall wins vs loss record for returning users
+    * A quit button, which navigates back to the homepage
+    * A game arena section where the visible gameplay can take place
+    * All user inputs for the game itself
+    * A mute button to switch off sound effects
+    * Further play and quit *call to action* buttons once the game has ended
+
+#### Interaction Design
+
+While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game I have provided. Therfore the interaction design should be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
+
+* Interaction design needs to be intuitively learnable
+* Buttons and game inputs must provide feedback to ensure users are aware they can or have been clicked
+* The same colour scheme and general tone has to be maintained across the pages and modals to maintain consistency
+* 404 page required in the event that the user types the incorrect URL, with a link back to safety
+
+
+#### Information Architecture
+* Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls
+* Hub and spoke structure seems most apprpriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of exit or quit button
+* All information should fit within the viewport of a given device, without the need to scroll at all
+* No user should be clicking more than three times to reach the end of their user journey
+
 ### Skeleton Plane
 
+In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest - case in point being that I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the the required features.
+
+Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible. For me, the main goals of this site would have been threatened by any kind of overcomplicated or unconventional design as the end desitination.
+
+![homepage](assets/images/homepage.png)
+![rules modal](assets/images/rulesmodal.png)
+![difficulty selection](assets/images/difficultyselection.png)
+![game page](assets/images/gamepage.png)
+
+#### Changes from skeleton plane to final result
+
+For the most part, I felt satisfied at this stage that all my user stories would be completed intuitively through the layout of my site and began coding the game. However, some design issues came to light once development started:
+
+* Difficulty modal: my original design had the number selections moving to left/right from up/down at the largest screen sizes. In practice, this was a pointless responsive feature that actually looked worse than simply following the same layout on all sizes, **so I reverted the layout back to its default view**.
+
+*Screenshot here*
+
+* Rules modal: my original designs had the carousel controls appearing on the left and right of each slide's content, however in practice the size of the information was too large when legible to share the space with the controls, **so I moved them to the bottom of the modal's body to compensate.**
+
+*Screenshot here*
+
 ### Surface Plane
+
+Once strategising and wireframing was complete, I could move onto planning how the look and feel of the game and site in general would appear. Early on duing development, I had decided that I wanted the general tone of the site to be playful and rowdy - almost juvenile in its aesthetics.
+
+#### Colour Scheme
+
+I chose to employ bright and garish colours for the game, in keeping with the playful tone I was hoping to instill. 
+
+Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour pallette to this specification:
+
+![Colour pallette](assets/images/ms2-colours.png)
+
+* #EC0B43 red: This provides the background colour to both the homepage and the game page
+* #58388E purple: This provided the background in the rules modal to allow sufficient contrast with the main page
+* #FFF689 yellow: This was employed on the majority of interactable content across the site
+* #F6F3F7 white: This was used for all not-interactive text content on the homepage, as well as the game information and game arena on the game page
+
+#### Typography
+
+I wanted 
+
 
 ## Features
 
@@ -119,6 +198,8 @@ Based on information I uncovered during the strategy plane, and considering any 
 
 ## Credits
 
+### General notes
+* Make sure to include Trello use (sprints/tasks) as part of the testing document
 
 ### Bugs notes
 * Mute button not playing sounds as a default setting until the button has been interacted with.
@@ -132,3 +213,4 @@ Based on information I uncovered during the strategy plane, and considering any 
 * Accessibility: 
     * Errors thrown by empty buttons on index and game
     * Warnings thrown by no page regions (header/footer/nav etc - both pages), possible missed heading (index), possible redundant links (both), no heading structure (game), and underlined text (game).
+    * Contrast error thrown by the 'sr-only' psnas
