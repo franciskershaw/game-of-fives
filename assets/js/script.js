@@ -20,17 +20,15 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
-// DOM loads, assigns clck sounds to buttons, enables mute button and sets off the countDown and setGameHtml functions
+// DOM loads, assigns clck sounds to buttons, enables mute button and calls setGameHtml() and countDown()
 $(document).ready(function () {
-	setGameHtml();
-	countDown();
-	// Credit: help assigning sound effects to variables and using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
-	let clickSound = new Audio();
-	clickSound.src = 'assets/sounds/clickeffect.mp3';
-	// Sound from Zapsplat.com
 	let gameButtons = document.getElementsByClassName('game-input');
 	for (let button of gameButtons) {
 		button.addEventListener('mousedown', function () {
+            // Credit: help assigning sound effects to variables using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
+            let clickSound = new Audio();
+            clickSound.src = 'assets/sounds/clickeffect.mp3';
+            // Sound from Zapsplat.com
 			if (game.soundsOn === 'true') {
 				clickSound.play();
 			}
@@ -49,12 +47,13 @@ $(document).ready(function () {
 			onButton.classList.remove('hidden');
 		}
 		localStorage.setItem('soundsOn', game.soundsOn);
-	});
+    });
+    setGameHtml();
+	countDown();
 });
 
-// Checks how many computer players the user has chosen to play, and sets HTML
+// Sets HTML of win/loss record, mute button and game images
 function setGameHtml() {
-	// Win vs loss record, top right of game page
 	if (game.winRecord === null) {
 		game.winRecord = 0;
 	}
@@ -63,7 +62,6 @@ function setGameHtml() {
 	}
 	$('#win-record').text(`${game.winRecord}`);
 	$('#lose-record').text(`${game.loseRecord}`);
-	// Sounds on vs off, set depending on user's previous actions or defaulting to on for first time visiters
 	if (game.soundsOn === 'true') {
 		$('#volume-on').removeClass('hidden');
 	} else if (game.soundsOn === 'false') {
@@ -73,7 +71,6 @@ function setGameHtml() {
 		game.soundsOn = 'true';
 	}
 	localStorage.setItem('soundsOn', game.soundsOn);
-	// Checks which amount of players the user chose and sets HTML
 	if (game.computerPlayers == 1) {} else if (game.computerPlayers == 2) {
 		$('#remove-two-player').remove();
 		$('.add-col-two-player').removeClass('col-4').addClass('col-6');
@@ -87,7 +84,7 @@ function setGameHtml() {
 	}
 }
 
-// 3,2,1 countdown to start the game off and calls userInput for the first time
+// Enables quit button, starts a 3,2,1 countdown then calls userInput()
 function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
@@ -108,9 +105,8 @@ function countDown() {
 
 }
 
-// Resets computer's input, takes user's input from the hand icons, checks whether it's the user's go (run userGuess) or computer's go (run playRound) and that the game isn't over (run endGame).
+// Takes user's input from the hand icons; if userTurn = true then call userGuess(), else call playRound()
 function userInput() {
-    $('.game-info-quit').removeClass('hidden');
 		$('.hand-icon').removeAttr('disabled').off('click');
 		$('.hand-icon').click(function () {
 			if (this === document.getElementById('fist')) {
@@ -126,7 +122,7 @@ function userInput() {
 		});
 }
 
-// On users turn, takes user's guess from number icons and runs playRound
+// If userTurn = true, takes user's guess from number icons and calls playRound()
 function userGuess() {
 	$('.hand-icon').attr('disabled', true);
 	$('.number-icon').removeAttr('disabled').off('click');
@@ -146,7 +142,7 @@ function userGuess() {
 	});
 }
 
-// Each round pushes randomly generated 0s and 5s to game.inputArray - the amount of which is dictated by how many computer players there are;
+// During playRound(), randomly generated 0s and 5s pushed to game.inputArray 
 function computerInput() {
 	for (let i = 0; i < parseInt(game.computerPlayers); i++) {
 		// credit: code generating 2 numbers, of which one is a zero, found on Peter Olsen's post at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
@@ -155,18 +151,7 @@ function computerInput() {
 	}
 }
 
-// Each round, add computerInput and userInput together to update correctScore
-function updateCorrectScore() {
-	let arr = game.inputArray;
-	// credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
-	let sumOfComputer = arr.reduce(add, 0);
-	function add(accumulator, a) {
-		return accumulator + a;
-	}
-	game.correctScore = game.userInput + sumOfComputer;
-}
-
-// On the computer's go, update computerGuess depending on amount of players and the sum of the computer's input
+// During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
 function computerGuess() {
 	let arr = game.inputArray;
 	let sumOfComputer = arr.reduce(add, 0);
@@ -188,7 +173,18 @@ function computerGuess() {
 	}
 }
 
-// Animation that occurs each round before displaying guess, updating images and subsequent scores
+// During playRound(), add computerInput and userInput together to updateCorrectScore
+function updateCorrectScore() {
+	let arr = game.inputArray;
+	// credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+	let sumOfComputer = arr.reduce(add, 0);
+	function add(accumulator, a) {
+		return accumulator + a;
+	}
+	game.correctScore = game.userInput + sumOfComputer;
+}
+
+// During playRound(), inititates animation which moves the game images and updates central game HTML text with a 1,2,3 count upwards
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass('transparent');
@@ -240,7 +236,7 @@ function roundAnimation() {
 	}, 1800);
 }
 
-// Changes all hand images to palm or fist
+// Changes all hand images to palm or fist depending on values of userInput and inputArray
 function roundReveal() {
     setTimeout(function () {
         let noiseReveal = new Audio();
@@ -248,17 +244,16 @@ function roundReveal() {
         if (game.soundsOn === 'true') {
 			noiseReveal.play();
 			}
-		// Image change from the user depending on whether they've chosen fist(0) or palm (5)
+		// User hand image
 		if (game.userInput === 5) {
 			$('#player-hand').attr('src', 'assets/images/palmfaceup.png');
 		}
-        // Checks amount of computer players present in the game and assigns correct images accordingly
-        // 2 player
+        // Computer - 2 player
 		if (game.computerPlayers == 1) {
 			if (game.inputArray[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
             }
-        // 3 player
+        // Computer - 3 player
 		} else if (game.computerPlayers == 2) {
 			if (game.inputArray[0] === 5) {
 				$('#top-left').attr('src', 'assets/images/palmfacedown.png');
@@ -266,7 +261,7 @@ function roundReveal() {
 			if (game.inputArray[1] === 5) {
 				$('#top-right').attr('src', 'assets/images/palmfacedown.png');
             }
-        // 4 player
+        // Computer - 4 player
 		} else {
 			if (game.inputArray[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
@@ -280,14 +275,56 @@ function roundReveal() {
         }
         // Text change revealing guess depending on if it's the user or computer's turn
 		if (game.userTurn === true) {
-			$('#round-total').text(`${game.userGuess}!`);
+			$('#round-total').text(`P: ${game.userGuess}!`);
 		} else {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
 		}
     }, 2200);
 }
 
-// Runs each round, provides feedback depending on whether the player/computer has guessed correctly, updates visible scores, resets variables/html, and calls userInput
+// End of playRound(); changes whose go it is, removes values from inputArray, returns images to fists, sets central HTML
+function resetGame() {
+    if (game.userTurn) {
+        game.userTurn = false;
+    } else {
+        game.userTurn = true;
+    }
+    game.inputArray = [];
+    $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
+    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
+    if (game.userScore === 2 && game.computerScore === 2) {
+			document.getElementById('round-total').innerHTML = 'For the win!';
+		} else {
+			document.getElementById('round-total').innerHTML = 'Play!';
+		}
+}
+
+// Adds one to game.userScore and updates display score on top left of page
+function incrementUserScore() {
+	game.userScore += 1;
+	$('#player-score').text(`${game.userScore}`);
+}
+
+// Adds one to game.ComputerScore and updates display score on top left of page
+function incrementComputerScore() {
+	game.computerScore += 1;
+	$('#computer-score').text(`${game.computerScore}`);
+}
+
+// Checks who won the game and updates wins vs loss record accordingly
+function updateWinRecord() {
+	if (game.userScore === 3) {
+		game.winRecord++;
+		$('#win-record').text(`${game.winRecord}`);
+	} else {
+		game.loseRecord++;
+		$('#lose-record').text(`${game.loseRecord}`);
+	}
+	localStorage.setItem('winRecord', game.winRecord);
+	localStorage.setItem('loseRecord', game.loseRecord);
+}
+
+// PRIMARY GAME FUNCTION: calls all functions required to play and end a round, provides feedback depending on whether a round was won or lost, and either continues or ends game depending on scores.
 function playRound() {
 	computerInput();
 	updateCorrectScore();
@@ -334,35 +371,7 @@ function playRound() {
 	}, 4000);
 }
 
-function resetGame() {
-    if (game.userTurn) {
-        game.userTurn = false;
-    } else {
-        game.userTurn = true;
-    }
-    game.inputArray = [];
-    $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
-    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
-    if (game.userScore === 2 && game.computerScore === 2) {
-			document.getElementById('round-total').innerHTML = 'For the win!';
-		} else {
-			document.getElementById('round-total').innerHTML = 'Play!';
-		}
-}
-
-// Adds one to game.userScore and updates display score on top left of page
-function incrementUserScore() {
-	game.userScore += 1;
-	$('#player-score').text(`${game.userScore}`);
-}
-
-// Adds one to game.ComputerScore and updates display score on top left of page
-function incrementComputerScore() {
-	game.computerScore += 1;
-	$('#computer-score').text(`${game.computerScore}`);
-}
-
-// Called once game is over, feeds back that the game was a win or a loss, adds one to the win record of either the user or the computer, asks whether to play again or quit, and resets the scores
+// Called once game is over, feeds back that the game was a win or a loss, calls updateWinRecord(), provides option to play again or quit, and resets the game scores
 function endGame() {
 	updateWinRecord();
 	if (game.userScore === 3) {
@@ -393,17 +402,4 @@ function endGame() {
 		$('.game-btns').removeClass('hidden');
 		countDown();
 	});
-}
-
-// Checks who won the game and updates wins vs loss record accordingly
-function updateWinRecord() {
-	if (game.userScore === 3) {
-		game.winRecord++;
-		$('#win-record').text(`${game.winRecord}`);
-	} else {
-		game.loseRecord++;
-		$('#lose-record').text(`${game.loseRecord}`);
-	}
-	localStorage.setItem('winRecord', game.winRecord);
-	localStorage.setItem('loseRecord', game.loseRecord);
 }
