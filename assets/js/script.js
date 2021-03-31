@@ -96,7 +96,8 @@ function countDown() {
 		let timeLeft = 3;
 		let timer = setInterval(function () {
 			if (timeLeft <= 0) {
-				clearInterval(timer);
+                clearInterval(timer);
+                document.getElementById('round-total').innerHTML = 'Play!';
 				userInput();
 			} else {
 				document.getElementById('round-total').innerHTML = timeLeft;
@@ -109,14 +110,7 @@ function countDown() {
 
 // Resets computer's input, takes user's input from the hand icons, checks whether it's the user's go (run userGuess) or computer's go (run playRound) and that the game isn't over (run endGame).
 function userInput() {
-	game.inputArray = [];
     $('.game-info-quit').removeClass('hidden');
-	if (game.userScore < 3 && game.computerScore < 3) {
-		if (game.userScore === 2 && game.computerScore === 2) {
-			document.getElementById('round-total').innerHTML = 'For the win!';
-		} else {
-			document.getElementById('round-total').innerHTML = 'Play!';
-		}
 		$('.hand-icon').removeAttr('disabled').off('click');
 		$('.hand-icon').click(function () {
 			if (this === document.getElementById('fist')) {
@@ -130,9 +124,6 @@ function userInput() {
 				playRound();
 			}
 		});
-	} else {
-		endGame();
-	}
 }
 
 // On users turn, takes user's guess from number icons and runs playRound
@@ -294,6 +285,20 @@ function roundReveal() {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
 		}
     }, 2200);
+}
+
+// Runs each round, provides feedback depending on whether the player/computer has guessed correctly, updates visible scores, resets variables/html, and calls userInput
+function playRound() {
+	computerInput();
+	updateCorrectScore();
+    roundAnimation();
+    roundReveal();
+	if (game.userTurn === true) {
+		$('.number-icon').attr('disabled', true);
+	} else {
+		$('.hand-icon').attr('disabled', true);
+		computerGuess();
+    }
     setTimeout(function () {
 		let yay = new Audio();
 		let meh = new Audio();
@@ -318,35 +323,31 @@ function roundReveal() {
 			}
 		}
 	}, 3000);
+	setTimeout(function () {
+        resetGame();
+        if (game.userScore < 3 && game.computerScore < 3) {
+            userInput();
+        } else {
+            endGame();
+        }
+		
+	}, 4000);
 }
 
-// Runs each round, provides feedback depending on whether the player/computer has guessed correctly, updates visible scores, resets variables/html, and calls userInput
-function playRound() {
-	computerInput();
-	updateCorrectScore();
-    roundAnimation();
-    roundReveal();
-	if (game.userTurn === true) {
-		$('.number-icon').attr('disabled', true);
-	} else {
-		$('.hand-icon').attr('disabled', true);
-		computerGuess();
-	}
-	
-	// Reverses the true/false of who's go it is, and calls userInput()
-	setTimeout(function () {
-		if (game.userTurn) {
-			game.userTurn = false;
+function resetGame() {
+    if (game.userTurn) {
+        game.userTurn = false;
+    } else {
+        game.userTurn = true;
+    }
+    game.inputArray = [];
+    $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
+    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
+    if (game.userScore === 2 && game.computerScore === 2) {
+			document.getElementById('round-total').innerHTML = 'For the win!';
 		} else {
-			game.userTurn = true;
+			document.getElementById('round-total').innerHTML = 'Play!';
 		}
-		$('.game-image').addClass('transparent');
-		$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
-		$('.extra-top-hand').attr('src', 'assets/images/fistfacedown.png');
-		$('.extra-middle-hand').attr('src', 'assets/images/fistfacedown.png');
-		$('#player-hand').attr('src', 'assets/images/fistfaceup.png');
-		userInput();
-	}, 4000);
 }
 
 // Adds one to game.userScore and updates display score on top left of page
