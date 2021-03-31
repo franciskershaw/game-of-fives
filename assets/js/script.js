@@ -1,8 +1,7 @@
 // Game variables object
 const game = {
 	userTurn: true,
-	computerTurn: false,
-
+	
 	userInput: 0,
 	userGuess: 0,
 
@@ -306,7 +305,7 @@ function roundReveal() {
 				yay.play();
 			}
 			incrementUserScore();
-		} else if (game.computerTurn && game.computerGuess === game.correctScore) {
+		} else if (!game.userTurn && game.computerGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
 			if (game.soundsOn === 'true') {
 				yay.play();
@@ -337,11 +336,9 @@ function playRound() {
 	// Reverses the true/false of who's go it is, and calls userInput()
 	setTimeout(function () {
 		if (game.userTurn) {
-			game.computerTurn = true;
 			game.userTurn = false;
 		} else {
 			game.userTurn = true;
-			game.computerTurn = false;
 		}
 		$('.game-image').addClass('transparent');
 		$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
@@ -387,7 +384,6 @@ function endGame() {
 	$('.game-btns').addClass('hidden');
 	$('#play').click(function () {
 		game.userTurn = true;
-		game.computerTurn = false;
 		game.userScore = 0;
 		game.computerScore = 0;
 		$('#computer-score').text('0');
