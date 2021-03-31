@@ -207,28 +207,26 @@ function roundAnimation() {
 		gameImage.addEventListener('animationend', function () {
 			this.style.animation = '';
 		});
-	});
-	let noiseOne = new Audio();
-	let noiseTwo = new Audio();
-	let noiseThree = new Audio();
-	noiseOne.src = 'assets/sounds/noise1.mp3';
-	noiseTwo.src = 'assets/sounds/noise2.mp3';
-	noiseThree.src = 'assets/sounds/noise3.mp3';
-	let playerHand = document.getElementById('player-hand');
-	let computerHand = document.getElementById('computer-hand');
-	let topLeft = document.getElementById('top-left');
-	let topRight = document.getElementById('top-right');
-	let middleLeft = document.getElementById('middle-left');
-	let middleRight = document.getElementById('middle-right');
+    });
+    let noiseOne = new Audio();
+    noiseOne.src = 'assets/sounds/noise1.mp3';
+    let noiseTwo = new Audio();
+    noiseTwo.src = 'assets/sounds/noise2.mp3';
 	setTimeout(function () {
-		// credit: applying custom css animations via JS learnt Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd at around 49 minutes.
-		playerHand.style.animation = 'mainAnimation 1.2s';
+        let playerHand = document.getElementById('player-hand');
+        let computerHand = document.getElementById('computer-hand');
+        // credit: help applying custom css animations via JS found on Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd at around 49 minutes.
+        playerHand.style.animation = 'mainAnimation 1.2s';
 		if (game.computerPlayers == 1) {
 			computerHand.style.animation = 'mainAnimation 1.2s';
 		} else if (game.computerPlayers == 2) {
+            let topLeft = document.getElementById('top-left');
+	        let topRight = document.getElementById('top-right');
 			topLeft.style.animation = 'topLeft 1.2s';
 			topRight.style.animation = 'topRight 1.2s';
 		} else if (game.computerPlayers == 3) {
+            let middleLeft = document.getElementById('middle-left');
+	        let middleRight = document.getElementById('middle-right');
 			computerHand.style.animation = 'mainAnimation 1.2s';
 			middleLeft.style.animation = 'middleLeft 1.2s';
 			middleRight.style.animation = 'middleRight 1.2s';
@@ -250,80 +248,54 @@ function roundAnimation() {
 			noiseOne.play();
 		}
 	}, 1800);
-	// This part of the function changes images and text at the end of the animation
-	setTimeout(function () {
+}
+
+// Changes all hand images to palm or fist
+function roundReveal() {
+    setTimeout(function () {
+        let noiseReveal = new Audio();
+	    noiseReveal.src = 'assets/sounds/noise3.mp3';
+        if (game.soundsOn === 'true') {
+			noiseReveal.play();
+			}
 		// Image change from the user depending on whether they've chosen fist(0) or palm (5)
-		if (game.userInput === 0) {
-			$('#player-hand').attr('src', 'assets/images/fistfaceup.png');
-		} else {
+		if (game.userInput === 5) {
 			$('#player-hand').attr('src', 'assets/images/palmfaceup.png');
 		}
         // Checks amount of computer players present in the game and assigns correct images accordingly
         // 2 player
 		if (game.computerPlayers == 1) {
-			if (game.inputArray[0] === 0) {
-				$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
             }
         // 3 player
 		} else if (game.computerPlayers == 2) {
-			if (game.inputArray[0] === 0) {
-				$('#top-left').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[0] === 5) {
 				$('#top-left').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[1] === 0) {
-				$('#top-right').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[1] === 5) {
 				$('#top-right').attr('src', 'assets/images/palmfacedown.png');
             }
         // 4 player
 		} else {
-			if (game.inputArray[0] === 0) {
-				$('#computer-hand').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[1] === 0) {
-				$('#middle-left').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[1] === 5) {
 				$('#middle-left').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[2] === 0) {
-				$('#middle-right').attr('src', 'assets/images/fistfacedown.png');
-			} else {
+			if (game.inputArray[2] === 5) {
 				$('#middle-right').attr('src', 'assets/images/palmfacedown.png');
 			}
-		}
-		// Text change revealing guess depending on if it's the user or computer's turn
+        }
+        // Text change revealing guess depending on if it's the user or computer's turn
 		if (game.userTurn === true) {
 			$('#round-total').text(`${game.userGuess}!`);
-			if (game.soundsOn === 'true') {
-				noiseThree.play();
-			}
 		} else {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
-			if (game.soundsOn === 'true') {
-				noiseThree.play();
-			}
 		}
-	}, 2200);
-}
-
-// Runs each round, provides feedback depending on whether the player/computer has guessed correctly, updates visible scores, resets variables/html, and calls userInput
-function playRound() {
-	computerInput();
-	updateCorrectScore();
-	roundAnimation();
-	if (game.userTurn === true) {
-		$('.number-icon').attr('disabled', true);
-	} else {
-		$('.hand-icon').attr('disabled', true);
-		computerGuess();
-	}
-	// Timed to occur after the animation has finished and makes clear that the round is over
-	setTimeout(function () {
+    }, 2200);
+    setTimeout(function () {
 		let yay = new Audio();
 		let meh = new Audio();
 		yay.src = 'assets/sounds/success.mp3';
@@ -347,6 +319,21 @@ function playRound() {
 			}
 		}
 	}, 3000);
+}
+
+// Runs each round, provides feedback depending on whether the player/computer has guessed correctly, updates visible scores, resets variables/html, and calls userInput
+function playRound() {
+	computerInput();
+	updateCorrectScore();
+    roundAnimation();
+    roundReveal();
+	if (game.userTurn === true) {
+		$('.number-icon').attr('disabled', true);
+	} else {
+		$('.hand-icon').attr('disabled', true);
+		computerGuess();
+	}
+	
 	// Reverses the true/false of who's go it is, and calls userInput()
 	setTimeout(function () {
 		if (game.userTurn) {
