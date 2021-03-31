@@ -153,6 +153,7 @@ function computerInput() {
 
 // During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
 function computerGuess() {
+    // credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 	let arr = game.inputArray;
 	let sumOfComputer = arr.reduce(add, 0);
 	function add(accumulator, a) {
@@ -176,7 +177,6 @@ function computerGuess() {
 // During playRound(), add computerInput and userInput together to updateCorrectScore
 function updateCorrectScore() {
 	let arr = game.inputArray;
-	// credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 	let sumOfComputer = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
