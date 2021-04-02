@@ -339,25 +339,30 @@ More in depth information about cloning repositories, including how to clone a r
 
 ## Credits
 
-### Content
-
 ### Media
+
+* The photos of the hands used on the homepage and in gameplay were screen grabbed from the [afiniti Rock, Paper, Scissors demo.](https://www.afiniti.com/corporate/rock-paper-scissors)
+
+* Click sounds on the game page were sourced from [zapsplat.](https://www.zapsplat.com/)
+
+* Sound effects during gameplay created by Francis Kershaw and Zoe Thexton.
 
 ### Acknowledgements
 
-### General notes
-* Make sure to include Trello use (sprints/tasks) as part of the testing document
+* I had help centering my landscape overlay from [this stack overflow post](https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page) on the answer posted by [Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)
 
-### Bugs notes
-* Mute button not playing sounds as a default setting until the button has been interacted with.
-* Getting mute button to work in the first place
-* Animation bug (transform issue)
+* The entry animation on the homepage was lifted and tweaked from my Milestone 1 project, which in turn was inspired by the animations covered on [this YouTube video](https://www.youtube.com/watch?v=zHUpx90NerM&ab_channel=TraversyMedia) by [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
 
-### Validator notes
-* HTML: 1 warning for empty h2, dismissed as text content is added using Javascript
-* CSS: No warnings
-* JS: Missing an unnecessary semicolons, ES6 features warnings, undefined variables ($)
-* Accessibility: 
-    * Errors thrown by empty buttons on index and game
-    * Warnings thrown by no page regions (header/footer/nav etc - both pages), possible missed heading (index), possible redundant links (both), no heading structure (game), and underlined text (game).
-    * Contrast error thrown by the 'sr-only' psnas
+* The transform animation that takes place each round during gameplay, and the code required to restart it each time it finishes, was learnt from [this YouTube video](https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd) by [Dev Ed](https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q) between 45 and 51 minutes.
+
+* Help with the syntax needed to checking width and height of window courtesy of [Zoe Thexton's](https://github.com/zoet24) MS2 [js repository](https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js)
+
+* I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan](https://stackoverflow.com/users/295783/mplungjan)
+
+* Help assigning sound effects to variables and calling them using the 'play' method found on [this YouTube video](https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury) by [Adam Khoury](https://www.youtube.com/channel/UCpzRDg0orQBZFBPzeXm1yNg).
+
+* Help implementing a 3,2,1 countdown before the start of each game found on [this stack overflow post](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown) on the answer posted by [James McDowell](https://stackoverflow.com/users/4815264/james-mcdowell).
+
+* The code to randomly generate two numbers, of which one is 0, found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen](https://stackoverflow.com/users/546661/peter-olson.
+
+* The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine](https://stackoverflow.com/users/851498/florian-margaine).
