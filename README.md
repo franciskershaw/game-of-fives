@@ -177,26 +177,103 @@ Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour 
 
 #### Typography
 
-I wanted 
-
+In keeping with the playful tone I was after,
 
 ## Features
 
 ### Existing features
 
+#### index.html
+
+* Two images of hands (one balled up fist and one open palm) make an entrance via a primitive looking appear and zoom animation, followed by the title of the game. The idea was to have the images appear almost as if by stop motion animation.
+* A tagline appears beneath the heading which changes depending on the user's past performances: 'Get stuck into your first game!' for those who haven't played a game yet, 'You're not half bad at this!' if the user has won more than they've lost, 'It's neck and neck!' if the user has won as many as they've lost, and 'You're not great at this.' if the user is losing overall.
+* Two buttons appear beneath (on mobile) or sandwiched in between the hands (on large screen sizes): a play button and a rules button.
+* The play button launches a modal which offers the user a choice of difficulty settings. Each button is an anchor tag which will direct the user to the game page.
+* The rules button launches a modal with a nest carousel containing three explanatory slides for users who are not aware of the rules.
+* Beneath all the main content is a small section contaiing the user's win/loss history
+
+#### game.html
+
+The game page is designed as an arena of sorts, with three clearly defined sections:
+
+* A game information section which includes the current game scores, the overall win vs loss record, and a quit button that redirects to the home page.
+
+* The gameplay section which has the user's and the computer's hand images
+
+
 ### Features left to implement
 
 ## Technologies used
+
+### Languags and frameworks
+
+* **HTML5:** Language used for structure and content across both pages.
+* **CSS3:** Language used to style elements from the HTML pages.
+* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly helped improve the responsiveness of each page.
+* **JavaScript:** Programing language used to add interactivity to the homepage and implement the logic required to make the game work
+* **jQuery:** JavaScript framework which helped me select and manipulate elements with ease.
+
+### Additional Tools
+
+* [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
+* [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
+* [FontAwesome:](https://fontawesome.com/) Large database of icons which I used for my social links, call to action boxes, contact information and email updates form.
+* [Free Formatter:](https://www.freeformatter.com/html-formatter.html) Used to help ensure code was consistently formatted across all files.
+* [Github:](https://github.com/) Version control and storage of my code.
+* [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
+* [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
+* Google Desktop Developer Tools: Used for debugging and testing of responsiveness across several screen sizes.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'blah blah' and 'blah blah' fonts.
+* [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
+* [removebg:](https://www.remove.bg/) Used to remove the white background from my favicon.
+* [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
+* Logic Pro X: Music recording software, used to edit my sound effects down to the required length.
+* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile methodology.
+* [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
+* [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
+* [WAVE:](https://wave.webaim.org/) Allowed me to evaluate and test the accessibility of the site.
+* [ZapSplat:](https://www.zapsplat.com/) Provided a small soundbite for button clicks on the game page.
 
 ## Git Commit Messages
 
 ## Testing
 
+Please see a full report of the testing appplied to this project [here.](testing.md)
+
 ## Deployment
+
+I deployed the website to GitHub Pages, which was achieved as follows:
+
+1. View the Game of Fives repository by going to the 'Your repositories' section on Github's navigation.
+2. Go to settings, which is at the far right of the repository navigation next to insights.
+3. Scroll down to the GitHub Pages section.
+4. Select the master branch in the Source section.
+
+More in depth information about GitHub Pages can be found [here.](https://pages.github.com/)
 
 ## Cloning
 
+You are more than welcome to clone my project for whatever reason, just follow these steps:
+
+1. On GitHub, navigate to the main page of the repository.
+2. Click on the Code dropdown, located next to Add file.
+    * To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard icon to copy the link.
+    * To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH then click the clipboard icon to copy the link.
+    * To clone the repository using GitHub CLI, click Use GitHub CLI, then click the clipboard icon to copy the link.
+3. Open the Terminal.
+4. Change the current working directory to the location where you want the cloned directory.
+5. Type *git clone*, and then paste the URL you copied earlier.
+6. Press **Enter** to create your local clone
+
+More in depth information about cloning repositories, including how to clone a repository using GitHub Desktop, can be found [here.](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
 ## Credits
+
+### Content
+
+### Media
+
+### Acknowledgements
 
 ### General notes
 * Make sure to include Trello use (sprints/tasks) as part of the testing document
