@@ -47,13 +47,13 @@ As a player:
 The **user stories** as detailed in the previous section was the first part of the development process and was very helpful in deciding which features were critical to the success of the site. Features that I did not deem necessary to myself (as the stakeholder) and the players reaching the end of their journeys would not be considered.
 
 The **focus** of the project is:
-* To create a fun interactive game which allows all users to reach the end of their respective stories with ease.
+* To create a fun interactive game using JavaScript which allows all users to reach the end of their respective stories with ease.
 
 The **business goal** for the stakeholder:
-* Have a game that players will want to play multiple times. 
+* To have a game that players will want to play multiple times. 
 * Produce a project which passes all marking criteria for the Code Institute's milestone 2 project.
 
-*Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using using HTML, CSS and Javascript in order to implement all the neccessary functionality.*
+*Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using using HTML, CSS and Javascript in order to implement all the neccessary functionality to both enteratin the user and pass this part of the course.*
 
 While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following sites very useful to begin with:
 
@@ -67,13 +67,13 @@ Using the below importance vs viability metric, I was able to list out the oppor
 | Game vs 1 computer player | 5 | 5
 | Option to increase difficulty | 3 | 4
 | Explanation of the rules | 4 | 5
-| Record wins vs losses record | 3 | 4
+| Wins vs losses record | 3 | 4
 | Sound effects | 3 | 3
 | Mute option | 5 | 3
 | Option to play against a human player | 2 | 1
 | **Total** | 25 | 25
 
- From this reserach, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their necessity in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, it would have likely been beyond my current coding capabilities and comparitively not as important for the completion of my user journeys.
+ From this reserach, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their importance in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, implementation of this option would have been beyond my current coding capabilities and comparitively not as important for the completion of my other user journeys.
 
  ### Scope Plane
 
@@ -81,9 +81,9 @@ Based on information I uncovered during the strategy plane, and considering any 
 
 #### Required functional specifications
 * Choice of difficulty setting
-* Explanation of the rules
-* Element of competition against another 'player'
-* User feedback for a successful or unsucessful round
+* Section explaining the rules
+* Dedicated area for gameplay
+* User feedback for a successful or unsucessful round, as well as victory or defeat
 * Visible representation of current scores
 * Visible representation of historic wins vs losses record
 * Sound effects
@@ -104,12 +104,12 @@ Bearing in mind the functional specifications and content requirements outlined 
 
 1. **Homepage, containing:**
     * The game title
-    * A tagline whose content changes depending on the user's play history
+    * A tagline, the content of which changes depending on the user's play history
     * Hand images from the game itself
     * A play button which launches a modal offering the user different difficulty choices
     * A rules button which launches a modal and carousel explaining the rules in three slides
     * An overall wins vs loss record for returning users
-    * A staggered entry animation presenting all of the above content in order of greatest impact
+    * A staggered entry animation presenting all of the above content in order of greatest impact and importance
 
 2. **Game page, containing:**
     * Current game information, including scores and overall wins vs loss record for returning users
@@ -121,7 +121,7 @@ Bearing in mind the functional specifications and content requirements outlined 
 
 #### Interaction Design
 
-While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game I have provided. Therfore the interaction design should be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
+While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game itself. Therefore the interaction design should be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
 
 * Interaction design needs to be intuitively learnable
 * Buttons and game inputs must provide feedback to ensure users are aware they can or have been clicked
@@ -152,11 +152,11 @@ For the most part, I felt satisfied at this stage that all my user stories would
 
 * Difficulty modal: my original design had the number selections moving to left/right from up/down at the largest screen sizes. In practice, this was a pointless responsive feature that actually looked worse than simply following the same layout on all sizes, **so I reverted the layout back to its default view**.
 
-*Screenshot here*
+![Difficulty on large screens](assets/images/difficultylg.png)
 
 * Rules modal: my original designs had the carousel controls appearing on the left and right of each slide's content, however in practice the size of the information was too large when legible to share the space with the controls, **so I moved them to the bottom of the modal's body to compensate.**
 
-*Screenshot here*
+![Rules large devices](assets/images/ruleslg.png)
 
 ### Surface Plane
 
@@ -177,7 +177,13 @@ Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour 
 
 #### Typography
 
-In keeping with the playful tone I was after, I chose to use the cartoonish 'Fredoka One' for the main headings. For the rest of the site's content, it was important that I chose something legible and undistracting while not looking out of place  
+In keeping with the playful tone I was after, I chose to use the cartoonish 'Fredoka One' for the main headings. This font sets the tone for what the user will expect from the rest of the site: a slightly juvenile game that isn't intended to be taken too seriously! 
+
+![Header](assets/images/header.png)
+
+For the rest of the site's content, it was important that I chose something legible and undistracting while not looking out of place in the playful tone I had set. After quite a bit of deliberation, I settled upon 'Dosis' from google fonts to handle the majority of the content throughout the rest of the site.
+
+![Dosis](assets/images/dosis.png)
 
 ## Features
 
@@ -190,10 +196,11 @@ In keeping with the playful tone I was after, I chose to use the cartoonish 'Fre
 * Two buttons appear beneath (on mobile) or sandwiched in between the hands (on large screen sizes): a play button and a rules button.
 * The play button launches a modal which offers the user a choice of difficulty settings. Each button is an anchor tag which will direct the user to the game page.
 * The rules button launches a modal with a nested carousel containing three explanatory slides for users who are not aware of the rules yet.
-* Beneath all the main content is a small section contaiing the user's win/loss history
+* Beneath all the main content is a small section containing the user's win/loss history
 
 ![Homepage on mobile](assets/images/homepagemob.png)
 ![Homepage large screens](assets/images/homepagelg.png)
+![Difficulty selection](assets/images/difficulty.png) ![Rules](assets/images/rules.png)
 
 In the unlikely event that mobile users are in landscape mode when entering the site's homepage, an overlay appears to warn users that the should be sticking to portrait mode to best enjoy the game:
 
@@ -207,13 +214,17 @@ The game page is designed as an arena of sorts, with three clearly defined secti
 * Gameplay section
 * User inputs section
 
+On mobile the content takes all of the space on the viewport. However once tablet size has been reached this changes to fill only about 80%, leaving empty space around the playable area.
+
+![Mobile gamepage](assets/images/gamepagemob.png) ![Tablet gamepage](assets/images/gamepagetab.png)
+
 The game information section contains: 
 * The current game scores, which update when the user or computer score points.
 * The overall win vs loss record, which updates at the end of each game. 
 * A quit button that redirects to the home page at any stage should the user wish to leave.
 
 The gameplay section contains: 
-* The user's and the computer's hand images. The amount of computer hand images present is dictated by the which button the user clicked on the homepage's difficulty selection modal. 
+* The user and the computer's hand images. The amount of computer hand images visible is dictated by which button the user clicked on the homepage's difficulty selection modal. 
 * Game text content placed between the user and computer hand images which changes to give user feedback when needed.
 
 The user input section contains two rows of clickable buttons: 
@@ -226,26 +237,26 @@ The user input section contains two rows of clickable buttons:
 
 Once the page loads:
 
-* The text in the middle of the gameplay area reminds the user that to win a game you need 3 points.
+* The text in the middle of the gameplay area reminds the user that to win a game you need to score 3 points.
 * A 3,2,1 countdown then commences before any inputs are enabled.
 
 During the game:
 
 * The game always begins with the user's turn, so that there is always a slight advantage given to the user overall.
 * Once the user clicks zero (balled up fist) or five (open palm), if it's the user's turn then the hand icon inputs become disabled, while the user guess options are enabled.
-* After a guess has been clicked, a stop motion inspired animation occurs counting to three before revealing what both the user and computer has decided to input as well as the guess in the middle of the court. The animation contains sound effects created by myself on each shake of a hand.
+* After a guess has been clicked (or an initial top row input if it is the computer's go to guess), a stop motion inspired animation occurs counting to three before revealing what both the user and computer has decided to input as well as the guess in the middle of the court. The animation contains sound effects created by myself on each shake of a hand.
 * If the user and computer are tied on two points each, then the text copy in the middle of the gameplay area changes to 'Next point wins' for further feedback.
 
 End of the game:
 
-* Once either the user or the computer reaches three points, the game is declared over with a message in the center of the page - 'You won!' for a user victory, or 'You lost!' for a computer victory.
+* Once either the user or the computer reaches three points, the game is declared over with a message in the center of the page - 'You won!' for a user victory, or 'You lost!' for a computer victory. If sounds are on, a victory or defeat sound effect is initiated.
 * The overall record in the top right of the screen is updated.
-* The quit button is hidden and two new buttons appear in place of the user inputs, a 'Play again' option which will restart the game using the current difficulty setting, or a 'Quit' button which returns the user to the homepage.
+* The standard quit button is hidden and two new buttons appear in place of the user inputs, a 'Play again' option which will restart the game using the current difficulty setting, or a new 'Quit' button which returns the user to the homepage.
 
 ### Features left to implement
 
 * One day I would love to have this game available on a LAN basis allowing users to challenge other human users to a game in real time. The real life game afterall is not a game between user and computer, but between several human users using pyschology more than luck to determine how to play their oponent.
-* I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into futher detail about the user's play history, broken up oragnised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record. 
+* I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into futher detail about the user's play history, broken up oragnised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record and analyse. 
 
 ## Technologies used
 
@@ -253,26 +264,26 @@ End of the game:
 
 * **HTML5:** Language used for structure and content across both pages.
 * **CSS3:** Language used to style elements from the HTML pages.
-* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly helped improve the responsiveness of each page.
-* **JavaScript:** Programing language used to add interactivity to the homepage and implement the logic required to make the game work
-* **jQuery:** JavaScript framework which helped me select and manipulate elements with ease.
+* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
+* **JavaScript:** Programing language used to add interactivity to the homepage and implement the logic required to make the game work.
+* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than vanilla JavaScript.
 
 ### Additional Tools
 
 * [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
 * [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
-* [FontAwesome:](https://fontawesome.com/) Large database of icons which I used for my social links, call to action boxes, contact information and email updates form.
+* [FontAwesome:](https://fontawesome.com/) Large database of icons which I used for my hand icons, mute button, and orientation warning on the landscape overlay.
 * [Free Formatter:](https://www.freeformatter.com/html-formatter.html) Used to help ensure code was consistently formatted across all files.
 * [Github:](https://github.com/) Version control and storage of my code.
 * [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
 * [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
-* Google Desktop Developer Tools: Used for debugging and testing of responsiveness across several screen sizes.
-* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'blah blah' and 'blah blah' fonts.
+* Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to testing of each game function as and when they were created.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Fredoka One' and 'Dosis' fonts.
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [removebg:](https://www.remove.bg/) Used to remove the white background from my favicon.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
 * Logic Pro X: Music recording software, used to edit my sound effects down to the required length.
-* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile methodology.
+* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with the agile methodology.
 * [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
 * [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
 * [WAVE:](https://wave.webaim.org/) Allowed me to evaluate and test the accessibility of the site.
@@ -289,7 +300,7 @@ For the commits on this project, I continued to follow the basic rules I had set
 Building on this format, I also added the following conditions as a result of feedback from my previous project and the different specifications required this time around:
 
 * Include the file name being amended where possible, such as index.html or script.js
-* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to the gameplay's javascript.
+* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to the gameplay's javascript functions.
 
 At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
 
