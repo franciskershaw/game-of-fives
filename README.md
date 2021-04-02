@@ -33,7 +33,7 @@ As the owner of the site:
 As a player:
 
 1. I want to enjoy playing the game so that I can justify procrastinating in this way.
-2. I want to be able to navigate the site intuitively to find the start button or instructions.
+2. I want the site navigation to be intuitive so that I can find the game or instructions quickly.
 3. I want instructions that explain how to play the game if I don’t know already so that I can quickly learn how to get started.
 4. I want the game to provide feedback to me during play so that I know when it’s my go, whether I’ve chosen correctly or incorrectly, and what my current score is vs the computer.
 5. I want to choose the level of difficulty to play on so I can test myself on harder difficulties.
@@ -53,9 +53,9 @@ The **business goal** for the stakeholder:
 * Have a game that players will want to play multiple times. 
 * Produce a project which passes all marking criteria for the Code Institute's milestone 2 project.
 
-*Therefore, to meet both the focus and business goals, the game must be hosted on a bespoke website and created using using HTML, CSS and Javascript.*
+*Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using using HTML, CSS and Javascript in order to implement all the neccessary functionality.*
 
-While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic versio of 'Fives'. With this in mind, I found the following sites very useful to begin with:
+While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following sites very useful to begin with:
 
 * [Afiniti - Rock, Paper, Scissors](https://www.afiniti.com/corporate/rock-paper-scissors)
 * [Online Stopwatch - Rock Paper Scissors!](https://www.online-stopwatch.com/chance-games/rock-paper-scissors/)
@@ -77,7 +77,7 @@ Using the below importance vs viability metric, I was able to list out the oppor
 
  ### Scope Plane
 
-Based on information I uncovered during the strategy plane, and considering any limitations of my current coding abilities, the features I decided were critical to include are as follows:
+Based on information I uncovered during the strategy plane, and considering any limitations of my current coding abilities, the features I decided were critical for the game to include are as follows:
 
 #### Required functional specifications
 * Choice of difficulty setting
@@ -177,7 +177,7 @@ Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour 
 
 #### Typography
 
-In keeping with the playful tone I was after,
+In keeping with the playful tone I was after, I chose to use the cartoonish 'Fredoka One' for the main headings. For the rest of the site's content, it was important that I chose something legible and undistracting while not looking out of place  
 
 ## Features
 
@@ -185,23 +185,67 @@ In keeping with the playful tone I was after,
 
 #### index.html
 
-* Two images of hands (one balled up fist and one open palm) make an entrance via a primitive looking appear and zoom animation, followed by the title of the game. The idea was to have the images appear almost as if by stop motion animation.
+* Two images of hands (one balled up fist and one open palm) make an entrance via a primitive stop motion inspired entry animation, followed by the title of the game.
 * A tagline appears beneath the heading which changes depending on the user's past performances: 'Get stuck into your first game!' for those who haven't played a game yet, 'You're not half bad at this!' if the user has won more than they've lost, 'It's neck and neck!' if the user has won as many as they've lost, and 'You're not great at this.' if the user is losing overall.
 * Two buttons appear beneath (on mobile) or sandwiched in between the hands (on large screen sizes): a play button and a rules button.
 * The play button launches a modal which offers the user a choice of difficulty settings. Each button is an anchor tag which will direct the user to the game page.
-* The rules button launches a modal with a nest carousel containing three explanatory slides for users who are not aware of the rules.
+* The rules button launches a modal with a nested carousel containing three explanatory slides for users who are not aware of the rules yet.
 * Beneath all the main content is a small section contaiing the user's win/loss history
+
+![Homepage on mobile](assets/images/homepagemob.png)
+![Homepage large screens](assets/images/homepagelg.png)
+
+In the unlikely event that mobile users are in landscape mode when entering the site's homepage, an overlay appears to warn users that the should be sticking to portrait mode to best enjoy the game:
+
+![Landscape overlay](assets/images/overlay.png)
 
 #### game.html
 
 The game page is designed as an arena of sorts, with three clearly defined sections:
 
-* A game information section which includes the current game scores, the overall win vs loss record, and a quit button that redirects to the home page.
+* Game information section
+* Gameplay section
+* User inputs section
 
-* The gameplay section which has the user's and the computer's hand images
+The game information section contains: 
+* The current game scores, which update when the user or computer score points.
+* The overall win vs loss record, which updates at the end of each game. 
+* A quit button that redirects to the home page at any stage should the user wish to leave.
 
+The gameplay section contains: 
+* The user's and the computer's hand images. The amount of computer hand images present is dictated by the which button the user clicked on the homepage's difficulty selection modal. 
+* Game text content placed between the user and computer hand images which changes to give user feedback when needed.
+
+The user input section contains two rows of clickable buttons: 
+
+* Row one contains two fist and palm font awesome icons which allow the user to decide whether they will present a zero or a five in the forthcoming round. 
+* Row two is enabled only on the user's turn, and contains the buttons necessary for a user to make an educated guess as to what the total score will be. This row again changes depending on which difficulty the user has previously selected, as the possible answers will increase if there are more computer players present.
+* A mute button is clearly visible to the right of the inputs which allows the user to turn off the sound effects if they wish. Local storage then remembers this choice so that the user does not have to keep muting every time they visit if that is their preference.
+
+### Gameplay
+
+Once the page loads:
+
+* The text in the middle of the gameplay area reminds the user that to win a game you need 3 points.
+* A 3,2,1 countdown then commences before any inputs are enabled.
+
+During the game:
+
+* The game always begins with the user's turn, so that there is always a slight advantage given to the user overall.
+* Once the user clicks zero (balled up fist) or five (open palm), if it's the user's turn then the hand icon inputs become disabled, while the user guess options are enabled.
+* After a guess has been clicked, a stop motion inspired animation occurs counting to three before revealing what both the user and computer has decided to input as well as the guess in the middle of the court. The animation contains sound effects created by myself on each shake of a hand.
+* If the user and computer are tied on two points each, then the text copy in the middle of the gameplay area changes to 'Next point wins' for further feedback.
+
+End of the game:
+
+* Once either the user or the computer reaches three points, the game is declared over with a message in the center of the page - 'You won!' for a user victory, or 'You lost!' for a computer victory.
+* The overall record in the top right of the screen is updated.
+* The quit button is hidden and two new buttons appear in place of the user inputs, a 'Play again' option which will restart the game using the current difficulty setting, or a 'Quit' button which returns the user to the homepage.
 
 ### Features left to implement
+
+* One day I would love to have this game available on a LAN basis allowing users to challenge other human users to a game in real time. The real life game afterall is not a game between user and computer, but between several human users using pyschology more than luck to determine how to play their oponent.
+* I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into futher detail about the user's play history, broken up oragnised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record. 
 
 ## Technologies used
 
@@ -235,6 +279,21 @@ The game page is designed as an arena of sorts, with three clearly defined secti
 * [ZapSplat:](https://www.zapsplat.com/) Provided a small soundbite for button clicks on the game page.
 
 ## Git Commit Messages
+
+For the commits on this project, I continued to follow the basic rules I had set during my first milestone project. That is to say:
+
+* Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
+* Always use the imperative tense so that readers would read as the purpose of this commit is to - etc.
+* Commit often, and keep messages as short as possible.
+
+Building on this format, I also added the following conditions as a result of feedback from my previous project and the different specifications required this time around:
+
+* Include the file name being amended where possible, such as index.html or script.js
+* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to the gameplay's javascript.
+
+At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
+
+![commits](assets/images/commits.png)
 
 ## Testing
 
