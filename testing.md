@@ -2,6 +2,8 @@
 
 Click [here](README.md) to return to the main project.
 
+***Note** - Development of this project was my first attempt to follow basic **agile** principals. With help from Trello, I made sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.*
+
 Testing of this project was carried out through the following methods:
 
 * Constant review during development using Gitpod's browser previewers and Chrome developer tools.
@@ -35,11 +37,11 @@ Visuals/Responsiveness
 
 Game logic
 
-The guiding principal I followed when writing the game's JavaScript code was to start very simple and build upwards. This way I was able to be reassured that the vital core functions were working properly before added complexity (such as the 3-player and 4-player) versions of the game were attempted. I used Trello to divide the basic functions into 'sprints', and those were divided into various 'tasks' that could be attempted and tested on an individual level. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.
+The guiding principle I followed when writing the game's JavaScript code was to start very simple and build upwards. This way I was able to be reassured that the vital core functions were working properly before added complexity (such as the 3-player and 4-player) versions of the game were attempted. 
 
 The console on Google Chrome's developer tools became my most important means of testing that each small component or task I working on was functioning as intended - using the *console.log* method:
 
-* Inititally the most basic 2-player version possible was designed purely for the console. Each specific function would announce to the console that it had been called, and all the relevant variable values were logged using template literals to ensure the functions were acting predictably and following on from each other correctly. 
+* Initially the most basic 2-player version possible was designed purely for the console. Each specific function would announce to the console that it had been called, and all the relevant variable values were logged using template literals to ensure the functions were acting predictably and following on from each other correctly. 
 * Only once I was satisfied that the console version of the game was to specification did I feel comfortable amending the functions to manipulate the HTML of the gamepage itself.
 * Any time a function was amended in any way at all, be it to introduce extra layers of complexity or to break code down into more legible sections, I would reintroduce the same *console.log* messages as before to ensure that absolutely nothing had changed as a result of the changes I had made.
 
@@ -73,13 +75,13 @@ Some important observations were confirmed through the user testing that I would
 
 *Duplicate functions when called by click events*
 
-Through my use of *console.log* messages when developing my console-only version of the game, I noticed the functions assigning values to the user's input (the clicking of a fist or palm icon to denote 0 or 5) were being called twice on the second round of the game. This doubling up of the functions would then occur again for the next round, and so on. Suffice to say that this played havock with my game variables!
+Through my use of *console.log* messages when developing my console-only version of the game, I noticed the functions assigning values to the user's input (the clicking of a fist or palm icon to denote 0 or 5) were being called twice on the second round of the game. This doubling up of the functions would then occur again for the next round, and so on. Suffice to say that this played havoc with my game variables!
 
 I did a bit of research to understand why this was happening, as to me it made no sense that the functions would be called twice. Fortunately the fix was simple to find and implement via the jQuery documentation, as it turns out I simply needed to reset my click events after use. **The .off('click) method fixed the problem by removing the event handler after it had been used, thus allowing it to be used again on the next round.** 
 
 *Mute button*
 
-Introducing sound effects to my project was an unfamiliar process and caused a few issues that needed fixing. I was inititally using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign a true or false value, sounds stopped working altogether for a while. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false)**
+Introducing sound effects to my project was an unfamiliar process and caused a few issues that needed fixing. I was initially using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign a true or false value, sounds stopped working altogether for a while. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false)**
 
 One final problem remained once the sounds were back up and running, in that no sounds would play as a default setting for first time visitors to the gamepage. This it turns out was because I had not told my code what to do if the value on local storage was *null*. **This was fixed with the addition of a simple if statement that ensured sounds.On === "true" in this situation.**
 
@@ -91,7 +93,7 @@ In order to ensure that the hand images were facing the correct direction on hig
 
 I inevitably played the game I had created hundreds of times during development and testing, and would always keep an eye out to make sure that the computer was only guessing answers that were logically possible from the inputs it had chosen to make. For example, if any of the computer's inputs were an open palm (5), then it shouldn't logically be guessing 0 on its turn as this answer would not be possible. The idea was that the computer should always have the same chance to guess correctly no matter the difficulty setting, whereas it would become harder for the user to guess correctly the more computer players there were.
 
-While there were no issues on the 2-player version of the game, I did notice that on 3-player the computer was occasionally guessing 15 despite inputting a palm (5) and a fist (0). My if statement was incorrectly written on this occasion to include 15 as a randomly generated option for total inputs of 5 as it included the 4-player version of the game - **this was fixed my rewording the if statement to not include what type of game was being played, but instead focus on the total inputs as a means of determining what answers were possible.**
+While there were no issues on the 2-player version of the game, I did notice that on 3-player the computer was occasionally guessing 15 despite inputting a palm (5) and a fist (0). My if statement was incorrectly written on this occasion to include 15 as a randomly generated option for total inputs of 5 as it included the 4-player version of the game. **This was fixed by rewording the if statement to not include what type of game was being played, but instead focus on the total inputs as a means of determining what answers were possible.**
 
 *Dynamic tagline displaying null for first time users*
 
@@ -101,7 +103,7 @@ Much like my issue with the mute button detailed above, I realised through user 
 
 A noticeable lag for the sound effects was picked up upon both by myself and other users when playing the game on safari. It was not much, but it was enough to throw off the carefully timed sounds during the game's animation and thus (in my opinion at least) greatly reduce the impact of the animation. The same could be said for the button clicks, the sound effects coming noticeably after a button click had been enacted. This issue was not game-breaking on tablet, laptop or desktops, However it was a really distracting issue on mobile devices - where the lag was so bad that sound effects would pile on top of each other during the animation.
 
-Research online frustratingly did nothing but confirm my suspicion that this issue was mainly routed in iOS, and that nothing in my code was necessarily broken to cause this issue. I did find on a stack overflow post that two lines of code might help the performance.
+Research online frustratingly did nothing but confirm my suspicion that this issue was mainly rooted in iOS, and that nothing in my code was necessarily broken to cause this issue. I did find on a stack overflow post that two lines of code might help the performance.
 
 ## Manual User Story Testing
 
@@ -122,7 +124,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ![Rules](assets/images/rules.png)
 
-* I also asked my user testers to specifically read the rules section of the homepage and feedback if they had any issues at all understanding the mechanics of the game. Most of the testers fedback that they were able to understand quickly how to play, while a couple of users said that a combination of the rules explanation and actually playing the game helped them understand how to play.
+* I also asked my user testers to specifically read the rules section of the homepage and feedback if they had any issues at all understanding the mechanics of the game. Most of the feedback suggested that users were able to understand quickly how to play, while a couple of testers said that a combination of the rules explanation and actually playing the game helped them understand how to play.
 
 ### ***3. I want the game to provide feedback to me during play so that I know when it’s my go, whether I’ve chosen correctly or incorrectly, and what my current score is vs the computer.***
 
@@ -170,7 +172,7 @@ The wins vs loss record is visible in three distinct ways on the site:
 
 ### ***6. I want to enjoy playing the game so that I can justify procrastinating in this way.***
 
-I realise that enjoyment had while playing a fairly primitive online game is completely subjective - and accept that this game and its tone will not be for every single user. However the general reception I received from my user testers was very positive, with particular enjoyment somewhat surprisingly coming from the strange sound effects I added. I certainly feel satisfied that I did all I could to make sure this game was enjoyable for users to play and consider this user story complete.
+I realise that enjoyment while playing a fairly primitive online game is completely subjective - and accept that this game and its tone will not be for every single user. However the general reception I received from my user testers was very positive, with particular enjoyment somewhat surprisingly coming from the strange sound effects I added. I certainly feel satisfied that I did all I could to make sure this game was enjoyable for users to play and consider this user story complete.
 
 ### ***7. I want the game to load quickly and respond properly to my interactions as I expect them to.***
 
@@ -225,9 +227,9 @@ I elected to use icons in several of my buttons to add to the visual language of
 
 ### Warnings
 
-* No page regions/headings: The validator picked up on the fact that my pages did not contain the semantic elements that I aim to use in all my projects - however due to this project being game with hardly any defineable sections, headers (and headings for the game page) or footers were not necessary.
+* No page regions/headings: The validator picked up on the fact that my pages did not contain the semantic elements that I aim to use in all my projects - however due to this project being game with hardly any definable sections, headers (and headings for the game page) or footers were not necessary.
 
-* Underlined text on game page: I chose to underline the 'Scores' and 'Overall', which the validator warned could be misconstrued for a highlighted link. I interpreted that it was clear from context that these were not anchor tags and chose to disregard this warning.
+* Underlined text on the game page: I chose to underline the 'Scores' and 'Overall', which the validator warned could be misconstrued for a highlighted link. I interpreted that it was clear from context that these were not anchor tags and chose to disregard this warning.
 
 [Back to the top](#testing)
 
