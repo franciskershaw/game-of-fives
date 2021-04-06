@@ -2,8 +2,6 @@
 
 Click [here](README.md) to return to the main project.
 
-***Note** - Development of this project was my first attempt to follow basic **agile** principals. With help from Trello, I made sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.*
-
 Testing of this project was carried out through the following methods:
 
 * Constant review during development using Gitpod's browser previewers and Chrome developer tools.
@@ -12,6 +10,8 @@ Testing of this project was carried out through the following methods:
 * Automated testing of the HTML, CSS files using the WC3 validators.
 * Automated testing of the JavaScript files using JSHINT.
 * Automated testing of site's accessibility using the WAVE accessibility tool.
+
+**Note** - Development of this project was my first attempt to follow basic **agile** principals. With help from Trello, I made sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ Testing of this project was carried out through the following methods:
 
 Visuals/Responsiveness
 
-* Testing while writing the code was carried out using Gitpod's browser preview in order to make sure that elements and styles in particular were displaying as intended.
+* Testing of the front-end visuals was carried out using Gitpod's browser preview in order to make sure that elements and styles were displaying as intended.
 * While on the temporary browser previews, Google Chrome's developer tools were always in use to check the responsiveness of my pages across a number of screen sizes.
 
 Game logic
@@ -49,9 +49,9 @@ Bugs were inevitably present at several stages during development, especially gi
 
 ### Post Deployment
 
-Several of the methods of testing as detailed above were also applied to the live version of the site to ensure that there were no unexpected bugs. On my previous project, I found a few troublesome issues post-deployment that required some time to debug. So for this second project I made sure to deploy the site much earlier to keep on top of any bugs that came in direct contrast to what I was seeing in my development environment.
+Several of the same testing methods already listed above were also applied to the live version of the site to ensure that there were no unexpected bugs. On my previous project, I found a few troublesome issues post-deployment that required some time to debug. So for this second project I made sure to deploy the site much earlier to keep on top of any bugs that came in direct contrast to what I was seeing in my development environment.
 
-Once I felt that the project was close to completion, I sent a link to the site to a dozen or so people with instructions to test the site on their available devices. The user testers were given the following instructions:
+Once I felt that the project was close to completion, I sent the site's URL to a dozen or so people with instructions to test the game on their available devices. The user testers were given the following instructions:
 
 * Check the rules on the homepage to make sure you understand how to play the game
 * Play at least one game on each of the three difficulties
@@ -75,19 +75,19 @@ Some important observations were confirmed through the user testing that I would
 
 *Duplicate functions when called by click events*
 
-Through my use of *console.log* messages when developing my console-only version of the game, I noticed the functions assigning values to the user's input (the clicking of a fist or palm icon to denote 0 or 5) were being called twice on the second round of the game. This doubling up of the functions would then occur again for the next round, and so on. Suffice to say that this played havoc with my game variables!
+Through my use of *console.log* messages when developing my console-only version of the game, I noticed the functions assigning values to the user's input (the clicking of a fist or palm icon to denote 0 or 5) were being called twice on the second round of the game. This doubling up of the functions would then occur again for the next round, and so on. Evidently, this meant that my game variables were not being updated correctly as a result.
 
-I did a bit of research to understand why this was happening, as to me it made no sense that the functions would be called twice. Fortunately the fix was simple to find and implement via the jQuery documentation, as it turns out I simply needed to reset my click events after use. **The .off('click) method fixed the problem by removing the event handler after it had been used, thus allowing it to be used again on the next round.** 
+I did a bit of research to understand why this was happening, as in the moment it made no sense for the functions to be called twice. Fortunately the fix was simple to find and implement via the jQuery documentation, as it turns out I simply needed to reset my click events after use. **The .off('click) method fixed the problem by removing the event handler before and after it had been used, thus allowing it to be used again on the next round.** 
 
 *Mute button*
 
-Introducing sound effects to my project was an unfamiliar process and caused a few issues that needed fixing. I was initially using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign a true or false value, sounds stopped working altogether for a while. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false)**
+Introducing sound effects to my project was an unfamiliar process and caused a few bugs that needed fixing. I was initially using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign and store a true or false value for later use, sounds stopped working altogether. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false)**
 
 One final problem remained once the sounds were back up and running, in that no sounds would play as a default setting for first time visitors to the gamepage. This it turns out was because I had not told my code what to do if the value on local storage was *null*. **This was fixed with the addition of a simple if statement that ensured sounds.On === "true" in this situation.**
 
 *Animation transform bug*
 
-In order to ensure that the hand images were facing the correct direction on higher difficulty versions of the game, I used the CSS property 'transform' to change the rotation and mirror if necessary. This caused a tricky bug in my animation as it had been written to add and remove an animation class (which also contained the transform property), at intervals - producing the illusion of movement from the hands. The competing transforms, as well as the CSS specificity rules, meant that all extra hand images were remaining static during the animation. **This was fixed with help from a video on YouTube (please see acknowledgements in README.md) by using the .animation JS method.**
+In order to ensure that the hand images were facing the correct direction on higher difficulty versions of the game, I used the CSS property 'transform' to change the rotation and mirror if necessary. This caused a tricky bug in my animation as it had been written to add and remove an animation class (which also contained the transform property), at intervals - producing the illusion of movement from the hands. The competing transforms, as well as CSS specificity rules, meant that all extra hand images were remaining static during the animation. **This was fixed with help from a video on YouTube (please see acknowledgements in README.md) by using the .animation JS method.**
 
 *Higher difficulty versions displaying minor logic errors*
 
@@ -105,6 +105,12 @@ A noticeable lag for the sound effects was picked up upon both by myself and oth
 
 Research online frustratingly did nothing but confirm my suspicion that this issue was mainly rooted in iOS, and that nothing in my code was necessarily broken to cause this issue. I did find on a stack overflow post that two lines of code might help the performance.
 
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const audioCtx = new AudioContext();
+
+This helped the delay on desktop, but unfortunately did nothing to help the delay on mobile devices. **This is therefore a bug which has remained unsolved for now, but I would very much like to come back to this project in the future to fix it if at any point in my career I come across a solution that could help performance on iOS Safari.**
+
 ## Manual User Story Testing
 
 Testing my own user stories was carried out using the following criteria:
@@ -120,11 +126,12 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***2. I want instructions that explain how to play the game if I don’t know already so that I can quickly learn how to get started.***
 
-* Instructions appear once a user clicks on the rules button on the homepage, **one click.** Once in the rules modal, I made and effort to make sure there were no more than three slides of information in order to keep within **two further clicks.**
+* Instructions appear once a user clicks on the rules button on the homepage, **one click.** 
+* Once in the rules modal, I made sure there were no more than three slides of information so that finding and learning the rules be completed within three total clicks - **two further clicks.**
 
 ![Rules](assets/images/rules.png)
 
-* I also asked my user testers to specifically read the rules section of the homepage and feedback if they had any issues at all understanding the mechanics of the game. Most of the feedback suggested that users were able to understand quickly how to play, while a couple of testers said that a combination of the rules explanation and actually playing the game helped them understand how to play.
+* I also asked my user testers to specifically read the rules section of the homepage and feedback if they had any issues at all understanding the mechanics of the game. Most of the feedback suggested that users were able to understand quickly how to play, while a couple of testers said that a combination of the rules explanation and actually playing the game helped them understand how to play properly.
 
 ### ***3. I want the game to provide feedback to me during play so that I know when it’s my go, whether I’ve chosen correctly or incorrectly, and what my current score is vs the computer.***
 
@@ -140,7 +147,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ![Scores](assets/images/scores.png)
 
-* For an added layer of user feedback, I put in a condition to alert the user that the next point from either player would be the winning point:
+* For an added layer of user feedback, I put in a condition for when the scores had reached 2-2 to alert the user that the next point from either player would be the winning point:
 
 ![For the win](assets/images/forthewin.png)
 
@@ -153,6 +160,8 @@ Testing my own user stories was carried out using the following criteria:
 * A main feature of the game is to decide how many computer players are included during gameplay: 
 
 ![Difficulty selection](assets/images/difficulty.png)
+
+* Having played hundreds of rounds of this game myself through development, I could tell from my general gut feeling as well as statistics that the 3-player and 4-player games increased the difficulty significantly compared to the basic 2-player game, which effectively amounted to a 50-50 shot at getting the correct answer.
 
 ### ***5. I want my wins and losses to be recorded so that when I return to the site I can see historically how successful I am at this game.***
 
@@ -172,7 +181,7 @@ The wins vs loss record is visible in three distinct ways on the site:
 
 ### ***6. I want to enjoy playing the game so that I can justify procrastinating in this way.***
 
-I realise that enjoyment while playing a fairly primitive online game is completely subjective - and accept that this game and its tone will not be for every single user. However the general reception I received from my user testers was very positive, with particular enjoyment somewhat surprisingly coming from the strange sound effects I added. I certainly feel satisfied that I did all I could to make sure this game was enjoyable for users to play and consider this user story complete.
+I realise that enjoyment while playing a fairly primitive online game is completely subjective - and accept that this game and its tone will not be for every single user. However the general reception I received from my user testers was very positive, with particular enjoyment somewhat surprisingly coming from the strange sound effects I added. For those who could find the sound effects detrimental to their enjoyment of the game, the mute button is in place to silence them for good if needs be. I certainly feel satisfied that I did all I could during the development of this project to make sure that the game was enjoyable for users to play and consider this user story complete.
 
 ### ***7. I want the game to load quickly and respond properly to my interactions as I expect them to.***
 
@@ -181,19 +190,19 @@ I realise that enjoyment while playing a fairly primitive online game is complet
 
 ## Manual Stakeholder Testing
 
-### ***1. I want the site to function properly and as intended so that I can pass this part of the course.***
-
-* Please see user story 7.
-
-### ***2. I want the site to be eye-catching to look at so that users are left with a positive emotional response and return to the site.***
+### ***1. I want the site to be eye-catching to look at so that users are left with a positive emotional response and return to the site.***
 
 Once again I am aware that what constitutes a positive emotional response is subjective depending on who is being asked. The site was designed with the core principles of user experience design at the forefront though, and in my opinion is minimalist and intuitive enough for users to navigate easily while being striking to look at.
 
 The bright colour scheme employed should at the very least be memorable, even if I won't automatically assume that would be to everyone's taste.
 
-### ***3. I want users to enjoy the game so that they might recommend it to other people and come back to play more.***
+### ***2. I want users to enjoy the game so that they might recommend it to other people and come back to play more.***
 
 * Please see user story 6.
+
+### ***3. I want the site to function properly and as intended so that I can pass this part of the course.***
+
+* Please see user story 7.
 
 ## HTML Validator
 
@@ -227,7 +236,7 @@ I elected to use icons in several of my buttons to add to the visual language of
 
 ### Warnings
 
-* No page regions/headings: The validator picked up on the fact that my pages did not contain the semantic elements that I aim to use in all my projects - however due to this project being game with hardly any definable sections, headers (and headings for the game page) or footers were not necessary.
+* No page regions/headings: The validator picked up on the fact that my pages did not contain the semantic elements that I aim to use in all my projects - however due to this project being game with hardly any definable sections, headers (and headings for the game page) or footers were not deemed necessary.
 
 * Underlined text on the game page: I chose to underline the 'Scores' and 'Overall', which the validator warned could be misconstrued for a highlighted link. I interpreted that it was clear from context that these were not anchor tags and chose to disregard this warning.
 
