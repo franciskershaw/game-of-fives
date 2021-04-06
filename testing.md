@@ -105,26 +105,130 @@ Research online frustratingly did nothing but confirm my suspicion that this iss
 
 ## Manual User Story Testing
 
+Testing my own user stories was carried out using the following criteria:
+
+* The user journey must be intuitive.
+* (Where applicable) the user must reach their end destination within three clicks.
+
+### ***1. I want the site navigation to be intuitive so that I can find the game or instructions quickly.***
+
+* Navigation of the site was kept as simple as physically possible, with two large buttons directing to either the game or the rules presented once the page loads and entry animation is complete.
+
+![Homepage](assets/images/homepagelg.png)
+
+### ***2. I want instructions that explain how to play the game if I don’t know already so that I can quickly learn how to get started.***
+
+* Instructions appear once a user clicks on the rules button on the homepage, **one click.** Once in the rules modal, I made and effort to make sure there were no more than three slides of information in order to keep within **two further clicks.**
+
+![Rules](assets/images/rules.png)
+
+* I also asked my user testers to specifically read the rules section of the homepage and feedback if they had any issues at all understanding the mechanics of the game. Most of the testers fedback that they were able to understand quickly how to play, while a couple of users said that a combination of the rules explanation and actually playing the game helped them understand how to play.
+
+### ***3. I want the game to provide feedback to me during play so that I know when it’s my go, whether I’ve chosen correctly or incorrectly, and what my current score is vs the computer.***
+
+* Each round, the user inputs are only enabled (visually as well as functionally) when the user is allowed to interact with them.
+
+![Disabled buttons](assets/images/disabled.png) ![Enabled buttons](assets/images/enabled.png)
+
+* During gameplay, the text content in the centre of the page provides constant feedback about whether the user or computer has guessed correctly or incorrectly through messages:
+
+![Correct answer](assets/images/correct.png) ![Incorrect answer](assets/images/incorrect.png)
+
+* During gameplay, the scores update to confirm that an answer is indeed correct:
+
+![Scores](assets/images/scores.png)
+
+* For an added layer of user feedback, I put in a condition to alert the user that the next point from either player would be the winning point:
+
+![For the win](assets/images/forthewin.png)
+
+* Finally, when the game is over, feedback is provided to confirm to the user that they have either won or lost this particular game:
+
+![You won](assets/images/winner.png) ![You lost](assets/images/loser.png)
+
+### ***4. I want to choose the level of difficulty to play on so I can test myself on harder difficulties.***
+
+* A main feature of the game is to decide how many computer players are included during gameplay: 
+
+![Difficulty selection](assets/images/difficulty.png)
+
+### ***5. I want my wins and losses to be recorded so that when I return to the site I can see historically how successful I am at this game.***
+
+The wins vs loss record is visible in three distinct ways on the site:
+
+* Top right of the game page as a constant reminder of how a player has performed previously:
+
+![Overall game](assets/images/overallgame.png)
+
+* Bottom of the homepage:
+
+![Overall home](assets/images/overallhome.png)
+
+* In the message presented by the h2 tag on the homepage:
+
+![Tagline](assets/images/tagline.png)
+
+### ***6. I want to enjoy playing the game so that I can justify procrastinating in this way.***
+
+I realise that enjoyment had while playing a fairly primitive online game is completely subjective - and accept that this game and its tone will not be for every single user. However the general reception I received from my user testers was very positive, with particular enjoyment somewhat surprisingly coming from the strange sound effects I added. I certainly feel satisfied that I did all I could to make sure this game was enjoyable for users to play and consider this user story complete.
+
+### ***7. I want the game to load quickly and respond properly to my interactions as I expect them to.***
+
+* Google Chrome's Lighthouse tool was used to check that performance of the site was up to scratch and achieved a score of 99/100 for the homepage and 100/100 for the game page.
+* All logic errors were rectified as and when they appeared, and I feel satisfied that the game functions exactly as I had intended it to from the project's inception.
+
 ## Manual Stakeholder Testing
+
+### ***1. I want the site to function properly and as intended so that I can pass this part of the course.***
+
+* Please see user story 7.
+
+### ***2. I want the site to be eye-catching to look at so that users are left with a positive emotional response and return to the site.***
+
+Once again I am aware that what constitutes a positive emotional response is subjective depending on who is being asked. The site was designed with the core principles of user experience design at the forefront though, and in my opinion is minimalist and intuitive enough for users to navigate easily while being striking to look at.
+
+The bright colour scheme employed should at the very least be memorable, even if I won't automatically assume that would be to everyone's taste.
+
+### ***3. I want users to enjoy the game so that they might recommend it to other people and come back to play more.***
+
+* Please see user story 6.
 
 ## HTML Validator
 
+### index.html
+
+The initial run of testing on the W3C html validator displayed one warning:
+
+* Empty h2 element, which I decided to disregard as my JavaScript file fills the content of h2 once the page has loaded.
+
+### game.html
+
+No errors or warnings were flagged when the game page was passed through the W3C html validator.
+
 ## CSS Validator
+
+No errors were found when running style.css through the W3C CSS validator.
 
 ## JS Validator
 
+Using JSHint, I found that there were no critical errors in my written code. There were a few warnings displayed to do with a few missing or unnecessary semicolons, which were promptly rectified.
+
 ## Accessibility Testing
+
+Using the WAVE Accessibility Evaluation Tool, I found one error and a few minor warnings in need of fixing and review respectively:
+
+### Error - Empty buttons
+
+I elected to use icons in several of my buttons to add to the visual language of my site without realising that the lack of written content within them amounted to an accessibility error. To fix this, I included the aria-hidden='true' attribute to hide the icon from screen readers, and included the sr-only class to describe what the empty buttons were there to achieve.
+
+*Note - one contrast error was thrown after the inclusion of screen reader only spans within my mute button. I elected to ignore this as I don't believe the inclusion of a screen-reader only span should be subject to contrast requirements.*
+
+### Warnings
+
+* No page regions/headings: The validator picked up on the fact that my pages did not contain the semantic elements that I aim to use in all my projects - however due to this project being game with hardly any defineable sections, headers (and headings for the game page) or footers were not necessary.
+
+* Underlined text on game page: I chose to underline the 'Scores' and 'Overall', which the validator warned could be misconstrued for a highlighted link. I interpreted that it was clear from context that these were not anchor tags and chose to disregard this warning.
 
 [Back to the top](#testing)
 
 [Back to main document](README.md)
-
-
-### Validator notes
-* HTML: 1 warning for empty h2, dismissed as text content is added using Javascript
-* CSS: No warnings
-* JS: Missing an unnecessary semicolons, ES6 features warnings, undefined variables ($)
-* Accessibility: 
-    * Errors thrown by empty buttons on index and game
-    * Warnings thrown by no page regions (header/footer/nav etc - both pages), possible missed heading (index), possible redundant links (both), no heading structure (game), and underlined text (game).
-    * Contrast error thrown by the 'sr-only' psnas
