@@ -3,7 +3,7 @@
 
 ![readme hero image](assets/images/amiresponsive.png)
 
-Game of Fives is an online game of chance that has players assessing the odds against the computer in order to win points and measure their success over multiple plays. Based loosely on the real life drinking game, players take turns guessing the correct total in a given round from multiples of five. This total changes depending on what the player and computer choose to display out of zero (a balled up fist) or five (an open palm), with points awarded when the guess is correct. My aim with this project is to create a fun and memorable game that captures the essence of the loud, rowdy drinking game while being an enjoyable means of procrastination online.
+Game of Fives is an online game of chance that has players assessing the odds against the computer in order to win points and measure their success over multiple plays. Based loosely on the real life drinking game, players take turns with their computer oponant in guessing the correct total from multiples of five. This total changes depending on what the player and computer choose to display out of zero (a balled up fist) or five (an open palm), with points awarded when the guess is correct. My aim with this project is to create a fun and memorable game that captures the essence of the loud, rowdy drinking game while being an enjoyable means of procrastination online.
 
 This project is the second of four ‘milestone’ projects which are required to complete the Code Institute’s diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce an interactive front-end site that responds to users’ actions and inputs using previously learnt HTML, CSS and Javascript.
 
@@ -19,6 +19,8 @@ You can view the live website [here](https://franciskershaw.github.io/game-of-fi
     * [Structure Plane](#structure-plane)
     * [Skeleton Plane](#skeleton-plane)
     * [Surface Plane](#surface-plane)
+        * [Colour Scheme](#colour-scheme)
+        * [Typography](#typography)
 * [Features](#features)
     * [Existing Features](#existing-features)
     * [Features left to implement](#features-left-to-implement)
@@ -66,24 +68,24 @@ As a player:
 
 ### Strategy Plane
 
-The **user stories** as detailed in the previous section was the first part of the development process and was very helpful in deciding which features were critical to the success of the site. Features that I did not deem necessary to myself (as the stakeholder) and the players reaching the end of their journeys would not be considered.
+The **user stories** as detailed in the previous section formed the first part of the development process and was very helpful in deciding which features were critical to the success of the site. Features that I did not deem necessary to myself (as the stakeholder) and the players reaching the end of their journeys would not be considered.
 
 The **focus** of the project is:
 * To create a fun interactive game using JavaScript which allows all users to reach the end of their respective stories with ease.
 
 The **business goal** for the stakeholder:
-* To have a game that players will want to play multiple times. 
+* To have a game that players will want to return to. 
 * Produce a project which passes all marking criteria for the Code Institute's milestone 2 project.
 
 *Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using HTML, CSS and Javascript in order to implement all the necessary functionality to both entertain the user and pass this part of the course.*
 
-While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following resources very useful to begin with:
+While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors', as it essentially amounts to a more basic version of 'Game of Fives'. With this in mind, I found the following resources very useful to begin with:
 
 * [Afiniti - Rock, Paper, Scissors](https://www.afiniti.com/corporate/rock-paper-scissors)
 * [Online Stopwatch - Rock Paper Scissors!](https://www.online-stopwatch.com/chance-games/rock-paper-scissors/)
 * [Rock, Paper, Scissors - JS Tutorial by DevEd](https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd)
 
-Using the below importance vs viability metric, I was able to list out the opportunities on offer when creating the game and decide which ones were achievable, relevant and appropriate with regard to my user stories.
+Using the below importance vs viability metric, I listed out the opportunities on offer when creating the game to help decide which ones were achievable, relevant and appropriate with regard to my user stories.
 
 | Opportunity | Importance	 | Viability 
 | ----------- | ----------- | ------------
@@ -92,9 +94,9 @@ Using the below importance vs viability metric, I was able to list out the oppor
 | Explanation of the rules | 4 | 5
 | Wins vs losses record | 3 | 4
 | Sound effects | 3 | 3
-| Mute option | 5 | 3
+| Mute option | 3 | 3
 | Option to play against a human player | 2 | 1
-| **Total** | 25 | 25
+| **Total** | 23 | 25
 
 From this research, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their importance in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, implementation of this option would have been beyond my current coding capabilities and comparatively not as important for the completion of my other user journeys.
 
@@ -123,7 +125,7 @@ Based on information I uncovered during the strategy plane, and considering any 
 
 ### Structure Plane
 
-Bearing in mind the functional specifications and content requirements outlined in the scope plane, I decided only two unique pages were needed for the site that would share responsibility for presenting the necessary features to allow users to reach the end of their journeys.
+Bearing in mind the functional specifications and content requirements outlined in the scope plane, I decided only two unique pages were needed for the site. These two pages share responsibility for presenting the features necessary to allow users to reach the end of their respective journeys.
 
 1. **Homepage, containing:**
     * The game title
@@ -144,7 +146,7 @@ Bearing in mind the functional specifications and content requirements outlined 
 
 #### Interaction Design
 
-While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game itself. Therefore the interaction design should be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
+While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game itself. Therefore the interaction design needed to be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
 
 * Interaction design needs to be intuitively learnable
 * Buttons and game inputs must provide feedback to ensure users are aware they can or have been clicked
@@ -154,13 +156,13 @@ While the user stories are varied in terms of their end destination, intended us
 
 #### Information Architecture
 * Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls
-* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of back or quit button
+* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via either a back or a quit button
 * All information should fit within the viewport of a given device, without the need to scroll at all
 * No user should be clicking more than three times to reach the end of their user journey
 
 ### Skeleton Plane
 
-In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest - case in point being that I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the required features.
+In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest. In fact, this project made it very clear to me how important this stage of development is, as I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the required features.
 
 Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible. For me, the main goals of this site would have been threatened by any kind of overcomplicated or unconventional design as the end destination.
 
@@ -189,6 +191,8 @@ Once strategising and wireframing was complete, I could move onto planning how t
 * Rowdy
 * Fast-paced
 
+These buzzwords led me to conclude that I would need the site's typography and colouring to be bright and striking, almost as if aimed at a younger audience.
+
 #### Colour Scheme
 
 I chose to employ bright and garish colours for the game, in keeping with the playful tone I was hoping to instill. 
@@ -204,7 +208,7 @@ Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour 
 
 #### Typography
 
-In keeping with the playful tone I was after, I chose to use the cartoonish 'Fredoka One' for the main headings. This font sets the tone for what the user will expect from the rest of the site: a slightly juvenile game that isn't intended to be taken too seriously! 
+I chose to use the cartoonish 'Fredoka One' for the main headings, a font which sets the tone for what the user will expect from the rest of the site: a slightly juvenile game that isn't intended to be taken too seriously! 
 
 ![Header](assets/images/header.png)
 
@@ -220,7 +224,7 @@ For the rest of the site's content, it was important that I chose something legi
 
 * Two images of hands (one balled up fist and one open palm) make an entrance via a primitive stop motion inspired entry animation, followed by the title of the game.
 * A tagline appears beneath the heading which changes depending on the user's past performances: 'Get stuck into your first game!' for those who haven't played a game yet, 'You're not half bad at this!' if the user has won more than they've lost, 'It's neck and neck!' if the user has won as many as they've lost, and 'You're not great at this.' if the user is losing overall.
-* Two buttons appear beneath (on mobile) or sandwiched in between the hands (on large screen sizes): a play button and a rules button.
+* Two buttons appear beneath or sandwiched in between the hands (depending on the screen size): a play button and a rules button.
 * The play button launches a modal which offers the user a choice of difficulty settings. Each button is an anchor tag which will direct the user to the game page.
 * The rules button launches a modal with a nested carousel containing three explanatory slides for users who are not aware of the rules yet.
 * Beneath all the main content is a small section containing the user's win/loss history
@@ -233,28 +237,30 @@ In the unlikely event that mobile users are in landscape mode when entering the 
 
 ![Landscape overlay](assets/images/overlay.png)
 
+The overlay returns to the screen if the user changes from portrait to landscape on the homepage, to reiterate that the game is not to be played in landscape mode.
+
 #### game.html
 
-The game page is designed as an arena of sorts, with three clearly defined sections:
+The game page is designed as an arena of sorts, with three clearly defined areas:
 
-* Game information section
-* Gameplay section
-* User inputs section
+* Game information area
+* Gameplay area
+* User inputs area
 
 On mobile the content takes all of the space on the viewport. However once tablet size has been reached this changes to fill only about 80%, leaving empty space around the playable area.
 
 ![Mobile gamepage](assets/images/gamepagemob.png) ![Tablet gamepage](assets/images/gamepagetab.png)
 
-The game information section contains: 
+The game information area contains: 
 * The current game scores, which update when the user or computer score points.
 * The overall win vs loss record, which updates at the end of each game. 
 * A quit button that redirects to the home page at any stage should the user wish to leave.
 
-The gameplay section contains: 
+The gameplay area contains: 
 * The user and the computer's hand images. The amount of computer hand images visible is dictated by which button the user clicked on the homepage's difficulty selection modal. 
 * Game text content placed between the user and computer hand images which changes to give user feedback when needed.
 
-The user input section contains two rows of clickable buttons: 
+The user input area contains two rows of clickable buttons: 
 
 * Row one contains two fist and palm font awesome icons which allow the user to decide whether they will present a zero or a five in the forthcoming round. 
 * Row two is enabled only on the user's turn, and contains the buttons necessary for a user to make an educated guess as to what the total score will be. This row again changes depending on which difficulty the user has previously selected, as the possible answers will increase if there are more computer players present.
@@ -269,8 +275,8 @@ Once the page loads:
 
 During the game:
 
-* The game always begins with the user's turn, so that there is always a slight advantage given to the user overall.
-* Once the user clicks zero (balled up fist) or five (open palm), if it's the user's turn then the hand icon inputs become disabled, while the user guess options are enabled.
+* The game begins with the user's turn, so that there is always a slight advantage given to the user overall.
+* Once the user clicks zero (balled up fist) or five (open palm), if it's the user's turn then the hand icon inputs become disabled, while the user guess options are enabled. If it is the computer's turn to guess the total score, the round skips straight to the round's animation.
 * After a guess has been clicked (or an initial top row input if it is the computer's go to guess), a stop motion inspired animation occurs counting to three before revealing what both the user and computer has decided to input as well as the guess in the middle of the court. The animation contains sound effects created by myself on each shake of a hand.
 * If the user and computer are tied on two points each, then the text copy in the middle of the gameplay area changes to 'Next point wins' for further feedback.
 
@@ -295,7 +301,7 @@ End of the game:
 * **CSS3:** Language used to style elements from the HTML pages.
 * **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
 * **JavaScript:** Programming language used to add interactivity to the homepage and implement the logic required to make the game work.
-* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than vanilla JavaScript.
+* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than purely through JavaScript.
 
 ### Additional Tools
 
@@ -306,13 +312,13 @@ End of the game:
 * [Github:](https://github.com/) Version control and storage of my code.
 * [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
 * [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
-* Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to testing of each game function as and when they were created.
+* Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of each game function as and when they were created.
 * [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Fredoka One' and 'Dosis' fonts.
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [removebg:](https://www.remove.bg/) Used to remove the white background from my favicon.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
 * Logic Pro X: Music recording software, used to edit my sound effects down to the required length.
-* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with the agile methodology.
+* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile principles.
 * [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
 * [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
 * [WAVE:](https://wave.webaim.org/) Allowed me to evaluate and test the accessibility of the site.
@@ -352,12 +358,12 @@ More in depth information about GitHub Pages can be found [here.](https://pages.
 
 ## Cloning
 
-You are more than welcome to clone my project for whatever reason, just follow these steps:
+You are more than welcome to clone my project. To do so, simply follow these steps:
 
 1. On GitHub, navigate to the main page of the repository.
-2. Click on the Code dropdown, located next to Add file.
+2. Click on the **Code** dropdown, located next to Add file.
     * To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard icon to copy the link.
-    * To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH then click the clipboard icon to copy the link.
+    * To clone the repository using an SSH key, including a certificate issued by your organisation's SSH certificate authority, click Use SSH then click the clipboard icon to copy the link.
     * To clone the repository using GitHub CLI, click Use GitHub CLI, then click the clipboard icon to copy the link.
 3. Open the Terminal.
 4. Change the current working directory to the location where you want the cloned directory.
@@ -370,7 +376,7 @@ More in depth information about cloning repositories, including how to clone a r
 
 ### Media
 
-* The photos of the hands used on the homepage and in gameplay were screen grabbed from the [afiniti Rock, Paper, Scissors demo.](https://www.afiniti.com/corporate/rock-paper-scissors)
+* The photos of the hands used on the homepage and in gameplay were screen grabbed from the [afiniti Rock, Paper, Scissors demo.](https://www.afiniti.com/corporate/rock-paper-scissors) and edited to specification using [removebg.](https://www.remove.bg/)
 
 * Click sounds on the game page were sourced from [zapsplat.](https://www.zapsplat.com/)
 
@@ -378,20 +384,24 @@ More in depth information about cloning repositories, including how to clone a r
 
 ### Acknowledgements
 
-* I had help centering my landscape overlay from [this stack overflow post](https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page) on the answer posted by [Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)
+* I had help centering my landscape overlay from [this stack overflow post](https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page) on the answer posted by [Peter Mortensen.](https://stackoverflow.com/users/63550/peter-mortensen)
 
-* The entry animation on the homepage was lifted and tweaked from my Milestone 1 project, which in turn was inspired by the animations covered on [this YouTube video](https://www.youtube.com/watch?v=zHUpx90NerM&ab_channel=TraversyMedia) by [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+* The entry animation on the homepage was lifted and tweaked from my Milestone 1 project, which in turn was inspired by the animations covered on [this YouTube video](https://www.youtube.com/watch?v=zHUpx90NerM&ab_channel=TraversyMedia) by [Traversy Media.](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
 
 * The transform animation that takes place each round during gameplay, and the code required to restart it each time it finishes, was learnt from [this YouTube video](https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd) by [Dev Ed](https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q) between 45 and 51 minutes.
 
-* Help with the syntax needed to checking width and height of window courtesy of [Zoe Thexton's](https://github.com/zoet24) MS2 [js repository](https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js)
+* Help with the syntax needed to checking width and height of window courtesy of [Zoe Thexton's](https://github.com/zoet24) MS2 [js repository.](https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js)
 
-* I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan](https://stackoverflow.com/users/295783/mplungjan)
+* I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan.](https://stackoverflow.com/users/295783/mplungjan)
 
-* Help assigning sound effects to variables and calling them using the 'play' method found on [this YouTube video](https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury) by [Adam Khoury](https://www.youtube.com/channel/UCpzRDg0orQBZFBPzeXm1yNg).
+* Help assigning sound effects to variables and calling them using the 'play' method was found on [this YouTube video](https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury) by [Adam Khoury](https://www.youtube.com/channel/UCpzRDg0orQBZFBPzeXm1yNg).
 
-* Help implementing a 3,2,1 countdown before the start of each game found on [this stack overflow post](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown) on the answer posted by [James McDowell](https://stackoverflow.com/users/4815264/james-mcdowell).
+* Help implementing a 3,2,1 countdown before the start of each game was found on [this stack overflow post](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown) on the answer posted by [James McDowell.](https://stackoverflow.com/users/4815264/james-mcdowell)
 
-* The code to randomly generate two numbers, of which one is 0, found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen](https://stackoverflow.com/users/546661/peter-olson.
+* The code to randomly generate two numbers, of which one is 0, was found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen.](https://stackoverflow.com/users/546661/peter-olson)
 
-* The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine](https://stackoverflow.com/users/851498/florian-margaine).
+* The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
+
+A huge thank you to all the people who took part in user testing, the Slack community on Code Institute, and my mentor Aaron Sinnott.
+
+[Back to the top](#game-of-fives!)
