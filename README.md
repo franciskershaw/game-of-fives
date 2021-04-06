@@ -9,7 +9,29 @@ This project is the second of four ‘milestone’ projects which are required t
 
 You can view the live website [here](https://franciskershaw.github.io/game-of-fives/index.html), and a link to the github repository can be found [here](https://github.com/franciskershaw/game-of-fives).
 
-*Table of contents goes here*
+## Table of Contents
+
+* [UX](#ux)
+    * [User Stories](#user-stories)
+* [Planning and Design](#planning-and-design)
+    * [Strategy Plane](#strategy-plane)
+    * [Scope Plane](#scope-plane)
+    * [Structure Plane](#structure-plane)
+    * [Skeleton Plane](#skeleton-plane)
+    * [Surface Plane](#surface-plane)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Features left to implement](#features-left-to-implement)
+* [Technologies used](#technologies-used)
+    * [Languages and frameworks](#languages-and-frameworks)
+    * [Additional tools](#additional-tools)
+* [Git commit messages](#git-commit-messages)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Cloning](#cloning)
+* [Credits](#credits)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
 
 ## UX
 
@@ -24,9 +46,9 @@ My main goals for the creation of this website were as follows:
 
 As the owner of the site:
 
-1. I want the site to function properly and as intended so that I can pass this part of the course.
-2. I want the site to be eye-catching to look at so that users are left with a positive emotional response and return to the site.
-3. I want users to enjoy the game so that they might recommend it to other people and come back to play more.
+1. I want the site to be eye-catching to look at so that users are left with a positive emotional response and return to the site.
+2. I want users to enjoy the game so that they might recommend it to other people and come back to play more.
+3. I want the site to function properly and as intended so that I can pass this part of the course.
 
 #### Users
 
@@ -55,10 +77,11 @@ The **business goal** for the stakeholder:
 
 *Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using HTML, CSS and Javascript in order to implement all the necessary functionality to both entertain the user and pass this part of the course.*
 
-While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following sites very useful to begin with:
+While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following resources very useful to begin with:
 
 * [Afiniti - Rock, Paper, Scissors](https://www.afiniti.com/corporate/rock-paper-scissors)
 * [Online Stopwatch - Rock Paper Scissors!](https://www.online-stopwatch.com/chance-games/rock-paper-scissors/)
+* [Rock, Paper, Scissors - JS Tutorial by DevEd](https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd)
 
 Using the below importance vs viability metric, I was able to list out the opportunities on offer when creating the game and decide which ones were achievable, relevant and appropriate with regard to my user stories.
 
@@ -131,7 +154,7 @@ While the user stories are varied in terms of their end destination, intended us
 
 #### Information Architecture
 * Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls
-* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of exit or quit button
+* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of back or quit button
 * All information should fit within the viewport of a given device, without the need to scroll at all
 * No user should be clicking more than three times to reach the end of their user journey
 
@@ -160,7 +183,11 @@ For the most part, I felt satisfied at this stage that all my user stories would
 
 ### Surface Plane
 
-Once strategising and wireframing was complete, I could move onto planning how the look and feel of the game and site in general would appear. Early on during development, I had decided that I wanted the general tone of the site to be playful and rowdy - almost juvenile in its aesthetics.
+Once strategising and wireframing was complete, I could move onto planning how the look and feel of the game and site in general would appear. Early on during development, I had decided that I wanted the general tone of the site to be associated with the following keywords:
+
+* Playful 
+* Rowdy
+* Fast-paced
 
 #### Colour Scheme
 
@@ -253,9 +280,11 @@ End of the game:
 * The overall record in the top right of the screen is updated.
 * The standard quit button is hidden and two new buttons appear in place of the user inputs, a 'Play again' option which will restart the game using the current difficulty setting, or a new 'Quit' button which returns the user to the homepage.
 
+![End buttons](assets/images/endbuttons.png)
+
 ### Features left to implement
 
-* One day I would love to have this game available on a LAN basis allowing users to challenge other human users to a game in real time. The real life game after all is not a game between user and computer, but between several human users using psychology more than luck to determine how to play their oponant.
+* One day I would love to have this game available on a network basis allowing users to challenge other human users to a game in real time. The real life game after all is not a game between user and computer, but between several human users using psychology more than luck to determine how to play their oponant.
 * I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into further detail about the user's play history, broken up organised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record and analyse. 
 
 ## Technologies used
