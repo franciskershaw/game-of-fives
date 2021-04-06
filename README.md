@@ -53,7 +53,7 @@ The **business goal** for the stakeholder:
 * To have a game that players will want to play multiple times. 
 * Produce a project which passes all marking criteria for the Code Institute's milestone 2 project.
 
-*Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using using HTML, CSS and Javascript in order to implement all the neccessary functionality to both enteratin the user and pass this part of the course.*
+*Therefore, to meet both the focus and business goals, the game must be created and hosted on a bespoke website using HTML, CSS and Javascript in order to implement all the necessary functionality to both entertain the user and pass this part of the course.*
 
 While strategising for this project, I figured that a prudent place to start for inspiration on layout and features would be to look up some popular online versions of 'rock, paper, scissors' as it essentially amounts to a more basic version of 'Fives'. With this in mind, I found the following sites very useful to begin with:
 
@@ -73,7 +73,7 @@ Using the below importance vs viability metric, I was able to list out the oppor
 | Option to play against a human player | 2 | 1
 | **Total** | 25 | 25
 
- From this reserach, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their importance in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, implementation of this option would have been beyond my current coding capabilities and comparitively not as important for the completion of my other user journeys.
+From this research, I concluded that the features I wanted to implement into Game of Fives were mostly viable when compared to their importance in this project. However, it became clear early on that I would not be able to add functionality allowing players to compete against other human players. While this would have been a really exciting prospect, implementation of this option would have been beyond my current coding capabilities and comparatively not as important for the completion of my other user journeys.
 
  ### Scope Plane
 
@@ -83,13 +83,13 @@ Based on information I uncovered during the strategy plane, and considering any 
 * Choice of difficulty setting
 * Section explaining the rules
 * Dedicated area for gameplay
-* User feedback for a successful or unsucessful round, as well as victory or defeat
+* User feedback for a successful or unsuccessful round, as well as victory or defeat
 * Visible representation of current scores
 * Visible representation of historic wins vs losses record
 * Sound effects
 
 #### Content requirements
-* Design of game must be aestehtically pleasing and easy to navigate
+* Design of game must be aesthetically pleasing and easy to navigate
 * Game must load quickly
 * Rules must be brief but clear
 * Game must contain no logic errors
@@ -131,15 +131,15 @@ While the user stories are varied in terms of their end destination, intended us
 
 #### Information Architecture
 * Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls
-* Hub and spoke structure seems most apprpriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of exit or quit button
+* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via some kind of exit or quit button
 * All information should fit within the viewport of a given device, without the need to scroll at all
 * No user should be clicking more than three times to reach the end of their user journey
 
 ### Skeleton Plane
 
-In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest - case in point being that I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the the required features.
+In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest - case in point being that I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the required features.
 
-Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible. For me, the main goals of this site would have been threatened by any kind of overcomplicated or unconventional design as the end desitination.
+Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible. For me, the main goals of this site would have been threatened by any kind of overcomplicated or unconventional design as the end destination.
 
 ![homepage](assets/images/homepage.png)
 ![rules modal](assets/images/rulesmodal.png)
@@ -160,7 +160,7 @@ For the most part, I felt satisfied at this stage that all my user stories would
 
 ### Surface Plane
 
-Once strategising and wireframing was complete, I could move onto planning how the look and feel of the game and site in general would appear. Early on duing development, I had decided that I wanted the general tone of the site to be playful and rowdy - almost juvenile in its aesthetics.
+Once strategising and wireframing was complete, I could move onto planning how the look and feel of the game and site in general would appear. Early on during development, I had decided that I wanted the general tone of the site to be playful and rowdy - almost juvenile in its aesthetics.
 
 #### Colour Scheme
 
@@ -255,17 +255,17 @@ End of the game:
 
 ### Features left to implement
 
-* One day I would love to have this game available on a LAN basis allowing users to challenge other human users to a game in real time. The real life game afterall is not a game between user and computer, but between several human users using pyschology more than luck to determine how to play their oponent.
-* I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into futher detail about the user's play history, broken up oragnised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record and analyse. 
+* One day I would love to have this game available on a LAN basis allowing users to challenge other human users to a game in real time. The real life game after all is not a game between user and computer, but between several human users using psychology more than luck to determine how to play their oponant.
+* I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into further detail about the user's play history, broken up organised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record and analyse. 
 
 ## Technologies used
 
-### Languags and frameworks
+### Languages and frameworks
 
 * **HTML5:** Language used for structure and content across both pages.
 * **CSS3:** Language used to style elements from the HTML pages.
 * **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
-* **JavaScript:** Programing language used to add interactivity to the homepage and implement the logic required to make the game work.
+* **JavaScript:** Programming language used to add interactivity to the homepage and implement the logic required to make the game work.
 * **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than vanilla JavaScript.
 
 ### Additional Tools
@@ -308,7 +308,7 @@ At the time of writing, these are among my recent commit messages and illustrate
 
 ## Testing
 
-Please see a full report of the testing appplied to this project [here.](testing.md)
+Please see a full report of the testing applied to this project [here.](testing.md)
 
 ## Deployment
 
