@@ -53,11 +53,11 @@ Several of the same testing methods already listed above were also applied to th
 
 Once I felt that the project was close to completion, I sent the site's URL to a dozen or so people with instructions to test the game on their available devices. The user testers were given the following instructions:
 
-* Check the rules on the homepage to make sure you understand how to play the game
-* Play at least one game on each of the three difficulties
-* Make a note in the event that the game does not work as you might expect
-* When finished playing, return to the homepage and note down the win vs loss record and the tagline
-* Let me know what device and browser was used
+* Check the rules on the homepage to make sure you understand how to play the game.
+* Play at least one game on each of the three difficulties.
+* Make a note in the event that the game does not work as you might expect.
+* When finished playing, return to the homepage and note down the win vs loss record and the tagline.
+* Let me know what device and browser was used.
 
 This structured approach to user testing was in contrast to the slightly looser approach I took with my first project as I had a clearer definition of what answers I need answering at this stage:
 
@@ -81,7 +81,7 @@ I did a bit of research to understand why this was happening, as in the moment i
 
 *Mute button*
 
-Introducing sound effects to my project was an unfamiliar process and caused a few bugs that needed fixing. I was initially using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign and store a true or false value for later use, sounds stopped working altogether. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false)**
+Introducing sound effects to my project was an unfamiliar process and caused a few bugs that needed fixing. I was initially using my game variable (game.soundsOn = true) to decide at each stage whether the sounds should be played - with false being assigned if a user clicked on the mute button. However once I decided to use local storage to assign and store a true or false value for later use, sounds stopped working altogether. It was again through the use of *console.log* that I worked out that the issue was to do with the local storage data being exclusively displayed as strings, instead of actual boolean values. **To fix this, I simply rewrote the necessary sections of my code as strings ("true" or "false" instead of true or false).**
 
 One final problem remained once the sounds were back up and running, in that no sounds would play as a default setting for first time visitors to the gamepage. This it turns out was because I had not told my code what to do if the value on local storage was *null*. **This was fixed with the addition of a simple if statement that ensured sounds.On === "true" in this situation.**
 
@@ -242,4 +242,4 @@ I elected to use icons in several of my buttons to add to the visual language of
 
 [Back to the top](#testing)
 
-[Back to main document](README.md)
+[Back to main document](https://github.com/franciskershaw/game-of-fives)

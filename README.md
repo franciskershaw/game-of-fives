@@ -148,17 +148,17 @@ Bearing in mind the functional specifications and content requirements outlined 
 
 While the user stories are varied in terms of their end destination, intended use for all visitors to the site is ultimately going to be to play the game itself. Therefore the interaction design needed to be kept very simple to allow intuitive navigation to and from the game page, via the rules section should they wish.
 
-* Interaction design needs to be intuitively learnable
-* Buttons and game inputs must provide feedback to ensure users are aware they can or have been clicked
-* The same colour scheme and general tone has to be maintained across the pages and modals to maintain consistency
-* 404 page required in the event that the user types the incorrect URL, with a link back to safety
+* Interaction design needs to be intuitively learnable.
+* Buttons and game inputs must provide feedback to ensure users are aware they can or have been clicked.
+* The same colour scheme and general tone has to be maintained across the pages and modals to maintain consistency.
+* 404 page required in the event that the user types the incorrect URL, with a link back to safety.
 
 
 #### Information Architecture
-* Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls
-* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via either a back or a quit button
-* All information should fit within the viewport of a given device, without the need to scroll at all
-* No user should be clicking more than three times to reach the end of their user journey
+* Navigation should be non-linear, achieved through clear and obvious buttons that both take a user forward or backwards in their journey without the use of the browser's forward and back controls.
+* Hub and spoke structure seems most appropriate on this occasion without the need for a conventional navigation bar, as the homepage can act as the hub with all spokes (rules modal, difficulty modal and game page) having a route back to the hub via either a back or a quit button.
+* All information should fit within the viewport of a given device, without the need to scroll at all.
+* No user should be clicking more than three times to reach the end of their user journey.
 
 ### Skeleton Plane
 
@@ -201,10 +201,10 @@ Using [Coolors](https://coolors.co/) I was able to generate and tweak my colour 
 
 ![Colour pallette](assets/images/ms2-colours.png)
 
-* #EC0B43 red: This provides the background colour to both the homepage and the game page
-* #58388E purple: This provided the background in the rules modal to allow sufficient contrast with the main page
-* #FFF689 yellow: This was employed on the majority of interactable content across the site
-* #F6F3F7 white: This was used for all not-interactive text content on the homepage, as well as the game information and game arena on the game page
+* #EC0B43 red: This provides the background colour to both the homepage and the game page.
+* #58388E purple: This provided the background in the rules modal to allow sufficient contrast with the main page.
+* #FFF689 yellow: This was employed on the majority of interactable content across the site.
+* #F6F3F7 white: This was used for all not-interactive text content on the homepage, as well as the game information and game arena on the game page.
 
 #### Typography
 
@@ -227,7 +227,7 @@ For the rest of the site's content, it was important that I chose something legi
 * Two buttons appear beneath or sandwiched in between the hands (depending on the screen size): a play button and a rules button.
 * The play button launches a modal which offers the user a choice of difficulty settings. Each button is an anchor tag which will direct the user to the game page.
 * The rules button launches a modal with a nested carousel containing three explanatory slides for users who are not aware of the rules yet.
-* Beneath all the main content is a small section containing the user's win/loss history
+* Beneath all the main content is a small section containing the user's win/loss history.
 
 ![Homepage on mobile](assets/images/homepagemob.png)
 ![Homepage large screens](assets/images/homepagelg.png)
@@ -334,7 +334,7 @@ For the commits on this project, I continued to follow the basic rules I had set
 
 Building on this format, I also added the following conditions as a result of feedback from my previous project and the different specifications required this time around:
 
-* Include the file name being amended where possible, such as index.html or script.js
+* Include the file name being amended where possible, such as index.html or script.js.
 * Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to the gameplay's javascript functions.
 
 At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
@@ -368,7 +368,7 @@ You are more than welcome to clone my project. To do so, simply follow these ste
 3. Open the Terminal.
 4. Change the current working directory to the location where you want the cloned directory.
 5. Type *git clone*, and then paste the URL you copied earlier.
-6. Press **Enter** to create your local clone
+6. Press **Enter** to create your local clone.
 
 More in depth information about cloning repositories, including how to clone a repository using GitHub Desktop, can be found [here.](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
