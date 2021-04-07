@@ -1,3 +1,6 @@
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
+
 // Game variables object
 const game = {
 	userTurn: true,
@@ -5,7 +8,7 @@ const game = {
 	userInput: 0,
 	userGuess: 0,
 
-	inputArray: [],
+	computerInput: [],
 	computerGuess: 0,
 
 	correctScore: 0,
@@ -142,19 +145,19 @@ function userGuess() {
 	});
 }
 
-// During playRound(), randomly generated 0s and 5s pushed to game.inputArray 
+// During playRound(), randomly generated 0s and 5s pushed to game.computerInput 
 function computerInput() {
 	for (let i = 0; i < parseInt(game.computerPlayers); i++) {
 		// credit: code generating 2 numbers, of which one is a zero, found on Peter Olsen's post at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 		let rand = Math.random() < 0.5 ? 0 : 5;
-		game.inputArray.push(rand);
+		game.computerInput.push(rand);
 	}
 }
 
 // During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
 function computerGuess() {
     // credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
-	let arr = game.inputArray;
+	let arr = game.computerInput;
 	let sumOfComputer = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
@@ -176,7 +179,7 @@ function computerGuess() {
 
 // During playRound(), add computerInput and userInput together to updateCorrectScore
 function updateCorrectScore() {
-	let arr = game.inputArray;
+	let arr = game.computerInput;
 	let sumOfComputer = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
@@ -236,7 +239,7 @@ function roundAnimation() {
 	}, 1800);
 }
 
-// Changes all hand images to palm or fist depending on values of userInput and inputArray
+// Changes all hand images to palm or fist depending on values of userInput and computerInput
 function roundReveal() {
     setTimeout(function () {
         let noiseReveal = new Audio();
@@ -250,26 +253,26 @@ function roundReveal() {
 		}
         // Computer - 2 player
 		if (game.computerPlayers == 1) {
-			if (game.inputArray[0] === 5) {
+			if (game.computerInput[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
             }
         // Computer - 3 player
 		} else if (game.computerPlayers == 2) {
-			if (game.inputArray[0] === 5) {
+			if (game.computerInput[0] === 5) {
 				$('#top-left').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[1] === 5) {
+			if (game.computerInput[1] === 5) {
 				$('#top-right').attr('src', 'assets/images/palmfacedown.png');
             }
         // Computer - 4 player
 		} else {
-			if (game.inputArray[0] === 5) {
+			if (game.computerInput[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[1] === 5) {
+			if (game.computerInput[1] === 5) {
 				$('#middle-left').attr('src', 'assets/images/palmfacedown.png');
 			}
-			if (game.inputArray[2] === 5) {
+			if (game.computerInput[2] === 5) {
 				$('#middle-right').attr('src', 'assets/images/palmfacedown.png');
 			}
         }
@@ -282,14 +285,14 @@ function roundReveal() {
     }, 2200);
 }
 
-// End of playRound(); changes whose go it is, removes values from inputArray, returns images to fists, sets central HTML
+// End of playRound(); changes whose go it is, removes values from computerInput, returns images to fists, sets central HTML
 function resetGame() {
     if (game.userTurn) {
         game.userTurn = false;
     } else {
         game.userTurn = true;
     }
-    game.inputArray = [];
+    game.computerInput = [];
     $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
     $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
     if (game.userScore === 2 && game.computerScore === 2) {
