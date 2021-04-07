@@ -2,6 +2,8 @@
 
 /* ------- General styles */
 
+
+
 * {
 	border: none;
 	padding: 0;
@@ -9,11 +11,16 @@
 	box-sizing: border-box;
 }
 
+html { 
+    height: 100vh; 
+}
+
 body {
 	background-color: #ec0b43;
 	color: #F6F3F7;
 	text-align: center;
 	font-family: 'Dosis', sans-serif;
+    height: 100%;
 }
 
 h1 {
