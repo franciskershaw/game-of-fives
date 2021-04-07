@@ -212,9 +212,13 @@ I chose to use the cartoonish 'Fredoka One' for the main headings, a font which 
 
 ![Header](assets/images/header.png)
 
-For the rest of the site's content, it was important that I chose something legible and undistracting while not looking out of place in the playful tone I had set. After quite a bit of deliberation, I settled upon 'Dosis' from google fonts to handle the majority of the content throughout the rest of the site.
+For the rules section, it was important that I chose something legible and undistracting while not looking out of place in the playful tone I had set. After quite a bit of deliberation, I settled upon 'Dosis' from google fonts to handle this task.
 
 ![Dosis](assets/images/dosis.png)
+
+Until relatively late in development, I was using 'Dosis' for the rest of my site's content - for example on the homepage's tagline and for the game buttons. However I concluded that 'Dosis' was not playful and cartoonish enough, as per the buzzwords I was aligning this project to. The 'Patrick Hand' font from Google Fonts fixed this and is far more appropriate for the tone of the game.
+
+![Patrick Hand](assets/images/tagline.png)
 
 ## Features
 
@@ -313,7 +317,7 @@ End of the game:
 * [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
 * [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
 * Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of each game function as and when they were created.
-* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Fredoka One' and 'Dosis' fonts.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Fredoka One', 'Patrick Hand' and 'Dosis' fonts.
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [removebg:](https://www.remove.bg/) Used to remove the white background from my favicon.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
