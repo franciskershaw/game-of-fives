@@ -402,6 +402,8 @@ More in depth information about cloning repositories, including how to clone a r
 
 * The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
 
+* Code to help with audio delay on Safari desktop found on [this stack overflow post](https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay) on the answer by [Jakko Karhu.](https://stackoverflow.com/users/2641341/jaakko-karhu)
+
 A huge thank you to all the people who took part in user testing, the Slack community on Code Institute, and my mentor Aaron Sinnott.
 
 [Back to the top](#game-of-fives!)

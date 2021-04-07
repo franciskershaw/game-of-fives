@@ -101,13 +101,12 @@ Much like my issue with the mute button detailed above, I realised through user 
 
 *Sound effects on Safari lagging*
 
-A noticeable lag for the sound effects was picked up upon both by myself and other users when playing the game on safari. It was not much, but it was enough to throw off the carefully timed sounds during the game's animation and thus (in my opinion at least) greatly reduce the impact of the animation. The same could be said for the button clicks, the sound effects coming noticeably after a button click had been enacted. This issue was not game-breaking on tablet, laptop or desktops, However it was a really distracting issue on mobile devices - where the lag was so bad that sound effects would pile on top of each other during the animation.
+A noticeable lag for the sound effects was picked up upon both by myself and other users when playing the game on safari. It was enough to throw off the carefully timed sounds during the game's animation and thus (in my opinion at least) greatly reduce the impact of the animation. The same could be said for the button clicks, the sound effects coming noticeably after a button click had been enacted. This issue was not game-breaking on laptop or desktops, however it was a really distracting issue on tablet and mobile devices where the lag was so bad that sound effects would pile on top of each other during the animation.
 
-Research online frustratingly did nothing but confirm my suspicion that this issue was mainly rooted in iOS, and that nothing in my code was necessarily broken to cause this issue. I did find on a stack overflow post that two lines of code might help the performance.
+Research online frustratingly only highlighed that this issue was mainly rooted in iOS and Safari (please read [this stack overflow article](https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay) and [this Github thread](https://github.com/godotengine/godot/issues/35937) for more information), and that my code was not the root cause of this issue. I did find on a stack overflow post that two lines of code might help the performance.
 
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-
-const audioCtx = new AudioContext();
+*const AudioContext = window.AudioContext || window.webkitAudioContext;*
+*const audioCtx = new AudioContext();*
 
 This helped the delay on desktop, but unfortunately did nothing to help the delay on mobile devices. **This is therefore a bug which has remained unsolved for now, but I would very much like to come back to this project in the future to fix it if at any point in my career I come across a solution that could help performance on iOS Safari.**
 
