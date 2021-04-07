@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 /* ------- General styles */
 
@@ -13,7 +14,7 @@ body {
 	background-color: #ec0b43;
 	color: #F6F3F7;
 	text-align: center;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Patrick Hand', cursive;
 }
 
 h1 {
@@ -191,6 +192,7 @@ button.btn.btn-primary.home-button:focus {
 .rules-content {
 	font-size: 1.5rem;
 	padding-top: 5px;
+    font-family: 'Dosis', sans-serif;
 }
 
 .rules-img {
@@ -226,6 +228,7 @@ button.btn.btn-primary.home-button:focus {
 	color: #FFF689;
 	background-color: #ec0b43;
 	font-weight: bold;
+    font-family: 'Fredoka One', cursive;
 }
 
 .unflex {
@@ -306,6 +309,7 @@ button#difficulty-quit {
 p#difficulty-tagline {
 	font-size: 1.25rem;
 	font-weight: bold;
+    font-family: 'Dosis', sans-serif;
 }
 
 span#next-icon,
@@ -328,7 +332,7 @@ span#prev-icon {
 
 .game-info-heading {
 	text-decoration: underline;
-	font-weight: bold;
+    font-family: 'Fredoka One', cursive;
 }
 
 .game-info-content {
@@ -392,6 +396,7 @@ span#prev-icon {
 	font-size: 1.75em;
 	border-radius: 50%;
 	margin: 2px;
+    font-weight: bold;
 }
 
 .number-icon {
@@ -894,7 +899,7 @@ button.btn.btn-primary.game-input:focus {
 
 @media screen and (max-width: 374px) {
 	.four-player-reduce {
-		width: 47px;
+		width: 46px;
 		font-size: 130%;
 		margin-right: 0;
 		padding-left: 11px;
@@ -907,7 +912,7 @@ button.btn.btn-primary.game-input:focus {
 
 /* Media queries for galaxy fold screen size */
 
-@media screen and (max-width: 285px) {
+@media screen and (max-width: 319px) {
 	h1 {
 		font-size: 1.75rem;
 	}
@@ -931,7 +936,7 @@ button.btn.btn-primary.game-input:focus {
 		width: 46px;
 	}
 	.four-player-reduce {
-		width: 39px;
+		width: 37px;
 		font-size: 100%;
 		padding-left: 10px;
 	}
