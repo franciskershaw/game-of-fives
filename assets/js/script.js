@@ -24,13 +24,6 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
-window.addEventListener("load",function() {
-    setTimeout(function(){
-        // This hides the address bar:
-        window.scrollTo(0, 1);
-    }, 0);
-});
-
 // DOM loads, assigns clck sounds to buttons, enables mute button and calls setGameHtml() and countDown()
 $(document).ready(function () {
 	let gameButtons = document.getElementsByClassName('game-input');
