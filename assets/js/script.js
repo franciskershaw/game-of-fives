@@ -225,19 +225,19 @@ function roundAnimation() {
 		if (game.soundsOn === 'true') {
 			noiseOne.play();
 		}
-	}, 1000);
+	}, 1500);
 	setTimeout(function () {
 		$('#round-total').text('2');
 		if (game.soundsOn === 'true') {
 			noiseTwo.play();
 		}
-	}, 1400);
+	}, 1900);
 	setTimeout(function () {
 		$('#round-total').text('3');
 		if (game.soundsOn === 'true') {
 			noiseOne.play();
 		}
-	}, 1800);
+	}, 2300);
 }
 
 // Changes all hand images to palm or fist depending on values of userInput and computerInput
@@ -283,7 +283,7 @@ function roundReveal() {
 		} else {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
 		}
-    }, 2200);
+    }, 2700);
 }
 
 // End of playRound(); changes whose go it is, removes values from computerInput, returns images to fists, sets central HTML
@@ -363,7 +363,7 @@ function playRound() {
 				meh.play();
 			}
 		}
-	}, 3000);
+	}, 3500);
 	setTimeout(function () {
         resetGame();
         if (game.userScore < 3 && game.computerScore < 3) {
@@ -372,7 +372,7 @@ function playRound() {
             endGame();
         }
 		
-	}, 4000);
+	}, 4500);
 }
 
 // Called once game is over, feeds back that the game was a win or a loss, calls updateWinRecord(), provides option to play again or quit, and resets the game scores
