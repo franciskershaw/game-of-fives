@@ -25,14 +25,9 @@ const game = {
 };
 
 function setSound(src) {
-	// Credit: help assigning sound effects to variables using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
 	let sound = new Audio();
 	sound.src = src;
 	return sound
-}
-
-function playSound(name) {
-	name.play();
 }
 
 // DOM loads, assigns clck sounds to buttons, enables mute button and calls setGameHtml() and countDown()
@@ -43,7 +38,7 @@ $(document).ready(function () {
 			let clickSound = setSound('assets/sounds/clickeffect.mp3')
             // Sound from Zapsplat.com
 			if (game.soundsOn === 'true') {
-				playSound(clickSound)
+				clickSound.play();
 			}
 		});
 	}
@@ -164,14 +159,19 @@ function computerInput() {
 	}
 }
 
-// During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
-function computerGuess() {
-    // credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+function sumComputerInput() {
 	let arr = game.computerInput;
-	let sumOfComputer = arr.reduce(add, 0);
+	// credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+	let sum = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
 	}
+	return sum;
+}
+
+// During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
+function computerGuess() {
+	let sumOfComputer = sumComputerInput();
 	if (sumOfComputer === 0) {
 		// generate 0 or 5
 		game.computerGuess = Math.random() < 0.5 ? 0 : 5;
@@ -189,11 +189,7 @@ function computerGuess() {
 
 // During playRound(), add computerInput and userInput together to updateCorrectScore
 function updateCorrectScore() {
-	let arr = game.computerInput;
-	let sumOfComputer = arr.reduce(add, 0);
-	function add(accumulator, a) {
-		return accumulator + a;
-	}
+	let sumOfComputer = sumComputerInput();
 	game.correctScore = game.userInput + sumOfComputer;
 }
 
@@ -230,19 +226,19 @@ function roundAnimation() {
 		}
 		$('#round-total').text('1');
 		if (game.soundsOn === 'true') {
-			playSound(noiseOne);
+			noiseOne.play();
 		}
 	}, 1500);
 	setTimeout(function () {
 		$('#round-total').text('2');
 		if (game.soundsOn === 'true') {
-			playSound(noiseTwo);
+			noiseTwo.play();
 		}
 	}, 1900);
 	setTimeout(function () {
 		$('#round-total').text('3');
 		if (game.soundsOn === 'true') {
-			playSound(noiseOne);
+			noiseOne.play();
 		}
 	}, 2300);
 }
@@ -252,7 +248,7 @@ function roundReveal() {
     setTimeout(function () {
         let noiseReveal = setSound('assets/sounds/noise3.mp3');
         if (game.soundsOn === 'true') {
-			playSound(noiseReveal);
+			noiseReveal.play();
 			}
 		// User hand image
 		if (game.userInput === 5) {
@@ -352,19 +348,19 @@ function playRound() {
 		if (game.userTurn && game.userGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
 			if (game.soundsOn === 'true') {
-				playSound(yay);
+				yay.play();
 			}
 			incrementUserScore();
 		} else if (!game.userTurn && game.computerGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
 			if (game.soundsOn === 'true') {
-				playSound(yay);
+				yay.play();
 			}
 			incrementComputerScore();
 		} else {
 			$('#round-total').text('No good!');
 			if (game.soundsOn === 'true') {
-				playSound(meh);
+				meh.play();
 			}
 		}
 	}, 3500);
@@ -386,13 +382,13 @@ function endGame() {
 		$('#round-total').text(`You've won!`);
 		let victory = setSound('assets/sounds/victory.mp3');
 		if (game.soundsOn === 'true') {
-			playSound(victory);
+			victory.play();
 		}
 	} else {
 		$('#round-total').text('You lost!');
 		let defeat = setSound('assets/sounds/defeat.mp3');
 		if (game.soundsOn === 'true') {
-			playSound(defeat);
+			defeat.play();
 		}
 	}
 	$('.game-info-quit').addClass('hidden');
