@@ -31,9 +31,7 @@ $(document).ready(function () {
 		button.addEventListener('mousedown', function () {
 			let clickSound = setSound('assets/sounds/clickeffect.mp3')
             // Sound from Zapsplat.com
-			if (game.soundsOn === 'true') {
-				clickSound.play();
-			}
+				playSound(clickSound);
 		});
 	}
 	$('.mute-btn').click(function () {
@@ -63,6 +61,17 @@ function setSound(src) {
 	let sound = new Audio();
 	sound.src = src;
 	return sound
+}
+
+/*
+This function plays sound effects as long as sounds are
+enabled by the user
+@param sound variable (name) - variable name assigned to sound
+*/
+function playSound(name) {
+	if (game.soundsOn == 'true') {
+		name.play();
+	}
 }
 
 /* 
@@ -197,6 +206,7 @@ function computerInput() {
 /*
 This function adds the total value of whatever input has been pushed
 to the computerInput array in the game variables object
+@returns integer
 */
 function sumComputerInput() {
 	let arr = game.computerInput;
@@ -247,6 +257,7 @@ with a count upwards to three
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass('transparent');
+	// Resets animation each round
 	gameImages.forEach(gameImage => { // credit: https://www.youtube.com/watch?v=qWPtKtYEsN4 (50 minutes)
 		gameImage.addEventListener('animationend', function () {
 			this.style.animation = '';
@@ -254,6 +265,7 @@ function roundAnimation() {
     });
     let noiseOne = setSound('assets/sounds/noise1.mp3');
     let noiseTwo = setSound('assets/sounds/noise2.mp3');
+	// Inititates animations after small gap
 	setTimeout(function () {
         let playerHand = document.getElementById('player-hand');
         let computerHand = document.getElementById('computer-hand');
@@ -274,21 +286,15 @@ function roundAnimation() {
 			middleRight.style.animation = 'middleRight 1.2s';
 		}
 		$('#round-total').text('1');
-		if (game.soundsOn === 'true') {
-			noiseOne.play();
-		}
+		playSound(noiseOne);
 	}, 1500);
 	setTimeout(function () {
 		$('#round-total').text('2');
-		if (game.soundsOn === 'true') {
-			noiseTwo.play();
-		}
+		playSound(noiseTwo);
 	}, 1900);
 	setTimeout(function () {
 		$('#round-total').text('3');
-		if (game.soundsOn === 'true') {
-			noiseOne.play();
-		}
+		playSound(noiseOne);
 	}, 2300);
 }
 
@@ -297,11 +303,9 @@ This function plays final sound and changes all hand images to a palm or
 fist depending on what the values of userInput and computerInput are.
 */
 function roundReveal() {
-    setTimeout(function () {
-        if (game.soundsOn === 'true') {
-			let noiseReveal = setSound('assets/sounds/noise3.mp3');
-			noiseReveal.play();
-			}
+    setTimeout(function () {        
+		let noiseReveal = setSound('assets/sounds/noise3.mp3');
+		playSound(noiseReveal);
 		// User hand image
 		if (game.userInput === 5) {
 			$('#player-hand').attr('src', 'assets/images/palmfaceup.png');
@@ -412,21 +416,15 @@ function playRound() {
 		let meh = setSound('assets/sounds/meh.mp3');
 		if (game.userTurn && game.userGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
-			if (game.soundsOn === 'true') {
-				yay.play();
-			}
+			playSound(yay);
 			incrementUserScore();
 		} else if (!game.userTurn && game.computerGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
-			if (game.soundsOn === 'true') {
-				yay.play();
-			}
+			playSound(yay);
 			incrementComputerScore();
 		} else {
 			$('#round-total').text('No good!');
-			if (game.soundsOn === 'true') {
-				meh.play();
-			}
+			playSound(meh);
 		}
 	}, 3500);
 	setTimeout(function () {
@@ -451,15 +449,11 @@ function endGame() {
 	if (game.userScore === 3) {
 		$('#round-total').text(`You've won!`);
 		let victory = setSound('assets/sounds/victory.mp3');
-		if (game.soundsOn === 'true') {
-			victory.play();
-		}
+		playSound(victory);
 	} else {
 		$('#round-total').text('You lost!');
-		let defeat = setSound('assets/sounds/defeat.mp3');
-		if (game.soundsOn === 'true') {
-			defeat.play();
-		}
+		let defeat = setSound('assets/sounds/defeat.mp3');		
+		playSound(defeat);
 	}
 	$('.game-info-quit').addClass('hidden');
 	$('.end-game-btns').removeClass('hidden');
