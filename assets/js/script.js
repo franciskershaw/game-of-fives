@@ -24,17 +24,26 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
+function setSound(src) {
+	// Credit: help assigning sound effects to variables using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
+	let sound = new Audio();
+	sound.src = src;
+	return sound
+}
+
+function playSound(name) {
+	name.play();
+}
+
 // DOM loads, assigns clck sounds to buttons, enables mute button and calls setGameHtml() and countDown()
 $(document).ready(function () {
 	let gameButtons = document.getElementsByClassName('game-input');
 	for (let button of gameButtons) {
 		button.addEventListener('mousedown', function () {
-            // Credit: help assigning sound effects to variables using the 'play' method found on Adam Khoury's video https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury
-            let clickSound = new Audio();
-            clickSound.src = 'assets/sounds/clickeffect.mp3';
+			let clickSound = setSound('assets/sounds/clickeffect.mp3')
             // Sound from Zapsplat.com
 			if (game.soundsOn === 'true') {
-				clickSound.play();
+				playSound(clickSound)
 			}
 		});
 	}
@@ -198,10 +207,8 @@ function roundAnimation() {
 			this.style.animation = '';
 		});
     });
-    let noiseOne = new Audio();
-    noiseOne.src = 'assets/sounds/noise1.mp3';
-    let noiseTwo = new Audio();
-    noiseTwo.src = 'assets/sounds/noise2.mp3';
+    let noiseOne = setSound('assets/sounds/noise1.mp3');
+    let noiseTwo = setSound('assets/sounds/noise2.mp3');
 	setTimeout(function () {
         let playerHand = document.getElementById('player-hand');
         let computerHand = document.getElementById('computer-hand');
@@ -223,19 +230,19 @@ function roundAnimation() {
 		}
 		$('#round-total').text('1');
 		if (game.soundsOn === 'true') {
-			noiseOne.play();
+			playSound(noiseOne);
 		}
 	}, 1500);
 	setTimeout(function () {
 		$('#round-total').text('2');
 		if (game.soundsOn === 'true') {
-			noiseTwo.play();
+			playSound(noiseTwo);
 		}
 	}, 1900);
 	setTimeout(function () {
 		$('#round-total').text('3');
 		if (game.soundsOn === 'true') {
-			noiseOne.play();
+			playSound(noiseOne);
 		}
 	}, 2300);
 }
@@ -243,10 +250,9 @@ function roundAnimation() {
 // Changes all hand images to palm or fist depending on values of userInput and computerInput
 function roundReveal() {
     setTimeout(function () {
-        let noiseReveal = new Audio();
-	    noiseReveal.src = 'assets/sounds/noise3.mp3';
+        let noiseReveal = setSound('assets/sounds/noise3.mp3');
         if (game.soundsOn === 'true') {
-			noiseReveal.play();
+			playSound(noiseReveal);
 			}
 		// User hand image
 		if (game.userInput === 5) {
@@ -341,26 +347,24 @@ function playRound() {
 		computerGuess();
     }
     setTimeout(function () {
-		let yay = new Audio();
-		let meh = new Audio();
-		yay.src = 'assets/sounds/success.mp3';
-		meh.src = 'assets/sounds/meh.mp3';
+		let yay = setSound('assets/sounds/success.mp3');
+		let meh = setSound('assets/sounds/meh.mp3');
 		if (game.userTurn && game.userGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
 			if (game.soundsOn === 'true') {
-				yay.play();
+				playSound(yay);
 			}
 			incrementUserScore();
 		} else if (!game.userTurn && game.computerGuess === game.correctScore) {
 			$('#round-total').text('Correct!');
 			if (game.soundsOn === 'true') {
-				yay.play();
+				playSound(yay);
 			}
 			incrementComputerScore();
 		} else {
 			$('#round-total').text('No good!');
 			if (game.soundsOn === 'true') {
-				meh.play();
+				playSound(meh);
 			}
 		}
 	}, 3500);
@@ -380,17 +384,15 @@ function endGame() {
 	updateWinRecord();
 	if (game.userScore === 3) {
 		$('#round-total').text(`You've won!`);
-		let victory = new Audio();
-		victory.src = 'assets/sounds/victory.mp3';
+		let victory = setSound('assets/sounds/victory.mp3');
 		if (game.soundsOn === 'true') {
-			victory.play();
+			playSound(victory);
 		}
 	} else {
 		$('#round-total').text('You lost!');
-		let defeat = new Audio();
-		defeat.src = 'assets/sounds/defeat.mp3';
+		let defeat = setSound('assets/sounds/defeat.mp3');
 		if (game.soundsOn === 'true') {
-			defeat.play();
+			playSound(defeat);
 		}
 	}
 	$('.game-info-quit').addClass('hidden');
