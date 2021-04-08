@@ -1,4 +1,4 @@
-// Helps sound effect lag on Safari desktop, credit: Jakko Karhu's post on stack overflow - https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay
+// credit: https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
 
@@ -97,7 +97,7 @@ function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
         document.getElementById('round-total').innerHTML = 'First to 3';
-        // credit: help with countdown courtesy of James McDowell's post on stack overflow - https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+        // credit: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 		let timeLeft = 3;
 		let timer = setInterval(function () {
 			if (timeLeft <= 0) {
@@ -150,18 +150,25 @@ function userGuess() {
 	});
 }
 
+function generateNums(min) {
+	if (min === 0) {
+		return Math.random() < 0.5 ? 0 : 5; // credit: https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
+	} else {
+		return Math.floor(Math.random() * (2 - 1 + 1) + min / 5 ) * 5;
+	}
+}
+
 // During playRound(), randomly generated 0s and 5s pushed to game.computerInput 
 function computerInput() {
 	for (let i = 0; i < parseInt(game.computerPlayers); i++) {
-		// credit: code generating 2 numbers, of which one is a zero, found on Peter Olsen's post at https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
-		let rand = Math.random() < 0.5 ? 0 : 5;
-		game.computerInput.push(rand);
+		let computerInput = generateNums(0);
+		game.computerInput.push(computerInput);
 	}
 }
 
 function sumComputerInput() {
 	let arr = game.computerInput;
-	// credit: code to sum the values of items in an arry found on Florian Maragaine's post at https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+	// credit: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 	let sum = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
@@ -174,16 +181,16 @@ function computerGuess() {
 	let sumOfComputer = sumComputerInput();
 	if (sumOfComputer === 0) {
 		// generate 0 or 5
-		game.computerGuess = Math.random() < 0.5 ? 0 : 5;
+		game.computerGuess = generateNums(0);
 	} else if (sumOfComputer === 5) {
 		// generate 5 or 10 
-		game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 1) * 5;
+		game.computerGuess = generateNums(5);
 	} else if (sumOfComputer === 10) {
 		// generate 10 or 15
-		game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 2) * 5;
+		game.computerGuess = generateNums(10);
 	} else {
 		// generate 15 or 20
-		game.computerGuess = Math.floor(Math.random() * (2 - 1 + 1) + 3) * 5;
+		game.computerGuess = generateNums(15);
 	}
 }
 
@@ -197,8 +204,7 @@ function updateCorrectScore() {
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass('transparent');
-	// credit: code to reset animation after one round found on Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4 at around 50 minutes
-	gameImages.forEach(gameImage => {
+	gameImages.forEach(gameImage => { // credit: https://www.youtube.com/watch?v=qWPtKtYEsN4 (50 minutes)
 		gameImage.addEventListener('animationend', function () {
 			this.style.animation = '';
 		});
@@ -208,7 +214,7 @@ function roundAnimation() {
 	setTimeout(function () {
         let playerHand = document.getElementById('player-hand');
         let computerHand = document.getElementById('computer-hand');
-        // credit: help applying custom css animations via JS found on Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd at around 49 minutes.
+        // credit: https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd (49 minutes)
         playerHand.style.animation = 'mainAnimation 1.2s';
 		if (game.computerPlayers == 1) {
 			computerHand.style.animation = 'mainAnimation 1.2s';
