@@ -24,13 +24,7 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
-function setSound(src) {
-	let sound = new Audio();
-	sound.src = src;
-	return sound
-}
-
-// DOM loads, assigns clck sounds to buttons, enables mute button and calls setGameHtml() and countDown()
+// Once page loads, enables button sounds and mute icon, calls setGameHtml() and countDown()
 $(document).ready(function () {
 	let gameButtons = document.getElementsByClassName('game-input');
 	for (let button of gameButtons) {
@@ -60,7 +54,21 @@ $(document).ready(function () {
 	countDown();
 });
 
-// Sets HTML of win/loss record, mute button and game images
+/*
+This function creates sound effects and sets their file location (src) 
+@param source (src) - file location of the sound effects
+@returns variable 
+*/
+function setSound(src) {
+	let sound = new Audio();
+	sound.src = src;
+	return sound
+}
+
+/* 
+This function sets HTML of win/loss record, mute button and game images
+at the beginning of the game
+*/
 function setGameHtml() {
 	if (game.winRecord === null) {
 		game.winRecord = 0;
@@ -92,7 +100,10 @@ function setGameHtml() {
 	}
 }
 
-// Enables quit button, starts a 3,2,1 countdown then calls userInput()
+/*
+This function enables quit button, displays a 3,2,1 countdown and calls 
+userInput() for the first time
+*/
 function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
@@ -113,7 +124,11 @@ function countDown() {
 
 }
 
-// Takes user's input from the hand icons; if userTurn = true then call userGuess(), else call playRound()
+/*
+This function enables hand icons and assigns user's input depending on
+which of the two buttons (fist or palm) is clicked. If it is the user's
+turn, userGuess() is called, if not then playRound() is called
+*/
 function userInput() {
 		$('.hand-icon').removeAttr('disabled').off('click');
 		$('.hand-icon').click(function () {
@@ -130,7 +145,11 @@ function userInput() {
 		});
 }
 
-// If userTurn = true, takes user's guess from number icons and calls playRound()
+/*
+This function is called when it is the user's turn. It disables the hand
+icons, enables the number icons, and assigns the user's guess depending
+on which number has been clicked. Calls playRound()
+*/
 function userGuess() {
 	$('.hand-icon').attr('disabled', true);
 	$('.number-icon').removeAttr('disabled').off('click');
@@ -150,6 +169,12 @@ function userGuess() {
 	});
 }
 
+/*
+This function generates two random numbers, one larger than the other
+by five.
+@param minimum (min) - the lowest of the two numbers
+@returns integer
+*/
 function generateNums(min) {
 	if (min === 0) {
 		return Math.random() < 0.5 ? 0 : 5; // credit: https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
@@ -158,7 +183,10 @@ function generateNums(min) {
 	}
 }
 
-// During playRound(), randomly generated 0s and 5s pushed to game.computerInput 
+/*
+This function randomly assigns the computer's input(s) each round out of 
+zero (fist) or five (palm) and pushes to the array in the game variables object
+*/
 function computerInput() {
 	for (let i = 0; i < parseInt(game.computerPlayers); i++) {
 		let computerInput = generateNums(0);
@@ -166,6 +194,10 @@ function computerInput() {
 	}
 }
 
+/*
+This function adds the total value of whatever input has been pushed
+to the computerInput array in the game variables object
+*/
 function sumComputerInput() {
 	let arr = game.computerInput;
 	// credit: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
@@ -176,7 +208,11 @@ function sumComputerInput() {
 	return sum;
 }
 
-// During playRound() (if userTurn = false), update computerGuess depending on amount of players and the sum of the computer's input
+/*
+This function randomly assigns a value to computerGuess in the game variables
+when it is the computer's go, the possible values changing depending on the sum
+of the computerInput array is.
+*/
 function computerGuess() {
 	let sumOfComputer = sumComputerInput();
 	if (sumOfComputer === 0) {
@@ -194,13 +230,20 @@ function computerGuess() {
 	}
 }
 
-// During playRound(), add computerInput and userInput together to updateCorrectScore
+/*
+This function updates the correct score each round by adding
+computerInput and userInput together
+*/
 function updateCorrectScore() {
 	let sumOfComputer = sumComputerInput();
 	game.correctScore = game.userInput + sumOfComputer;
 }
 
-// During playRound(), inititates animation which moves the game images and updates central game HTML text with a 1,2,3 count upwards
+/*
+This function inititates the animation each round by adding CSS
+animations to the hand images while also updating the central HTML
+with a count upwards to three
+*/
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
     $('.game-image').removeClass('transparent');
@@ -249,11 +292,14 @@ function roundAnimation() {
 	}, 2300);
 }
 
-// Changes all hand images to palm or fist depending on values of userInput and computerInput
+/*
+This function plays final sound and changes all hand images to a palm or 
+fist depending on what the values of userInput and computerInput are.
+*/
 function roundReveal() {
     setTimeout(function () {
-        let noiseReveal = setSound('assets/sounds/noise3.mp3');
         if (game.soundsOn === 'true') {
+			let noiseReveal = setSound('assets/sounds/noise3.mp3');
 			noiseReveal.play();
 			}
 		// User hand image
@@ -294,7 +340,10 @@ function roundReveal() {
     }, 2700);
 }
 
-// End of playRound(); changes whose go it is, removes values from computerInput, returns images to fists, sets central HTML
+/*
+This function resets computerInput, reverts hand images back to fists, and
+sets the central HTML
+*/
 function resetGame() {
     if (game.userTurn) {
         game.userTurn = false;
@@ -311,19 +360,25 @@ function resetGame() {
 		}
 }
 
-// Adds one to game.userScore and updates display score on top left of page
+/*
+This function adds one to game.userScore and updates display score on top
+left of the page
+*/
 function incrementUserScore() {
 	game.userScore += 1;
 	$('#player-score').text(`${game.userScore}`);
 }
 
-// Adds one to game.ComputerScore and updates display score on top left of page
+/*
+This function adds one to game.computerScore and updates display score on top
+left of the page
+*/
 function incrementComputerScore() {
 	game.computerScore += 1;
 	$('#computer-score').text(`${game.computerScore}`);
 }
 
-// Checks who won the game and updates wins vs loss record accordingly
+// This function checks who won the game and updates wins vs loss record accordingly
 function updateWinRecord() {
 	if (game.userScore === 3) {
 		game.winRecord++;
@@ -336,7 +391,11 @@ function updateWinRecord() {
 	localStorage.setItem('loseRecord', game.loseRecord);
 }
 
-// PRIMARY GAME FUNCTION: calls all functions required to play and end a round, provides feedback depending on whether a round was won or lost, and either continues or ends game depending on scores.
+/*
+This function is the primary function of the game. It calls all the functions
+required to play a round, provides feedback depending on whether a round was
+won or lost, and either continues or ends game depending on current scores
+*/
 function playRound() {
 	computerInput();
 	updateCorrectScore();
@@ -372,6 +431,7 @@ function playRound() {
 	}, 3500);
 	setTimeout(function () {
         resetGame();
+		// Check if the game is still ongoing
         if (game.userScore < 3 && game.computerScore < 3) {
             userInput();
         } else {
@@ -381,7 +441,11 @@ function playRound() {
 	}, 4500);
 }
 
-// Called once game is over, feeds back that the game was a win or a loss, calls updateWinRecord(), provides option to play again or quit, and resets the game scores
+/*
+This function is called once either the user or computer reaches 3 points,
+gives feedback over whether the game was a win or a loss, calls updateWinRecord(),
+offers option to play again or quit, and resets the game scores
+*/
 function endGame() {
 	updateWinRecord();
 	if (game.userScore === 3) {
