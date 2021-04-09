@@ -1,7 +1,3 @@
-// credit: https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const audioCtx = new AudioContext();
-
 // Game variables object
 const game = {
 	userTurn: true,
