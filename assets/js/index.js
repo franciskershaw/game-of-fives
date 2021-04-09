@@ -1,6 +1,9 @@
-// Once page loads, checks the device is in portrait mode (mobile only), updates html depending on users play history and initiates entry animation 
+/*
+Once page loads, checks the device is in portrait mode (mobile only),
+updates html depending on users play history and initiates entry animation 
+*/
 $(document).ready(function () {
-	// credit: help with concept and js syntax for checking width and height of window courtesy of Zoe Thexton - https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
+	// credit: https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
 	if (window.innerWidth > window.innerHeight && window.innerWidth < 768) {
 		$('.landscape-overlay').removeClass('hidden');
 		$('.home-container').addClass('hidden');
@@ -33,7 +36,7 @@ $(document).ready(function () {
 });
 
 // Listens for orientation to show or hide the orientation change warning overlay
-// credit: orientation change event listener help courtesy of mplungjan's post on https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
+// credit:  https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
 window.addEventListener('orientationchange', function () {
 	if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
 		$('.landscape-overlay').removeClass('hidden');
@@ -47,14 +50,16 @@ window.addEventListener('orientationchange', function () {
 	}
 });
 
-// Animation that introduces the 2 main images followed by the heading
+/*
+This function initiates the animation the introduces all content
+to the page staggered
+*/
 function entryAnimation() {
 	setTimeout(function () {
 		$('.home-img').removeClass('opaque').addClass('home-entry-one');
 	}, 1000);
 	setTimeout(function () {
 		$('.home-img').removeClass('home-entry-one').addClass('home-entry-two');
-
 	}, 1500);
 	setTimeout(function () {
 		$('.home-img').removeClass('home-entry-two').addClass('home-entry-three');
@@ -66,7 +71,10 @@ function entryAnimation() {
 	}, 2500);
 }
 
-// Loops over the difficulty buttons in the play modal and uses local storage to assign how many computer players there will be in game variables object
+/*
+Loops over the difficulty buttons in the play modal and uses local storage 
+to assign how many computer players there will be in game variables object
+*/
 let difficultyButtons = document.querySelectorAll('.difficulty-button');
 for (let difficultyButton of difficultyButtons) {
 	difficultyButton.addEventListener('click', function () {
