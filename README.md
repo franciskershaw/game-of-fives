@@ -398,15 +398,11 @@ More in depth information about cloning repositories, including how to clone a r
 
 * I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan.](https://stackoverflow.com/users/295783/mplungjan)
 
-* Help assigning sound effects to variables and calling them using the 'play' method was found on [this YouTube video](https://www.youtube.com/watch?v=VlwSz2dXK_8&ab_channel=AdamKhoury) by [Adam Khoury](https://www.youtube.com/channel/UCpzRDg0orQBZFBPzeXm1yNg).
-
 * Help implementing a 3,2,1 countdown before the start of each game was found on [this stack overflow post](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown) on the answer posted by [James McDowell.](https://stackoverflow.com/users/4815264/james-mcdowell)
 
 * The code to randomly generate two numbers, of which one is 0, was found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen.](https://stackoverflow.com/users/546661/peter-olson)
 
 * The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
-
-* Code to help with audio delay on Safari desktop found on [this stack overflow post](https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay) on the answer by [Jakko Karhu.](https://stackoverflow.com/users/2641341/jaakko-karhu)
 
 A huge thank you to all the people who took part in user testing, the Slack community on Code Institute, and my mentor Aaron Sinnott.
 
