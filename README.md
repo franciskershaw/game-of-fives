@@ -164,7 +164,7 @@ While the user stories are varied in terms of their end destination, intended us
 
 In order to properly visualise how my pages would be organised and linked together, I created some low fidelity mockups using [InVision](https://www.invisionapp.com/) - focussing on the design layout for small, medium and large screen sizes. The purpose of this process was to double check that the ideas I had begun formulating internally during the structure plane would be faithful to the user stories they were designed to fulfil. Any clear issues flagged up at this stage could then be fixed well before coding of the site started in earnest. In fact, this project made it very clear to me how important this stage of development is, as I started wireframing the game in landscape mode before quickly realising that there would be no room on mobile for all of the required features.
 
-Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible. For me, the main goals of this site would have been threatened by any kind of overcomplicated or unconventional design as the end destination.
+Simplicity was at the forefront of my mind when making my designs, as I wanted to keep the layout of my site as user-friendly and intuitive as possible.
 
 ![homepage](assets/images/homepage.png)
 ![rules modal](assets/images/rulesmodal.png)
@@ -399,13 +399,13 @@ More in depth information about cloning repositories, including how to clone a r
 
 * I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan.](https://stackoverflow.com/users/295783/mplungjan)
 
+* The code to check whether a device is using iOS (to help fix a UX issue present in certain iPhones and iPads) was found on [this stack overflow post](https://stackoverflow.com/questions/9038625/detect-if-device-is-ios) by [Pierre.](https://stackoverflow.com/users/1029952/pierre)
+
 * Help implementing a 3,2,1 countdown before the start of each game was found on [this stack overflow post](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown) on the answer posted by [James McDowell.](https://stackoverflow.com/users/4815264/james-mcdowell)
 
 * The code to randomly generate two numbers, of which one is 0, was found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen.](https://stackoverflow.com/users/546661/peter-olson)
 
 * The code to sum the values of an array was found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
-
-* The code to check whether a device is using iOS (to help fix a UX issue present in certain iPhones and iPads) was found on [this stack overflow post](https://stackoverflow.com/questions/9038625/detect-if-device-is-ios) by [Pierre.](https://stackoverflow.com/users/1029952/pierre)
 
 A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
 
