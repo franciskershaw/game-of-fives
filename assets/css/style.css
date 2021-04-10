@@ -214,8 +214,8 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .rules-number {
-	padding-left: 22px;
-	padding-right: 22px;
+	padding-left: 26px;
+	padding-right: 26px;
 }
 
 .difficulty-button {
@@ -927,6 +927,10 @@ button.btn.btn-primary.game-input:focus {
 	.home-record {
 		font-size: 1.5rem;
 		height: 34vh;
+	}
+	.rules-number {
+		padding-left: 22px;
+		padding-right: 22px;
 	}
 	.game-info-content {
 		font-size: 1rem;
