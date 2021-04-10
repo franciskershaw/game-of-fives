@@ -268,7 +268,7 @@ The user input area contains two rows of clickable buttons:
 
 * Row one contains two fist and palm font awesome icons which allow the user to decide whether they will present a zero or a five in the forthcoming round. 
 * Row two is enabled only on the user's turn, and contains the buttons necessary for a user to make an educated guess as to what the total score will be. This row again changes depending on which difficulty the user has previously selected, as the possible answers will increase if there are more computer players present.
-* A mute button is clearly visible to the right of the inputs which allows the user to turn off the sound effects if they wish. Local storage then remembers this choice so that the user does not have to keep muting every time they visit if that is their preference.
+* A mute button is clearly visible to the right of the inputs which allows the user to turn off the sound effects if they wish. Local storage then remembers this choice so that the user does not have to keep muting every time they visit if that is their preference. *Note - sounds are muted by default on iOS devices due to a bug detected in testing. Please see testing.md for more information in **notable bugs**.*
 
 ### Gameplay
 
@@ -294,7 +294,7 @@ End of the game:
 
 ### Features left to implement
 
-* One day I would love to have this game available on a network basis allowing users to challenge other human users to a game in real time. The real life game after all is not a game between user and computer, but between several human users using psychology more than luck to determine how to play their oponant.
+* One day I would love to have this game available on a network basis allowing users to challenge other human users to a game in real time. The real life game after all is not a game between user and computer, but between several human users using psychology more than luck to determine how to play their opponent.
 * I also envisage eventually implementing a dedicated results page, accessible via the homepage, which goes into further detail about the user's play history, broken up organised by the various difficulty settings they have chosen to play on. At the moment this was not vital to the fulfilment of my user stories, and would make more sense once a user is able to play against other humans - as this would be a far more interesting set of results to record and analyse. 
 
 ## Technologies used
@@ -333,13 +333,14 @@ End of the game:
 For the commits on this project, I continued to follow the basic rules I had set during my first milestone project. That is to say:
 
 * Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
-* Always use the imperative tense so that readers would read as the purpose of this commit is to - etc.
+* Always use the imperative tense so that readers would read as *the purpose of this commit is to* - etc.
 * Commit often, and keep messages as short as possible.
 
 Building on this format, I also added the following conditions as a result of feedback from my previous project and the different specifications required this time around:
 
 * Include the file name being amended where possible, such as index.html or script.js.
 * Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to the gameplay's javascript functions.
+* Use the prefix 'test:' for any commits that were being pushed specifically to test bug fixes onto the live site.
 
 At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
 
@@ -380,7 +381,7 @@ More in depth information about cloning repositories, including how to clone a r
 
 ### Media
 
-* The photos of the hands used on the homepage and in gameplay were screen grabbed from the [afiniti Rock, Paper, Scissors demo.](https://www.afiniti.com/corporate/rock-paper-scissors) and edited to specification using [removebg.](https://www.remove.bg/)
+* The photos of the hands used on the homepage and in gameplay were screen grabbed from the [afiniti Rock, Paper, Scissors demo](https://www.afiniti.com/corporate/rock-paper-scissors) and edited to specification using [removebg.](https://www.remove.bg/)
 
 * Click sounds on the game page were sourced from [zapsplat.](https://www.zapsplat.com/)
 
@@ -394,7 +395,7 @@ More in depth information about cloning repositories, including how to clone a r
 
 * The transform animation that takes place each round during gameplay, and the code required to restart it each time it finishes, was learnt from [this YouTube video](https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd) by [Dev Ed](https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q) between 45 and 51 minutes.
 
-* Help with the syntax needed to checking width and height of window courtesy of [Zoe Thexton's](https://github.com/zoet24) MS2 [js repository.](https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js)
+* Help with the syntax needed to check width and height of window courtesy of [Zoe Thexton's](https://github.com/zoet24) MS2 [js repository.](https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js)
 
 * I had help adding an event listener for orientation changes from [this stack overflow post](https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript) on the answer posted by [mplungjan.](https://stackoverflow.com/users/295783/mplungjan)
 
@@ -402,8 +403,10 @@ More in depth information about cloning repositories, including how to clone a r
 
 * The code to randomly generate two numbers, of which one is 0, was found on [this stack overflow post](https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript) on the answer posted by [Peter Olsen.](https://stackoverflow.com/users/546661/peter-olson)
 
-* The code to sum the values of an array found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
+* The code to sum the values of an array was found on [this stack overflow post](https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers) on the answer by [Florian Margaine.](https://stackoverflow.com/users/851498/florian-margaine)
 
-A huge thank you to all the people who took part in user testing, the Slack community on Code Institute, and my mentor Aaron Sinnott.
+* The code to check whether a device is using iOS (to help fix a UX issue present in certain iPhones and iPads) was found on [this stack overflow post](https://stackoverflow.com/questions/9038625/detect-if-device-is-ios) by [Pierre.](https://stackoverflow.com/users/1029952/pierre)
+
+A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
 
 [Back to the top](#game-of-fives!)
