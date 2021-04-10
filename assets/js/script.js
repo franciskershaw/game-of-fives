@@ -20,6 +20,11 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
+/*
+This function checks whether device is using iOS, so that further down
+sounds can be muted by default if so.
+credit: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
+*/
 function iOS() {
 	return [
 	  'iPad Simulator',
