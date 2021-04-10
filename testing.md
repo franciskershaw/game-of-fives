@@ -7,11 +7,11 @@ Testing of this project was carried out through the following methods:
 * Constant review during development using Gitpod's browser previewers and Chrome developer tools.
 * User testing of the deployed site when close to completion.
 * Manual user story testing during and after the writing of the code.
-* Automated testing of the HTML, CSS files using the WC3 validators.
+* Automated testing of the HTML and CSS files using the WC3 validators.
 * Automated testing of the JavaScript files using JSHINT.
 * Automated testing of site's accessibility using the WAVE accessibility tool.
 
-**Note** - Development of this project was my first attempt to follow basic **agile** principals. With help from Trello, I made sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.
+**Note** - Development of this project was my first attempt to follow basic **agile** principles. With help from Trello, I made sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.
 
 ## Table of Contents
 
@@ -73,6 +73,8 @@ Some important observations were confirmed through the user testing that I would
 
 ### Notable bugs
 
+#### Fixed
+
 *Duplicate functions when called by click events*
 
 Through my use of *console.log* messages when developing my console-only version of the game, I noticed the functions assigning values to the user's input (the clicking of a fist or palm icon to denote 0 or 5) were being called twice on the second round of the game. This doubling up of the functions would then occur again for the next round, and so on. Evidently, this meant that my game variables were not being updated correctly as a result.
@@ -99,16 +101,24 @@ While there were no issues on the 2-player version of the game, I did notice tha
 
 Much like my issue with the mute button detailed above, I realised through user testing that the dynamic h2 on the homepage was defaulting to 'null' when a user first entered the site. **This was fixed by including a condition for 'null' in my already existing if statement.** 
 
-*Sound effects on Safari lagging*
+#### Outstanding bugs
 
-A noticeable lag for the sound effects was picked up upon both by myself and other users when playing the game on safari. It was enough to throw off the carefully timed sounds during the game's animation and thus (in my opinion at least) greatly reduce the impact of the animation. The same could be said for the button clicks, the sound effects coming noticeably after a button click had been enacted. This issue was not game-breaking on laptop or desktops, however it was a really distracting issue on tablet and mobile devices where the lag was so bad that sound effects would pile on top of each other during the animation.
+*Lagging sound effects on some iOS devices*
 
-Research online frustratingly only highlighed that this issue was mainly rooted in iOS and Safari (please read [this stack overflow article](https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay) and [this Github thread](https://github.com/godotengine/godot/issues/35937) for more information), and that my code was not the root cause of this issue. I did find on a stack overflow post that two lines of code might help the performance.
+A noticeable lag for the sound effects was picked up upon both by myself and other users when playing the game on some iOS devices (iPhones and iPads specifically). This seemed to be a more pronounced issue for the older devices being tested, and at its worse was enough to completely derail the carefully timed sounds during the game's animation. Thus (in my opinion at least), a critical user experience issue was present for certain potential users of my site.  
 
-*const AudioContext = window.AudioContext || window.webkitAudioContext;*
-*const audioCtx = new AudioContext();*
+Research online highlighted that this issue was because of how iOS software loads its sounds (please read [this stack overflow article](https://stackoverflow.com/questions/9811429/html5-audio-tag-on-safari-has-a-delay) and [this Github thread](https://github.com/godotengine/godot/issues/35937) for more information), which meant that my code was not the root cause of this issue. After attempting a few different options for fixes, I unfortunately concluded that **this bug could not be entirely fixed within the timeframes I had for this project submission.**
 
-This helped the delay on desktop, but unfortunately did nothing to help the delay on mobile devices. **This is therefore a bug which has remained unsolved for now, but I would very much like to come back to this project in the future to fix it if at any point in my career I come across a solution that could help performance on iOS Safari.**
+I spent a considerable amount of time deciding how best to approach this issue without removing the sounds entirely from my project, especially given how this issue was not present in any other devices and to my knowledge was functioning completely as intended on Apple laptops and desktops. What I decided was the safest option was to **have the gamepage check if iOS was in use and default to mute on first time visits.** That way it is the users choice when playing on those devices to actively turn on sounds if they wish.
+
+*URL window hiding content on chrome mobile*
+
+During development, the game was designed using Chrome's developer tools to view responsiveness on various device sizes. My intention was for the game to take the entirety of the space visible on the viewport without the need to scroll to access buttons and features, and great care was taken through the use of CSS media queries to ensure this was the case.
+
+However, what I had not considered was that the developer tools on Chrome were not factoring in their own URL address bar in the mobile previewers. This meant that sometimes mobile users are required to manually hide the address bar in order to have the intended viewable experience. This did not break my game, and was not an issue experienced by every single device tested, but did represent a bug that I considered not fixable in the timeframe I had given myself to submit this project. 
+
+Amending the designs and sizes to account for the address bar (the size of which would depend entirely on the device and browser being used) risked having unintended visual consequences for devices where the game's interactive content was displaying exactly as intended, and therefore **I decided to leave my designs intact for now, with the intention of revisiting the site at a later date to make necessary adjustments.**
+
 
 ## Manual User Story Testing
 
@@ -126,7 +136,7 @@ Testing my own user stories was carried out using the following criteria:
 ### ***2. I want instructions that explain how to play the game if I don’t know already so that I can quickly learn how to get started.***
 
 * Instructions appear once a user clicks on the rules button on the homepage, **one click.** 
-* Once in the rules modal, I made sure there were no more than three slides of information so that finding and learning the rules be completed within three total clicks - **two further clicks.**
+* Once in the rules modal, I made sure there were no more than three slides of information so that finding and learning the rules can be completed within three total clicks - **two further clicks.**
 
 ![Rules](assets/images/rules.png)
 
@@ -209,7 +219,7 @@ The bright colour scheme employed should at the very least be memorable, even if
 
 The initial run of testing on the W3C html validator displayed one warning:
 
-* Empty h2 element, which I decided to disregard as my JavaScript file fills the content of h2 once the page has loaded.
+* Empty h2 element, which I disregarded as my JavaScript file fills the content of h2 once the page has loaded.
 
 ### game.html
 
@@ -231,7 +241,7 @@ Using the WAVE Accessibility Evaluation Tool, I found one error and a few minor 
 
 I elected to use icons in several of my buttons to add to the visual language of my site without realising that the lack of written content within them amounted to an accessibility error. To fix this, I included the aria-hidden='true' attribute to hide the icon from screen readers, and included the sr-only class to describe what the empty buttons were there to achieve.
 
-*Note - one contrast error was thrown after the inclusion of screen reader only spans within my mute button. I elected to ignore this as I don't believe the inclusion of a screen-reader only span should be subject to contrast requirements.*
+*Note - one contrast error was thrown after the inclusion of screen reader only spans within my mute button. I elected to ignore this as I don't believe the inclusion of a screen-reader only span should be subject to colour contrast requirements.*
 
 ### Warnings
 
