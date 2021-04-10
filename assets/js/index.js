@@ -3,7 +3,7 @@ Once page loads, checks the device is in portrait mode (mobile only),
 updates html depending on users play history and initiates entry animation 
 */
 $(document).ready(function () {
-	// credit: https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
+	// Credit: https://github.com/zoet24/presidential-debate/blob/master/assets/js/index.js
 	if (window.innerWidth > window.innerHeight && window.innerWidth < 768) {
 		$('.landscape-overlay').removeClass('hidden');
 		$('.home-container').addClass('hidden');
@@ -36,7 +36,7 @@ $(document).ready(function () {
 });
 
 // Listens for orientation to show or hide the orientation change warning overlay
-// credit:  https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
+// Credit:  https://stackoverflow.com/questions/5498934/detect-change-in-orientation-using-javascript
 window.addEventListener('orientationchange', function () {
 	if (window.innerWidth < window.innerHeight && window.innerHeight < 768) {
 		$('.landscape-overlay').removeClass('hidden');
@@ -51,8 +51,8 @@ window.addEventListener('orientationchange', function () {
 });
 
 /*
-This function initiates the animation the introduces all content
-to the page staggered
+This function initiates the animation which introduces all content
+to the page in a staggered way
 */
 function entryAnimation() {
 	setTimeout(function () {

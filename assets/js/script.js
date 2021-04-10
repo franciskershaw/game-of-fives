@@ -93,14 +93,17 @@ This function sets HTML of win/loss record, mute button and game images
 at the beginning of the game
 */
 function setGameHtml() {
+	// Win/loss record for first time visitors
 	if (game.winRecord === null) {
 		game.winRecord = 0;
 	}
 	if (game.loseRecord === null) {
 		game.loseRecord = 0;
 	}
+	// Win/loss record for returning visitors
 	$('#win-record').text(`${game.winRecord}`);
 	$('#lose-record').text(`${game.loseRecord}`);
+	// Sound settings and HTML
 	if (game.soundsOn === 'true') {
 		$('#volume-on').removeClass('hidden');
 	} else if (game.soundsOn === 'false') {
@@ -113,6 +116,7 @@ function setGameHtml() {
 		game.soundsOn = 'true';
 	}
 	localStorage.setItem('soundsOn', game.soundsOn);
+	// Unhides the computer hands and user buttons depending on amount of players
 	if (game.computerPlayers == 1) {} else if (game.computerPlayers == 2) {
 		$('#remove-two-player').remove();
 		$('.add-col-two-player').removeClass('col-4').addClass('col-6');
@@ -134,7 +138,7 @@ function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
         document.getElementById('round-total').innerHTML = 'First to 3';
-        // credit: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+        // Credit: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 		let timeLeft = 3;
 		let timer = setInterval(function () {
 			if (timeLeft <= 0) {
@@ -203,7 +207,7 @@ by five.
 */
 function generateNums(min) {
 	if (min === 0) {
-		return Math.random() < 0.5 ? 0 : 5; // credit: https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
+		return Math.random() < 0.5 ? 0 : 5; // Credit: https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 	} else {
 		return Math.floor(Math.random() * (2 - 1 + 1) + min / 5 ) * 5;
 	}
@@ -227,7 +231,7 @@ to the computerInput array in the game variables object
 */
 function sumComputerInput() {
 	let arr = game.computerInput;
-	// credit: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
+	// Credit: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 	let sum = arr.reduce(add, 0);
 	function add(accumulator, a) {
 		return accumulator + a;
@@ -243,16 +247,16 @@ of the computerInput array is.
 function computerGuess() {
 	let sumOfComputer = sumComputerInput();
 	if (sumOfComputer === 0) {
-		// generate 0 or 5
+		// Generate 0 or 5
 		game.computerGuess = generateNums(0);
 	} else if (sumOfComputer === 5) {
-		// generate 5 or 10 
+		// Generate 5 or 10 
 		game.computerGuess = generateNums(5);
 	} else if (sumOfComputer === 10) {
-		// generate 10 or 15
+		// Generate 10 or 15
 		game.computerGuess = generateNums(10);
 	} else {
-		// generate 15 or 20
+		// Generate 15 or 20
 		game.computerGuess = generateNums(15);
 	}
 }
@@ -286,7 +290,7 @@ function roundAnimation() {
 	setTimeout(function () {
         let playerHand = document.getElementById('player-hand');
         let computerHand = document.getElementById('computer-hand');
-        // credit: https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd (49 minutes)
+        // Credit: https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd (49 minutes)
         playerHand.style.animation = 'mainAnimation 1.2s';
 		if (game.computerPlayers == 1) {
 			computerHand.style.animation = 'mainAnimation 1.2s';
@@ -366,14 +370,18 @@ This function resets computerInput, reverts hand images back to fists, and
 sets the central HTML
 */
 function resetGame() {
+	// Changes who's go it is
     if (game.userTurn) {
         game.userTurn = false;
     } else {
         game.userTurn = true;
     }
+	// Resets computer input
     game.computerInput = [];
+	// Resets game images
     $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
     $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
+	// Resets HTML
     if (game.userScore === 2 && game.computerScore === 2) {
 			document.getElementById('round-total').innerHTML = 'For the win!';
 		} else {
@@ -472,6 +480,7 @@ function endGame() {
 		let defeat = setSound('assets/sounds/defeat.mp3');		
 		playSound(defeat);
 	}
+	// Hide quit button and unhide the end of game CTAs
 	$('.game-info-quit').addClass('hidden');
 	$('.end-game-btns').removeClass('hidden');
 	$('.game-btns').addClass('hidden');
