@@ -11,7 +11,7 @@
 
 body {
 	background-color: #ec0b43;
-	color: #F6F3F7;
+	color: #f6f3f7;
 	text-align: center;
 	font-family: 'Patrick Hand', cursive;
 }
@@ -107,8 +107,8 @@ h2 {
 .home-button {
 	background-color: transparent;
 	border: none;
-	color: #FFF689;
-	border: 2px solid #FFF689;
+	color: #fff689;
+	border: 2px solid #fff689;
 	font-weight: 600;
 	width: 4.5em;
 	font-size: 150%;
@@ -118,24 +118,24 @@ h2 {
 }
 
 .home-button:hover {
-	background-color: #FFF689;
+	background-color: #fff689;
 	color: #ec0b43;
-	border: 2px solid #58355E;
+	border: 2px solid #58355e;
 	transform: scale(1.15);
 }
 
 button.btn.btn-primary.home-button:active {
-	background-color: #FFF689;
+	background-color: #fff689;
 	color: #ec0b43;
-	border: 2px solid #58355E;
+	border: 2px solid #58355e;
 	transition: .5s;
 	box-shadow: none !important;
 }
 
 button.btn.btn-primary.home-button:focus {
-	background-color: #FFF689;
+	background-color: #fff689;
 	color: #ec0b43;
-	border: 2px solid #58355E;
+	border: 2px solid #58355e;
 	transition: .5s;
 	outline: none;
 	box-shadow: none;
@@ -156,7 +156,7 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .modal-content {
-	background-color: #58355E;
+	background-color: #58355e;
 }
 
 .difficulty-modal-body {
@@ -207,7 +207,7 @@ button.btn.btn-primary.home-button:focus {
 	border: 3px solid;
 	border-radius: 50%;
 	padding: 12px;
-	color: #FFF689;
+	color: #fff689;
 	background-color: #ec0b43;
 	font-size: 2.5rem;
 }
@@ -224,7 +224,7 @@ button.btn.btn-primary.home-button:focus {
 	height: 55px;
 	margin-bottom: 1.5rem;
 	padding: 0;
-	color: #FFF689;
+	color: #fff689;
 	background-color: #ec0b43;
 	font-weight: bold;
     font-family: 'Fredoka One', cursive;
@@ -240,8 +240,8 @@ button.btn.btn-primary.home-button:focus {
 }
 
 .difficulty-button:hover {
-	color: #FFF689;
-	background-color: #58355E;
+	color: #fff689;
+	background-color: #58355e;
 	transition: .5s;
 }
 
@@ -343,7 +343,7 @@ span#prev-icon {
 .game-info-quit {
 	font-size: 100%;
 	background-color: #ec0b43;
-	color: #FFF689;
+	color: #fff689;
 	border: 2px solid #fff689;
 	padding: 5px;
 	padding-top: 0px;
@@ -423,7 +423,7 @@ span#prev-icon {
 
 .end-btn {
 	background-color: #ec0b43;
-	color: #FFF689;
+	color: #fff689;
 	border: 2px solid #fff689;
 	padding: 5px;
 	padding-top: 0px;
@@ -435,9 +435,9 @@ span#prev-icon {
 }
 
 .game-info-quit:hover {
-	background-color: #FFF689;
+	background-color: #fff689;
 	color: #ec0b43;
-	border: 2px solid #58355E;
+	border: 2px solid #58355e;
 }
 
 .game-input:hover {
@@ -447,9 +447,9 @@ span#prev-icon {
 }
 
 .end-btn:hover {
-	background-color: #FFF689;
+	background-color: #fff689;
 	color: #ec0b43;
-	border: 2px solid #58355E;
+	border: 2px solid #58355e;
 	transition: .5s;
 }
 
