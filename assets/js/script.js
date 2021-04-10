@@ -20,6 +20,19 @@ const game = {
 	computerPlayers: localStorage.getItem('computerPlayers'),
 };
 
+function iOS() {
+	return [
+	  'iPad Simulator',
+	  'iPhone Simulator',
+	  'iPod Simulator',
+	  'iPad',
+	  'iPhone',
+	  'iPod'
+	].includes(navigator.platform)
+	// iPad on iOS 13 detection
+	|| (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  }
+
 // Once page loads, enables button sounds and mute icon, calls setGameHtml() and countDown()
 $(document).ready(function () {
 	let gameButtons = document.getElementsByClassName('game-input');
@@ -87,6 +100,9 @@ function setGameHtml() {
 		$('#volume-on').removeClass('hidden');
 	} else if (game.soundsOn === 'false') {
 		$('#volume-off').removeClass('hidden');
+	} else if (game.soundsOn === null && iOS() === true) {
+		$('#volume-off').removeClass('hidden');
+		game.soundsOn = 'false';
 	} else if (game.soundsOn === null) {
 		$('#volume-on').removeClass('hidden');
 		game.soundsOn = 'true';
