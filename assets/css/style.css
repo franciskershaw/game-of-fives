@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&family=Fredoka+One&family=Patrick+Hand&display=swap');
 
 /* ------- General styles */
 
@@ -42,7 +41,7 @@ h2 {
 /* ------- Home page */
 
 
-/* Credit: help centering .landscape-overlay found on Peter Mortensen's post on stack overflow - https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page */
+/* Credit: help centering .landscape-overlay - https://stackoverflow.com/questions/953918/how-to-align-a-div-to-the-middle-horizontally-width-of-the-page */
 
 .landscape-overlay {
 	font-size: 1.5rem;
@@ -563,7 +562,7 @@ button.btn.btn-primary.game-input:focus {
 }
 
 
-/* Credit: transform animations learnt from Dev Ed's video https://www.youtube.com/watch?v=qWPtKtYEsN4 at around 45 minutes */
+/* Credit: transform animations learnt from https://www.youtube.com/watch?v=qWPtKtYEsN4 at around 45 minutes */
 
 @keyframes mainAnimation {
 	0% {
