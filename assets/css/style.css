@@ -191,7 +191,7 @@ button.btn.btn-primary.home-button:focus {
 .rules-content {
 	font-size: 1.5rem;
 	padding-top: 5px;
-    font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 .rules-img {
@@ -227,7 +227,7 @@ button.btn.btn-primary.home-button:focus {
 	color: #fff689;
 	background-color: #ec0b43;
 	font-weight: bold;
-    font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', cursive;
 }
 
 .unflex {
@@ -308,7 +308,7 @@ button#difficulty-quit {
 p#difficulty-tagline {
 	font-size: 1.25rem;
 	font-weight: bold;
-    font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 span#next-icon,
@@ -331,7 +331,7 @@ span#prev-icon {
 
 .game-info-heading {
 	text-decoration: underline;
-    font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', cursive;
 }
 
 .game-info-content {
@@ -348,7 +348,7 @@ span#prev-icon {
 	padding: 5px;
 	padding-top: 0px;
 	padding-bottom: 1px;
-    font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 .game-area {
@@ -396,7 +396,7 @@ span#prev-icon {
 	font-size: 1.75em;
 	border-radius: 50%;
 	margin: 2px;
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .number-icon {
@@ -429,7 +429,7 @@ span#prev-icon {
 	padding-top: 0px;
 	padding-bottom: 1px;
 	font-size: 1.5rem;
-    font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	margin-bottom: 6px;
 	margin-top: 10px;
 }
@@ -549,6 +549,7 @@ button.btn.btn-primary.game-input:focus {
 	animation-delay: 4s;
 	animation-fill-mode: forwards;
 }
+
 
 /* Credit: appear animation lifted from MS1 project, which in turn was learnt from https://www.youtube.com/watch?v=zHUpx90NerM&ab_channel=TraversyMedia at around 33 minutes */
 

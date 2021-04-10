@@ -1,7 +1,7 @@
 // Game variables object
 const game = {
 	userTurn: true,
-	
+
 	userInput: 0,
 	userGuess: 0,
 
@@ -27,25 +27,26 @@ credit: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
 */
 function iOS() {
 	return [
-	  'iPad Simulator',
-	  'iPhone Simulator',
-	  'iPod Simulator',
-	  'iPad',
-	  'iPhone',
-	  'iPod'
-	].includes(navigator.platform)
-	// iPad on iOS 13 detection
-	|| (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-  }
+			'iPad Simulator',
+			'iPhone Simulator',
+			'iPod Simulator',
+			'iPad',
+			'iPhone',
+			'iPod'
+		].includes(navigator.platform)
+		// iPad on iOS 13 detection
+		||
+		(navigator.userAgent.includes("Mac") && "ontouchend" in document);
+}
 
 // Once page loads, enables button sounds and mute icon, calls setGameHtml() and countDown()
 $(document).ready(function () {
 	let gameButtons = document.getElementsByClassName('game-input');
 	for (let button of gameButtons) {
 		button.addEventListener('mousedown', function () {
-			let clickSound = setSound('assets/sounds/clickeffect.mp3')
-            // Sound from Zapsplat.com
-				playSound(clickSound);
+			let clickSound = setSound('assets/sounds/clickeffect.mp3');
+			// Sound from Zapsplat.com
+			playSound(clickSound);
 		});
 	}
 	$('.mute-btn').click(function () {
@@ -61,8 +62,8 @@ $(document).ready(function () {
 			onButton.classList.remove('hidden');
 		}
 		localStorage.setItem('soundsOn', game.soundsOn);
-    });
-    setGameHtml();
+	});
+	setGameHtml();
 	countDown();
 });
 
@@ -74,7 +75,7 @@ This function creates sound effects and sets their file location (src)
 function setSound(src) {
 	let sound = new Audio();
 	sound.src = src;
-	return sound
+	return sound;
 }
 
 /*
@@ -137,13 +138,13 @@ userInput() for the first time
 function countDown() {
 	$('.game-info-quit').removeClass('hidden');
 	setTimeout(function () {
-        document.getElementById('round-total').innerHTML = 'First to 3';
-        // Credit: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+		document.getElementById('round-total').innerHTML = 'First to 3';
+		// Credit: https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
 		let timeLeft = 3;
 		let timer = setInterval(function () {
 			if (timeLeft <= 0) {
-                clearInterval(timer);
-                document.getElementById('round-total').innerHTML = 'Play!';
+				clearInterval(timer);
+				document.getElementById('round-total').innerHTML = 'Play!';
 				userInput();
 			} else {
 				document.getElementById('round-total').innerHTML = timeLeft;
@@ -160,19 +161,19 @@ which of the two buttons (fist or palm) is clicked. If it is the user's
 turn, userGuess() is called, if not then playRound() is called
 */
 function userInput() {
-		$('.hand-icon').removeAttr('disabled').off('click');
-		$('.hand-icon').click(function () {
-			if (this === document.getElementById('fist')) {
-				game.userInput = 0;
-			} else {
-				game.userInput = 5;
-			}
-			if (game.userTurn === true) {
-				userGuess();
-			} else {
-				playRound();
-			}
-		});
+	$('.hand-icon').removeAttr('disabled').off('click');
+	$('.hand-icon').click(function () {
+		if (this === document.getElementById('fist')) {
+			game.userInput = 0;
+		} else {
+			game.userInput = 5;
+		}
+		if (game.userTurn === true) {
+			userGuess();
+		} else {
+			playRound();
+		}
+	});
 }
 
 /*
@@ -209,7 +210,7 @@ function generateNums(min) {
 	if (min === 0) {
 		return Math.random() < 0.5 ? 0 : 5; // Credit: https://stackoverflow.com/questions/9730966/how-to-decide-between-two-numbers-randomly-using-javascript
 	} else {
-		return Math.floor(Math.random() * (2 - 1 + 1) + min / 5 ) * 5;
+		return Math.floor(Math.random() * (2 - 1 + 1) + min / 5) * 5;
 	}
 }
 
@@ -233,6 +234,7 @@ function sumComputerInput() {
 	let arr = game.computerInput;
 	// Credit: https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers
 	let sum = arr.reduce(add, 0);
+
 	function add(accumulator, a) {
 		return accumulator + a;
 	}
@@ -277,31 +279,31 @@ with a count upwards to three
 */
 function roundAnimation() {
 	const gameImages = document.querySelectorAll('.game-image');
-    $('.game-image').removeClass('transparent');
+	$('.game-image').removeClass('transparent');
 	// Resets animation each round
 	gameImages.forEach(gameImage => { // credit: https://www.youtube.com/watch?v=qWPtKtYEsN4 (50 minutes)
 		gameImage.addEventListener('animationend', function () {
 			this.style.animation = '';
 		});
-    });
-    let noiseOne = setSound('assets/sounds/noise1.mp3');
-    let noiseTwo = setSound('assets/sounds/noise2.mp3');
+	});
+	let noiseOne = setSound('assets/sounds/noise1.mp3');
+	let noiseTwo = setSound('assets/sounds/noise2.mp3');
 	// Inititates animations after small gap
 	setTimeout(function () {
-        let playerHand = document.getElementById('player-hand');
-        let computerHand = document.getElementById('computer-hand');
-        // Credit: https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd (49 minutes)
-        playerHand.style.animation = 'mainAnimation 1.2s';
+		let playerHand = document.getElementById('player-hand');
+		let computerHand = document.getElementById('computer-hand');
+		// Credit: https://www.youtube.com/watch?v=qWPtKtYEsN4&ab_channel=DevEd (49 minutes)
+		playerHand.style.animation = 'mainAnimation 1.2s';
 		if (game.computerPlayers == 1) {
 			computerHand.style.animation = 'mainAnimation 1.2s';
 		} else if (game.computerPlayers == 2) {
-            let topLeft = document.getElementById('top-left');
-	        let topRight = document.getElementById('top-right');
+			let topLeft = document.getElementById('top-left');
+			let topRight = document.getElementById('top-right');
 			topLeft.style.animation = 'topLeft 1.2s';
 			topRight.style.animation = 'topRight 1.2s';
 		} else if (game.computerPlayers == 3) {
-            let middleLeft = document.getElementById('middle-left');
-	        let middleRight = document.getElementById('middle-right');
+			let middleLeft = document.getElementById('middle-left');
+			let middleRight = document.getElementById('middle-right');
 			computerHand.style.animation = 'mainAnimation 1.2s';
 			middleLeft.style.animation = 'middleLeft 1.2s';
 			middleRight.style.animation = 'middleRight 1.2s';
@@ -324,27 +326,27 @@ This function plays final sound and changes all hand images to a palm or
 fist depending on what the values of userInput and computerInput are.
 */
 function roundReveal() {
-    setTimeout(function () {        
+	setTimeout(function () {
 		let noiseReveal = setSound('assets/sounds/noise3.mp3');
 		playSound(noiseReveal);
 		// User hand image
 		if (game.userInput === 5) {
 			$('#player-hand').attr('src', 'assets/images/palmfaceup.png');
 		}
-        // Computer - 2 player
+		// Computer - 2 player
 		if (game.computerPlayers == 1) {
 			if (game.computerInput[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
-            }
-        // Computer - 3 player
+			}
+			// Computer - 3 player
 		} else if (game.computerPlayers == 2) {
 			if (game.computerInput[0] === 5) {
 				$('#top-left').attr('src', 'assets/images/palmfacedown.png');
 			}
 			if (game.computerInput[1] === 5) {
 				$('#top-right').attr('src', 'assets/images/palmfacedown.png');
-            }
-        // Computer - 4 player
+			}
+			// Computer - 4 player
 		} else {
 			if (game.computerInput[0] === 5) {
 				$('#computer-hand').attr('src', 'assets/images/palmfacedown.png');
@@ -355,14 +357,14 @@ function roundReveal() {
 			if (game.computerInput[2] === 5) {
 				$('#middle-right').attr('src', 'assets/images/palmfacedown.png');
 			}
-        }
-        // Text change revealing guess depending on if it's the user or computer's turn
+		}
+		// Text change revealing guess depending on if it's the user or computer's turn
 		if (game.userTurn === true) {
 			$('#round-total').text(`P: ${game.userGuess}!`);
 		} else {
 			$('#round-total').text(`C: ${game.computerGuess}!`);
 		}
-    }, 2700);
+	}, 2700);
 }
 
 /*
@@ -371,22 +373,22 @@ sets the central HTML
 */
 function resetGame() {
 	// Changes who's go it is
-    if (game.userTurn) {
-        game.userTurn = false;
-    } else {
-        game.userTurn = true;
-    }
+	if (game.userTurn) {
+		game.userTurn = false;
+	} else {
+		game.userTurn = true;
+	}
 	// Resets computer input
-    game.computerInput = [];
+	game.computerInput = [];
 	// Resets game images
-    $('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
-    $('#player-hand').attr('src', 'assets/images/fistfaceup.png');
+	$('.game-image').addClass('transparent').attr('src', 'assets/images/fistfacedown.png');
+	$('#player-hand').attr('src', 'assets/images/fistfaceup.png');
 	// Resets HTML
-    if (game.userScore === 2 && game.computerScore === 2) {
-			document.getElementById('round-total').innerHTML = 'For the win!';
-		} else {
-			document.getElementById('round-total').innerHTML = 'Play!';
-		}
+	if (game.userScore === 2 && game.computerScore === 2) {
+		document.getElementById('round-total').innerHTML = 'For the win!';
+	} else {
+		document.getElementById('round-total').innerHTML = 'Play!';
+	}
 }
 
 /*
@@ -428,15 +430,15 @@ won or lost, and either continues or ends game depending on current scores
 function playRound() {
 	computerInput();
 	updateCorrectScore();
-    roundAnimation();
-    roundReveal();
+	roundAnimation();
+	roundReveal();
 	if (game.userTurn === true) {
 		$('.number-icon').attr('disabled', true);
 	} else {
 		$('.hand-icon').attr('disabled', true);
 		computerGuess();
-    }
-    setTimeout(function () {
+	}
+	setTimeout(function () {
 		let yay = setSound('assets/sounds/success.mp3');
 		let meh = setSound('assets/sounds/meh.mp3');
 		if (game.userTurn && game.userGuess === game.correctScore) {
@@ -453,14 +455,14 @@ function playRound() {
 		}
 	}, 3500);
 	setTimeout(function () {
-        resetGame();
+		resetGame();
 		// Check if the game is still ongoing
-        if (game.userScore < 3 && game.computerScore < 3) {
-            userInput();
-        } else {
-            endGame();
-        }
-		
+		if (game.userScore < 3 && game.computerScore < 3) {
+			userInput();
+		} else {
+			endGame();
+		}
+
 	}, 4500);
 }
 
@@ -477,7 +479,7 @@ function endGame() {
 		playSound(victory);
 	} else {
 		$('#round-total').text('You lost!');
-		let defeat = setSound('assets/sounds/defeat.mp3');		
+		let defeat = setSound('assets/sounds/defeat.mp3');
 		playSound(defeat);
 	}
 	// Hide quit button and unhide the end of game CTAs
